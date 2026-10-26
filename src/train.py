@@ -10,6 +10,7 @@ import torch
 from torch.nn import functional as F
 
 from checkpoint import check_destination, load_checkpoint, save_checkpoint
+from copy_model import CopyGroundedQA
 from evidence_v2_validation import validate_v2_rows
 from evidence_v3_validation import validate_v3_rows
 from model import TinyGroundedQA
@@ -232,6 +233,10 @@ def main() -> int:
     )
     parser.add_argument("--steps", type=positive_int, default=60, help="weight updates (default: 60)")
     parser.add_argument(
+        "--model-variant", choices=("standard", "pointer_v4"), default="standard",
+        help="model architecture (default: standard; pointer_v4 enables learned source copying)",
+    )
+    parser.add_argument(
         "--loss-every", type=positive_int, default=15,
         help="measure full training loss after this many updates (default: 15)",
     )
@@ -280,6 +285,11 @@ def main() -> int:
         ratio = 0.5 if args.missing_ratio is None else args.missing_ratio
         if args.sampling == "balanced" and not math.isfinite(ratio):
             raise ValueError("--missing-ratio must be finite and strictly between 0 and 1.")
+        if args.model_variant == "pointer_v4" and (
+            not is_evidence_experiment or data_path.resolve() != EVIDENCE_V3_TRAIN_PATH.resolve()
+            or args.prompt_version != "compact_v1"
+        ):
+            raise ValueError("V4 copy experiments require registered V3 training data and compact_v1.")
         rows = load_training_examples(data_path, evidence_experiment=is_evidence_experiment)
         selected = (
             rows if is_evidence_experiment
@@ -294,7 +304,9 @@ def main() -> int:
 
         torch.set_num_threads(1)
         torch.manual_seed(args.seed)
-        model = TinyGroundedQA().to(device="cpu", dtype=torch.float32)
+        model = (
+            CopyGroundedQA() if args.model_variant == "pointer_v4" else TinyGroundedQA()
+        ).to(device="cpu", dtype=torch.float32)
         optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
 
         print(f"Training file: {data_path}")
@@ -318,6 +330,7 @@ def main() -> int:
             print(f"  {row['example_id']} ({row['answerability']})")
         print(f"CPU; float32; one thread; batch size 1; seed {args.seed}")
         print(f"Prompt version: {args.prompt_version}")
+        print(f"Model variant: {args.model_variant}")
         print(f"Updates: {args.steps}; learning rate: {args.learning_rate}")
         print(f"Full training loss measurement interval: {args.loss_every} updates")
         if update_indices is None:
@@ -393,6 +406,7 @@ def main() -> int:
                 "loss_every": args.loss_every,
                 "seed": args.seed,
                 "prompt_version": args.prompt_version,
+                "model_variant": args.model_variant,
                 "training_file": data_path.as_posix(),
                 "example_ids": [row["example_id"] for row in selected],
                 "source_ids": selected_source_ids,
