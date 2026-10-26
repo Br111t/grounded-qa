@@ -9,6 +9,7 @@ import pickle
 import torch
 
 from model import ModelConfig, TinyGroundedQA
+from copy_model import CopyGroundedQA
 from prompting import PROMPT_VERSIONS, build_prompt
 from tokenizer import BOS_ID, BYTE_OFFSET, EOS_ID, PAD_ID, VOCAB_SIZE
 
@@ -65,6 +66,8 @@ def save_checkpoint(path: Path, model: TinyGroundedQA, training: dict) -> None:
     # Keep metadata to portable strings, numbers, lists, and dictionaries.
     training = json.loads(json.dumps(training, allow_nan=False))
     _check_training_info(training)
+    if training.get("model_variant", "standard") not in ("standard", "pointer_v4"):
+        raise ValueError("Unsupported checkpoint model variant.")
     prompt_version = training.get("prompt_version", "original")
     if prompt_version not in PROMPT_TEMPLATES:
         raise ValueError(f"Unsupported prompt version: {prompt_version!r}")
@@ -128,7 +131,14 @@ def load_checkpoint(path: Path) -> tuple[TinyGroundedQA, dict]:
     state = payload.get("model_state_dict")
     _check_weights(state)
 
-    model = TinyGroundedQA(config).to(device="cpu", dtype=torch.float32)
+    variant = training_info.get("model_variant", "standard")
+    if variant == "standard":
+        model = TinyGroundedQA(config)
+    elif variant == "pointer_v4":
+        model = CopyGroundedQA(config)
+    else:
+        raise ValueError(f"Unrecognized checkpoint model variant: {variant!r}")
+    model = model.to(device="cpu", dtype=torch.float32)
     # Strict loading rejects missing/extra weights and incompatible shapes.
     # We checked dtype above because load_state_dict can otherwise cast silently.
     model.load_state_dict(state, strict=True)
