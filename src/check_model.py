@@ -45,6 +45,7 @@ def main() -> int:
         torch.manual_seed(args.seed)
         model = TinyGroundedQA().to(device="cpu", dtype=torch.float32)
         weight_source = "random weights"
+        prompt_version = "original"
     else:
         try:
             model, training_info = load_checkpoint(args.checkpoint)
@@ -52,11 +53,12 @@ def main() -> int:
             print(f"Model check failed: {error}")
             return 1
         weight_source = "reloaded weights"
+        prompt_version = training_info.get("prompt_version", "original")
         print(f"Loaded checkpoint: {args.checkpoint}")
         print(f"Recorded training updates: {training_info['steps']}")
     model.eval()  # Disable dropout so the check is repeatable.
 
-    prompt = build_prompt(example["information"], example["question"])
+    prompt = build_prompt(example["information"], example["question"], version=prompt_version)
     source_ids = torch.tensor([encode(prompt, add_eos=True)], dtype=torch.long)
     # Teacher forcing: provide only the correct PRECEDING answer tokens.
     # For "Hi": decoder = [BOS, H, i]; labels = [H, i, EOS].
