@@ -11,6 +11,7 @@ from torch.nn import functional as F
 
 from checkpoint import check_destination, load_checkpoint, save_checkpoint
 from copy_model import CopyGroundedQA
+from evidence_copy_v4b import auxiliary_copy_losses, derive_name_alignment
 from evidence_v2_validation import validate_v2_rows
 from evidence_v3_validation import validate_v3_rows
 from model import TinyGroundedQA
@@ -178,6 +179,13 @@ def positive_float(value: str) -> float:
     return number
 
 
+def nonnegative_float(value: str) -> float:
+    number = float(value)
+    if not math.isfinite(number) or number < 0:
+        raise argparse.ArgumentTypeError("auxiliary loss weights must be finite and nonnegative")
+    return number
+
+
 def class_aware_indices(
     rows: list[dict], steps: int, missing_ratio: float,
 ) -> list[int]:
@@ -237,6 +245,14 @@ def main() -> int:
         help="model architecture (default: standard; pointer_v4 enables learned source copying)",
     )
     parser.add_argument(
+        "--alignment-weight", type=nonnegative_float, default=0.0,
+        help="V4B pointer attention alignment weight (0 disables; suggested 0.5)",
+    )
+    parser.add_argument(
+        "--copy-gate-weight", type=nonnegative_float, default=0.0,
+        help="V4B supervision of copy gate on leader-name bytes (0 disables; suggested 0.5)",
+    )
+    parser.add_argument(
         "--loss-every", type=positive_int, default=15,
         help="measure full training loss after this many updates (default: 15)",
     )
@@ -290,6 +306,15 @@ def main() -> int:
             or args.prompt_version != "compact_v1"
         ):
             raise ValueError("V4 copy experiments require registered V3 training data and compact_v1.")
+        supervised = args.alignment_weight > 0 or args.copy_gate_weight > 0
+        if supervised and (
+            args.model_variant != "pointer_v4" or not is_evidence_experiment
+            or data_path.resolve() != EVIDENCE_V3_TRAIN_PATH.resolve()
+            or args.prompt_version != "compact_v1"
+        ):
+            raise ValueError(
+                "V4B auxiliary losses require pointer_v4, registered V3 training, and compact_v1."
+            )
         rows = load_training_examples(data_path, evidence_experiment=is_evidence_experiment)
         selected = (
             rows if is_evidence_experiment
@@ -297,6 +322,12 @@ def main() -> int:
         )
         selected_source_ids = sorted({row["source_id"] for row in selected})
         examples = [prepare_example(row, prompt_version=args.prompt_version) for row in selected]
+        # Create supervision from validated TRAINING rows only. Check all
+        # alignments before a single optimization step. Never inspect eval data.
+        name_alignments = (
+            [derive_name_alignment(row, prompt_version=args.prompt_version) for row in selected]
+            if supervised else None
+        )
         update_indices = (
             class_aware_indices(selected, args.steps, ratio)
             if args.sampling == "balanced" else None
@@ -331,6 +362,13 @@ def main() -> int:
         print(f"CPU; float32; one thread; batch size 1; seed {args.seed}")
         print(f"Prompt version: {args.prompt_version}")
         print(f"Model variant: {args.model_variant}")
+        print(
+            f"V4B auxiliary weights: attention={args.alignment_weight:g}; "
+            f"copy gate={args.copy_gate_weight:g}"
+        )
+        if supervised:
+            print("Name-byte alignment targets from training rows ONLY; inference is unchanged.")
+            print("Reported full-dataset losses remain ordinary answer cross-entropy, not total auxiliary loss.")
         print(f"Updates: {args.steps}; learning rate: {args.learning_rate}")
         print(f"Full training loss measurement interval: {args.loss_every} updates")
         if update_indices is None:
@@ -370,10 +408,25 @@ def main() -> int:
             # 1. Clear gradients left over from the previous update.
             optimizer.zero_grad(set_to_none=True)
             # 2. Predict next-token scores and compare them with correct tokens.
-            logits = model(source, decoder)
-            loss = F.cross_entropy(
+            if supervised:
+                logits, components = model.forward_with_components(source, decoder)
+            else:
+                logits = model(source, decoder)
+            answer_loss = F.cross_entropy(
                 logits.reshape(-1, VOCAB_SIZE), labels.reshape(-1), ignore_index=PAD_ID,
             )
+            loss = answer_loss
+            if supervised:
+                alignment_loss, gate_loss = auxiliary_copy_losses(
+                    components, name_alignments[example_index],
+                    alignment_weight=args.alignment_weight,
+                    gate_weight=args.copy_gate_weight,
+                )
+                loss = (
+                    answer_loss
+                    + args.alignment_weight * alignment_loss
+                    + args.copy_gate_weight * gate_loss
+                )
             if not torch.isfinite(loss).item():
                 raise ValueError(f"Loss is not finite at step {step}; stopping before the update.")
             # 3. Calculate how each weight contributed to the loss.
@@ -407,6 +460,8 @@ def main() -> int:
                 "seed": args.seed,
                 "prompt_version": args.prompt_version,
                 "model_variant": args.model_variant,
+                "alignment_weight": args.alignment_weight,
+                "copy_gate_weight": args.copy_gate_weight,
                 "training_file": data_path.as_posix(),
                 "example_ids": [row["example_id"] for row in selected],
                 "source_ids": selected_source_ids,
