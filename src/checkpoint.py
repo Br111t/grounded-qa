@@ -9,7 +9,7 @@ import pickle
 import torch
 
 from model import ModelConfig, TinyGroundedQA
-from prompting import build_prompt
+from prompting import PROMPT_VERSIONS, build_prompt
 from tokenizer import BOS_ID, BYTE_OFFSET, EOS_ID, PAD_ID, VOCAB_SIZE
 
 
@@ -19,7 +19,11 @@ TOKENIZER_SPEC = {
     "pad_id": PAD_ID, "bos_id": BOS_ID, "eos_id": EOS_ID,
 }
 # Capture the instructions AND formatting, without storing an example's answer.
-PROMPT_TEMPLATE = build_prompt("{information}", "{question}")
+PROMPT_TEMPLATES = {
+    version: build_prompt("{information}", "{question}", version=version)
+    for version in PROMPT_VERSIONS
+}
+PROMPT_TEMPLATE = PROMPT_TEMPLATES["original"]  # Original-checkpoint compatibility.
 
 
 def check_destination(path: Path) -> None:
@@ -61,6 +65,9 @@ def save_checkpoint(path: Path, model: TinyGroundedQA, training: dict) -> None:
     # Keep metadata to portable strings, numbers, lists, and dictionaries.
     training = json.loads(json.dumps(training, allow_nan=False))
     _check_training_info(training)
+    prompt_version = training.get("prompt_version", "original")
+    if prompt_version not in PROMPT_TEMPLATES:
+        raise ValueError(f"Unsupported prompt version: {prompt_version!r}")
     state = {name: tensor.detach().cpu().clone() for name, tensor in model.state_dict().items()}
     _check_weights(state)
     payload = {
@@ -68,7 +75,7 @@ def save_checkpoint(path: Path, model: TinyGroundedQA, training: dict) -> None:
         "model_config": asdict(model.config),
         "model_state_dict": state,
         "tokenizer": TOKENIZER_SPEC,
-        "prompt_template": PROMPT_TEMPLATE,
+        "prompt_template": PROMPT_TEMPLATES[prompt_version],
         "pytorch_version": str(torch.__version__),
         "training": training,
     }
@@ -105,8 +112,12 @@ def load_checkpoint(path: Path) -> tuple[TinyGroundedQA, dict]:
         raise ValueError("Checkpoint format version is not supported.")
     if payload.get("tokenizer") != TOKENIZER_SPEC:
         raise ValueError("Checkpoint tokenizer does not match the current tokenizer.")
-    if payload.get("prompt_template") != PROMPT_TEMPLATE:
-        raise ValueError("Checkpoint prompt format does not match the current prompt format.")
+    training_info = payload.get("training")
+    _check_training_info(training_info)
+    prompt_version = training_info.get("prompt_version", "original")
+    if (prompt_version not in PROMPT_TEMPLATES or
+            payload.get("prompt_template") != PROMPT_TEMPLATES[prompt_version]):
+        raise ValueError("Checkpoint prompt format does not match its recorded prompt version.")
     config_data = payload.get("model_config")
     if not isinstance(config_data, dict) or set(config_data) != {field.name for field in fields(ModelConfig)}:
         raise ValueError("Checkpoint must contain all model configuration fields.")
@@ -114,7 +125,6 @@ def load_checkpoint(path: Path) -> tuple[TinyGroundedQA, dict]:
         config = ModelConfig(**config_data)
     except (TypeError, ValueError) as error:
         raise ValueError(f"Invalid checkpoint model configuration: {error}") from error
-    _check_training_info(payload.get("training"))
     state = payload.get("model_state_dict")
     _check_weights(state)
 
@@ -123,4 +133,4 @@ def load_checkpoint(path: Path) -> tuple[TinyGroundedQA, dict]:
     # We checked dtype above because load_state_dict can otherwise cast silently.
     model.load_state_dict(state, strict=True)
     model.eval()
-    return model, payload["training"]
+    return model, training_info
