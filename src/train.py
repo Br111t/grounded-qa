@@ -10,7 +10,7 @@ from torch.nn import functional as F
 
 from checkpoint import check_destination, load_checkpoint, save_checkpoint
 from model import TinyGroundedQA
-from prompting import build_prompt
+from prompting import PROMPT_VERSIONS, build_prompt
 from tokenizer import PAD_ID, VOCAB_SIZE, encode
 from validate_data import ANSWERABILITY_VALUES, validate_data
 
@@ -80,9 +80,9 @@ def select_examples(
     return selected
 
 
-def prepare_example(example: dict) -> TokenExample:
+def prepare_example(example: dict, *, prompt_version: str = "original") -> TokenExample:
     """Make one CPU batch: prompt + EOS, BOS + answer, and answer + EOS."""
-    prompt = build_prompt(example["information"], example["question"])
+    prompt = build_prompt(example["information"], example["question"], version=prompt_version)
     source = torch.tensor([encode(prompt, add_eos=True)], dtype=torch.long)
     decoder = torch.tensor([encode(example["answer"], add_bos=True)], dtype=torch.long)
     labels = torch.tensor([encode(example["answer"], add_eos=True)], dtype=torch.long)
@@ -144,6 +144,10 @@ def main() -> int:
         help="optimizer adjustment rate (default: 0.001)",
     )
     parser.add_argument("--seed", type=int, default=42, help="random seed (default: 42)")
+    parser.add_argument(
+        "--prompt-version", choices=PROMPT_VERSIONS, default="original",
+        help="versioned prompt format used for training (default: original)",
+    )
     selection = parser.add_mutually_exclusive_group()
     selection.add_argument(
         "--source-id", help="train on every question for this training source (default: first row of each type)",
@@ -161,7 +165,7 @@ def main() -> int:
         rows = load_training_examples(args.data)
         selected = select_examples(rows, source_id=args.source_id, source_ids=args.source_ids)
         selected_source_ids = sorted({row["source_id"] for row in selected})
-        examples = [prepare_example(row) for row in selected]
+        examples = [prepare_example(row, prompt_version=args.prompt_version) for row in selected]
 
         torch.set_num_threads(1)
         torch.manual_seed(args.seed)
@@ -185,6 +189,7 @@ def main() -> int:
         for row in selected:
             print(f"  {row['example_id']} ({row['answerability']})")
         print(f"CPU; float32; one thread; batch size 1; seed {args.seed}")
+        print(f"Prompt version: {args.prompt_version}")
         print(f"Updates: {args.steps}; learning rate: {args.learning_rate}")
         passes, remaining = divmod(args.steps, len(examples))
         print(f"Complete passes through selected examples: {passes}; additional updates: {remaining}")
@@ -240,6 +245,7 @@ def main() -> int:
                 "steps": args.steps,
                 "learning_rate": args.learning_rate,
                 "seed": args.seed,
+                "prompt_version": args.prompt_version,
                 "training_file": args.data.as_posix(),
                 "example_ids": [row["example_id"] for row in selected],
                 "source_ids": selected_source_ids,
