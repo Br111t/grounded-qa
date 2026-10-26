@@ -9,7 +9,12 @@ If none of the requested parts are supported, respond with exactly "Insufficient
 Keep the answer concise."""
 
 
-def build_prompt(information: str, question: str) -> str:
+PROMPT_VERSIONS = ("original", "compact_v1")
+
+
+def build_prompt(
+    information: str, question: str, *, version: str = "original"
+) -> str:
     """Format the input shared by future training, prediction, and evaluation.
 
     Only information and question are accepted. The expected answer, answerability
@@ -18,6 +23,15 @@ def build_prompt(information: str, question: str) -> str:
     for name, value in (("information", information), ("question", question)):
         if not isinstance(value, str) or not value.strip():
             raise ValueError(f"{name} must be a nonempty string.")
+
+    if version == "compact_v1":
+        return (
+            f"Information:\n{information}\n\n"
+            f"Question:\n{question}\n\n"
+            "Answer:\n"
+        )
+    if version != "original":
+        raise ValueError(f"Unsupported prompt version: {version!r}")
 
     return (
         f"Instructions:\n{INSTRUCTIONS}\n\n"
