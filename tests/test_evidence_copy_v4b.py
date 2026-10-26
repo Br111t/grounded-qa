@@ -75,21 +75,23 @@ class EvidenceCopyV4BTests(unittest.TestCase):
         self.assertEqual(g.item(), 0)
         a.backward(retain_graph=True)
         self.assertGreater(attention_logits.grad.abs().sum().item(), 0)
-        self.assertEqual(raw_gate.grad.abs().sum().item(), 0)
+        # Unused graph branches have no .grad tensor, not necessarily a zero tensor.
+        self.assertIsNone(raw_gate.grad)
 
-        attention_logits.grad.zero_()
-        raw_gate.grad.zero_()
+        # Set gradients to None between checks so we detect actual graph usage.
+        attention_logits.grad = None
+        raw_gate.grad = None
         a, g = auxiliary_copy_losses(
             parts, alignment, alignment_weight=0.0, gate_weight=0.5,
         )
         self.assertEqual(a.item(), 0)
         self.assertGreater(g.item(), 0)
         g.backward(retain_graph=True)
-        self.assertEqual(attention_logits.grad.abs().sum().item(), 0)
+        self.assertIsNone(attention_logits.grad)
         self.assertGreater(raw_gate.grad.abs().sum().item(), 0)
 
-        attention_logits.grad.zero_()
-        raw_gate.grad.zero_()
+        attention_logits.grad = None
+        raw_gate.grad = None
         a, g = auxiliary_copy_losses(
             parts, alignment, alignment_weight=0.5, gate_weight=0.5,
         )
