@@ -10,6 +10,7 @@ import torch
 from torch.nn import functional as F
 
 from checkpoint import check_destination, load_checkpoint, save_checkpoint
+from evidence_v2_validation import validate_v2_rows
 from model import TinyGroundedQA
 from prompting import PROMPT_VERSIONS, build_prompt
 from tokenizer import PAD_ID, VOCAB_SIZE, encode
@@ -22,6 +23,7 @@ TRAIN_PATH = Path("data/training/generated_train.jsonl")
 # Deliberately allow only this explicitly registered, synthetic learning experiment.
 # This does not authorize arbitrary source files or evaluation/holdout inputs.
 EVIDENCE_EXPERIMENT_PATH = Path("data/source/evidence_sensitivity_v1.jsonl")
+EVIDENCE_V2_TRAIN_PATH = Path("data/training/evidence_sensitivity_v2_train.jsonl")
 EVIDENCE_QUESTION = "What is the leader of Workshop W0001?"
 EVIDENCE_INFORMATION = re.compile(
     r"Fictional Workshop W0001\. (?:Leader: (?P<leader>[A-Za-z]+)\. )?Location: Room Maple\."
@@ -36,12 +38,18 @@ def load_training_examples(path: Path, *, evidence_experiment: bool = False) -> 
     The explicit experiment option accepts only the named synthetic source file.
     """
     # Reject arbitrary files BEFORE reading them, including holdout paths.
-    if evidence_experiment and path.resolve() != EVIDENCE_EXPERIMENT_PATH.resolve():
-        raise ValueError("Only the registered evidence-sensitivity source can be used for this experiment.")
+    if evidence_experiment and path.resolve() not in (
+        EVIDENCE_EXPERIMENT_PATH.resolve(), EVIDENCE_V2_TRAIN_PATH.resolve()
+    ):
+        raise ValueError("Only the registered evidence-sensitivity training files are allowed.")
     rows, errors = validate_data(path)
     if errors:
         raise ValueError("Training data validation failed:\n  - " + "\n  - ".join(errors))
     if evidence_experiment:
+        if path.resolve() == EVIDENCE_V2_TRAIN_PATH.resolve():
+            validate_v2_rows(rows, group="train")
+            return rows
+        # Preserve all V1 checks and behavior.
         if any(row["question"] != EVIDENCE_QUESTION for row in rows):
             raise ValueError("Evidence-sensitivity examples must use the identical fixed question.")
         if len({row["information"] for row in rows}) != len(rows):
@@ -172,7 +180,7 @@ def main() -> int:
     )
     dataset.add_argument(
         "--experiment-data", type=Path,
-        help="explicit, registered evidence-sensitivity dataset; trains on every row",
+        help="registered V1 or V2 evidence-sensitivity training data; trains on every row",
     )
     parser.add_argument("--steps", type=positive_int, default=60, help="weight updates (default: 60)")
     parser.add_argument(
