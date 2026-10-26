@@ -121,6 +121,12 @@ class CopyGroundedQA(TinyGroundedQA):
         log_probability, _ = self._forward_components(source_ids, decoder_ids)
         return log_probability
 
+    def forward_with_components(
+        self, source_ids: torch.Tensor, decoder_ids: torch.Tensor
+    ) -> tuple[torch.Tensor, dict[str, torch.Tensor]]:
+        """Same forward calculation, retaining gradients for V4B loss terms."""
+        return self._forward_components(source_ids, decoder_ids)
+
     def inspect_copy(
         self, source_ids: torch.Tensor, decoder_ids: torch.Tensor
     ) -> tuple[torch.Tensor, dict[str, torch.Tensor]]:
