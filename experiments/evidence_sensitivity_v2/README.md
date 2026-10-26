@@ -72,3 +72,42 @@ missing-evidence groups. The model might learn familiar name-selection before
 learning to reproduce previously unseen names; that distinction is expected
 and worth measuring. Training loss does not establish generalization. Do not
 read or train on the existing final holdout to tune this experiment.
+
+## V2B: class-aware training schedule (separate from the V2 baseline)
+
+The V2 baseline trains with the original sequential sampler and reports
+56/96 correct answerable **training** examples and 0/12 correct unanswerable
+training examples at 2,000 updates. Its development accuracy was known 14/24,
+unseen 0/24, missing 0/12.
+
+The V2B experiment changes **only the frequency of training updates** for
+answerable vs unanswerable examples. It keeps the same 108 unique training
+examples, architecture, prompt, optimizer, step budget, and seed. It does not
+read evaluation files or change the original sequential sampler by default.
+
+```powershell
+git pull --ff-only origin experiment/compact-prompt-v1
+
+python -m unittest discover -s tests -p "test_evidence_sampling.py" -v
+
+python src/train.py `
+  --experiment-data data/training/evidence_sensitivity_v2_train.jsonl `
+  --prompt-version compact_v1 `
+  --sampling balanced `
+  --missing-ratio 0.33 `
+  --steps 2000 `
+  --seed 42 `
+  --checkpoint models/evidence_sensitivity_v2b_2000_steps.pt
+
+python src/evaluate_evidence_v2.py `
+  --checkpoint models/evidence_sensitivity_v2b_2000_steps.pt `
+  --group all
+```
+
+For 2,000 steps and 0.33 ratio, the sampler schedules 660 missing-evidence
+updates and 1,340 leader-present updates, cycling through the corresponding
+examples independently. The schedule is deterministic. The checkpoint name
+is new and will not overwrite the V2 baseline checkpoint.
+
+Compare generated-answer accuracy in training as well as all three
+development categories; lower teacher-forced loss alone is insufficient.
