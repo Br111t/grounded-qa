@@ -171,6 +171,48 @@ def positive_float(value: str) -> float:
     return number
 
 
+def class_aware_indices(
+    rows: list[dict], steps: int, missing_ratio: float,
+) -> list[int]:
+    """Return a deterministic class-aware update schedule.
+
+    Round the target number of missing updates once; distribute them across
+    training steps and cycle independently through every example in each class.
+    The inputs are training examples only, never holdout/evaluation rows.
+    """
+    if not math.isfinite(missing_ratio) or not 0 < missing_ratio < 1:
+        raise ValueError("missing_ratio must be strictly between 0 and 1.")
+    if steps < 1:
+        raise ValueError("steps must be at least 1.")
+    present = [
+        index for index, row in enumerate(rows)
+        if row["answerability"] == "answerable"
+    ]
+    missing = [
+        index for index, row in enumerate(rows)
+        if row["answerability"] == "unanswerable"
+    ]
+    if len(present) + len(missing) != len(rows) or not present or not missing:
+        raise ValueError("Balanced sampling requires answerable and unanswerable examples only.")
+
+    missing_updates = round(steps * missing_ratio)
+    present_seen = 0
+    missing_seen = 0
+    indices = []
+    for step in range(1, steps + 1):
+        # Integer arithmetic avoids drift in the ratio across long runs.
+        use_missing = (step * missing_updates // steps) > (
+            (step - 1) * missing_updates // steps
+        )
+        if use_missing:
+            indices.append(missing[missing_seen % len(missing)])
+            missing_seen += 1
+        else:
+            indices.append(present[present_seen % len(present)])
+            present_seen += 1
+    return indices
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     dataset = parser.add_mutually_exclusive_group()
@@ -183,6 +225,14 @@ def main() -> int:
         help="registered V1 or V2 evidence-sensitivity training data; trains on every row",
     )
     parser.add_argument("--steps", type=positive_int, default=60, help="weight updates (default: 60)")
+    parser.add_argument(
+        "--sampling", choices=("sequential", "balanced"), default="sequential",
+        help="training update schedule (default: sequential, unchanged from V1/V2 baseline)",
+    )
+    parser.add_argument(
+        "--missing-ratio", type=float,
+        help="fraction of updates for missing evidence with --sampling balanced (e.g. 0.33)",
+    )
     parser.add_argument(
         "--learning-rate", type=positive_float, default=0.001,
         help="optimizer adjustment rate (default: 0.001)",
@@ -210,6 +260,14 @@ def main() -> int:
         is_evidence_experiment = args.experiment_data is not None
         if is_evidence_experiment and (args.source_id is not None or args.source_ids is not None):
             raise ValueError("Evidence experiment uses all examples; omit --source-id and --source-ids.")
+        if args.sampling == "balanced":
+            if not is_evidence_experiment or data_path.resolve() != EVIDENCE_V2_TRAIN_PATH.resolve():
+                raise ValueError("Balanced sampling is restricted to the V2 evidence training dataset.")
+        elif args.missing_ratio is not None:
+            raise ValueError("--missing-ratio requires --sampling balanced.")
+        ratio = 0.5 if args.missing_ratio is None else args.missing_ratio
+        if args.sampling == "balanced" and not math.isfinite(ratio):
+            raise ValueError("--missing-ratio must be finite and strictly between 0 and 1.")
         rows = load_training_examples(data_path, evidence_experiment=is_evidence_experiment)
         selected = (
             rows if is_evidence_experiment
@@ -217,6 +275,10 @@ def main() -> int:
         )
         selected_source_ids = sorted({row["source_id"] for row in selected})
         examples = [prepare_example(row, prompt_version=args.prompt_version) for row in selected]
+        update_indices = (
+            class_aware_indices(selected, args.steps, ratio)
+            if args.sampling == "balanced" else None
+        )
 
         torch.set_num_threads(1)
         torch.manual_seed(args.seed)
@@ -245,8 +307,19 @@ def main() -> int:
         print(f"CPU; float32; one thread; batch size 1; seed {args.seed}")
         print(f"Prompt version: {args.prompt_version}")
         print(f"Updates: {args.steps}; learning rate: {args.learning_rate}")
-        passes, remaining = divmod(args.steps, len(examples))
-        print(f"Complete passes through selected examples: {passes}; additional updates: {remaining}")
+        if update_indices is None:
+            passes, remaining = divmod(args.steps, len(examples))
+            print(f"Sampling: sequential; complete passes through selected examples: {passes}; additional updates: {remaining}")
+        else:
+            missing_updates = sum(
+                selected[index]["answerability"] == "unanswerable" for index in update_indices
+            )
+            print(
+                f"Sampling: balanced (class-aware), requested missing ratio {ratio:.3f}; "
+                f"scheduled missing updates {missing_updates}/{args.steps} "
+                f"({missing_updates / args.steps:.1%}); "
+                f"present updates {args.steps - missing_updates}/{args.steps}"
+            )
         print("Starting from fresh random weights.")
         if args.checkpoint is None:
             print("This practice run saves no checkpoint.")
@@ -261,8 +334,12 @@ def main() -> int:
         model.train()  # Enable training behavior, including dropout.
 
         for step in range(1, args.steps + 1):
-            # Visit each selected example in order, then repeat the sequence.
-            source, decoder, labels = examples[(step - 1) % len(examples)]
+            # The default preserves the original sequential, round-robin order.
+            example_index = (
+                (step - 1) % len(examples)
+                if update_indices is None else update_indices[step - 1]
+            )
+            source, decoder, labels = examples[example_index]
 
             # 1. Clear gradients left over from the previous update.
             optimizer.zero_grad(set_to_none=True)
@@ -307,6 +384,11 @@ def main() -> int:
                 "source_ids": selected_source_ids,
                 "source_count": len(selected_source_ids),
                 "selection_mode": selection_mode,
+                "sampling": args.sampling,
+                "missing_ratio": ratio if args.sampling == "balanced" else None,
+                "scheduled_missing_updates": (
+                    missing_updates if args.sampling == "balanced" else None
+                ),
                 "example_count": len(selected),
                 "initial_loss": initial_loss,
                 "final_loss": final_loss,
