@@ -2,6 +2,7 @@
 
 import argparse
 import math
+import re
 from pathlib import Path
 from time import perf_counter
 
@@ -12,7 +13,7 @@ from checkpoint import check_destination, load_checkpoint, save_checkpoint
 from model import TinyGroundedQA
 from prompting import PROMPT_VERSIONS, build_prompt
 from tokenizer import PAD_ID, VOCAB_SIZE, encode
-from validate_data import ANSWERABILITY_VALUES, validate_data
+from validate_data import ANSWERABILITY_VALUES, FALLBACK, validate_data
 
 
 # This split defines which sources belong to training. An alternate practice
@@ -22,6 +23,9 @@ TRAIN_PATH = Path("data/training/generated_train.jsonl")
 # This does not authorize arbitrary source files or evaluation/holdout inputs.
 EVIDENCE_EXPERIMENT_PATH = Path("data/source/evidence_sensitivity_v1.jsonl")
 EVIDENCE_QUESTION = "What is the leader of Workshop W0001?"
+EVIDENCE_INFORMATION = re.compile(
+    r"Fictional Workshop W0001\. (?:Leader: (?P<leader>[A-Za-z]+)\. )?Location: Room Maple\."
+)
 TokenExample = tuple[torch.Tensor, torch.Tensor, torch.Tensor]
 
 
@@ -31,16 +35,26 @@ def load_training_examples(path: Path, *, evidence_experiment: bool = False) -> 
     Ordinary --data runs retain the original train-source allowlist.
     The explicit experiment option accepts only the named synthetic source file.
     """
+    # Reject arbitrary files BEFORE reading them, including holdout paths.
+    if evidence_experiment and path.resolve() != EVIDENCE_EXPERIMENT_PATH.resolve():
+        raise ValueError("Only the registered evidence-sensitivity source can be used for this experiment.")
     rows, errors = validate_data(path)
     if errors:
         raise ValueError("Training data validation failed:\n  - " + "\n  - ".join(errors))
     if evidence_experiment:
-        if path.resolve() != EVIDENCE_EXPERIMENT_PATH.resolve():
-            raise ValueError("Only the registered evidence-sensitivity source can be used for this experiment.")
         if any(row["question"] != EVIDENCE_QUESTION for row in rows):
             raise ValueError("Evidence-sensitivity examples must use the identical fixed question.")
         if len({row["information"] for row in rows}) != len(rows):
             raise ValueError("Evidence-sensitivity examples must have distinct information variants.")
+        for row in rows:
+            match = EVIDENCE_INFORMATION.fullmatch(row["information"])
+            if match is None:
+                raise ValueError(f"Unexpected evidence format: {row['example_id']}")
+            leader = match.group("leader")
+            expected_answer = f"Leader: {leader}." if leader else FALLBACK
+            expected_label = "answerable" if leader else "unanswerable"
+            if row["answer"] != expected_answer or row["answerability"] != expected_label:
+                raise ValueError(f"Evidence does not support the reference: {row['example_id']}")
         return rows
 
     if path.resolve() == TRAIN_PATH.resolve():
