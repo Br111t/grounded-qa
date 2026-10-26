@@ -72,7 +72,13 @@ def build_datasets(seed: int = 42) -> dict[str, list[dict]]:
         )
 
     # Missing-leader training and evaluation contexts cannot overlap.
-    missing_contexts = rng.sample(CONTEXTS, 24)
+    # For missing leaders with no topic, reversing the one remaining fact
+    # produces identical information. Exclude that duplicate context.
+    unique_missing_contexts = [
+        context for context in CONTEXTS
+        if context[2] is not None or not context[1]
+    ]
+    missing_contexts = rng.sample(unique_missing_contexts, 24)
     entries["train"].extend((None, context) for context in missing_contexts[:12])
     entries["missing"].extend((None, context) for context in missing_contexts[12:])
 
