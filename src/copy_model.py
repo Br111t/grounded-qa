@@ -33,7 +33,10 @@ class CopyGroundedQA(TinyGroundedQA):
         nn.init.zeros_(self.generate_gate.weight)
         nn.init.zeros_(self.generate_gate.bias)
 
-    def forward(self, source_ids: torch.Tensor, decoder_ids: torch.Tensor) -> torch.Tensor:
+    def _forward_components(
+        self, source_ids: torch.Tensor, decoder_ids: torch.Tensor
+    ) -> tuple[torch.Tensor, dict[str, torch.Tensor]]:
+        """Compute the exact V4 distribution and expose its constituent paths."""
         source_padding = self._check_tokens(
             source_ids, "source_ids", self.config.max_input_tokens
         )
@@ -102,6 +105,26 @@ class CopyGroundedQA(TinyGroundedQA):
             generate_fraction * vocabulary_prob
             + (1.0 - generate_fraction) * copy_prob
         )
-        # A normalized log distribution also works with existing cross entropy,
-        # argmax prediction, and the checkpoint reload accuracy checks.
-        return probability.clamp_min(1e-12).log()
+        # Use identical calculations for training/inference and the diagnostic.
+        log_probability = probability.clamp_min(1e-12).log()
+        components = {
+            "generate_fraction": generate_fraction,
+            "vocabulary_probability": vocabulary_prob,
+            "copy_probability": copy_prob,
+            "copy_attention": pointer_attention,
+            "combined_probability": probability,
+        }
+        return log_probability, components
+
+    def forward(self, source_ids: torch.Tensor, decoder_ids: torch.Tensor) -> torch.Tensor:
+        """Return log probabilities, preserving V4 training and greedy prediction."""
+        log_probability, _ = self._forward_components(source_ids, decoder_ids)
+        return log_probability
+
+    def inspect_copy(
+        self, source_ids: torch.Tensor, decoder_ids: torch.Tensor
+    ) -> tuple[torch.Tensor, dict[str, torch.Tensor]]:
+        """Read-only copy-path diagnostics; caller must use eval() and no_grad()."""
+        if self.training:
+            raise ValueError("Copy diagnostics require model.eval() (dropout disabled).")
+        return self._forward_components(source_ids, decoder_ids)
