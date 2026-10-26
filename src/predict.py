@@ -27,6 +27,7 @@ def generate_answer(
     question: str,
     *,
     max_new_tokens: int | None = None,
+    prompt_version: str = "original",
 ) -> GenerationResult:
     """Choose one token at a time, feeding back only the model's own output.
 
@@ -36,7 +37,7 @@ def generate_answer(
     limit = model.config.max_target_tokens if max_new_tokens is None else max_new_tokens
     if type(limit) is not int or not 1 <= limit <= model.config.max_target_tokens:
         raise ValueError(f"max_new_tokens must be between 1 and {model.config.max_target_tokens}.")
-    source_tokens = encode(build_prompt(information, question), add_eos=True)
+    source_tokens = encode(build_prompt(information, question, version=prompt_version), add_eos=True)
     if len(source_tokens) > model.config.max_input_tokens:
         raise ValueError(
             f"Prompt has {len(source_tokens)} tokens; input limit is "
@@ -157,8 +158,10 @@ def main() -> int:
             selected = select_examples(examples, args.example_id, args.source_id, args.source_ids)
 
         torch.set_num_threads(1)
-        model, _ = load_checkpoint(args.checkpoint)
+        model, training_info = load_checkpoint(args.checkpoint)
+        prompt_version = training_info.get("prompt_version", "original")
         print(f"Loaded checkpoint: {args.checkpoint}")
+        print(f"Prompt version: {prompt_version}")
         print("Greedy generation on CPU: choose the highest-scoring allowed token each time.")
         print("The decoder receives BOS and its own predictions; no reference answer.")
         if not custom:
@@ -174,7 +177,8 @@ def main() -> int:
             print(f"Information: {ascii(row['information'])}")
             print(f"Question: {ascii(row['question'])}", flush=True)
             result = generate_answer(
-                model, row["information"], row["question"], max_new_tokens=args.max_new_tokens,
+                model, row["information"], row["question"],
+                max_new_tokens=args.max_new_tokens, prompt_version=prompt_version,
             )
             print(f"Generated answer: {ascii(result.text)}")
             stop = "EOS predicted" if result.ended_with_eos else "token limit reached without EOS"
