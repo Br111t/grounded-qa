@@ -18,14 +18,31 @@ from validate_data import ANSWERABILITY_VALUES, validate_data
 # This split defines which sources belong to training. An alternate practice
 # file may add question wordings for those sources, keeping their facts intact.
 TRAIN_PATH = Path("data/training/generated_train.jsonl")
+# Deliberately allow only this explicitly registered, synthetic learning experiment.
+# This does not authorize arbitrary source files or evaluation/holdout inputs.
+EVIDENCE_EXPERIMENT_PATH = Path("data/source/evidence_sensitivity_v1.jsonl")
+EVIDENCE_QUESTION = "What is the leader of Workshop W0001?"
 TokenExample = tuple[torch.Tensor, torch.Tensor, torch.Tensor]
 
 
-def load_training_examples(path: Path) -> list[dict]:
-    """Validate a practice file and keep its sources within the training split."""
+def load_training_examples(path: Path, *, evidence_experiment: bool = False) -> list[dict]:
+    """Validate input; permit new source IDs only for the registered evidence experiment.
+
+    Ordinary --data runs retain the original train-source allowlist.
+    The explicit experiment option accepts only the named synthetic source file.
+    """
     rows, errors = validate_data(path)
     if errors:
         raise ValueError("Training data validation failed:\n  - " + "\n  - ".join(errors))
+    if evidence_experiment:
+        if path.resolve() != EVIDENCE_EXPERIMENT_PATH.resolve():
+            raise ValueError("Only the registered evidence-sensitivity source can be used for this experiment.")
+        if any(row["question"] != EVIDENCE_QUESTION for row in rows):
+            raise ValueError("Evidence-sensitivity examples must use the identical fixed question.")
+        if len({row["information"] for row in rows}) != len(rows):
+            raise ValueError("Evidence-sensitivity examples must have distinct information variants.")
+        return rows
+
     if path.resolve() == TRAIN_PATH.resolve():
         return rows
 
@@ -134,9 +151,14 @@ def positive_float(value: str) -> float:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--data", type=Path, default=TRAIN_PATH,
+    dataset = parser.add_mutually_exclusive_group()
+    dataset.add_argument(
+        "--data", type=Path,
         help="practice dataset using existing training sources (default: data/training/generated_train.jsonl)",
+    )
+    dataset.add_argument(
+        "--experiment-data", type=Path,
+        help="explicit, registered evidence-sensitivity dataset; trains on every row",
     )
     parser.add_argument("--steps", type=positive_int, default=60, help="weight updates (default: 60)")
     parser.add_argument(
@@ -162,8 +184,15 @@ def main() -> int:
     try:
         if args.checkpoint is not None:
             check_destination(args.checkpoint)
-        rows = load_training_examples(args.data)
-        selected = select_examples(rows, source_id=args.source_id, source_ids=args.source_ids)
+        data_path = args.experiment_data or args.data or TRAIN_PATH
+        is_evidence_experiment = args.experiment_data is not None
+        if is_evidence_experiment and (args.source_id is not None or args.source_ids is not None):
+            raise ValueError("Evidence experiment uses all examples; omit --source-id and --source-ids.")
+        rows = load_training_examples(data_path, evidence_experiment=is_evidence_experiment)
+        selected = (
+            rows if is_evidence_experiment
+            else select_examples(rows, source_id=args.source_id, source_ids=args.source_ids)
+        )
         selected_source_ids = sorted({row["source_id"] for row in selected})
         examples = [prepare_example(row, prompt_version=args.prompt_version) for row in selected]
 
@@ -172,8 +201,11 @@ def main() -> int:
         model = TinyGroundedQA().to(device="cpu", dtype=torch.float32)
         optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
 
-        print(f"Training file: {args.data}")
-        if args.source_ids is not None:
+        print(f"Training file: {data_path}")
+        if is_evidence_experiment:
+            selection = "all rows from the registered evidence-sensitivity experiment"
+            selection_mode = "evidence_experiment_all"
+        elif args.source_ids is not None:
             selection = "all questions from " + ", ".join(args.source_ids)
             selection_mode = "source_groups"
         elif args.source_id is not None:
@@ -238,6 +270,8 @@ def main() -> int:
             print("Loss did not decrease; inspect the settings before extending the run.")
         print("This measures fitting these examples, not generated-answer or holdout accuracy.")
         print("The holdout was not read. No dataset was changed.")
+        if is_evidence_experiment:
+            print("All evidence variants are TRAINING examples; this run does not measure generalization.")
         if args.checkpoint is None:
             print("Learned weights exist only in memory for this run; no checkpoint was saved.")
         else:
@@ -246,7 +280,7 @@ def main() -> int:
                 "learning_rate": args.learning_rate,
                 "seed": args.seed,
                 "prompt_version": args.prompt_version,
-                "training_file": args.data.as_posix(),
+                "training_file": data_path.as_posix(),
                 "example_ids": [row["example_id"] for row in selected],
                 "source_ids": selected_source_ids,
                 "source_count": len(selected_source_ids),
