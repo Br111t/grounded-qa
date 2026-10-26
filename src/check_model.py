@@ -66,15 +66,14 @@ def trace_copy_details(
             # Only display alphabetic bytes in an actually generated "Leader: <name>"
             # region; do not confuse it with teacher-forced reference characters.
             prefix = decode(generated, errors="replace")
+            letter_byte = token - BYTE_OFFSET
+            is_letter = (
+                65 <= letter_byte <= 90 or 97 <= letter_byte <= 122
+            )
             in_name = (
                 prefix.startswith("Leader: ")
                 and "." not in prefix[len("Leader: "):]
-                and 65 <= token - BYTE_OFFSET <= 90
-                or (
-                    prefix.startswith("Leader: ")
-                    and "." not in prefix[len("Leader: "):]
-                    and 97 <= token - BYTE_OFFSET <= 122
-                )
+                and is_letter
             )
             if in_name:
                 displayed += 1
@@ -88,6 +87,13 @@ def trace_copy_details(
                     float(attention[name_span[0]:name_span[1]].sum().item())
                     if name_span is not None else 0.0
                 )
+                attention_on_matching_leader_byte = 0.0
+                if name_span is not None:
+                    leader_attention = attention[name_span[0]:name_span[1]]
+                    leader_ids = source[0, name_span[0]:name_span[1]]
+                    attention_on_matching_leader_byte = float(
+                        leader_attention[leader_ids.eq(token)].sum().item()
+                    )
                 top = torch.topk(attention, k=min(3, attention.numel())).indices.tolist()
                 source_hits = []
                 for index in top:
@@ -118,7 +124,8 @@ def trace_copy_details(
                 print(
                     f"    weighted gen={generate * vocabulary:.3f}, "
                     f"weighted copy={(1-generate)*copy:.3f}; "
-                    f"attention mass on leader value={attention_on_leader:.3f}"
+                    f"attention on leader value={attention_on_leader:.3f}, "
+                    f"attention on matching leader bytes={attention_on_matching_leader_byte:.3f}"
                 )
                 print("    top source positions: " + "; ".join(source_hits))
             generated.append(token)
