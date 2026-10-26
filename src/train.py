@@ -11,6 +11,7 @@ from torch.nn import functional as F
 
 from checkpoint import check_destination, load_checkpoint, save_checkpoint
 from evidence_v2_validation import validate_v2_rows
+from evidence_v3_validation import validate_v3_rows
 from model import TinyGroundedQA
 from prompting import PROMPT_VERSIONS, build_prompt
 from tokenizer import PAD_ID, VOCAB_SIZE, encode
@@ -24,6 +25,7 @@ TRAIN_PATH = Path("data/training/generated_train.jsonl")
 # This does not authorize arbitrary source files or evaluation/holdout inputs.
 EVIDENCE_EXPERIMENT_PATH = Path("data/source/evidence_sensitivity_v1.jsonl")
 EVIDENCE_V2_TRAIN_PATH = Path("data/training/evidence_sensitivity_v2_train.jsonl")
+EVIDENCE_V3_TRAIN_PATH = Path("data/training/evidence_sensitivity_v3_train.jsonl")
 EVIDENCE_QUESTION = "What is the leader of Workshop W0001?"
 EVIDENCE_INFORMATION = re.compile(
     r"Fictional Workshop W0001\. (?:Leader: (?P<leader>[A-Za-z]+)\. )?Location: Room Maple\."
@@ -39,13 +41,17 @@ def load_training_examples(path: Path, *, evidence_experiment: bool = False) -> 
     """
     # Reject arbitrary files BEFORE reading them, including holdout paths.
     if evidence_experiment and path.resolve() not in (
-        EVIDENCE_EXPERIMENT_PATH.resolve(), EVIDENCE_V2_TRAIN_PATH.resolve()
+        EVIDENCE_EXPERIMENT_PATH.resolve(), EVIDENCE_V2_TRAIN_PATH.resolve(),
+        EVIDENCE_V3_TRAIN_PATH.resolve()
     ):
         raise ValueError("Only the registered evidence-sensitivity training files are allowed.")
     rows, errors = validate_data(path)
     if errors:
         raise ValueError("Training data validation failed:\n  - " + "\n  - ".join(errors))
     if evidence_experiment:
+        if path.resolve() == EVIDENCE_V3_TRAIN_PATH.resolve():
+            validate_v3_rows(rows, group="train")
+            return rows
         if path.resolve() == EVIDENCE_V2_TRAIN_PATH.resolve():
             validate_v2_rows(rows, group="train")
             return rows
@@ -222,9 +228,13 @@ def main() -> int:
     )
     dataset.add_argument(
         "--experiment-data", type=Path,
-        help="registered V1 or V2 evidence-sensitivity training data; trains on every row",
+        help="registered V1, V2, or V3 evidence-sensitivity training data; trains on every row",
     )
     parser.add_argument("--steps", type=positive_int, default=60, help="weight updates (default: 60)")
+    parser.add_argument(
+        "--loss-every", type=positive_int, default=15,
+        help="measure full training loss after this many updates (default: 15)",
+    )
     parser.add_argument(
         "--sampling", choices=("sequential", "balanced"), default="sequential",
         help="training update schedule (default: sequential, unchanged from V1/V2 baseline)",
@@ -261,8 +271,10 @@ def main() -> int:
         if is_evidence_experiment and (args.source_id is not None or args.source_ids is not None):
             raise ValueError("Evidence experiment uses all examples; omit --source-id and --source-ids.")
         if args.sampling == "balanced":
-            if not is_evidence_experiment or data_path.resolve() != EVIDENCE_V2_TRAIN_PATH.resolve():
-                raise ValueError("Balanced sampling is restricted to the V2 evidence training dataset.")
+            if not is_evidence_experiment or data_path.resolve() not in (
+                EVIDENCE_V2_TRAIN_PATH.resolve(), EVIDENCE_V3_TRAIN_PATH.resolve()
+            ):
+                raise ValueError("Balanced sampling is restricted to V2/V3 evidence training.")
         elif args.missing_ratio is not None:
             raise ValueError("--missing-ratio requires --sampling balanced.")
         ratio = 0.5 if args.missing_ratio is None else args.missing_ratio
@@ -307,6 +319,7 @@ def main() -> int:
         print(f"CPU; float32; one thread; batch size 1; seed {args.seed}")
         print(f"Prompt version: {args.prompt_version}")
         print(f"Updates: {args.steps}; learning rate: {args.learning_rate}")
+        print(f"Full training loss measurement interval: {args.loss_every} updates")
         if update_indices is None:
             passes, remaining = divmod(args.steps, len(examples))
             print(f"Sampling: sequential; complete passes through selected examples: {passes}; additional updates: {remaining}")
@@ -357,7 +370,7 @@ def main() -> int:
             # 4. Adjust weights using those gradients.
             optimizer.step()
 
-            if step % 15 == 0 or step == args.steps:
+            if step % args.loss_every == 0 or step == args.steps:
                 final_loss = measure_loss(model, examples)
                 print(f"After {step:>3} updates: {final_loss:.4f}", flush=True)
 
@@ -377,6 +390,7 @@ def main() -> int:
             training_info = {
                 "steps": args.steps,
                 "learning_rate": args.learning_rate,
+                "loss_every": args.loss_every,
                 "seed": args.seed,
                 "prompt_version": args.prompt_version,
                 "training_file": data_path.as_posix(),
