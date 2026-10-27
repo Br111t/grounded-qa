@@ -15,7 +15,7 @@ sys.path.insert(0, str(ROOT / "src"))
 import torch
 
 from evidence_v3_validation import parse_fields
-from evaluate_span_v5b import evaluate_group
+from evaluate_span_v5b import evaluate_by_name_length, evaluate_group
 from generate_evidence_data_v3 import build_datasets
 from generate_span_data_v5b import build_additions, validate_additions
 from span_model_v5 import (
@@ -107,6 +107,24 @@ class VariableSpanV5BTests(unittest.TestCase):
         self.assertEqual(scores["joint_span"], 0)
         self.assertEqual(scores["too_long"], 1)
         self.assertEqual(scores["correct"], 0)
+
+    def test_read_only_length_breakdown_matches_group_metrics(self):
+        torch.manual_seed(42)
+        model = SpanGroundedQA().eval()
+        sample = [
+            next(row for row in self.extra["extra_train"]
+                 if len(row["answer"][len("Leader: "):-1]) == length)
+            for length in (3, 5, 6)
+        ]
+        scores = evaluate_by_name_length(model, sample)
+        self.assertEqual(set(scores), {3, 5, 6})
+        self.assertTrue(all(metrics["total"] == 1 for metrics in scores.values()))
+        overall = evaluate_group(model, sample, show_errors=0)
+        for key in ("correct", "start_head", "end_head", "joint_span", "false_abstain"):
+            self.assertEqual(
+                overall[key], sum(metrics[key] for metrics in scores.values()),
+                key,
+            )
 
     def test_train_script_rejects_evaluation_file(self):
         with patch.object(sys, "argv", [
