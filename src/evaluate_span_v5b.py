@@ -10,6 +10,7 @@ from pathlib import Path
 import torch
 
 from evaluate_evidence_v3 import GROUPS as V3_GROUPS, read_partitions
+from evidence_v3_validation import parse_fields
 from generate_evidence_data_v3 import OUTPUTS
 from generate_span_data_v5b import EXTRA_PATH, read_additions
 from span_model_v5 import (
@@ -76,11 +77,34 @@ def evaluate_group(model, rows: list[dict], show_errors: int = 5) -> dict:
     return totals
 
 
+def evaluate_by_name_length(model, rows: list[dict]) -> dict[int, dict]:
+    """Group answerable rows by leader-name length for read-only diagnostics.
+
+    Each subgroup uses the same evaluator and metrics; names/lengths are
+    calculated from reference labels only after predictions are made by
+    evaluate_group. No gradients or checkpoints are updated.
+    """
+    grouped: dict[int, list[dict]] = {}
+    for row in rows:
+        if row["answerability"] != "answerable":
+            continue
+        leader = parse_fields(row["information"], row["source_id"]).get("Leader")
+        if leader is None or row["answer"] != f"Leader: {leader}.":
+            raise ValueError("Cannot group an unsupported answerable reference.")
+        grouped.setdefault(len(leader.encode("utf-8")), []).append(row)
+    return {
+        length: evaluate_group(model, subset, show_errors=0)
+        for length, subset in sorted(grouped.items())
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint", type=Path, required=True)
     parser.add_argument("--group", choices=GROUPS + ("extra_train", "all"), default="all")
     parser.add_argument("--show-errors", type=int, default=5)
+    parser.add_argument("--by-length", action="store_true",
+                        help="also report exact/start/end accuracy separately by leader byte length")
     args = parser.parse_args()
     if args.show_errors < 0:
         parser.error("--show-errors must be nonnegative.")
@@ -103,7 +127,6 @@ def main() -> int:
         # Existing evaluation files and new dev files may not reuse evidence
         # or source IDs; all new leader names must be disjoint from V3 names.
         seen_info, seen_ids, v3_names, extra_names = set(), set(), set(), set()
-        from evidence_v3_validation import parse_fields
         for group, rows in partitions.items():
             for row in rows:
                 if row["information"] in seen_info or row["source_id"] in seen_ids:
@@ -146,6 +169,18 @@ def main() -> int:
                 )
             else:
                 print(f"  Unsupported answers on missing evidence: {totals['false_answer']}")
+            if args.by_length and totals["answerable"]:
+                breakdown = evaluate_by_name_length(model, partitions[group])
+                for byte_length, scores in breakdown.items():
+                    n = scores["answerable"]
+                    print(
+                        f"  Name length {byte_length} bytes: "
+                        f"exact {scores['correct']}/{n} ({scores['correct']/n:.1%}); "
+                        f"start head {scores['start_head']}/{n}; "
+                        f"end head {scores['end_head']}/{n}; "
+                        f"selected both {scores['joint_span']}/{n}; "
+                        f"false abstentions {scores['false_abstain']}"
+                    )
             for example_id, predicted, expected, span in totals["mismatches"]:
                 print(f"  {example_id}: predicted={predicted!r}; expected={expected!r}; span={span}")
             if group not in TRAIN_GROUPS:
