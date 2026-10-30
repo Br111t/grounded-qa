@@ -1,5 +1,73 @@
 # grounded-qa
 
+## Latest experiment progress (2026-10-30)
+
+### V5C: matched span-boundary diagnostic (development only)
+
+V5C tests evidence-span extraction on a controlled 2 × 2 design: four- or
+five-character names ending in a vowel or consonant. Each of the four cells has
+24 development-only examples (96 total), with matched contexts and name stems.
+The evaluation uses a fixed 0.5 threshold; reference spans are used only for
+scoring. No checkpoint weights were updated, no training datasets were generated,
+and the final holdout was not accessed.
+
+Reproduce the checks and diagnostic:
+
+```powershell
+python -m unittest discover -s tests -p "test_span_boundary_probe_v5c.py" -v
+python src/generate_span_probe_v5c.py
+python src/evaluate_span_probe_v5c.py --checkpoint models/evidence_span_v5_3000_steps.pt --compare-checkpoint models/evidence_span_v5b_3000_steps.pt
+```
+
+The supplied run passed **7/7 V5C tests** and generated 24 diagnostic rows
+per cell. The evaluation compared two existing 3,000-step checkpoints:
+
+| Matched group (24 each) | V5 original exact | V5B variable-length exact |
+| --- | ---: | ---: |
+| Length 4, vowel ending | 22/24 (91.7%) | 20/24 (83.3%) |
+| Length 4, consonant ending | 0/24 (0.0%) | 0/24 (0.0%) |
+| Length 5, vowel ending | 3/24 (12.5%) | 9/24 (37.5%) |
+| Length 5, consonant ending | 0/24 (0.0%) | 1/24 (4.2%) |
+| **All 96** | **25/96 (26.0%)** | **30/96 (31.3%)** |
+
+**Paired differences:** V5B minus V5 = -2, 0, +6, +1 exact predictions
+in the respective groups, a net gain of 5/96. V5 original start-head
+accuracy was 84/96 and end-head accuracy was 26/96; V5B start-head
+accuracy was 92/96 and end-head accuracy was 28/96. Thus, starts were
+usually located, while end boundaries remain unreliable. All consonant-ending
+cells were near zero, indicating a systematic generalization weakness rather
+than dependable variable-length extraction. V5B's gain on length-5 vowels
+does not demonstrate a general fix.
+
+**Evaluation limits:** These are deliberately constructed, additional
+development diagnostics, not independent final-holdout measurements.
+Avoid repeatedly tuning against these 96 cases. Preserve the original
+V3/V5B datasets, checkpoint lineage, and final holdout.
+
+### Versioned compact prompt support
+
+Commit [`bddbd76`](https://github.com/Br111t/grounded-qa/commit/bddbd7624199bfe6091eb185916b940abe071e7c)
+adds `build_prompt(information, question, *, version="original")`
+and the alternate `compact_v1` representation in `src/prompting.py`.
+The default `original` behavior remains available; unsupported versions
+raise an error. The compact format keeps Information, Question and Answer
+sections but omits the longer instruction preamble.
+
+This commit is **prompt-format infrastructure**, not evidence of improved
+model accuracy. Do not compare checkpoints trained with one prompt version
+against evaluations using another without explicitly controlling and
+recording the prompt-version choice.
+
+**Suggested next investigation:** isolate why span-end predictions collapse on
+consonant endings; inspect boundary labels, token positions, target encoding,
+and per-group start/end failures before further training. Log any next
+training run's source checkpoint, optimizer/restoration behavior, prompt
+version, dataset version, and seed. Keep a genuinely untouched holdout for
+the final measurement.
+
+---
+
+
 A small Python learning project for building a small language model from scratch
 to answer questions using only supplied information. We will initialize its
 weights locally, train on synthetic data, save our own checkpoint, and later
