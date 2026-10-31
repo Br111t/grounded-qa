@@ -20,9 +20,9 @@ from scripts.data.validate_data import validate_data
 
 SEED = 42
 QUESTION = "What is the leader of Workshop W0001?"
-EXTRA_PATH = Path("data/training/evidence_span_v5b_extra_train.jsonl")
-FAMILIAR_5_PATH = Path("data/evaluation/evidence_span_v5b_familiar5.jsonl")
-NOVEL_4_PATH = Path("data/evaluation/evidence_span_v5b_novel4.jsonl")
+EXTRA_PATH = Path("experiments/variable_span_v5b/data/evidence_span_v5b_extra_train.jsonl")
+FAMILIAR_5_PATH = Path("experiments/variable_span_v5b/data/evidence_span_v5b_familiar5.jsonl")
+NOVEL_4_PATH = Path("experiments/variable_span_v5b/data/evidence_span_v5b_novel4.jsonl")
 PATHS = {
     "extra_train": EXTRA_PATH,
     "familiar5": FAMILIAR_5_PATH,
