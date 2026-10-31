@@ -25,9 +25,9 @@ from scripts.data.validate_data import ANSWERABILITY_VALUES, FALLBACK, validate_
 TRAIN_PATH = Path("data/training/generated_train.jsonl")
 # Deliberately allow only this explicitly registered, synthetic learning experiment.
 # This does not authorize arbitrary source files or evaluation/holdout inputs.
-EVIDENCE_EXPERIMENT_PATH = Path("data/source/evidence_sensitivity_v1.jsonl")
-EVIDENCE_V2_TRAIN_PATH = Path("data/training/evidence_sensitivity_v2_train.jsonl")
-EVIDENCE_V3_TRAIN_PATH = Path("data/training/evidence_sensitivity_v3_train.jsonl")
+EVIDENCE_EXPERIMENT_PATH = Path("experiments/compact_prompt_v1/data/evidence_sensitivity_v1.jsonl")
+EVIDENCE_V2_TRAIN_PATH = Path("experiments/evidence_sensitivity_v2/data/evidence_sensitivity_v2_train.jsonl")
+EVIDENCE_V3_TRAIN_PATH = Path("experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl")
 EVIDENCE_QUESTION = "What is the leader of Workshop W0001?"
 EVIDENCE_INFORMATION = re.compile(
     r"Fictional Workshop W0001\. (?:Leader: (?P<leader>[A-Za-z]+)\. )?Location: Room Maple\."
