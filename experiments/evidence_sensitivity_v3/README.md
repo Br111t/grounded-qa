@@ -1,5 +1,12 @@
 # Evidence sensitivity V3
 
+> **Current repository layout:** Run commands from the repository root with
+> `$env:PYTHONPATH = "$PWD\src"` set in PowerShell. The test suite uses
+> `python -m unittest discover -s tests -t . -p "test_*.py" -v`.
+> Saved `.pt` checkpoints are local, ignored by Git, and must not be overwritten.
+> Historical branch-switch commands in older research notes are not needed on
+> `refactor/repository-organization`.
+
 Goal: Same question, diverse evidence values, and separate development tests.
 
 Fixed question: What is the leader of Workshop W0001?
@@ -13,7 +20,7 @@ Dataset groups (generated using seed 42):
 - unseen: 24 rows with 12 unseen complete names built from reserved syllables
 - missing: 12 rows with absent leaders and new contexts
 
-All generated files use versioned v3 names in data/training or data/evaluation.
+All generated files use versioned v3 names in experiments/evidence_sensitivity_v3/data/.
 No original final holdout is read or changed.
 
 PowerShell from repository root:
@@ -22,21 +29,21 @@ PowerShell from repository root:
 
     git status --short
     git fetch origin
-    git switch --track origin/experiment/evidence-sensitivity-v3
+    git switch refactor/repository-organization
 
 2. Test and generate:
 
-    python -m unittest discover -s tests -p "test_evidence_v3.py" -v
-    python -m unittest discover -s tests -p "test_evidence_sampling.py" -v
-    python src/generate_evidence_data_v3.py --seed 42
+    python -m unittest discover -s tests -t . -p "test_evidence_v3.py" -v
+    python -m unittest discover -s tests -t . -p "test_evidence_sampling.py" -v
+    python -m experiments.evidence_sensitivity_v3.generate_evidence_data_v3 --seed 42
 
 3. Train from fresh initialization:
 
-    python src/train.py --experiment-data data/training/evidence_sensitivity_v3_train.jsonl --prompt-version compact_v1 --sampling balanced --missing-ratio 0.33 --steps 3000 --loss-every 120 --seed 42 --checkpoint models/evidence_sensitivity_v3_3000_steps.pt
+    python -m grounded_qa.training.train --experiment-data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl --prompt-version compact_v1 --sampling balanced --missing-ratio 0.33 --steps 3000 --loss-every 120 --seed 42 --checkpoint experiments/evidence_sensitivity_v3/checkpoints/evidence_sensitivity_v3_3000_steps.pt
 
 4. Evaluate training fit and development categories separately:
 
-    python src/evaluate_evidence_v3.py --checkpoint models/evidence_sensitivity_v3_3000_steps.pt --group all
+    python -m experiments.evidence_sensitivity_v3.evaluate_evidence_v3 --checkpoint experiments/evidence_sensitivity_v3/checkpoints/evidence_sensitivity_v3_3000_steps.pt --group all
 
 The 3000-step budget schedules 2010 present-leader updates and 990
 missing-leader updates, matching approximate answerable-example exposure
