@@ -10,9 +10,9 @@ import torch
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
-from checkpoint import load_checkpoint
-from prompting import build_prompt
-from tokenizer import BOS_ID, EOS_ID, encode
+from grounded_qa.training.checkpoint import load_checkpoint
+from grounded_qa.prompting.prompting import build_prompt
+from grounded_qa.tokenization.tokenizer import BOS_ID, EOS_ID, encode
 
 
 def probability_at_prefix(model, information, question, version, prefix, choices):

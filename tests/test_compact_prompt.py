@@ -10,11 +10,11 @@ sys.path.insert(0, str(ROOT / "src"))
 
 import torch
 
-from checkpoint import PROMPT_TEMPLATES, load_checkpoint, save_checkpoint
-from model import TinyGroundedQA
-from prompting import PROMPT_VERSIONS, build_prompt
-from train import prepare_example
-from tokenizer import decode
+from grounded_qa.training.checkpoint import PROMPT_TEMPLATES, load_checkpoint, save_checkpoint
+from grounded_qa.models.model import TinyGroundedQA
+from grounded_qa.prompting.prompting import PROMPT_VERSIONS, build_prompt
+from grounded_qa.training.train import prepare_example
+from grounded_qa.tokenization.tokenizer import decode
 
 
 class PromptVersionTests(unittest.TestCase):

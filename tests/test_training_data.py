@@ -14,10 +14,10 @@ from torch import nn
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
-from expand_practice import expand_examples
-from generate_data import generate_examples
-from tokenizer import VOCAB_SIZE
-import train
+from scripts.data.expand_practice import expand_examples
+from scripts.data.generate_data import generate_examples
+from grounded_qa.tokenization.tokenizer import VOCAB_SIZE
+import grounded_qa.training.train as train
 
 
 SOURCE = "generated_workshop_0001"

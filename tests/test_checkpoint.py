@@ -16,10 +16,10 @@ import torch
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
-import checkpoint
-from model import ModelConfig, TinyGroundedQA
-from tokenizer import BOS_ID, EOS_ID
-import train
+import grounded_qa.training.checkpoint as checkpoint
+from grounded_qa.models.model import ModelConfig, TinyGroundedQA
+from grounded_qa.tokenization.tokenizer import BOS_ID, EOS_ID
+import grounded_qa.training.train as train
 
 
 class CheckpointTests(unittest.TestCase):

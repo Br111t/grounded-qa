@@ -14,9 +14,9 @@ from torch import nn
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
-import predict
-import train
-from tokenizer import EOS_ID, VOCAB_SIZE
+import grounded_qa.inference.predict as predict
+import grounded_qa.training.train as train
+from grounded_qa.tokenization.tokenizer import EOS_ID, VOCAB_SIZE
 
 
 SOURCE = "generated_workshop_0001"
@@ -156,7 +156,7 @@ class SourceSelectionTests(unittest.TestCase):
         ):
             self.assertEqual(predict.main(), 0)
         self.assertEqual(generate.call_args_list, [
-            mock.call(model, row["information"], row["question"], max_new_tokens=None)
+            mock.call(model, row["information"], row["question"], max_new_tokens=None, prompt_version="original")
             for row in self.source_rows
         ])
         self.assertIn("Previewing 10 examples", output.getvalue())
@@ -199,7 +199,7 @@ class SourceSelectionTests(unittest.TestCase):
                 self.assertIn(f"Selected {count} of 20 training examples.", output.getvalue())
                 self.assertIn(f"these same {count} training examples", output.getvalue())
                 self.assertIn(f"identical scores on all {count} practice examples", output.getvalue())
-                self.assertIn("Complete passes through selected examples: 0; additional updates: 1", output.getvalue())
+                self.assertIn("Sampling: sequential; complete passes through selected examples: 0; additional updates: 1", output.getvalue())
 
 
 if __name__ == "__main__":

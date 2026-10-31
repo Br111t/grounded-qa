@@ -14,9 +14,9 @@ from torch import nn
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
-import predict
-import train
-from tokenizer import EOS_ID, VOCAB_SIZE
+import grounded_qa.inference.predict as predict
+import grounded_qa.training.train as train
+from grounded_qa.tokenization.tokenizer import EOS_ID, VOCAB_SIZE
 
 
 SOURCE = "generated_workshop_0001"
@@ -224,7 +224,7 @@ class MultiSourceTests(unittest.TestCase):
             self.assertEqual(predict.main(), 0)
         read.assert_called_once_with(PRACTICE_PATH)
         self.assertEqual(generate.call_args_list, [
-            mock.call(model, row["information"], row["question"], max_new_tokens=None)
+            mock.call(model, row["information"], row["question"], max_new_tokens=None, prompt_version="original")
             for row in self.rows
         ])
         self.assertIn(f"Previewing 20 examples from {PRACTICE_PATH}.", output.getvalue())

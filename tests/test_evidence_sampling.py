@@ -8,8 +8,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from generate_evidence_data_v2 import build_datasets
-from train import class_aware_indices
+from experiments.evidence_sensitivity_v2.generate_evidence_data_v2 import build_datasets
+from grounded_qa.training.train import class_aware_indices
 
 
 class EvidenceSamplingTests(unittest.TestCase):
