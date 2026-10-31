@@ -13,7 +13,7 @@ The dataset is generated locally using `scripts/data/generate_evidence_data.py`.
 
 ## Run from the project root in PowerShell
 
-The existing data is **local and untracked**; it was not added to GitHub by this experiment.
+The original experiment used local untracked data. In the reorganized repository, the V1 JSONL is currently tracked at `experiments/compact_prompt_v1/data/evidence_sensitivity_v1.jsonl` (location retained pending a separate folder-placement review).
 
 ```powershell
 python -m scripts.data.validate_data experiments/compact_prompt_v1/data/evidence_sensitivity_v1.jsonl
