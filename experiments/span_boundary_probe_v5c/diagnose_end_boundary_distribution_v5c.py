@@ -1,7 +1,8 @@
 """Read-only V5C diagnostic: audit V3/V5B training end-boundary coverage.
 
 Run from repository root:
-    python src/diagnose_end_boundary_distribution_v5c.py
+    $env:PYTHONPATH = "$PWD\src"
+    python -m experiments.span_boundary_probe_v5c.diagnose_end_boundary_distribution_v5c
 
 Does not read final holdout, update datasets/checkpoints, or train a model.
 """
