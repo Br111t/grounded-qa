@@ -75,15 +75,15 @@ the saved V4 baseline experiments/evidence_copy_v4b/evidence_copy_v4/checkpoints
 
 ### A: Alignment supervision only
 
-    python src/grounded_qa/training/train.py --experiment-data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl --model-variant pointer_v4 --prompt-version compact_v1 --sampling balanced --missing-ratio 0.33 --steps 3000 --loss-every 120 --seed 42 --alignment-weight 0.5 --copy-gate-weight 0 --checkpoint experiments/evidence_copy_v4b/checkpoints/evidence_copy_v4b_alignment_3000.pt
+    python -m grounded_qa.training.train --experiment-data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl --model-variant pointer_v4 --prompt-version compact_v1 --sampling balanced --missing-ratio 0.33 --steps 3000 --loss-every 120 --seed 42 --alignment-weight 0.5 --copy-gate-weight 0 --checkpoint experiments/evidence_copy_v4b/checkpoints/evidence_copy_v4b_alignment_3000.pt
 
 ### B: Gate supervision only
 
-    python src/grounded_qa/training/train.py --experiment-data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl --model-variant pointer_v4 --prompt-version compact_v1 --sampling balanced --missing-ratio 0.33 --steps 3000 --loss-every 120 --seed 42 --alignment-weight 0 --copy-gate-weight 0.5 --checkpoint experiments/evidence_copy_v4b/checkpoints/evidence_copy_v4b_gate_3000.pt
+    python -m grounded_qa.training.train --experiment-data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl --model-variant pointer_v4 --prompt-version compact_v1 --sampling balanced --missing-ratio 0.33 --steps 3000 --loss-every 120 --seed 42 --alignment-weight 0 --copy-gate-weight 0.5 --checkpoint experiments/evidence_copy_v4b/checkpoints/evidence_copy_v4b_gate_3000.pt
 
 ### C: Both signals
 
-    python src/grounded_qa/training/train.py --experiment-data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl --model-variant pointer_v4 --prompt-version compact_v1 --sampling balanced --missing-ratio 0.33 --steps 3000 --loss-every 120 --seed 42 --alignment-weight 0.5 --copy-gate-weight 0.5 --checkpoint experiments/evidence_copy_v4b/checkpoints/evidence_copy_v4b_both_3000.pt
+    python -m grounded_qa.training.train --experiment-data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl --model-variant pointer_v4 --prompt-version compact_v1 --sampling balanced --missing-ratio 0.33 --steps 3000 --loss-every 120 --seed 42 --alignment-weight 0.5 --copy-gate-weight 0.5 --checkpoint experiments/evidence_copy_v4b/checkpoints/evidence_copy_v4b_both_3000.pt
 
 Evaluate each saved checkpoint (same five V3 partitions, original reference
 answers, free-running exact match):
