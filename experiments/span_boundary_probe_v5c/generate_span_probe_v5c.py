@@ -24,7 +24,7 @@ GROUPS = (
     "length5_vowel", "length5_consonant",
 )
 PATHS = {
-    group: Path(f"data/evaluation/evidence_span_v5c_{group}.jsonl")
+    group: Path(f"experiments/span_boundary_probe_v5c/data/evidence_span_v5c_{group}.jsonl")
     for group in GROUPS
 }
 ROWS_PER_GROUP = 24
