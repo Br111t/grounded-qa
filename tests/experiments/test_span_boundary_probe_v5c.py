@@ -1,6 +1,11 @@
 """Tests for the read-only V5C matched length × ending diagnostic."""
 
 import copy
+import json
+import tempfile
+from contextlib import redirect_stdout
+from io import StringIO
+from unittest.mock import patch
 import sys
 import unittest
 from collections import Counter
@@ -129,6 +134,100 @@ class SpanBoundaryProbeV5CTests(unittest.TestCase):
         self.assertTrue(all(score["total"] == 1 for score in scores.values()))
         for key, tensor in model.state_dict().items():
             self.assertTrue(torch.equal(before[key], tensor))
+
+
+    def test_modified_locked_file_is_rejected(self):
+        """The reader must reject corrupted on-disk probe data."""
+        from experiments.span_boundary_probe_v5c import generate_span_probe_v5c as generator
+
+        group = "length4_vowel"
+        rows = copy.deepcopy(self.probes[group])
+        rows[0]["answer"] = "Leader: Incorrect."
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "corrupted.jsonl"
+            path.write_text(
+                "".join(json.dumps(row) + "\n" for row in rows),
+                encoding="utf-8",
+            )
+            with patch.dict(generator.PATHS, {group: path}):
+                with self.assertRaises(ValueError):
+                    generator.read_probe_group(group)
+
+    def test_evaluator_aggregates_exact_and_head_counts(self):
+        """Report real score dictionaries without requiring a trained model."""
+        from experiments.span_boundary_probe_v5c import evaluate_span_probe_v5c as evaluator
+
+        synthetic = [
+            (22, 21, 23), (0, 21, 0), (3, 21, 3), (0, 21, 0)
+        ]
+        def score(_model, rows, show_errors=0):
+            exact, start, end = synthetic[GROUPS.index(rows[0]["group"])]
+            return {
+                "answerable": 24, "correct": exact,
+                "start_head": start, "end_head": end, "joint_span": exact,
+                "too_short": 0, "too_long": 0, "false_abstain": 0,
+                "mismatches": [],
+            }
+
+        partitions = {g: [{"group": g}] for g in GROUPS}
+        with patch.object(evaluator, "evaluate_group", side_effect=score):
+            out = StringIO()
+            with redirect_stdout(out):
+                results = evaluator.evaluate_probe(object(), partitions, show_errors=0)
+        self.assertEqual(sum(v["correct"] for v in results.values()), 25)
+        self.assertIn("Length 4 combined: exact 22/48", out.getvalue())
+        self.assertIn("Length 5 combined: exact 3/48", out.getvalue())
+        self.assertIn("Consonant end combined: exact 0/48", out.getvalue())
+
+    def test_invalid_evaluation_arguments_are_rejected(self):
+        from experiments.span_boundary_probe_v5c import evaluate_span_probe_v5c as evaluator
+
+        with patch("sys.argv", ["evaluate", "--checkpoint", "first.pt", "--show-errors", "-1"]):
+            with redirect_stdout(StringIO()):
+                with self.assertRaises(SystemExit) as error:
+                    evaluator.main()
+        self.assertEqual(error.exception.code, 2)
+
+        # Duplicate checkpoint paths must be rejected before model loading.
+        with patch("sys.argv", [
+            "evaluate", "--checkpoint", "same.pt",
+            "--compare-checkpoint", "same.pt",
+        ]), patch.object(evaluator, "read_probe_group", side_effect=lambda g: self.probes[g]), patch.object(
+            evaluator, "load_span_checkpoint"
+        ) as loader:
+            with redirect_stdout(StringIO()):
+                self.assertEqual(evaluator.main(), 1)
+            loader.assert_not_called()
+
+    def test_paired_checkpoints_receive_identical_probe_partitions(self):
+        """Both checkpoints must evaluate the same unchanged 96 records."""
+        from experiments.span_boundary_probe_v5c import evaluate_span_probe_v5c as evaluator
+        from experiments.evidence_sensitivity_v3.generate_evidence_data_v3 import OUTPUTS
+
+        metadata = {
+            "training_file": OUTPUTS["train"].as_posix(),
+            "answerability_threshold": 0.5,
+        }
+        seen = []
+        def compare(_model, partitions, show_errors):
+            seen.append(copy.deepcopy(partitions))
+            return {g: {"correct": 0} for g in GROUPS}
+
+        with patch("sys.argv", [
+            "evaluate", "--checkpoint", "first.pt",
+            "--compare-checkpoint", "second.pt",
+        ]), patch.object(
+            evaluator, "read_probe_group", side_effect=lambda g: copy.deepcopy(self.probes[g])
+        ), patch.object(
+            evaluator, "load_span_checkpoint", side_effect=[(object(), metadata), (object(), metadata)]
+        ) as loader, patch.object(evaluator, "evaluate_probe", side_effect=compare):
+            with redirect_stdout(StringIO()):
+                self.assertEqual(evaluator.main(), 0)
+
+        self.assertEqual(loader.call_count, 2)
+        self.assertEqual(len(seen), 2)
+        self.assertEqual(seen[0], seen[1])
+        self.assertEqual(sum(map(len, seen[0].values())), 96)
 
     def test_checkpoint_registration_guard(self):
         from experiments.evidence_sensitivity_v3.generate_evidence_data_v3 import OUTPUTS
