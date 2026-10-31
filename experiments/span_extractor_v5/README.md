@@ -55,7 +55,7 @@ Stop if tests fail; don't train until the issue is addressed.
 
 ## Train
 
-Set `$env:PYTHONPATH = "$PWD\\src"` from the repository root before running module commands. Existing `.pt` checkpoints are local and are not tracked by Git; do not overwrite them.
+Set `$env:PYTHONPATH = "$PWD\src"` from the repository root before running module commands. Existing `.pt` checkpoints are local and are not tracked by Git; do not overwrite them.
 
     python -m experiments.span_extractor_v5.train_span_v5 --experiment-data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl --steps 3000 --loss-every 120 --seed 42 --missing-ratio 0.33 --checkpoint experiments/span_extractor_v5/checkpoints/evidence_span_v5_3000_steps.pt
 
