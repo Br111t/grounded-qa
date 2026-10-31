@@ -1,7 +1,8 @@
 """Read-only V5C end-boundary error diagnostic for V5 and V5B checkpoints.
 
 Run from the repository root:
-    python src/diagnose_end_boundary_errors_v5c.py
+    $env:PYTHONPATH = "$PWD\src"
+    python -m experiments.span_boundary_probe_v5c.diagnose_end_boundary_errors_v5c
 
 Uses the existing, locked V5C development probes only. Does not train,
 change model weights, regenerate datasets, or access final-holdout files.
@@ -13,24 +14,20 @@ from pathlib import Path
 import torch
 
 from experiments.span_boundary_probe_v5c.generate_span_probe_v5c import GROUPS, read_probe_group
+from experiments.span_boundary_probe_v5c.evaluate_span_probe_v5c import _check_checkpoint
 from grounded_qa.models.span_model_v5 import (
     load_span_checkpoint, prepare_span_input, predict_span, training_span_target,
 )
 
 CHECKPOINTS = (
-    Path("models/evidence_span_v5_3000_steps.pt"),
-    Path("models/evidence_span_v5b_3000_steps.pt"),
+    Path("experiments/span_extractor_v5/checkpoints/evidence_span_v5_3000_steps.pt"),
+    Path("experiments/variable_span_v5b/checkpoints/evidence_span_v5b_3000_steps.pt"),
 )
 
 
 def inspect_checkpoint(path: Path, groups: dict[str, list[dict]]) -> None:
     model, info = load_span_checkpoint(path)
-    training_path = Path(info.get("training_file", ""))
-    from experiments.evidence_sensitivity_v3.generate_evidence_data_v3 import OUTPUTS
-    if training_path.resolve() != OUTPUTS["train"].resolve():
-        raise ValueError(f"Unexpected training split recorded by {path}")
-    if info.get("answerability_threshold") != 0.5:
-        raise ValueError(f"Unexpected answerability threshold in {path}")
+    _check_checkpoint(info)
     model.eval()
 
     print(f"\n=== {path} ({info.get('experiment', 'v5_original')}) ===")
