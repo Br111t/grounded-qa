@@ -17,13 +17,26 @@ from experiments.span_boundary_probe_v5c.generate_span_probe_v5c import GROUPS, 
 from grounded_qa.models.span_model_v5 import load_span_checkpoint
 
 
+def _registered_path_matches(value: str, current: Path, legacy: str) -> bool:
+    """Accept only registered pre-move or post-move dataset paths."""
+    return value in {current.as_posix(), legacy}
+
+
 def _check_checkpoint(info: dict):
-    if Path(info.get("training_file", "")).resolve() != V3_PATHS["train"].resolve():
+    if not _registered_path_matches(
+        info.get("training_file", ""),
+        V3_PATHS["train"],
+        "data/training/evidence_sensitivity_v3_train.jsonl",
+    ):
         raise ValueError("Checkpoint must be trained on the registered V3 training split.")
     if info.get("answerability_threshold") != 0.5:
         raise ValueError("Unexpected answerability threshold; expected fixed 0.5.")
     extra = info.get("extra_training_file")
-    if extra is not None and Path(extra).resolve() != EXTRA_PATH.resolve():
+    if extra is not None and not _registered_path_matches(
+        extra,
+        EXTRA_PATH,
+        "data/training/evidence_span_v5b_extra_train.jsonl",
+    ):
         raise ValueError("Unrecognized V5B training addition.")
 
 
