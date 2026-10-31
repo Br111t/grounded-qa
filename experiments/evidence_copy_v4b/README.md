@@ -1,5 +1,12 @@
 # V4B: supervised copy attention versus copy gate
 
+> **Current repository layout:** Run commands from the repository root with
+> `$env:PYTHONPATH = "$PWD\src"` set in PowerShell. The test suite uses
+> `python -m unittest discover -s tests -t . -p "test_*.py" -v`.
+> Saved `.pt` checkpoints are local, ignored by Git, and must not be overwritten.
+> Historical branch-switch commands in older research notes are not needed on
+> `refactor/repository-organization`.
+
 ## Research question
 
 V4 can copy a familiar answer from the correct source position, but its gate
@@ -19,7 +26,7 @@ is used to build targets; no source positions are saved in checkpoints.
 
 ## Implementation details
 
-All controls are optional additions to src/train.py.
+All controls are optional additions to src/grounded_qa/training/train.py.
 
     --alignment-weight 0.5
     --copy-gate-weight 0.5
@@ -49,12 +56,12 @@ is identical with the new forward_components method.
 
     git status --short
     git fetch origin
-    git switch --track origin/experiment/evidence-copy-v4b
+    git switch refactor/repository-organization
 
-    python -m unittest discover -s tests -p "test_evidence_copy_v4b.py" -v
-    python -m unittest discover -s tests -p "test_copy_model_v4.py" -v
-    python -m unittest discover -s tests -p "test_copy_diagnostics_v4.py" -v
-    python -m unittest discover -s tests -p "test_evidence_v3.py" -v
+    python -m unittest discover -s tests -t . -p "test_evidence_copy_v4b.py" -v
+    python -m unittest discover -s tests -t . -p "test_copy_model_v4.py" -v
+    python -m unittest discover -s tests -t . -p "test_copy_diagnostics_v4.py" -v
+    python -m unittest discover -s tests -t . -p "test_evidence_v3.py" -v
 
 V3 dataset files must remain present locally; do not regenerate or change them.
 Regression tests must pass before starting the longer runs.
@@ -64,26 +71,26 @@ Regression tests must pass before starting the longer runs.
 Run EACH command from the repository root, on the new V4B branch. All are
 fresh random-weight 3,000-update runs with seed 42 and the same 33% missing
 sampling ratio. Their filenames are unique and intentionally different from
-the saved V4 baseline models/evidence_copy_v4_3000_steps.pt.
+the saved V4 baseline experiments/evidence_copy_v4b/evidence_copy_v4/checkpoints/evidence_copy_v4_3000_steps.pt.
 
 ### A: Alignment supervision only
 
-    python src/train.py --experiment-data data/training/evidence_sensitivity_v3_train.jsonl --model-variant pointer_v4 --prompt-version compact_v1 --sampling balanced --missing-ratio 0.33 --steps 3000 --loss-every 120 --seed 42 --alignment-weight 0.5 --copy-gate-weight 0 --checkpoint models/evidence_copy_v4b_alignment_3000.pt
+    python src/grounded_qa/training/train.py --experiment-data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl --model-variant pointer_v4 --prompt-version compact_v1 --sampling balanced --missing-ratio 0.33 --steps 3000 --loss-every 120 --seed 42 --alignment-weight 0.5 --copy-gate-weight 0 --checkpoint experiments/evidence_copy_v4b/checkpoints/evidence_copy_v4b_alignment_3000.pt
 
 ### B: Gate supervision only
 
-    python src/train.py --experiment-data data/training/evidence_sensitivity_v3_train.jsonl --model-variant pointer_v4 --prompt-version compact_v1 --sampling balanced --missing-ratio 0.33 --steps 3000 --loss-every 120 --seed 42 --alignment-weight 0 --copy-gate-weight 0.5 --checkpoint models/evidence_copy_v4b_gate_3000.pt
+    python src/grounded_qa/training/train.py --experiment-data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl --model-variant pointer_v4 --prompt-version compact_v1 --sampling balanced --missing-ratio 0.33 --steps 3000 --loss-every 120 --seed 42 --alignment-weight 0 --copy-gate-weight 0.5 --checkpoint experiments/evidence_copy_v4b/checkpoints/evidence_copy_v4b_gate_3000.pt
 
 ### C: Both signals
 
-    python src/train.py --experiment-data data/training/evidence_sensitivity_v3_train.jsonl --model-variant pointer_v4 --prompt-version compact_v1 --sampling balanced --missing-ratio 0.33 --steps 3000 --loss-every 120 --seed 42 --alignment-weight 0.5 --copy-gate-weight 0.5 --checkpoint models/evidence_copy_v4b_both_3000.pt
+    python src/grounded_qa/training/train.py --experiment-data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl --model-variant pointer_v4 --prompt-version compact_v1 --sampling balanced --missing-ratio 0.33 --steps 3000 --loss-every 120 --seed 42 --alignment-weight 0.5 --copy-gate-weight 0.5 --checkpoint experiments/evidence_copy_v4b/checkpoints/evidence_copy_v4b_both_3000.pt
 
 Evaluate each saved checkpoint (same five V3 partitions, original reference
 answers, free-running exact match):
 
-    python src/evaluate_evidence_v3.py --checkpoint models/evidence_copy_v4b_alignment_3000.pt --group all
-    python src/evaluate_evidence_v3.py --checkpoint models/evidence_copy_v4b_gate_3000.pt --group all
-    python src/evaluate_evidence_v3.py --checkpoint models/evidence_copy_v4b_both_3000.pt --group all
+    python -m experiments.evidence_sensitivity_v3.evaluate_evidence_v3 --checkpoint experiments/evidence_copy_v4b/checkpoints/evidence_copy_v4b_alignment_3000.pt --group all
+    python -m experiments.evidence_sensitivity_v3.evaluate_evidence_v3 --checkpoint experiments/evidence_copy_v4b/checkpoints/evidence_copy_v4b_gate_3000.pt --group all
+    python -m experiments.evidence_sensitivity_v3.evaluate_evidence_v3 --checkpoint experiments/evidence_copy_v4b/checkpoints/evidence_copy_v4b_both_3000.pt --group all
 
 Follow with the existing --copy-details diagnostic on the Xezen and Tato
 examples to inspect pointer attention and gate choices.
