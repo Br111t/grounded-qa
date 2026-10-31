@@ -42,11 +42,13 @@ Unlike V4B, V5 does not require a generated EOS or an autoregressive decoder.
 - The max extracted span is 16 UTF-8 bytes; V3 name lengths fit this.
 - The final original holdout is not read.
 
-## Pull and run tests (PowerShell, repository root)
+## Run tests (PowerShell, repository root)
+
+Set `$env:PYTHONPATH = "$PWD\src"` before module commands.
 
     git status --short
     git fetch origin
-    git switch --track origin/experiment/span-extractor-v5
+    git switch refactor/repository-organization
 
     python -m unittest discover -s tests -t . -p "test_span_v5.py" -v
     python -m unittest discover -s tests -t . -p "test_evidence_v3.py" -v
