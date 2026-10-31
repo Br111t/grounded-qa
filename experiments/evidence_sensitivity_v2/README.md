@@ -1,5 +1,12 @@
 # Evidence sensitivity V2 — fixed question, varying evidence
 
+> **Current repository layout:** Run commands from the repository root with
+> `$env:PYTHONPATH = "$PWD\src"` set in PowerShell. The test suite uses
+> `python -m unittest discover -s tests -t . -p "test_*.py" -v`.
+> Saved `.pt` checkpoints are local, ignored by Git, and must not be overwritten.
+> Historical branch-switch commands in older research notes are not needed on
+> `refactor/repository-organization`.
+
 ## Research goal
 
 Test whether the original small Transformer can reproduce supported values from
@@ -18,10 +25,10 @@ files (the V1 generator and existing holdout files are not changed):
 
 | Partition | Path | Examples |
 |---|---|---:|
-| Training | `data/training/evidence_sensitivity_v2_train.jsonl` | 108 |
-| Known-name development evaluation | `data/evaluation/evidence_sensitivity_v2_known.jsonl` | 24 |
-| Unseen-name development evaluation | `data/evaluation/evidence_sensitivity_v2_unseen.jsonl` | 24 |
-| Missing-leader development evaluation | `data/evaluation/evidence_sensitivity_v2_missing.jsonl` | 12 |
+| Training | `experiments/evidence_sensitivity_v2/data/evidence_sensitivity_v2_train.jsonl` | 108 |
+| Known-name development evaluation | `experiments/evidence_sensitivity_v2/data/evidence_sensitivity_v2_known.jsonl` | 24 |
+| Unseen-name development evaluation | `experiments/evidence_sensitivity_v2/data/evidence_sensitivity_v2_unseen.jsonl` | 24 |
+| Missing-leader development evaluation | `experiments/evidence_sensitivity_v2/data/evidence_sensitivity_v2_missing.jsonl` | 12 |
 
 Known-name evaluation has **different context arrangements** from training for
 each name. Unseen-name evaluation reserves four entirely unseen leader names.
@@ -36,28 +43,28 @@ sets, not the original final holdout.
 ## Commands (PowerShell, project root)
 
 ```powershell
-git pull --ff-only origin experiment/compact-prompt-v1
+git status --short
 
-python -m unittest discover -s tests -p "test_evidence_v2.py" -v
-python -m unittest discover -s tests -p "test_evidence_training.py" -v
+python -m unittest discover -s tests -t . -p "test_evidence_v2.py" -v
+python -m unittest discover -s tests -t . -p "test_evidence_training.py" -v
 
-python src/generate_evidence_data_v2.py --seed 42
+python -m experiments.evidence_sensitivity_v2.generate_evidence_data_v2 --seed 42
 
-python src/validate_data.py data/training/evidence_sensitivity_v2_train.jsonl
-python src/validate_data.py data/evaluation/evidence_sensitivity_v2_known.jsonl
-python src/validate_data.py data/evaluation/evidence_sensitivity_v2_unseen.jsonl
-python src/validate_data.py data/evaluation/evidence_sensitivity_v2_missing.jsonl
+python -m scripts.data.validate_data experiments/evidence_sensitivity_v2/data/evidence_sensitivity_v2_train.jsonl
+python -m scripts.data.validate_data experiments/evidence_sensitivity_v2/data/evidence_sensitivity_v2_known.jsonl
+python -m scripts.data.validate_data experiments/evidence_sensitivity_v2/data/evidence_sensitivity_v2_unseen.jsonl
+python -m scripts.data.validate_data experiments/evidence_sensitivity_v2/data/evidence_sensitivity_v2_missing.jsonl
 
 # Start with 500 updates, evaluate, then decide whether 1000+ is justified.
-python src/train.py `
-  --experiment-data data/training/evidence_sensitivity_v2_train.jsonl `
+python -m grounded_qa.training.train `
+  --experiment-data experiments/evidence_sensitivity_v2/data/evidence_sensitivity_v2_train.jsonl `
   --prompt-version compact_v1 `
   --steps 500 `
   --seed 42 `
-  --checkpoint models/evidence_sensitivity_v2_500_steps.pt
+  --checkpoint experiments/evidence_sensitivity_v2/checkpoints/evidence_sensitivity_v2_500_steps.pt
 
-python src/evaluate_evidence_v2.py `
-  --checkpoint models/evidence_sensitivity_v2_500_steps.pt `
+python -m experiments.evidence_sensitivity_v2.evaluate_evidence_v2 `
+  --checkpoint experiments/evidence_sensitivity_v2/checkpoints/evidence_sensitivity_v2_500_steps.pt `
   --group all
 ```
 
@@ -86,21 +93,21 @@ examples, architecture, prompt, optimizer, step budget, and seed. It does not
 read evaluation files or change the original sequential sampler by default.
 
 ```powershell
-git pull --ff-only origin experiment/compact-prompt-v1
+git status --short
 
-python -m unittest discover -s tests -p "test_evidence_sampling.py" -v
+python -m unittest discover -s tests -t . -p "test_evidence_sampling.py" -v
 
-python src/train.py `
-  --experiment-data data/training/evidence_sensitivity_v2_train.jsonl `
+python -m grounded_qa.training.train `
+  --experiment-data experiments/evidence_sensitivity_v2/data/evidence_sensitivity_v2_train.jsonl `
   --prompt-version compact_v1 `
   --sampling balanced `
   --missing-ratio 0.33 `
   --steps 2000 `
   --seed 42 `
-  --checkpoint models/evidence_sensitivity_v2b_2000_steps.pt
+  --checkpoint experiments/evidence_sensitivity_v2b/checkpoints/evidence_sensitivity_v2b_2000_steps.pt
 
-python src/evaluate_evidence_v2.py `
-  --checkpoint models/evidence_sensitivity_v2b_2000_steps.pt `
+python -m experiments.evidence_sensitivity_v2.evaluate_evidence_v2 `
+  --checkpoint experiments/evidence_sensitivity_v2b/checkpoints/evidence_sensitivity_v2b_2000_steps.pt `
   --group all
 ```
 
