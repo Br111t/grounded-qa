@@ -77,6 +77,26 @@ vowel vs consonant endings separately.
 **No new model training, checkpoint creation, model weight changes,
 existing V3/V5B data modifications, or final holdout evaluation.**
 
+## Recorded read-only comparison (October 31, 2026)
+
+The 93-test regression suite passed. Both existing local checkpoints loaded
+successfully and were compared on the same 96 V5C development examples.
+
+| Diagnostic group | V5 exact | V5B exact |
+|---|---:|---:|
+| length4_vowel | 22/24 | 20/24 |
+| length4_consonant | 0/24 | 0/24 |
+| length5_vowel | 3/24 | 9/24 |
+| length5_consonant | 0/24 | 1/24 |
+| **All four groups** | **25/96** | **30/96** |
+
+V5B improved five-character vowel exact matches, but consonant-ending
+results remained poor. Independent start-head accuracy was 84/96 for V5
+and 92/96 for V5B, while end-head accuracy was 26/96 for V5 and 28/96
+for V5B. These findings suggest an end-boundary generalization weakness;
+they do **not** establish causality or final-holdout performance.
+No weights or locked dataset records were changed by this comparison.
+
 ## Interpretation
 
 - If five-character spans fail for BOTH vowel and consonant endings,
