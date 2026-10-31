@@ -42,25 +42,31 @@ Although this is much better balanced than the old length comparison,
 some effects of character identity, insertion, and name-stem composition
 remain. One seed and 24 cases per cell cannot establish causality.
 
-## Steps from repository root (PowerShell)
+## Run the read-only diagnostic (PowerShell, repository root)
 
-Pull the new branch after checking for uncommitted work:
+Use the reorganized branch and confirm local checkpoint paths:
 
     git status --short
-    git fetch origin
-    git switch --track origin/experiment/span-boundary-probe-v5c
+    $env:PYTHONPATH = "$PWD\src"
+    Get-ChildItem experiments/span_extractor_v5/checkpoints/*.pt
+    Get-ChildItem experiments/variable_span_v5b/checkpoints/*.pt
 
-Run regression tests before generating data:
+Run the regression suite:
 
-    python -m unittest discover -s tests -p "test_span_boundary_probe_v5c.py" -v
+    python -m unittest discover -s tests -t . -p "test_*.py" -v
 
-Generate ONLY the four new V5C development files:
+All four locked V5C JSONL files should already exist in
+`experiments/span_boundary_probe_v5c/data/`.
+Do not regenerate or overwrite them during checkpoint evaluation.
 
-    python src/generate_span_probe_v5c.py
+Evaluate the original saved V5 and V5B checkpoints on the same locked records:
 
-Evaluate V5 and V5B with identical locked probe records in one read-only run:
+    python -m experiments.span_boundary_probe_v5c.evaluate_span_probe_v5c --checkpoint experiments/span_extractor_v5/checkpoints/evidence_span_v5_3000_steps.pt --compare-checkpoint experiments/variable_span_v5b/checkpoints/evidence_span_v5b_3000_steps.pt
 
-    python src/evaluate_span_probe_v5c.py --checkpoint models/evidence_span_v5_3000_steps.pt --compare-checkpoint models/evidence_span_v5b_3000_steps.pt
+Those checkpoint locations reflect the planned local organization; adjust the
+paths to the actual files if necessary. Weights remain ignored by Git.
+The evaluator accepts the exact registered historical dataset paths embedded
+in older checkpoints, as well as the updated paths. It does not retrain.
 
 The evaluator reports, for each of four cells, full-answer exact match,
 independent start/end head accuracy, exact selected spans, truncated/
@@ -82,5 +88,6 @@ existing V3/V5B data modifications, or final holdout evaluation.**
 - Also compare head accuracy to selected-span exact match: the decoder
   jointly chooses a valid start/end span, not independent argmax positions.
 
-Files: `src/generate_span_probe_v5c.py`, `src/evaluate_span_probe_v5c.py`,
-and `tests/test_span_boundary_probe_v5c.py`.
+Files: `experiments/span_boundary_probe_v5c/generate_span_probe_v5c.py`,
+`experiments/span_boundary_probe_v5c/evaluate_span_probe_v5c.py`,
+and `tests/experiments/test_span_boundary_probe_v5c.py`.
