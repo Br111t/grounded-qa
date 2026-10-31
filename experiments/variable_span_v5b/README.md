@@ -49,11 +49,13 @@ start/end boundaries, while keeping the encoder-only architecture intact?
 
 ## Steps (PowerShell, repository root)
 
+Set `$env:PYTHONPATH = "$PWD\src"` before module commands.
+
 1. Pull the branch:
 
     git status --short
     git fetch origin
-    git switch --track origin/experiment/variable-span-v5b
+    git switch refactor/repository-organization
 
 2. Run new tests, then regenerate only new V5B files:
 
