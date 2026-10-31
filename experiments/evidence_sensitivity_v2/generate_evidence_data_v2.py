@@ -21,10 +21,10 @@ TOPICS = (None, "Python", "Gardening", "Astronomy")
 CONTEXTS = list(product(ROOMS, (False, True), TOPICS))
 
 OUTPUTS = {
-    "train": Path("data/training/evidence_sensitivity_v2_train.jsonl"),
-    "known": Path("data/evaluation/evidence_sensitivity_v2_known.jsonl"),
-    "unseen": Path("data/evaluation/evidence_sensitivity_v2_unseen.jsonl"),
-    "missing": Path("data/evaluation/evidence_sensitivity_v2_missing.jsonl"),
+    "train": Path("experiments/evidence_sensitivity_v2/data/evidence_sensitivity_v2_train.jsonl"),
+    "known": Path("experiments/evidence_sensitivity_v2/data/evidence_sensitivity_v2_known.jsonl"),
+    "unseen": Path("experiments/evidence_sensitivity_v2/data/evidence_sensitivity_v2_unseen.jsonl"),
+    "missing": Path("experiments/evidence_sensitivity_v2/data/evidence_sensitivity_v2_missing.jsonl"),
 }
 
 
