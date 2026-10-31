@@ -57,22 +57,22 @@ start/end boundaries, while keeping the encoder-only architecture intact?
 
 2. Run new tests, then regenerate only new V5B files:
 
-    python -m unittest discover -s tests -p "test_variable_span_v5b.py" -v
-    python -m unittest discover -s tests -p "test_span_v5.py" -v
-    python src/generate_span_data_v5b.py
+    python -m unittest discover -s tests -t . -p "test_variable_span_v5b.py" -v
+    python -m unittest discover -s tests -t . -p "test_span_v5.py" -v
+    python -m experiments.variable_span_v5b.generate_span_data_v5b
 
 3. **Evaluate V5 baseline first** with start/end diagnostics on the
    extended development partitions. This does not modify weights:
 
-    python src/evaluate_span_v5b.py --checkpoint models/evidence_span_v5_3000_steps.pt --group all
+    python -m experiments.variable_span_v5b.evaluate_span_v5b --checkpoint experiments/span_extractor_v5/checkpoints/evidence_span_v5_3000_steps.pt --group all
 
 4. Train fresh V5B checkpoint, retaining ALL previous checkpoints:
 
-    python src/train_span_v5b.py --experiment-data data/training/evidence_sensitivity_v3_train.jsonl --extra-train data/training/evidence_span_v5b_extra_train.jsonl --steps 3000 --loss-every 120 --seed 42 --missing-ratio 0.33 --checkpoint models/evidence_span_v5b_3000_steps.pt
+    python -m experiments.variable_span_v5b.train_span_v5b --experiment-data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl --extra-train experiments/variable_span_v5b/data/evidence_span_v5b_extra_train.jsonl --steps 3000 --loss-every 120 --seed 42 --missing-ratio 0.33 --checkpoint experiments/variable_span_v5b/checkpoints/evidence_span_v5b_3000_steps.pt
 
 5. Evaluate the same groups on the new V5B model:
 
-    python src/evaluate_span_v5b.py --checkpoint models/evidence_span_v5b_3000_steps.pt --group all
+    python -m experiments.variable_span_v5b.evaluate_span_v5b --checkpoint experiments/variable_span_v5b/checkpoints/evidence_span_v5b_3000_steps.pt --group all
 
 ## Interpretation
 
@@ -96,7 +96,7 @@ predictions. Training never reads development/final-holdout files.
 
 ## Implementation
 
-- `src/generate_span_data_v5b.py`: fixed new train/dev data generation
-- `src/train_span_v5b.py`: same V5 model, extra training samples
-- `src/evaluate_span_v5b.py`: start/end and answerability diagnostics
-- `tests/test_variable_span_v5b.py`: isolation and boundary regression tests
+- `experiments/variable_span_v5b/generate_span_data_v5b.py`: fixed new train/dev data generation
+- `experiments/variable_span_v5b/train_span_v5b.py`: same V5 model, extra training samples
+- `experiments/variable_span_v5b/evaluate_span_v5b.py`: start/end and answerability diagnostics
+- `tests/experiments/test_variable_span_v5b.py`: isolation and boundary regression tests
