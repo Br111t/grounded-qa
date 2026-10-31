@@ -60,7 +60,7 @@ The V3 dataset must already exist locally. No new dataset generation is needed.
 ## Train V4 from random weights
 
 ```powershell
-python src/grounded_qa/training/train.py `
+python -m grounded_qa.training.train `
   --experiment-data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl `
   --model-variant pointer_v4 `
   --prompt-version compact_v1 `
