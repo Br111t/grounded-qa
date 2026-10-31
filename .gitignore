@@ -1,15 +1,49 @@
-# Local Python environment and generated caches
+
+# ==========================================
+# Python virtual environments
+# ==========================================
 .venv/
+venv/
+env/
+
+# ==========================================
+# Python caches and compiled files
+# ==========================================
 __pycache__/
 *.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ==========================================
+# Jupyter notebooks
+# ==========================================
 .ipynb_checkpoints/
 
-# Downloaded model files and training checkpoints
-models/
-checkpoints/
-checkpoint-*/
-*.ckpt
+# ==========================================
+# Local environment and secrets
+# ==========================================
+.env
+.env.*
+!.env.example
+
+# ==========================================
+# Trained model checkpoints and weights
+# ==========================================
 *.pt
 *.pth
+*.ckpt
 *.safetensors
 pytorch_model*.bin
+checkpoint-*/
+
+# Legacy root-level checkpoint directory
+/models/
+
+# ==========================================
+# Local temporary files
+# ==========================================
+*.tmp
+*.log
