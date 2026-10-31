@@ -1,5 +1,12 @@
 # V4 — Pointer-generator evidence copying
 
+> **Current repository layout:** Run commands from the repository root with
+> `$env:PYTHONPATH = "$PWD\src"` set in PowerShell. The test suite uses
+> `python -m unittest discover -s tests -t . -p "test_*.py" -v`.
+> Saved `.pt` checkpoints are local, ignored by Git, and must not be overwritten.
+> Historical branch-switch commands in older research notes are not needed on
+> `refactor/repository-organization`.
+
 **Research question:** Can an explicit learned source-copy pathway improve
 exact reproduction of leader values that did not appear as complete training
 answers? Compare against the unchanged V3B standard Transformer checkpoints.
@@ -39,13 +46,13 @@ guaranteed feature. The model is trained from random weights, not pretrained.
 ```powershell
 git status --short
 git fetch origin
-git switch --track origin/experiment/evidence-copy-v4
+git switch refactor/repository-organization
 
-python -m unittest discover -s tests -p "test_copy_model_v4.py" -v
-python -m unittest discover -s tests -p "test_evidence_v3.py" -v
-python -m unittest discover -s tests -p "test_compact_prompt.py" -v
+python -m unittest discover -s tests -t . -p "test_copy_model_v4.py" -v
+python -m unittest discover -s tests -t . -p "test_evidence_v3.py" -v
+python -m unittest discover -s tests -t . -p "test_compact_prompt.py" -v
 
-python src/validate_data.py data/training/evidence_sensitivity_v3_train.jsonl
+python -m scripts.data.validate_data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl
 ```
 
 The V3 dataset must already exist locally. No new dataset generation is needed.
@@ -53,8 +60,8 @@ The V3 dataset must already exist locally. No new dataset generation is needed.
 ## Train V4 from random weights
 
 ```powershell
-python src/train.py `
-  --experiment-data data/training/evidence_sensitivity_v3_train.jsonl `
+python src/grounded_qa/training/train.py `
+  --experiment-data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl `
   --model-variant pointer_v4 `
   --prompt-version compact_v1 `
   --sampling balanced `
@@ -62,7 +69,7 @@ python src/train.py `
   --steps 3000 `
   --loss-every 120 `
   --seed 42 `
-  --checkpoint models/evidence_copy_v4_3000_steps.pt
+  --checkpoint experiments/evidence_copy_v4b/evidence_copy_v4/checkpoints/evidence_copy_v4_3000_steps.pt
 ```
 
 Do **not** overwrite any previous checkpoint. V4 checkpoint metadata records
@@ -73,8 +80,8 @@ legacy checkpoints without a `model_variant` field.
 ## Evaluate training and development partitions
 
 ```powershell
-python src/evaluate_evidence_v3.py `
-  --checkpoint models/evidence_copy_v4_3000_steps.pt `
+python -m experiments.evidence_sensitivity_v3.evaluate_evidence_v3 `
+  --checkpoint experiments/evidence_copy_v4b/evidence_copy_v4/checkpoints/evidence_copy_v4_3000_steps.pt `
   --group all
 ```
 
@@ -109,16 +116,16 @@ The flag is V4-only and never updates weights or checkpoints.
 
 After pulling the branch, run the focused tests:
 
-    python -m unittest discover -s tests -p "test_copy_diagnostics_v4.py" -v
-    python -m unittest discover -s tests -p "test_copy_model_v4.py" -v
+    python -m unittest discover -s tests -t . -p "test_copy_diagnostics_v4.py" -v
+    python -m unittest discover -s tests -t . -p "test_copy_model_v4.py" -v
 
 Inspect an incorrect known name:
 
-    python src/check_model.py --data data/evaluation/evidence_sensitivity_v3_known.jsonl --example-id evidence_v3_known_0001_q01 --checkpoint models/evidence_copy_v4_3000_steps.pt --copy-details
+    python -m grounded_qa.inference.check_model --data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_known.jsonl --example-id evidence_v3_known_0001_q01 --checkpoint experiments/evidence_copy_v4b/evidence_copy_v4/checkpoints/evidence_copy_v4_3000_steps.pt --copy-details
 
 Inspect an entirely unseen leader name:
 
-    python src/check_model.py --data data/evaluation/evidence_sensitivity_v3_unseen.jsonl --example-id evidence_v3_unseen_0001_q01 --checkpoint models/evidence_copy_v4_3000_steps.pt --copy-details
+    python -m grounded_qa.inference.check_model --data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_unseen.jsonl --example-id evidence_v3_unseen_0001_q01 --checkpoint experiments/evidence_copy_v4b/evidence_copy_v4/checkpoints/evidence_copy_v4_3000_steps.pt --copy-details
 
 The original diagnostic still reports teacher-forced loss. The new section
 independently traces greedy generated leader-name characters, using only
