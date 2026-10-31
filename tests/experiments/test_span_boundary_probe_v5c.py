@@ -137,6 +137,13 @@ class SpanBoundaryProbeV5CTests(unittest.TestCase):
             "answerability_threshold": 0.5,
         }
         _check_checkpoint(info)
+        # Checkpoints saved before the directory reorganization retain old paths.
+        _check_checkpoint({**info, "training_file": "data/training/evidence_sensitivity_v3_train.jsonl"})
+        from experiments.variable_span_v5b.generate_span_data_v5b import EXTRA_PATH
+        _check_checkpoint({**info, "extra_training_file": EXTRA_PATH.as_posix()})
+        _check_checkpoint({**info, "extra_training_file": "data/training/evidence_span_v5b_extra_train.jsonl"})
+        with self.assertRaisesRegex(ValueError, "V5B"):
+            _check_checkpoint({**info, "extra_training_file": "data/holdout/evaluation.jsonl"})
         with self.assertRaisesRegex(ValueError, "registered V3"):
             _check_checkpoint({**info, "training_file": "data/evaluation/not_train.jsonl"})
         with self.assertRaisesRegex(ValueError, "threshold"):
