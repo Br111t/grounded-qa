@@ -29,7 +29,7 @@ Unlike V4B, V5 does not require a generated EOS or an autoregressive decoder.
 - Identical fixed question and compact_v1 prompt.
 - Maintain the V2/V3 class-aware 33% missing-evidence sampling schedule.
 - Seed 42; 3,000 independent updates; batch size 1; CPU; Adam 0.001.
-- Train only using the registered data/training/evidence_sensitivity_v3_train.jsonl.
+- Train only using the registered experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl.
 - Use source span targets from the validated **training reference only**.
 - At inference, model receives only the Information and Question text.
 - A mask allows span endpoints inside **Information**, never the Question.
@@ -48,14 +48,16 @@ Unlike V4B, V5 does not require a generated EOS or an autoregressive decoder.
     git fetch origin
     git switch --track origin/experiment/span-extractor-v5
 
-    python -m unittest discover -s tests -p "test_span_v5.py" -v
-    python -m unittest discover -s tests -p "test_evidence_v3.py" -v
+    python -m unittest discover -s tests -t . -p "test_span_v5.py" -v
+    python -m unittest discover -s tests -t . -p "test_evidence_v3.py" -v
 
 Stop if tests fail; don't train until the issue is addressed.
 
 ## Train
 
-    python src/train_span_v5.py --experiment-data data/training/evidence_sensitivity_v3_train.jsonl --steps 3000 --loss-every 120 --seed 42 --missing-ratio 0.33 --checkpoint models/evidence_span_v5_3000_steps.pt
+Set `$env:PYTHONPATH = "$PWD\\src"` from the repository root before running module commands. Existing `.pt` checkpoints are local and are not tracked by Git; do not overwrite them.
+
+    python -m experiments.span_extractor_v5.train_span_v5 --experiment-data experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl --steps 3000 --loss-every 120 --seed 42 --missing-ratio 0.33 --checkpoint experiments/span_extractor_v5/checkpoints/evidence_span_v5_3000_steps.pt
 
 Training begins from fresh weights, not V4B checkpoint weights. The V5
 checkpoint format is intentionally independent from the earlier
@@ -63,7 +65,7 @@ encoder-decoder checkpoint format. No optimizer state is saved.
 
 ## Evaluate
 
-    python src/evaluate_span_v5.py --checkpoint models/evidence_span_v5_3000_steps.pt --group all
+    python -m experiments.span_extractor_v5.evaluate_span_v5 --checkpoint experiments/span_extractor_v5/checkpoints/evidence_span_v5_3000_steps.pt --group all
 
 The evaluator reuses the V3 partition and leakage checks. It reports exact
 full-answer matches for training, known, recombined, unseen, missing, and
@@ -77,9 +79,9 @@ synthetic fixed-question dataset, not general-world QA or final holdout.
 
 ## Source files
 
-- src/span_model_v5.py — model, training targets, prediction and checkpoint I/O
-- src/train_span_v5.py — V3 train-only training program
-- src/evaluate_span_v5.py — same partitions as V4B, exact-match evaluator
-- tests/test_span_v5.py — masks, targets, gradients, extraction and checkpoint tests
+- src/grounded_qa/models/span_model_v5.py — model, training targets, prediction and checkpoint I/O
+- experiments/span_extractor_v5/train_span_v5.py — V3 train-only training program
+- experiments/span_extractor_v5/evaluate_span_v5.py — same partitions as V4B, exact-match evaluator
+- tests/experiments/test_span_v5.py — masks, targets, gradients, extraction and checkpoint tests
 
 All V4B files and checkpoints remain unchanged.
