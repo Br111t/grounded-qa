@@ -77,6 +77,29 @@ vowel vs consonant endings separately.
 **No new model training, checkpoint creation, model weight changes,
 existing V3/V5B data modifications, or final holdout evaluation.**
 
+## Additional read-only diagnostics
+
+From the repository root in PowerShell, with the local V5/V5B checkpoints
+present and `$env:PYTHONPATH = "$PWD\src"` configured:
+
+```powershell
+python -m experiments.span_boundary_probe_v5c.diagnose_end_boundary_distribution_v5c
+python -m experiments.span_boundary_probe_v5c.diagnose_end_boundary_errors_v5c
+```
+
+The first command audits training and probe boundary distributions; the
+second analyzes end-head errors from existing saved checkpoints. Both are
+diagnostic-only and do not train. The error diagnostic shares the V5C
+checkpoint metadata guard, including recognition of original registered
+training paths embedded in historical checkpoints.
+
+The V5C tests also cover locked-file corruption, score aggregation, invalid
+CLI arguments and identical paired input records. Run them with:
+
+```powershell
+python -m unittest discover -s tests -t . -p "test_span_boundary_probe_v5c.py" -v
+```
+
 ## Recorded read-only comparison (October 31, 2026)
 
 The 93-test regression suite passed. Both existing local checkpoints loaded
