@@ -100,9 +100,18 @@ def summarize(rows):
     correct_pairs = sum(p["leader"]["correct"] and p["location"]["correct"] for p in paired)
     switches = sum(p["leader"]["predicted_field"] != p["location"]["predicted_field"]
                    for p in paired)
+    # A true Leader-to-Location field switch is only possible when
+    # BOTH target fields exist. Missing-target pairs instead test abstention.
+    complete_pairs = [
+        p for p in paired
+        if p["leader"]["expected_value"] is not None
+        and p["location"]["expected_value"] is not None
+    ]
+    both_present = len(complete_pairs)
     correct_switches = sum(
-        p["leader"]["predicted_field"] == "leader" and
-        p["location"]["predicted_field"] == "location" for p in paired
+        p["leader"]["predicted_field"] == "leader"
+        and p["location"]["predicted_field"] == "location"
+        for p in complete_pairs
     )
     # Paired field score change when question changes; evidence held constant.
     sensitivity = []
