@@ -89,7 +89,7 @@ def summarize(rows):
             "unsupported_answers": sum(r["unsupported_answer"] for r in entries),
             "brier_score": sum(r["brier_component"] for r in entries) / n,
             "field_confusion": dict(Counter(
-                (r["target_field"], str(r["predicted_field"])) for r in entries
+                f"{r['target_field']} -> {r['predicted_field']}" for r in entries
             )),
         }
     pairs = defaultdict(dict)
