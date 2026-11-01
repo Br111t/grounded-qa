@@ -14,7 +14,7 @@ from grounded_qa.models.span_model_v5 import (
 from grounded_qa.tokenization.tokenizer import decode, encode
 
 # Restrict to the evidence grammar without hard-coding the target field name.
-FIELD_PATTERN = re.compile(r"(?:^|\.\s+)([A-Za-z]+): ([^\r\n.]+)\.(?=\s|$)")
+FIELD_PATTERN = re.compile(r"(?<!\w)([A-Za-z]+): ([^\r\n.]+)\.(?=\s|$)")
 
 
 def complete_field_spans(information, max_span_bytes=16):
