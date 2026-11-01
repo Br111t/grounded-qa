@@ -14,6 +14,7 @@ import torch
 
 from experiments.balanced_boundary_v5d.generate_data_v5d import PATHS, read_split
 from experiments.balanced_boundary_v5d.evaluate_v5d import grouped
+from experiments.balanced_boundary_v5d.reconcile_logits import enrich, measure
 from grounded_qa.models.span_model_v5 import (
     load_span_checkpoint, predict_span, prepare_span_input, training_span_target,
 )
@@ -152,9 +153,20 @@ def run(checkpoints, output_dir):
         model_hashes[name] = checkpoint_hash
         for row in rows:
             all_cases.append(examine(model, row, name, checkpoint_hash))
+    all_cases = [enrich(r) for r in all_cases]
+    counts = {name: measure([r for r in all_cases if r["model"] == name])
+              for name in checkpoints}
+    if len(all_cases) != 96 * len(checkpoints) or any(
+            a["n"] != 96 or a["exact"] != a["selected_span_correct"]
+            for a in counts.values()):
+        raise ValueError("Incorrect record count or correctness inconsistency")
     sample = []
     for name in checkpoints:
-        sample += choose_cases([r for r in all_cases if r["model"] == name])
+        model_cases = [r for r in all_cases if r["model"] == name]
+        sample += choose_cases(model_cases)
+        sample += sorted((r for r in model_cases if r["recovered_wrong_raw_end"]),
+                         key=lambda r: r["example_id"])[:5]
+    sample = list({(r["model"], r["example_id"]): r for r in sample}.values())
     lines = [
         "# V5D logit and decoder diagnostic",
         "",
@@ -171,21 +183,36 @@ def run(checkpoints, output_dir):
             f"| {name.upper()} | "
             f"{sum(r['gold_end_rank'] == 1 for r in cases)}/96 | "
             f"{sum(r['gold_end_rank'] <= 5 for r in cases)}/96 | "
-            f"{sum(r['error_category'] == 'decoder_recovers_wrong_raw_end' for r in cases)} | "
-            f"{sum(r['error_category'] == 'decoder_disagrees_correct_raw_end' for r in cases)} |"
+            f"{counts[name]['recovery']} | "
+            f"{counts[name]['lost_correct_end']} |"
+        )
+    lines += [
+        "", "## Score margins (best minus gold; logits, not probabilities)", "",
+        "| Model | End gap <= 1 | End gap <= 3 | Joint gap <= 1 | Joint gap <= 3 | Median end gap | Median joint gap |",
+        "|---|---:|---:|---:|---:|---:|---:|",
+    ]
+    for name in checkpoints:
+        a = counts[name]
+        lines.append(
+            f"| {name.upper()} | {a['end_gap_le1']}/{a['n']} | "
+            f"{a['end_gap_le3']}/{a['n']} | {a['joint_gap_le1']}/{a['n']} | "
+            f"{a['joint_gap_le3']}/{a['n']} | {a['median_end_gap']} | "
+            f"{a['median_joint_gap']} |"
         )
     lines += [
         "", "## Representative predictions (deterministic selection)", "",
         "Chosen by group and error category, sorted by example ID; these are "
         "not random samples. See `all_cases.json` for all 288 observations.",
         "",
-        "| Model | Group | Category | Expected | Predicted | Gold end rank |",
-        "|---|---|---|---|---|---:|",
+        "| Model | Group | Exact | Recovery | Expected | Predicted | Gold end rank | End gap | Joint gap |",
+        "|---|---|---|---|---|---|---:|---:|---:|",
     ]
     for r in sample:
         lines.append(
-            f"| {r['model'].upper()} | {r['group']} | {r['error_category']} | "
-            f"{r['expected']} | {r['predicted']} | {r['gold_end_rank']} |"
+            f"| {r['model'].upper()} | {r['group']} | {r['exact']} | "
+            f"{r['recovered_wrong_raw_end']} | {r['expected']} | "
+            f"{r['predicted']} | {r['gold_end_rank']} | "
+            f"{r['end_score_margin']:.3f} | {r['joint_score_margin']:.3f} |"
         )
     lines += [
         "", "## Interpretation (hypotheses, not conclusions)",
@@ -211,6 +238,7 @@ def run(checkpoints, output_dir):
         "dataset_sha256": data_hash,
         "checkpoint_sha256": model_hashes,
         "example_count": len(all_cases),
+        "counts": counts,
     }, indent=2) + "\n", encoding="utf-8")
     (output_dir / "summary.md").write_text("\n".join(lines), encoding="utf-8")
     print("\n".join(lines))
