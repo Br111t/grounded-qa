@@ -72,7 +72,7 @@ def build_partition(partition):
     # Each source gets a canonical Leader/Location pair.
     for i in range(24):
         leader = INITIALS[partition] + "b" + chr(97 + i) + ("a" if i % 2 else "t")
-        location = ROOMS[i % len(ROOMS)]
+        # Assign a unique realistic room identifier to each source across splits.\n        # Missing-Leader examples otherwise repeat verbatim across partitions.\n        room_number = i + 1 + 24 * ("train", "dev", "eval").index(partition)\n        location = f"{ROOMS[i % len(ROOMS)]} {room_number}"
         topic = ("Python", "Astronomy", "Gardening")[i % 3]
         # Balanced missing target: 6 missing Leader, 6 missing Location, 12 both.
         leader = None if i % 4 == 0 else leader
