@@ -19,7 +19,7 @@ holdouts remain unchanged.
   development review, and code/checkpoint freeze are complete.
 - All 3 partitions split by **source identity**, not question row, so no
   evidence passage is shared across partitions.
-- Field order reverses for half the records; name families are disjoint.
+- Field order reverses for half the records; name families are disjoint.\nRoom identifiers are also unique across all three partitions, preventing\nmissing-Leader passages (which lack a differentiating name) from repeating.
 - The same evidence appears in the canonical Leader/Location *pair* within
   a partition, permitting controlled question-only comparisons.
 - This is a small synthetic evaluation, **not** evidence of open-domain
@@ -30,7 +30,7 @@ holdouts remain unchanged.
 
 Report separately:
 1. **Question sensitivity:** score deltas when changing only the question;
-   general switch rate vs correct switch rate
+   general switch rate vs correct switch rate among the 12 pairs where both\n   target fields exist (the other 12 pairs include one missing field)
 2. **Question-aware selection:** exact requested-field/value accuracy per
    field and paired both-correct rate (primary metric)
 3. **Paraphrases:** unseen paraphrase accuracy by field and accuracy gap vs
