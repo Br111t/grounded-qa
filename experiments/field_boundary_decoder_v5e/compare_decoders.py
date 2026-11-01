@@ -205,7 +205,7 @@ def run(phase, checkpoints, output_dir, baseline_cases_file=None, freeze=None,
         baseline_cases = None
         baseline_file_sha = locked.get("baseline_cases_sha256")
         from experiments.field_boundary_decoder_v5e.generate_holdout import build_holdout
-        canonical = "".join(json.dumps(r, sort_keys=True) + "\\n"
+        canonical = "".join(json.dumps(r, sort_keys=True) + "\n"
                             for r in build_holdout()).encode("utf-8")
         if holdout_file.read_bytes() != canonical:
             raise ValueError("Holdout differs from pre-registered fixed-seed design")
