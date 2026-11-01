@@ -111,7 +111,10 @@ class LogitDiagnosticTests(unittest.TestCase):
             self.assertEqual(
                 sum(r["recovered_wrong_raw_end"] for r in cases
                     if r["model"] == "v5d"), 11)
-            self.assertIn("| V5D | 10/96 | 96/96 | 11 | 0 |", summary)
+            self.assertIn("| V5D | 85/96 | 96/96 | 11 | 0 |", summary)
+            self.assertEqual(metrics["counts"]["v5d"]["recovery"],
+                             sum(r["recovered_wrong_raw_end"] for r in cases
+                                 if r["model"] == "v5d"))
             self.assertIn("## Score margins", summary)
             self.assertIn("| V5D | length4_consonant | True | True |", summary)
 
