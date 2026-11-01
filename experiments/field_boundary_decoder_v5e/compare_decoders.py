@@ -20,7 +20,7 @@ from grounded_qa.models.span_model_v5 import (
 )
 
 ROOT = Path("experiments/field_boundary_decoder_v5e")
-CODE_FILES = [ROOT / "field_decoder.py", ROOT / "compare_decoders.py"]
+CODE_FILES = [ROOT / "field_decoder.py", ROOT / "compare_decoders.py", ROOT / "generate_holdout.py"]
 BASELINE_NAMES = ("v5", "v5b", "v5d")
 DEV_HASH = "5799afad25695b33eadcbbf6e224ec2467ebe6c883157cc6955a96fbdc380ecd"
 
@@ -185,6 +185,7 @@ def run(phase, checkpoints, output_dir, baseline_cases_file=None, freeze=None,
         rows = read_split("dev")
         baseline_cases = load_dev_baselines(baseline_cases_file,
                                             identity["checkpoints_sha256"])
+        baseline_file_sha = sha(baseline_cases_file)
         source_hash = sha(PATHS["dev"])
     elif phase == "holdout":
         if freeze is None or holdout_file is None or baseline_cases_file is not None:
@@ -202,6 +203,12 @@ def run(phase, checkpoints, output_dir, baseline_cases_file=None, freeze=None,
         if any(not r["source_id"].startswith("v5e_holdout_") for r in rows):
             raise ValueError("Unsupported holdout identities")
         baseline_cases = None
+        baseline_file_sha = locked.get("baseline_cases_sha256")
+        from experiments.field_boundary_decoder_v5e.generate_holdout import build_holdout
+        canonical = "".join(json.dumps(r, sort_keys=True) + "\\n"
+                            for r in build_holdout()).encode("utf-8")
+        if holdout_file.read_bytes() != canonical:
+            raise ValueError("Holdout differs from pre-registered fixed-seed design")
         source_hash = sha(holdout_file)
         if source_hash == DEV_HASH:
             raise ValueError("Holdout cannot match DEV")
@@ -223,6 +230,7 @@ def run(phase, checkpoints, output_dir, baseline_cases_file=None, freeze=None,
     manifest = {
         "phase": phase, "identity": identity,
         "dev_sha256": DEV_HASH,
+        "baseline_cases_sha256": baseline_file_sha,
         "evaluation_sha256": source_hash,
         "evaluation_count": len(rows),
         "summary": overall,
