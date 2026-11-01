@@ -81,7 +81,9 @@ class V5GTests(unittest.TestCase):
         self.assertEqual(metrics["canonical"]["correct"],48)
         self.assertEqual(metrics["paired"]["count"],24)
         self.assertEqual(metrics["paired"]["both_correct"],24)
-        self.assertEqual(metrics["paired"]["both_fields_present"],12)\n        self.assertEqual(metrics["paired"]["correct_switches"],12)\n        self.assertEqual(metrics["paired"]["correct_switch_rate_on_both_present"],1.0)
+        self.assertEqual(metrics["paired"]["both_fields_present"],12)
+        self.assertEqual(metrics["paired"]["correct_switches"],12)
+        self.assertEqual(metrics["paired"]["correct_switch_rate_on_both_present"],1.0)
 
 
 if __name__ == "__main__":
