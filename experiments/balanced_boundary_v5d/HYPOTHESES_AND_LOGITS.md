@@ -103,3 +103,24 @@ byte-token offsets (not Python character indices).
 **Decision rule:** Review rankings and margins before proposing any new
 data, new loss weighting, or architecture change. Preserve V5C and avoid
 repeatedly tuning against this DEV set. No final holdout is accessed.
+
+
+## Primary diagnostic reporting fix (November 2026)
+
+The main `diagnose_logits.py` now calls the same `enrich` and `measure`
+functions as `reconcile_logits.py`. Each example has independent booleans
+for exact prediction, correct raw end, correct selected span, recovered wrong
+raw end, lost correct raw end and abstention. An exact answer can also be a
+recovery. The Markdown overview is derived from these enriched records and
+also includes end and joint logit margins. `metrics.json` includes the
+same overview in its `counts` field, while `all_cases.json` has each
+enriched case.
+
+The original `error_category` field remains as a legacy grouping label;
+**never count recovery from that exclusive field**.
+
+For new runs, use a new immutable output directory (for example
+`reports/logit_probe_run2`). `reconcile_logits.py` remains useful only
+for converting prior archived reports. Regression coverage is in
+`tests/experiments/test_v5d_logits.py` and
+`tests/experiments/test_v5d_reconcile_logits.py`.
