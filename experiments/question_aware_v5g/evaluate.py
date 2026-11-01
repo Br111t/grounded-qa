@@ -120,7 +120,11 @@ def summarize(rows):
             })
     report["paired"] = {
         "count": len(paired), "both_correct": correct_pairs,
-        "selection_switches": switches, "correct_switches": correct_switches,\n        "both_fields_present": both_present,\n        "correct_switch_rate_on_both_present": (\n            correct_switches / both_present if both_present else None\n        ),
+        "selection_switches": switches, "correct_switches": correct_switches,
+        "both_fields_present": both_present,
+        "correct_switch_rate_on_both_present": (
+            correct_switches / both_present if both_present else None
+        ),
         "question_sensitivity": sensitivity,
     }
     for field in ("leader", "location"):
