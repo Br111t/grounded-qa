@@ -140,3 +140,49 @@ The original 1,200-step run did not save component-wise trajectories.
 To establish whether one objective deteriorated *during* optimization, a
 future fresh training run must record whole-split component losses at fixed
 checkpoints; endpoints alone cannot establish gradient interference.
+
+
+## Controlled sampling ablation: uniform exposure to each question
+
+Run a **new** from-scratch experiment using the same V5 Transformer,
+same datasets, same loss, same decoder, 1,200 updates, seed 42 and
+Adam lr=0.001. The **only intended training change** is how examples
+are scheduled.
+
+The original schedule samples each of four (field, answerability)
+categories equally; the new schedule shuffles all 48 rows each epoch,
+visiting each row once. At 1,200 steps there are 25 complete epochs,
+so each row is used exactly 25 times.
+
+| Category | Rows | Original updates | Uniform updates |
+| --- | ---: | ---: | ---: |
+| Leader answerable | 18 | 300 | 450 |
+| Leader unanswerable | 6 | 300 | 150 |
+| Location answerable | 18 | 300 | 450 |
+| Location unanswerable | 6 | 300 | 150 |
+
+The new run evaluates **whole TRAIN and DEV** (no dropout) at step 0
+and every 120 updates, reporting separate answerability BCE, start CE,
+end CE, exact accuracy, false abstentions, paired both-correct accuracy
+and correct field switches. These diagnostic passes have no gradients
+and do not change the weights.
+
+From repo root, on branch `experiment/question-aware-field-v5g`:
+
+```powershell
+python -m unittest tests.experiments.test_uniform_sampling_v5g -v
+
+python -m experiments.question_aware_v5g.train_uniform_sampling `
+  --steps 1200 `
+  --seed 42 `
+  --measure-every 120 `
+  --checkpoint experiments/question_aware_v5g/checkpoints/v5g_uniform_seed42_steps1200.pt `
+  --output-dir experiments/question_aware_v5g/reports/uniform_sampling_run1
+```
+
+Inspect `reports/uniform_sampling_run1/summary.md` for the timeline
+and `metrics.json` for complete measured values. The run refuses
+to overwrite its checkpoint or report directory. It neither opens nor
+generates reserved EVAL. The original V5G checkpoint and DEV report
+remain the baseline; do not use the previous DEV freeze manifest
+with a different checkpoint.
