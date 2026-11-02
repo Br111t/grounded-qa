@@ -110,3 +110,33 @@ same model.
 - Evaluation design: `V5G`
 
 No results are claimed before local tests, training and evaluation finish.
+
+
+## Read-only diagnostic: did each training objective improve?
+
+After the original V5G training and DEV evaluation, compare **the same seed-42
+model at initialization** with its frozen, final checkpoint using identical
+TRAIN and DEV inputs, evaluation mode, and dropout disabled.
+
+```powershell
+python -m unittest tests.experiments.test_loss_components_v5g -v
+
+python -m experiments.question_aware_v5g.diagnose_loss_components `
+  --checkpoint experiments/question_aware_v5g/checkpoints/v5g_seed42_steps1200.pt `
+  --output-dir experiments/question_aware_v5g/reports/loss_components_run1
+```
+
+Open `reports/loss_components_run1/summary.md` for TRAIN/DEV tables separating:
+- Answerability binary cross entropy, including by answerable/unanswerable labels
+- Start-position and end-position cross entropy on answerable questions only
+- Answerability classification accuracy and start/end head accuracy
+- Combined loss averaged across all questions (including zero extraction loss
+  on unanswerable examples)
+- Splits by Leader/Location, and JSON metrics by evidence structure
+
+This diagnostic **does not retrain, change the existing checkpoint or read
+reserved EVAL**. It compares endpoint losses, **not** loss during training.
+The original 1,200-step run did not save component-wise trajectories.
+To establish whether one objective deteriorated *during* optimization, a
+future fresh training run must record whole-split component losses at fixed
+checkpoints; endpoints alone cannot establish gradient interference.
