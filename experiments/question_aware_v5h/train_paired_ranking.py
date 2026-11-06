@@ -191,7 +191,9 @@ def render(history, exposures, meta, baseline, runtime):
         for k in ("correct", "leader_correct", "location_correct",
                   "paired_both_correct", "correct_switches",
                   "false_abstentions", "unsupported_answers", "brier_score"):
-            lines.append(f"| {k} | {left[k]} | {right[k]} |")
+            # Earlier V5G uniform snapshots did not record Brier score.
+            # Missing baseline metrics must be labeled, not invented.
+            lines.append(f"| {k} | {left.get(k, 'not recorded')} | {right[k]} |")
     lines += [
         "", "## Interpretation guardrails", "",
         "- Compare DEV paired both-correct, correct switches, and BOTH abstention error types.",
