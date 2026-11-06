@@ -336,6 +336,37 @@ def run(checkpoint, output_dir, *, steps=1200, seed=42,
     print("Reserved EVAL was not accessed.")
 
 
+
+def repair_summary(checkpoint, output_dir):
+    """Recreate only a missing summary.md from a completed saved report.
+
+    No training, model inference, dataset reading, or writes to the checkpoint,
+    metrics.json or other prior artifacts. Refuse to overwrite a summary.
+    """
+    summary_path = output_dir / "summary.md"
+    if summary_path.exists() or summary_path.is_symlink():
+        raise FileExistsError(f"Refusing to overwrite existing {summary_path}")
+    metrics_path = output_dir / "metrics.json"
+    report = json.loads(metrics_path.read_text(encoding="utf-8"))
+    meta = report.get("metadata", {})
+    history = report.get("measurements", [])
+    if meta.get("experiment_variant") != "v5h_paired_ranking":
+        raise ValueError("Saved report is not a V5H ranking experiment")
+    if not history or history[-1].get("step") != meta.get("steps"):
+        raise ValueError("Saved report lacks the completed final step")
+    actual_sha = hashlib.sha256(checkpoint.read_bytes()).hexdigest()
+    if report.get("checkpoint_sha256") != actual_sha:
+        raise ValueError("Checkpoint hash disagrees with report; refusing repair")
+    summary = render(
+        history, report["exposure_counts"], meta,
+        report.get("baseline"), report["runtime"],
+    )
+    # render fully before file creation so failures never leave a partial file.
+    with summary_path.open("x", encoding="utf-8") as file:
+        file.write(summary)
+    print(f"Repaired missing summary only: {summary_path}")
+    print("No training, checkpoint writes, or reserved EVAL access.")
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--steps", type=int, default=1200)
@@ -346,7 +377,14 @@ def main():
     parser.add_argument("--checkpoint", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--baseline-metrics", type=Path)
+    parser.add_argument(
+        "--repair-summary-only", action="store_true",
+        help="Render a missing summary.md from saved metrics.json; never train",
+    )
     args = parser.parse_args()
+    if args.repair_summary_only:
+        repair_summary(args.checkpoint, args.output_dir)
+        return
     run(
         args.checkpoint, args.output_dir, steps=args.steps, seed=args.seed,
         measure_every=args.measure_every, margin=args.margin,
