@@ -116,6 +116,36 @@ python -m experiments.question_aware_v5h.train_paired_ranking `
 The optional baseline metrics input is **read-only** and validates the original
 TRAIN SHA, steps and seed before comparing the final DEV results.
 
+### Recovery after a completed run fails while formatting the summary
+
+The original V5G uniform baseline lacks a Brier-score field. An earlier
+V5H reporting attempt assumed that field existed and raised
+`KeyError: 'brier_score'` *after* saving the V5H checkpoint and metrics.json.
+This was a **report-formatting error**, not a training failure.
+
+**Do not repeat training** or delete any checkpoint or report directory. The
+updated renderer prints `not recorded` for baseline-only metrics absent from
+V5G. If `summary.md` is missing but `metrics.json` and the checkpoint exist,
+run the report-only repair below. It checks the saved checkpoint SHA256 and
+last step, refuses to overwrite an existing summary, and never trains or reads
+reserved EVAL.
+
+~~~powershell
+git pull --ff-only
+
+python -m unittest discover -s tests/experiments -p "test_report_repair_v5h.py" -v
+
+python -m experiments.question_aware_v5h.train_paired_ranking `
+  --repair-summary-only `
+  --checkpoint experiments/question_aware_v5h/checkpoints/v5h_rank_seed42_steps1200.pt `
+  --output-dir experiments/question_aware_v5h/reports/rank_run1
+~~~
+
+The recovery code uses the existing `metrics.json`; it does not re-run a
+checkpoint evaluation or compute a missing baseline Brier score. V5H's Brier
+score, if present, remains reported. For future fresh runs use unused
+checkpoint/output paths.
+
 Outputs:
 
 - New checkpoint: experiments/question_aware_v5h/checkpoints/v5h_rank_seed42_steps1200.pt
