@@ -43,6 +43,8 @@ grounded-qa/
 | [Span extractor V5](experiments/span_extractor_v5/README.md) | Start/end span selection and answerability |
 | [Variable span V5B](experiments/variable_span_v5b/README.md) | Training with varied answer lengths |
 | [Span boundary probe V5C](experiments/span_boundary_probe_v5c/README.md) | Read-only factorial test of span-end generalization |
+| [Question-aware V5G](experiments/question_aware_v5g/README.md) | Leader/Location question selection, loss diagnostics, uniform-sampling ablation |
+| [Paired-ranking V5H](experiments/question_aware_v5h/README.md) | Controlled field-ranking loss against the V5G uniform baseline; tests and training pending |
 
 Each experiment README contains its original motivation, controls, commands, and limitations. Its historical results are not replaced by the latest experiment's metrics.
 
