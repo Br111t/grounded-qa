@@ -29,14 +29,25 @@ def test_different_questions_have_distinct_masks_and_valid_logits():
     model = QuestionConditionedSpanQA().eval()
     leader_ids, leader_evidence = sample("Who is the leader?")
     location_ids, location_evidence = sample("Where is this workshop located?")
+    outputs = []
     for ids, evidence in [(leader_ids, leader_evidence), (location_ids, location_evidence)]:
         start, end, answer = model(ids, evidence)
+        outputs.append((start, end, answer))
         assert start.shape == end.shape == ids.shape
         assert answer.shape == (1,)
         assert torch.isfinite(start[evidence]).all().item()
         assert torch.isfinite(end[evidence]).all().item()
         assert torch.isfinite(answer).all().item()
         assert (start[~evidence] == -1e9).all().item()
+    # Fixed evidence, different questions: output must be question-sensitive
+    # at the initialized readout, even before learning useful field selection.
+    first_start, _, _ = outputs[0]
+    second_start, _, _ = outputs[1]
+    # Compare evidence-only slices: question length changes the total tensor length.
+    first_values = first_start[leader_evidence]
+    second_values = second_start[location_evidence]
+    assert first_values.shape == second_values.shape
+    assert not torch.allclose(first_values, second_values)
 
 
 def test_fusion_receives_training_gradient():
