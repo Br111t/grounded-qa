@@ -19,6 +19,7 @@ from grounded_qa.tokenization.tokenizer import BYTE_OFFSET, BOS_ID, EOS_ID, PAD_
 
 MODEL_VARIANT = "span_v5i_question_conditioned"
 QUESTION_SEPARATOR = encode("\n\nQuestion:\n")
+ANSWER_SUFFIX = encode("\n\nAnswer:\n")
 
 
 class QuestionConditionedSpanQA(SpanGroundedQA):
@@ -41,21 +42,22 @@ class QuestionConditionedSpanQA(SpanGroundedQA):
             sep_end = sep_start + len(QUESTION_SEPARATOR)
             if token_ids[row, sep_start:sep_end].tolist() != QUESTION_SEPARATOR:
                 raise ValueError("Expected compact question separator after evidence")
-            next_tokens = token_ids[row, sep_end:]
-            question_length = 0
-            for value in next_tokens.tolist():
-                if value == EOS_ID:
-                    break
-                if value == PAD_ID:
-                    raise ValueError("Question must terminate with EOS before padding")
-                if value < BYTE_OFFSET:
-                    raise ValueError("Question contains a non-byte token")
-                question_length += 1
-            if question_length == 0 or sep_end + question_length >= token_ids.shape[1]:
-                raise ValueError("Missing or unterminated question")
-            if int(token_ids[row, sep_end + question_length]) != EOS_ID:
-                raise ValueError("Question must terminate with EOS")
-            mask[row, sep_end:sep_end + question_length] = True
+            remaining = token_ids[row, sep_end:].tolist()
+            suffix_length = len(ANSWER_SUFFIX)
+            suffix_at = next(
+                (i for i in range(len(remaining) - suffix_length)
+                 if remaining[i:i + suffix_length] == ANSWER_SUFFIX),
+                None,
+            )
+            if suffix_at is None or suffix_at == 0:
+                raise ValueError("Question missing or Answer suffix absent")
+            suffix_end = suffix_at + suffix_length
+            if (suffix_end >= len(remaining) or remaining[suffix_end] != EOS_ID
+                    or any(value != PAD_ID for value in remaining[suffix_end + 1:])):
+                raise ValueError("Invalid compact prompt termination")
+            if any(value < BYTE_OFFSET for value in remaining[:suffix_at]):
+                raise ValueError("Question contains a non-byte token")
+            mask[row, sep_end:sep_end + suffix_at] = True
         return mask
 
     def forward(self, token_ids: torch.Tensor, candidate_mask: torch.Tensor):
