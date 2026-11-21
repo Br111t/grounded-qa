@@ -1,7 +1,7 @@
 """V5J interaction comparison: multiplicative, bilinear, FiLM.
 
 TRAIN/DEV only. New independent checkpoints, unchanged encoder/data/loss/
-sampling/decoder. Each variant starts from the same seeded initialization.
+sampling/decoder. Shared encoder and prediction heads start from the same seed; interaction-specific parameters differ.
 Existing V5I files and reserved EVAL remain untouched.
 """
 import argparse
@@ -237,7 +237,7 @@ def run(output_dir, checkpoint_dir, *, steps=1200, seed=42, measure_every=120):
 
     lines = [
         "# V5J interaction comparison: multiplicative vs bilinear vs FiLM", "",
-        "Matched architecture, random initialization seed, TRAIN/DEV, schedule, optimizer,",
+        "Matched encoder, seed, TRAIN/DEV, schedule, optimizer,",
         "objective, decoder and evaluation cadence. Only the question-token interaction changes; parameter counts vary.",
         "One fixed seed; results are exploratory, not a multiple-seed comparison.",
         "No reserved EVAL accessed. New checkpoints are independent of original V5I.", "",
@@ -256,8 +256,9 @@ def run(output_dir, checkpoint_dir, *, steps=1200, seed=42, measure_every=120):
         )
     lines += [
         "", "## Interpretation", "",
-        "- The linear fusion still has question-dependent encoder hidden states; only its direct",
-        "  additive pooled-question term cancels in within-encoder token rankings.",
+        "- All three methods introduce an explicit multiplicative question-token interaction.",
+        "- Compare matched dataset, decoder, schedule, and shared backbone initialization.",
+        "- Parameter counts differ; interpret gains alongside computation and complexity.",
         "- Relative scores and paired-switch metrics take precedence over raw logit magnitude.",
         "- Record Brier/answerability, losses and field confusion in per-variant metrics.json.",
         "- DEV is exploratory; do not select an EVAL winner without preregistration.",
