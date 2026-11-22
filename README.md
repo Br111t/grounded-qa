@@ -1,74 +1,62 @@
-# grounded-qa
+# Grounded-QA
 
-A personal Python/PyTorch learning project for building and evaluating **question-aware models that answer from supplied evidence**. The work begins with a small Transformer trained from scratch and progresses through source-copying and span-extraction experiments. No pretrained model is required for the recorded experiments.
+**Small language models from scratch · Evidence-grounded question answering · Controlled AI evaluation**
 
-The research goal is to understand when a model uses the supplied information, when it memorizes training patterns, and when it should respond with **`Insufficient information.`** Results come from narrow synthetic datasets, not a general-purpose QA benchmark.
+Grounded-QA is an independent Python/PyTorch research project exploring whether compact models can learn to **select answers from supplied evidence, respond to the question actually asked, and abstain when evidence is missing**. Its broader research direction concerns abstraction, efficient representations, generalization, and architectural changes that might improve capability without relying exclusively on scale.
 
-## Start here
+> **Research question:** Can more capable intelligence emerge through better abstractions, efficient representations, and iterative reasoning rather than simply scaling computation?
 
-- **[Current experiment](CURRENT_EXPERIMENT.md)** — what is being investigated now, entry points, and most recent verified results.
-- **[Architecture](docs/architecture.md)** — the different model families and shared Python modules.
-- **[Dataset design](docs/dataset_design.md)** — source, training, development, and holdout boundaries.
-- **[Training and checkpoints](docs/training_and_checkpoints.md)** — environment, regression tests, loading models, and verified backups.
-- **[Original learning journal](docs/history/learning_journal.md)** — the complete, unchanged original README, preserved for educational history.
+Experiments use small synthetic datasets and purpose-built Transformers, copying models, and span extractors. **Results are exploratory, not general-purpose QA benchmark claims.** No pretrained model is required for the recorded experiments.
 
-## Repository map
+## Research progression
 
-```text
-grounded-qa/
-├── CURRENT_EXPERIMENT.md      # Active research pointer
-├── docs/                      # Architecture, data, checkpoints, history
-├── experiments/               # Experiment notes, scripts, datasets, checkpoints*
-├── src/grounded_qa/           # Shared models, training, inference, prompting, tokenization
-├── scripts/                   # Shared data utilities and diagnostics
-├── data/                      # Shared source, training, holdout data
-├── tests/                     # Regression tests and experiment tests
-├── notebooks/                 # Notebook-based exploration
-└── requirements.txt
-```
+| Stage | Question explored | Research record |
+| --- | --- | --- |
+| Foundations–V3 | Can a compact model learn to use evidence rather than memorized patterns? | [History](docs/history/learning_journal.md) |
+| V4–V4B | Does source copying improve faithfulness to evidence? | [V4B](experiments/evidence_copy_v4b/README.md) |
+| V5–V5C | Where do extractive answer boundaries fail? | [V5C](experiments/span_boundary_probe_v5c/README.md) |
+| V5D | Can balanced boundary training and diagnostics isolate span errors? | [V5D](experiments/balanced_boundary_v5d/README.md) |
+| V5E | How much does the field-aware decoder change extraction? | [V5E](experiments/field_boundary_decoder_v5e/README.md) |
+| V5F | Does a model change its answer when only the question changes? | [V5F](experiments/counterfactual_questions_v5f/README.md) |
+| V5G | Can one question-aware model select Leader versus Location and abstain? | [V5G](experiments/question_aware_v5g/README.md) |
+| V5H | Does paired field-ranking loss improve correct switching? | [V5H](experiments/question_aware_v5h/README.md) |
+| V5I–V5J | Do question-conditioned interactions improve field selection? | [Six-variant comparison](experiments/question_aware_v5i/reports/six_variant_comparison_2026-11-21.md) |
+| V5K–V5M | Can frozen-model answerability scoring improve abstention without retraining the encoder? | [Current research summary](CURRENT_EXPERIMENT.md) |
 
-`* .pt` checkpoint weights are local, excluded from Git, and backed up separately.
+## What the results show
 
-## Experiment index
+In a controlled, **single-seed exploratory DEV comparison**, the V5J bilinear interaction reached **36/48 exact** and **12/12 correct complete-source question switches**, compared with **24/48** and **0/12** for the listed V5I activation variants. It still made **12/12 unsupported-answer errors** on missing-target DEV questions. [Study and limitations](experiments/question_aware_v5i/reports/six_variant_comparison_2026-11-21.md)
 
-| Experiment | Focus |
-|---|---|
-| [Foundations](experiments/foundations/) | Initial datasets, tokenizer, and model learning |
-| [Compact prompt V1](experiments/compact_prompt_v1/README.md) | Prompt-length and question-sensitivity comparison |
-| [Evidence sensitivity V1](experiments/evidence_sensitivity_v1/README.md) | Fixed-question, changing-evidence baseline |
-| [Evidence sensitivity V2 (and V2B)](experiments/evidence_sensitivity_v2/README.md) | Separate development partitions and class-aware sampling |
-| [Evidence sensitivity V3](experiments/evidence_sensitivity_v3/README.md) | Known, recombined, unseen, and missing-evidence cases |
-| [Evidence copying V4](experiments/evidence_copy_v4b/evidence_copy_v4/README.md) | Pointer-generator source copying |
-| [Evidence copying V4B](experiments/evidence_copy_v4b/README.md) | Alignment and copy-gate supervision |
-| [Span extractor V5](experiments/span_extractor_v5/README.md) | Start/end span selection and answerability |
-| [Variable span V5B](experiments/variable_span_v5b/README.md) | Training with varied answer lengths |
-| [Span boundary probe V5C](experiments/span_boundary_probe_v5c/README.md) | Read-only factorial test of span-end generalization |
-| [Question-aware V5G](experiments/question_aware_v5g/README.md) | Leader/Location question selection, loss diagnostics, uniform-sampling ablation |
-| [Paired-ranking V5H](experiments/question_aware_v5h/README.md) | Controlled field-ranking loss against the V5G uniform baseline; tests and training pending |
+Later TRAIN-fitted answerability experiments using a frozen V5J bilinear model improved missing-target abstention on the *same repeatedly inspected DEV split*. V5K recorded **45/48 exact** and V5M **44/48**, with **0 unsupported-answer errors** in those recorded runs. These findings **do not establish generalization**; the evaluation distribution and sealed EVAL remain important boundaries. [V5K summary](experiments/question_aware_v5i/reports/v5k_joint_a_prime_run1/summary.md) · [V5M summary](experiments/question_aware_v5i/reports/v5m_learned_null_run1/summary.md)
 
-Each experiment README contains its original motivation, controls, commands, and limitations. Its historical results are not replaced by the latest experiment's metrics.
+## Explore the project
 
-## Quick start (Windows PowerShell)
+- [Current experiments, results, and caveats](CURRENT_EXPERIMENT.md)
+- [Architecture](docs/architecture.md)
+- [Dataset design and split boundaries](docs/dataset_design.md)
+- [Training and checkpoint guidance](docs/training_and_checkpoints.md)
+- [Original learning journal](docs/history/learning_journal.md)
 
-From the repository root, with Python and a virtual environment available:
+## Run tests
+
+From the repository root in Windows PowerShell:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
-$env:PYTHONPATH = "$PWD\src"
-python -m unittest discover -s tests -t . -p "test_*.py" -v
+python -m pytest tests/ -v
 ```
 
-On October 31, 2026, **93 regression tests passed** and both saved V5/V5B checkpoints loaded for the V5C read-only evaluation. For the complete V5C command and results, follow [the active experiment](CURRENT_EXPERIMENT.md).
+**Local verification reported November 22, 2026:** 174 tests passed, 110 subtests passed, 1 PyTorch nested-tensor warning, in 10.94 seconds on `experiment/question-conditioned-v5i`. This is a reported local result, not an independently executed CI run.
 
-**Do not** run a training command against an existing checkpoint path or use final holdout data for training. The project keeps experimental model weights and observations distinct from application code.
+Model checkpoints are kept out of Git. Generated reports and selected datasets are preserved for reproducibility. Do not overwrite historical reports or tune using the reserved EVAL split.
 
-## Answering contract
+## Grounding contract
 
-- **Answerable:** answer using the provided information.
-- **Partially answerable:** answer supported parts; label missing parts `Insufficient information.`
+- **Answerable:** return the answer supported by evidence.
+- **Partially answerable:** answer supported portions; mark unsupported portions `Insufficient information.`
 - **Unanswerable:** return `Insufficient information.`
-- Do not infer unsupported facts from outside knowledge.
+- **No outside inference** as a substitute for supplied evidence.
 
-The original learning sequence, including examples and step-by-step commands from the first implementation, remains available in [the archived learning journal](docs/history/learning_journal.md). Its commands reflect the original layout and are **historical**, not current execution instructions.
+Future directions—including recurrent memory, iterative refinement, and more compute-efficient abstractions—are **research hypotheses, not demonstrated capabilities**.
