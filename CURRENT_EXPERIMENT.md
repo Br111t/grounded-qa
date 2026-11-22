@@ -1,47 +1,47 @@
-# Current experiment: V5I — Question-conditioned evidence readout
+# Grounded-QA — Current research status
 
-**Status:** Implementation committed to its own branch; local tests and training
-not yet executed or validated.
-**Working branch:** `experiment/question-conditioned-v5i`
-**Parent:** `experiment/question-aware-ranking-v5h`; `develop` is unchanged.
+**Updated:** November 22, 2026  
+**Branch:** `experiment/question-conditioned-v5i`  
+**Stage:** V5I–V5M exploratory experiments recorded; next controlled study not yet selected
 
-## Motivation
+## Research objective
 
-V5H's recorded DEV results were 24/48 exact, 0/24 both-correct pairs,
-0/12 correct switches, and 12 missing-target unsupported answers.
-The ranking loss altered training but not the encoder or readout.
-V5I tests a **model architecture change**, rather than further sampling
-or dataset changes.
+Investigate whether compact, question-aware models can reliably select evidence-supported answers, switch between requested fields, and abstain when the requested evidence is absent. Longer-term ideas include efficient abstractions, structured memory, and iterative refinement; these remain hypotheses.
 
-## Single change
+## Recorded progression and results
 
-Pool contextual question-byte states, then apply a small learned
-question/evidence fusion before start, end and answerability readouts.
-Keep encoder, tokenizer, training data, V5H ranking objective, optimizer,
-schedule, decoder and evaluation definitions fixed.
+| Experiment | Intervention or diagnostic | Recorded exploratory DEV result |
+| --- | --- | --- |
+| V5H | Paired ranking loss | 24/48 exact; 0/12 correct switches; 12 unsupported-answer errors |
+| V5I | Question-conditioned fusion; tanh, GELU, linear controls | Each 24/48 exact; 0/12 correct switches; 12 unsupported-answer errors |
+| V5J bilinear | Direct question-dependent bilinear span scoring | 36/48 exact; 12/12 switches; **12 unsupported-answer errors** |
+| V5K | TRAIN-fitted joint-score answerability adjustment on frozen V5J | 45/48 exact; 0 unsupported-answer errors; 3 false abstentions |
+| V5L | Retrospective paired-question score diagnostic | Descriptive only; **not** a single-question inference approach |
+| V5M | 129-parameter learned null head on frozen V5J; single-question inference | 44/48 exact; 0 unsupported-answer errors; 4 false abstentions |
 
-- [Complete V5I plan and commands](experiments/question_aware_v5i/README.md)
-- [V5I model](src/grounded_qa/models/span_model_v5i.py)
-- [V5I training](experiments/question_aware_v5i/train_question_conditioned.py)
-- [V5I DEV-only evaluator](experiments/question_aware_v5i/evaluate_dev.py)
-- [V5I unit tests](tests/test_v5i_question_conditioning.py)
-- [Preserved V5H baseline](experiments/question_aware_v5h/README.md)
+**Interpret counts carefully:** `unsupported_answer_errors` measures incorrect answers to missing-target questions. **Lower is better.** The 12/12 value for V5J is a complete failure to abstain on those examples, not a success.
 
-## Safeguards
+These results come from small synthetic Leader/Location datasets, one main training seed, and a DEV split used repeatedly for analysis. They are **not sealed-EVAL results or evidence of broad generalization**. V5K and V5M change answerability scoring on a frozen model; they do not demonstrate that a new encoder learned better general reasoning.
 
-Use **fresh** checkpoint/report paths; never overwrite V5G/V5H results.
-Only TRAIN and DEV may be used for this development experiment.
-**Do not** inspect or generate reserved EVAL, tune to it, or reuse
-old freeze manifests. Do not claim improvement until the new model
-has actually been run and evaluated.
+## Primary records
 
-## Research criteria
+- [V5H paired-ranking results](experiments/question_aware_v5h/reports/rank_new_laptop/summary.md)
+- [V5I original question-conditioned run](experiments/question_aware_v5i/reports/v5i_seed42/summary.md)
+- [V5I/V5J six-variant controlled comparison](experiments/question_aware_v5i/reports/six_variant_comparison_2026-11-21.md)
+- [V5K frozen bilinear + joint-score answerability](experiments/question_aware_v5i/reports/v5k_joint_a_prime_run1/summary.md)
+- [V5L paired-question diagnostic](experiments/question_aware_v5i/reports/v5l_paired_questions_run1/summary.md)
+- [V5M learned single-question null score](experiments/question_aware_v5i/reports/v5m_learned_null_run1/summary.md)
 
-Primary: DEV paired both-correct and correct field switching.
-Guardrails: missing-target unsupported answers and false abstentions.
-Secondary: start/end/answerability losses, per-field confusion,
-parameters, train time, inference cost. Quantify whether adding
-a small learned abstraction is worth its compute overhead.
+Historical V5C boundary diagnostics remain documented in [V5C](experiments/span_boundary_probe_v5c/README.md); they are not the latest result.
 
-Later investigations—recurrent Hopfield-like refinement, offline
-active/sleep consolidation and cooperative agents—remain separate hypotheses.
+## Next research decision
+
+Prefer **one controlled change at a time**. A separately registered dataset with matched TRAIN/DEV name-initial distributions would help examine whether the observed field-selection and answerability gains survive distribution changes. Compare bilinear and a predeclared control, preserve existing splits and artifacts, and reserve final EVAL for a pre-registered evaluation.
+
+Potential later architecture experiments—recurrent/Hopfield-like memory, offline consolidation, or cooperative agents—should be implemented on new branches with explicit compute-cost and generalization measurements, not described as achieved outcomes.
+
+## Validation and safeguards
+
+The user reported running `python -m pytest tests/ -v` on this branch on November 22, 2026: **174 tests passed, 110 subtests passed, one non-failing nested-tensor warning**. This does not replace empirical model evaluation.
+
+Keep model checkpoints out of Git, preserve recorded reports and frozen comparisons, and do not use reserved EVAL data for model selection.
