@@ -39,6 +39,9 @@ htmlcov/
 pytorch_model*.bin
 checkpoint-*/
 
+# Local training artifacts
+**/checkpoints/
+
 # Legacy root-level checkpoint directory
 /models/
 

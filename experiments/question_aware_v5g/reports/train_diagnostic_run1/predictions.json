@@ -1,0 +1,2114 @@
+[
+  {
+    "answer": "Leader: Fbna.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_13_canonical_leader",
+    "expected_value": "Fbna",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Fbna.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_13",
+    "target_field": "leader",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.007790172006934881,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbna",
+        "start": 66,
+        "end": 69,
+        "joint_score": 7.667810440063477
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "joint_score": -9.216191291809082
+      }
+    ],
+    "field_scores": {
+      "leader": 7.667810440063477,
+      "topic": -9.216191291809082
+    },
+    "correct": false,
+    "gold_field_rank": 1,
+    "gold_field_margin": 16.88400173187256,
+    "false_abstention": true,
+    "unsupported_answer": false,
+    "brier_component": 0.9844803427660279
+  },
+  {
+    "answer": "Insufficient information.",
+    "answerability": "unanswerable",
+    "example_id": "v5g_train_00_canonical_leader",
+    "expected_value": null,
+    "information": "Fictional Workshop W0001. Location: Room Maple 1. Topic: Python.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_00",
+    "target_field": "leader",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.006163302809000015,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Maple 1",
+        "start": 50,
+        "end": 61,
+        "joint_score": 8.329647064208984
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 71,
+        "end": 76,
+        "joint_score": -8.557212829589844
+      }
+    ],
+    "field_scores": {
+      "location": 8.329647064208984,
+      "topic": -8.557212829589844
+    },
+    "correct": true,
+    "gold_field_rank": null,
+    "gold_field_margin": null,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 3.798630151542748e-05
+  },
+  {
+    "answer": "Insufficient information.",
+    "answerability": "unanswerable",
+    "example_id": "v5g_train_21_canonical_location",
+    "expected_value": null,
+    "information": "Fictional Workshop W0001. Topic: Python. Leader: Fbva.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_21",
+    "target_field": "location",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.005056108348071575,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbva",
+        "start": 63,
+        "end": 66,
+        "joint_score": 9.819332122802734
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "joint_score": -8.351669311523438
+      }
+    ],
+    "field_scores": {
+      "leader": 9.819332122802734,
+      "topic": -8.351669311523438
+    },
+    "correct": true,
+    "gold_field_rank": null,
+    "gold_field_margin": null,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 2.5564231627439073e-05
+  },
+  {
+    "answer": "Location: Room Cedar 20.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_19_canonical_location",
+    "expected_value": "Room Cedar 20",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Location: Room Cedar 20. Leader: Fbta.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_19",
+    "target_field": "location",
+    "predicted_field": "leader",
+    "predicted_value": "Fbta",
+    "answerability_probability": 0.9810458421707153,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbta",
+        "start": 91,
+        "end": 94,
+        "joint_score": 7.599576473236084
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar 20",
+        "start": 68,
+        "end": 80,
+        "joint_score": 6.436666011810303
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "joint_score": -9.245240211486816
+      }
+    ],
+    "field_scores": {
+      "leader": 7.599576473236084,
+      "location": 6.436666011810303,
+      "topic": -9.245240211486816
+    },
+    "correct": false,
+    "gold_field_rank": 2,
+    "gold_field_margin": -1.1629104614257812,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 0.0003592600990174333
+  },
+  {
+    "answer": "Insufficient information.",
+    "answerability": "unanswerable",
+    "example_id": "v5g_train_20_canonical_leader",
+    "expected_value": null,
+    "information": "Fictional Workshop W0001. Location: Room Birch 21. Topic: Gardening.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_20",
+    "target_field": "leader",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.005829803645610809,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Birch 21",
+        "start": 50,
+        "end": 62,
+        "joint_score": 8.179826736450195
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 72,
+        "end": 80,
+        "joint_score": -7.927196025848389
+      }
+    ],
+    "field_scores": {
+      "location": 8.179826736450195,
+      "topic": -7.927196025848389
+    },
+    "correct": true,
+    "gold_field_rank": null,
+    "gold_field_margin": null,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 3.398661054637708e-05
+  },
+  {
+    "answer": "Leader: Fbxa.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_23_canonical_leader",
+    "expected_value": "Fbxa",
+    "information": "Fictional Workshop W0001. Topic: Gardening. Location: Room Ash 24. Leader: Fbxa.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_23",
+    "target_field": "leader",
+    "predicted_field": "location",
+    "predicted_value": "Room Ash 24",
+    "answerability_probability": 0.9920502305030823,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Ash 24",
+        "start": 68,
+        "end": 78,
+        "joint_score": 12.287277221679688
+      },
+      {
+        "field": "Leader",
+        "value": "Fbxa",
+        "start": 89,
+        "end": 92,
+        "joint_score": 9.239173889160156
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 47,
+        "end": 55,
+        "joint_score": -10.284375190734863
+      }
+    ],
+    "field_scores": {
+      "location": 12.287277221679688,
+      "leader": 9.239173889160156,
+      "topic": -10.284375190734863
+    },
+    "correct": false,
+    "gold_field_rank": 2,
+    "gold_field_margin": -3.0481033325195312,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 6.319883505412349e-05
+  },
+  {
+    "answer": "Location: Room Pine 16.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_15_canonical_location",
+    "expected_value": "Room Pine 16",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Pine 16. Leader: Fbpa.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_15",
+    "target_field": "location",
+    "predicted_field": "location",
+    "predicted_value": "Room Pine 16",
+    "answerability_probability": 0.9800633192062378,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine 16",
+        "start": 65,
+        "end": 76,
+        "joint_score": 12.660775184631348
+      },
+      {
+        "field": "Leader",
+        "value": "Fbpa",
+        "start": 87,
+        "end": 90,
+        "joint_score": 6.687186241149902
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "joint_score": -8.263602256774902
+      }
+    ],
+    "field_scores": {
+      "location": 12.660775184631348,
+      "leader": 6.687186241149902,
+      "topic": -8.263602256774902
+    },
+    "correct": true,
+    "gold_field_rank": 1,
+    "gold_field_margin": 5.973588943481445,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 0.00039747124107236687
+  },
+  {
+    "answer": "Leader: Fbha.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_07_canonical_leader",
+    "expected_value": "Fbha",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Location: Room Cedar 8. Leader: Fbha.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_07",
+    "target_field": "leader",
+    "predicted_field": "location",
+    "predicted_value": "Room Cedar 8",
+    "answerability_probability": 0.9868406057357788,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Cedar 8",
+        "start": 68,
+        "end": 79,
+        "joint_score": 11.988520622253418
+      },
+      {
+        "field": "Leader",
+        "value": "Fbha",
+        "start": 90,
+        "end": 93,
+        "joint_score": 8.441701889038086
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "joint_score": -9.243003845214844
+      }
+    ],
+    "field_scores": {
+      "location": 11.988520622253418,
+      "leader": 8.441701889038086,
+      "topic": -9.243003845214844
+    },
+    "correct": false,
+    "gold_field_rank": 2,
+    "gold_field_margin": -3.546818733215332,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 0.0001731696574012176
+  },
+  {
+    "answer": "Leader: Fbfa.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_05_canonical_leader",
+    "expected_value": "Fbfa",
+    "information": "Fictional Workshop W0001. Topic: Gardening. Leader: Fbfa.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_05",
+    "target_field": "leader",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.007850405760109425,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbfa",
+        "start": 66,
+        "end": 69,
+        "joint_score": 7.977383613586426
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 47,
+        "end": 55,
+        "joint_score": -9.13921070098877
+      }
+    ],
+    "field_scores": {
+      "leader": 7.977383613586426,
+      "topic": -9.13921070098877
+    },
+    "correct": false,
+    "gold_field_rank": 1,
+    "gold_field_margin": 17.116594314575195,
+    "false_abstention": true,
+    "unsupported_answer": false,
+    "brier_component": 0.9843608173503795
+  },
+  {
+    "answer": "Insufficient information.",
+    "answerability": "unanswerable",
+    "example_id": "v5g_train_13_canonical_location",
+    "expected_value": null,
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Fbna.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_13",
+    "target_field": "location",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.004933144897222519,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbna",
+        "start": 66,
+        "end": 69,
+        "joint_score": 8.2251615524292
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "joint_score": -9.016705513000488
+      }
+    ],
+    "field_scores": {
+      "leader": 8.2251615524292,
+      "topic": -9.016705513000488
+    },
+    "correct": true,
+    "gold_field_rank": null,
+    "gold_field_margin": null,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 2.4335918576992577e-05
+  },
+  {
+    "answer": "Insufficient information.",
+    "answerability": "unanswerable",
+    "example_id": "v5g_train_12_canonical_leader",
+    "expected_value": null,
+    "information": "Fictional Workshop W0001. Location: Room Maple 13. Topic: Python.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_12",
+    "target_field": "leader",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.005588957574218512,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Maple 13",
+        "start": 50,
+        "end": 62,
+        "joint_score": 12.598508834838867
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 72,
+        "end": 77,
+        "joint_score": -9.206984519958496
+      }
+    ],
+    "field_scores": {
+      "location": 12.598508834838867,
+      "topic": -9.206984519958496
+    },
+    "correct": true,
+    "gold_field_rank": null,
+    "gold_field_margin": null,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 3.123644676641447e-05
+  },
+  {
+    "answer": "Leader: Fbja.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_09_canonical_leader",
+    "expected_value": "Fbja",
+    "information": "Fictional Workshop W0001. Topic: Python. Leader: Fbja.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_09",
+    "target_field": "leader",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.006459240801632404,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbja",
+        "start": 63,
+        "end": 66,
+        "joint_score": 10.098775863647461
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "joint_score": -8.680769920349121
+      }
+    ],
+    "field_scores": {
+      "leader": 10.098775863647461,
+      "topic": -8.680769920349121
+    },
+    "correct": false,
+    "gold_field_rank": 1,
+    "gold_field_margin": 18.779545783996582,
+    "false_abstention": true,
+    "unsupported_answer": false,
+    "brier_component": 0.9871232401884686
+  },
+  {
+    "answer": "Leader: Fbwt.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_22_canonical_leader",
+    "expected_value": "Fbwt",
+    "information": "Fictional Workshop W0001. Leader: Fbwt. Location: Room Elm 23. Topic: Astronomy.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_22",
+    "target_field": "leader",
+    "predicted_field": "location",
+    "predicted_value": "Room Elm 23",
+    "answerability_probability": 0.9929726123809814,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Elm 23",
+        "start": 64,
+        "end": 74,
+        "joint_score": 12.686941146850586
+      },
+      {
+        "field": "Leader",
+        "value": "Fbwt",
+        "start": 48,
+        "end": 51,
+        "joint_score": 9.51128101348877
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 84,
+        "end": 92,
+        "joint_score": -9.304031372070312
+      }
+    ],
+    "field_scores": {
+      "location": 12.686941146850586,
+      "leader": 9.51128101348877,
+      "topic": -9.304031372070312
+    },
+    "correct": false,
+    "gold_field_rank": 2,
+    "gold_field_margin": -3.1756601333618164,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 4.938417674793527e-05
+  },
+  {
+    "answer": "Leader: Fbla.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_11_canonical_leader",
+    "expected_value": "Fbla",
+    "information": "Fictional Workshop W0001. Topic: Gardening. Location: Room Ash 12. Leader: Fbla.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_11",
+    "target_field": "leader",
+    "predicted_field": "leader",
+    "predicted_value": "Fbla",
+    "answerability_probability": 0.9920520782470703,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbla",
+        "start": 89,
+        "end": 92,
+        "joint_score": 9.221930503845215
+      },
+      {
+        "field": "Location",
+        "value": "Room Ash 12",
+        "start": 68,
+        "end": 78,
+        "joint_score": 8.148834228515625
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 47,
+        "end": 55,
+        "joint_score": -10.299779891967773
+      }
+    ],
+    "field_scores": {
+      "leader": 9.221930503845215,
+      "location": 8.148834228515625,
+      "topic": -10.299779891967773
+    },
+    "correct": true,
+    "gold_field_rank": 1,
+    "gold_field_margin": 1.0730962753295898,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 6.316946019069292e-05
+  },
+  {
+    "answer": "Location: Room Ash 12.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_11_canonical_location",
+    "expected_value": "Room Ash 12",
+    "information": "Fictional Workshop W0001. Topic: Gardening. Location: Room Ash 12. Leader: Fbla.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_11",
+    "target_field": "location",
+    "predicted_field": "location",
+    "predicted_value": "Room Ash 12",
+    "answerability_probability": 0.9913123250007629,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Ash 12",
+        "start": 68,
+        "end": 78,
+        "joint_score": 8.299755096435547
+      },
+      {
+        "field": "Leader",
+        "value": "Fbla",
+        "start": 89,
+        "end": 92,
+        "joint_score": 7.480681419372559
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 47,
+        "end": 55,
+        "joint_score": -10.239511489868164
+      }
+    ],
+    "field_scores": {
+      "location": 8.299755096435547,
+      "leader": 7.480681419372559,
+      "topic": -10.239511489868164
+    },
+    "correct": true,
+    "gold_field_rank": 1,
+    "gold_field_margin": 0.8190736770629883,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 7.547569689236866e-05
+  },
+  {
+    "answer": "Leader: Fbot.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_14_canonical_leader",
+    "expected_value": "Fbot",
+    "information": "Fictional Workshop W0001. Leader: Fbot. Location: Room Birch 15. Topic: Gardening.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_14",
+    "target_field": "leader",
+    "predicted_field": "location",
+    "predicted_value": "Room Birch 15",
+    "answerability_probability": 0.9925767779350281,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Birch 15",
+        "start": 64,
+        "end": 76,
+        "joint_score": 12.972028732299805
+      },
+      {
+        "field": "Leader",
+        "value": "Fbot",
+        "start": 48,
+        "end": 51,
+        "joint_score": 9.122138977050781
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 86,
+        "end": 94,
+        "joint_score": -9.490093231201172
+      }
+    ],
+    "field_scores": {
+      "location": 12.972028732299805,
+      "leader": 9.122138977050781,
+      "topic": -9.490093231201172
+    },
+    "correct": false,
+    "gold_field_rank": 2,
+    "gold_field_margin": -3.8498897552490234,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 5.510422582588603e-05
+  },
+  {
+    "answer": "Leader: Fbva.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_21_canonical_leader",
+    "expected_value": "Fbva",
+    "information": "Fictional Workshop W0001. Topic: Python. Leader: Fbva.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_21",
+    "target_field": "leader",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.0064608692191541195,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbva",
+        "start": 63,
+        "end": 66,
+        "joint_score": 10.095396041870117
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "joint_score": -8.69700813293457
+      }
+    ],
+    "field_scores": {
+      "leader": 10.095396041870117,
+      "topic": -8.69700813293457
+    },
+    "correct": false,
+    "gold_field_rank": 1,
+    "gold_field_margin": 18.792404174804688,
+    "false_abstention": true,
+    "unsupported_answer": false,
+    "brier_component": 0.9871200043927588
+  },
+  {
+    "answer": "Leader: Fbgt.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_06_canonical_leader",
+    "expected_value": "Fbgt",
+    "information": "Fictional Workshop W0001. Leader: Fbgt. Location: Room Maple 7. Topic: Python.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_06",
+    "target_field": "leader",
+    "predicted_field": "location",
+    "predicted_value": "Room Maple 7",
+    "answerability_probability": 0.9924138188362122,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Maple 7",
+        "start": 64,
+        "end": 75,
+        "joint_score": 13.120699882507324
+      },
+      {
+        "field": "Leader",
+        "value": "Fbgt",
+        "start": 48,
+        "end": 51,
+        "joint_score": 8.97092056274414
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 85,
+        "end": 90,
+        "joint_score": -8.551398277282715
+      }
+    ],
+    "field_scores": {
+      "location": 13.120699882507324,
+      "leader": 8.97092056274414,
+      "topic": -8.551398277282715
+    },
+    "correct": false,
+    "gold_field_rank": 2,
+    "gold_field_margin": -4.149779319763184,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 5.7550144649809454e-05
+  },
+  {
+    "answer": "Leader: Fbct.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_02_canonical_leader",
+    "expected_value": "Fbct",
+    "information": "Fictional Workshop W0001. Leader: Fbct. Location: Room Birch 3. Topic: Gardening.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_02",
+    "target_field": "leader",
+    "predicted_field": "location",
+    "predicted_value": "Room Birch 3",
+    "answerability_probability": 0.9929004907608032,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Birch 3",
+        "start": 64,
+        "end": 75,
+        "joint_score": 12.750802993774414
+      },
+      {
+        "field": "Leader",
+        "value": "Fbct",
+        "start": 48,
+        "end": 51,
+        "joint_score": 9.300002098083496
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 85,
+        "end": 93,
+        "joint_score": -9.428942680358887
+      }
+    ],
+    "field_scores": {
+      "location": 12.750802993774414,
+      "leader": 9.300002098083496,
+      "topic": -9.428942680358887
+    },
+    "correct": false,
+    "gold_field_rank": 2,
+    "gold_field_margin": -3.450800895690918,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 5.0403031437440404e-05
+  },
+  {
+    "answer": "Location: Room Elm 17.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_16_canonical_location",
+    "expected_value": "Room Elm 17",
+    "information": "Fictional Workshop W0001. Location: Room Elm 17. Topic: Astronomy.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_16",
+    "target_field": "location",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.013274280354380608,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Elm 17",
+        "start": 50,
+        "end": 60,
+        "joint_score": 12.957903861999512
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 70,
+        "end": 78,
+        "joint_score": -9.39338493347168
+      }
+    ],
+    "field_scores": {
+      "location": 12.957903861999512,
+      "topic": -9.39338493347168
+    },
+    "correct": false,
+    "gold_field_rank": 1,
+    "gold_field_margin": 22.35128879547119,
+    "false_abstention": true,
+    "unsupported_answer": false,
+    "brier_component": 0.9736276458101655
+  },
+  {
+    "answer": "Location: Room Ash 24.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_23_canonical_location",
+    "expected_value": "Room Ash 24",
+    "information": "Fictional Workshop W0001. Topic: Gardening. Location: Room Ash 24. Leader: Fbxa.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_23",
+    "target_field": "location",
+    "predicted_field": "location",
+    "predicted_value": "Room Ash 24",
+    "answerability_probability": 0.990676999092102,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Ash 24",
+        "start": 68,
+        "end": 78,
+        "joint_score": 12.324835777282715
+      },
+      {
+        "field": "Leader",
+        "value": "Fbxa",
+        "start": 89,
+        "end": 92,
+        "joint_score": 7.495577812194824
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 47,
+        "end": 55,
+        "joint_score": -10.220539093017578
+      }
+    ],
+    "field_scores": {
+      "location": 12.324835777282715,
+      "leader": 7.495577812194824,
+      "topic": -10.220539093017578
+    },
+    "correct": true,
+    "gold_field_rank": 1,
+    "gold_field_margin": 4.829257965087891,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 8.691834592866599e-05
+  },
+  {
+    "answer": "Leader: Fbst.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_18_canonical_leader",
+    "expected_value": "Fbst",
+    "information": "Fictional Workshop W0001. Leader: Fbst. Location: Room Maple 19. Topic: Python.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_18",
+    "target_field": "leader",
+    "predicted_field": "location",
+    "predicted_value": "Room Maple 19",
+    "answerability_probability": 0.9921075701713562,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Maple 19",
+        "start": 64,
+        "end": 76,
+        "joint_score": 13.066672325134277
+      },
+      {
+        "field": "Leader",
+        "value": "Fbst",
+        "start": 48,
+        "end": 51,
+        "joint_score": 9.443403244018555
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 86,
+        "end": 91,
+        "joint_score": -9.233100891113281
+      }
+    ],
+    "field_scores": {
+      "location": 13.066672325134277,
+      "leader": 9.443403244018555,
+      "topic": -9.233100891113281
+    },
+    "correct": false,
+    "gold_field_rank": 2,
+    "gold_field_margin": -3.6232690811157227,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 6.229044860006638e-05
+  },
+  {
+    "answer": "Leader: Fbra.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_17_canonical_leader",
+    "expected_value": "Fbra",
+    "information": "Fictional Workshop W0001. Topic: Gardening. Leader: Fbra.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_17",
+    "target_field": "leader",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.007939552888274193,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbra",
+        "start": 66,
+        "end": 69,
+        "joint_score": 7.6870503425598145
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 47,
+        "end": 55,
+        "joint_score": -9.17878532409668
+      }
+    ],
+    "field_scores": {
+      "leader": 7.6870503425598145,
+      "topic": -9.17878532409668
+    },
+    "correct": false,
+    "gold_field_rank": 1,
+    "gold_field_margin": 16.865835666656494,
+    "false_abstention": true,
+    "unsupported_answer": false,
+    "brier_component": 0.9841839307235173
+  },
+  {
+    "answer": "Insufficient information.",
+    "answerability": "unanswerable",
+    "example_id": "v5g_train_05_canonical_location",
+    "expected_value": null,
+    "information": "Fictional Workshop W0001. Topic: Gardening. Leader: Fbfa.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_05",
+    "target_field": "location",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.004929742310196161,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbfa",
+        "start": 66,
+        "end": 69,
+        "joint_score": 8.807244300842285
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 47,
+        "end": 55,
+        "joint_score": -8.008371353149414
+      }
+    ],
+    "field_scores": {
+      "leader": 8.807244300842285,
+      "topic": -8.008371353149414
+    },
+    "correct": true,
+    "gold_field_rank": null,
+    "gold_field_margin": null,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 2.4302359244938185e-05
+  },
+  {
+    "answer": "Insufficient information.",
+    "answerability": "unanswerable",
+    "example_id": "v5g_train_01_canonical_location",
+    "expected_value": null,
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Fbba.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_01",
+    "target_field": "location",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.004933516960591078,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbba",
+        "start": 66,
+        "end": 69,
+        "joint_score": 8.213656425476074
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "joint_score": -9.018590927124023
+      }
+    ],
+    "field_scores": {
+      "leader": 8.213656425476074,
+      "topic": -9.018590927124023
+    },
+    "correct": true,
+    "gold_field_rank": null,
+    "gold_field_margin": null,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 2.4339589600439826e-05
+  },
+  {
+    "answer": "Insufficient information.",
+    "answerability": "unanswerable",
+    "example_id": "v5g_train_08_canonical_leader",
+    "expected_value": null,
+    "information": "Fictional Workshop W0001. Location: Room Birch 9. Topic: Gardening.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_08",
+    "target_field": "leader",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.006339044775813818,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Birch 9",
+        "start": 50,
+        "end": 61,
+        "joint_score": 12.805431365966797
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 71,
+        "end": 79,
+        "joint_score": -8.266430854797363
+      }
+    ],
+    "field_scores": {
+      "location": 12.805431365966797,
+      "topic": -8.266430854797363
+    },
+    "correct": true,
+    "gold_field_rank": null,
+    "gold_field_margin": null,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 4.018348866977246e-05
+  },
+  {
+    "answer": "Location: Room Birch 21.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_20_canonical_location",
+    "expected_value": "Room Birch 21",
+    "information": "Fictional Workshop W0001. Location: Room Birch 21. Topic: Gardening.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_20",
+    "target_field": "location",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.011218882165849209,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Birch 21",
+        "start": 50,
+        "end": 62,
+        "joint_score": 8.413313865661621
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 72,
+        "end": 80,
+        "joint_score": -8.574806213378906
+      }
+    ],
+    "field_scores": {
+      "location": 8.413313865661621,
+      "topic": -8.574806213378906
+    },
+    "correct": false,
+    "gold_field_rank": 1,
+    "gold_field_margin": 16.988120079040527,
+    "false_abstention": true,
+    "unsupported_answer": false,
+    "brier_component": 0.9776880989853528
+  },
+  {
+    "answer": "Leader: Fbkt.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_10_canonical_leader",
+    "expected_value": "Fbkt",
+    "information": "Fictional Workshop W0001. Leader: Fbkt. Location: Room Elm 11. Topic: Astronomy.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_10",
+    "target_field": "leader",
+    "predicted_field": "leader",
+    "predicted_value": "Fbkt",
+    "answerability_probability": 0.9929749965667725,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbkt",
+        "start": 48,
+        "end": 51,
+        "joint_score": 9.536624908447266
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm 11",
+        "start": 64,
+        "end": 74,
+        "joint_score": 8.632491111755371
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 84,
+        "end": 92,
+        "joint_score": -9.302114486694336
+      }
+    ],
+    "field_scores": {
+      "leader": 9.536624908447266,
+      "location": 8.632491111755371,
+      "topic": -9.302114486694336
+    },
+    "correct": true,
+    "gold_field_rank": 1,
+    "gold_field_margin": 0.9041337966918945,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 4.935067323685871e-05
+  },
+  {
+    "answer": "Location: Room Maple 13.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_12_canonical_location",
+    "expected_value": "Room Maple 13",
+    "information": "Fictional Workshop W0001. Location: Room Maple 13. Topic: Python.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_12",
+    "target_field": "location",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.008331683464348316,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Maple 13",
+        "start": 50,
+        "end": 62,
+        "joint_score": 12.5737886428833
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 72,
+        "end": 77,
+        "joint_score": -9.175100326538086
+      }
+    ],
+    "field_scores": {
+      "location": 12.5737886428833,
+      "topic": -9.175100326538086
+    },
+    "correct": false,
+    "gold_field_rank": 1,
+    "gold_field_margin": 21.748888969421387,
+    "false_abstention": true,
+    "unsupported_answer": false,
+    "brier_component": 0.9834060500206535
+  },
+  {
+    "answer": "Location: Room Elm 11.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_10_canonical_location",
+    "expected_value": "Room Elm 11",
+    "information": "Fictional Workshop W0001. Leader: Fbkt. Location: Room Elm 11. Topic: Astronomy.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_10",
+    "target_field": "location",
+    "predicted_field": "location",
+    "predicted_value": "Room Elm 11",
+    "answerability_probability": 0.9927242398262024,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Elm 11",
+        "start": 64,
+        "end": 74,
+        "joint_score": 8.660890579223633
+      },
+      {
+        "field": "Leader",
+        "value": "Fbkt",
+        "start": 48,
+        "end": 51,
+        "joint_score": 7.214537620544434
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 84,
+        "end": 92,
+        "joint_score": -9.272157669067383
+      }
+    ],
+    "field_scores": {
+      "location": 8.660890579223633,
+      "leader": 7.214537620544434,
+      "topic": -9.272157669067383
+    },
+    "correct": true,
+    "gold_field_rank": 1,
+    "gold_field_margin": 1.4463529586791992,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 5.293668610661939e-05
+  },
+  {
+    "answer": "Leader: Fbba.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_01_canonical_leader",
+    "expected_value": "Fbba",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Fbba.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_01",
+    "target_field": "leader",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.007792601827532053,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbba",
+        "start": 66,
+        "end": 69,
+        "joint_score": 7.64810848236084
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "joint_score": -9.218629837036133
+      }
+    ],
+    "field_scores": {
+      "leader": 7.64810848236084,
+      "topic": -9.218629837036133
+    },
+    "correct": false,
+    "gold_field_rank": 1,
+    "gold_field_margin": 16.866738319396973,
+    "false_abstention": true,
+    "unsupported_answer": false,
+    "brier_component": 0.9844755209881784
+  },
+  {
+    "answer": "Location: Room Elm 23.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_22_canonical_location",
+    "expected_value": "Room Elm 23",
+    "information": "Fictional Workshop W0001. Leader: Fbwt. Location: Room Elm 23. Topic: Astronomy.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_22",
+    "target_field": "location",
+    "predicted_field": "location",
+    "predicted_value": "Room Elm 23",
+    "answerability_probability": 0.9926744103431702,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Elm 23",
+        "start": 64,
+        "end": 74,
+        "joint_score": 12.706245422363281
+      },
+      {
+        "field": "Leader",
+        "value": "Fbwt",
+        "start": 48,
+        "end": 51,
+        "joint_score": 7.183371067047119
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 84,
+        "end": 92,
+        "joint_score": -9.274845123291016
+      }
+    ],
+    "field_scores": {
+      "location": 12.706245422363281,
+      "leader": 7.183371067047119,
+      "topic": -9.274845123291016
+    },
+    "correct": true,
+    "gold_field_rank": 1,
+    "gold_field_margin": 5.522874355316162,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 5.3664263820252245e-05
+  },
+  {
+    "answer": "Location: Room Birch 3.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_02_canonical_location",
+    "expected_value": "Room Birch 3",
+    "information": "Fictional Workshop W0001. Leader: Fbct. Location: Room Birch 3. Topic: Gardening.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_02",
+    "target_field": "location",
+    "predicted_field": "location",
+    "predicted_value": "Room Birch 3",
+    "answerability_probability": 0.992770254611969,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Birch 3",
+        "start": 64,
+        "end": 75,
+        "joint_score": 12.938945770263672
+      },
+      {
+        "field": "Leader",
+        "value": "Fbct",
+        "start": 48,
+        "end": 51,
+        "joint_score": 7.32708740234375
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 85,
+        "end": 93,
+        "joint_score": -9.839916229248047
+      }
+    ],
+    "field_scores": {
+      "location": 12.938945770263672,
+      "leader": 7.32708740234375,
+      "topic": -9.839916229248047
+    },
+    "correct": true,
+    "gold_field_rank": 1,
+    "gold_field_margin": 5.611858367919922,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 5.22692183757556e-05
+  },
+  {
+    "answer": "Insufficient information.",
+    "answerability": "unanswerable",
+    "example_id": "v5g_train_09_canonical_location",
+    "expected_value": null,
+    "information": "Fictional Workshop W0001. Topic: Python. Leader: Fbja.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_09",
+    "target_field": "location",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.005055566318333149,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbja",
+        "start": 63,
+        "end": 66,
+        "joint_score": 9.822294235229492
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "joint_score": -8.33546257019043
+      }
+    ],
+    "field_scores": {
+      "leader": 9.822294235229492,
+      "topic": -8.33546257019043
+    },
+    "correct": true,
+    "gold_field_rank": null,
+    "gold_field_margin": null,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 2.555875079906459e-05
+  },
+  {
+    "answer": "Location: Room Maple 1.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_00_canonical_location",
+    "expected_value": "Room Maple 1",
+    "information": "Fictional Workshop W0001. Location: Room Maple 1. Topic: Python.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_00",
+    "target_field": "location",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.00627813721075654,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Maple 1",
+        "start": 50,
+        "end": 61,
+        "joint_score": 8.335650444030762
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 71,
+        "end": 76,
+        "joint_score": -8.513372421264648
+      }
+    ],
+    "field_scores": {
+      "location": 8.335650444030762,
+      "topic": -8.513372421264648
+    },
+    "correct": false,
+    "gold_field_rank": 1,
+    "gold_field_margin": 16.84902286529541,
+    "false_abstention": true,
+    "unsupported_answer": false,
+    "brier_component": 0.987483140585324
+  },
+  {
+    "answer": "Insufficient information.",
+    "answerability": "unanswerable",
+    "example_id": "v5g_train_17_canonical_location",
+    "expected_value": null,
+    "information": "Fictional Workshop W0001. Topic: Gardening. Leader: Fbra.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_17",
+    "target_field": "location",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.004939545877277851,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbra",
+        "start": 66,
+        "end": 69,
+        "joint_score": 8.345067024230957
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 47,
+        "end": 55,
+        "joint_score": -8.0459566116333
+      }
+    ],
+    "field_scores": {
+      "leader": 8.345067024230957,
+      "topic": -8.0459566116333
+    },
+    "correct": true,
+    "gold_field_rank": null,
+    "gold_field_margin": null,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 2.4399113473732616e-05
+  },
+  {
+    "answer": "Insufficient information.",
+    "answerability": "unanswerable",
+    "example_id": "v5g_train_16_canonical_leader",
+    "expected_value": null,
+    "information": "Fictional Workshop W0001. Location: Room Elm 17. Topic: Astronomy.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_16",
+    "target_field": "leader",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.007936649955809116,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Elm 17",
+        "start": 50,
+        "end": 60,
+        "joint_score": 12.896968841552734
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 70,
+        "end": 78,
+        "joint_score": -9.317312240600586
+      }
+    ],
+    "field_scores": {
+      "location": 12.896968841552734,
+      "topic": -9.317312240600586
+    },
+    "correct": true,
+    "gold_field_rank": null,
+    "gold_field_margin": null,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 6.299041252104485e-05
+  },
+  {
+    "answer": "Leader: Fbta.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_19_canonical_leader",
+    "expected_value": "Fbta",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Location: Room Cedar 20. Leader: Fbta.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_19",
+    "target_field": "leader",
+    "predicted_field": "leader",
+    "predicted_value": "Fbta",
+    "answerability_probability": 0.9871520400047302,
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Fbta",
+        "start": 91,
+        "end": 94,
+        "joint_score": 9.17281436920166
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar 20",
+        "start": 68,
+        "end": 80,
+        "joint_score": 6.458255767822266
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "joint_score": -9.232196807861328
+      }
+    ],
+    "field_scores": {
+      "leader": 9.17281436920166,
+      "location": 6.458255767822266,
+      "topic": -9.232196807861328
+    },
+    "correct": true,
+    "gold_field_rank": 1,
+    "gold_field_margin": 2.7145586013793945,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 0.00016507007604005253
+  },
+  {
+    "answer": "Insufficient information.",
+    "answerability": "unanswerable",
+    "example_id": "v5g_train_04_canonical_leader",
+    "expected_value": null,
+    "information": "Fictional Workshop W0001. Location: Room Elm 5. Topic: Astronomy.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_04",
+    "target_field": "leader",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.005800777580589056,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Elm 5",
+        "start": 50,
+        "end": 59,
+        "joint_score": 12.676382064819336
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 69,
+        "end": 77,
+        "joint_score": -9.230508804321289
+      }
+    ],
+    "field_scores": {
+      "location": 12.676382064819336,
+      "topic": -9.230508804321289
+    },
+    "correct": true,
+    "gold_field_rank": null,
+    "gold_field_margin": null,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 3.364902053946462e-05
+  },
+  {
+    "answer": "Location: Room Maple 19.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_18_canonical_location",
+    "expected_value": "Room Maple 19",
+    "information": "Fictional Workshop W0001. Leader: Fbst. Location: Room Maple 19. Topic: Python.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_18",
+    "target_field": "location",
+    "predicted_field": "location",
+    "predicted_value": "Room Maple 19",
+    "answerability_probability": 0.9919965863227844,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Maple 19",
+        "start": 64,
+        "end": 76,
+        "joint_score": 13.017159461975098
+      },
+      {
+        "field": "Leader",
+        "value": "Fbst",
+        "start": 48,
+        "end": 51,
+        "joint_score": 6.94437313079834
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 86,
+        "end": 91,
+        "joint_score": -9.182615280151367
+      }
+    ],
+    "field_scores": {
+      "location": 13.017159461975098,
+      "leader": 6.94437313079834,
+      "topic": -9.182615280151367
+    },
+    "correct": true,
+    "gold_field_rank": 1,
+    "gold_field_margin": 6.072786331176758,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 6.405463048864135e-05
+  },
+  {
+    "answer": "Location: Room Birch 9.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_08_canonical_location",
+    "expected_value": "Room Birch 9",
+    "information": "Fictional Workshop W0001. Location: Room Birch 9. Topic: Gardening.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_08",
+    "target_field": "location",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.02900048904120922,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Birch 9",
+        "start": 50,
+        "end": 61,
+        "joint_score": 12.56511116027832
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 71,
+        "end": 79,
+        "joint_score": -9.031050682067871
+      }
+    ],
+    "field_scores": {
+      "location": 12.56511116027832,
+      "topic": -9.031050682067871
+    },
+    "correct": false,
+    "gold_field_rank": 1,
+    "gold_field_margin": 21.59616184234619,
+    "false_abstention": true,
+    "unsupported_answer": false,
+    "brier_component": 0.9428400502822109
+  },
+  {
+    "answer": "Location: Room Maple 7.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_06_canonical_location",
+    "expected_value": "Room Maple 7",
+    "information": "Fictional Workshop W0001. Leader: Fbgt. Location: Room Maple 7. Topic: Python.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_06",
+    "target_field": "location",
+    "predicted_field": "location",
+    "predicted_value": "Room Maple 7",
+    "answerability_probability": 0.9927188158035278,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Maple 7",
+        "start": 64,
+        "end": 75,
+        "joint_score": 13.122451782226562
+      },
+      {
+        "field": "Leader",
+        "value": "Fbgt",
+        "start": 48,
+        "end": 51,
+        "joint_score": 7.663795471191406
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 85,
+        "end": 90,
+        "joint_score": -8.538795471191406
+      }
+    ],
+    "field_scores": {
+      "location": 13.122451782226562,
+      "leader": 7.663795471191406,
+      "topic": -8.538795471191406
+    },
+    "correct": true,
+    "gold_field_rank": 1,
+    "gold_field_margin": 5.458656311035156,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 5.301564330295605e-05
+  },
+  {
+    "answer": "Leader: Fbpa.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_15_canonical_leader",
+    "expected_value": "Fbpa",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Pine 16. Leader: Fbpa.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_15",
+    "target_field": "leader",
+    "predicted_field": "location",
+    "predicted_value": "Room Pine 16",
+    "answerability_probability": 0.988332211971283,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine 16",
+        "start": 65,
+        "end": 76,
+        "joint_score": 12.615945816040039
+      },
+      {
+        "field": "Leader",
+        "value": "Fbpa",
+        "start": 87,
+        "end": 90,
+        "joint_score": 7.755383491516113
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "joint_score": -8.35541820526123
+      }
+    ],
+    "field_scores": {
+      "location": 12.615945816040039,
+      "leader": 7.755383491516113,
+      "topic": -8.35541820526123
+    },
+    "correct": false,
+    "gold_field_rank": 2,
+    "gold_field_margin": -4.860562324523926,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 0.0001361372774830727
+  },
+  {
+    "answer": "Location: Room Cedar 8.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_07_canonical_location",
+    "expected_value": "Room Cedar 8",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Location: Room Cedar 8. Leader: Fbha.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_07",
+    "target_field": "location",
+    "predicted_field": "location",
+    "predicted_value": "Room Cedar 8",
+    "answerability_probability": 0.9696630239486694,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Cedar 8",
+        "start": 68,
+        "end": 79,
+        "joint_score": 12.041948318481445
+      },
+      {
+        "field": "Leader",
+        "value": "Fbha",
+        "start": 90,
+        "end": 93,
+        "joint_score": 7.8187456130981445
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "joint_score": -9.32142162322998
+      }
+    ],
+    "field_scores": {
+      "location": 12.041948318481445,
+      "leader": 7.8187456130981445,
+      "topic": -9.32142162322998
+    },
+    "correct": true,
+    "gold_field_rank": 1,
+    "gold_field_margin": 4.223202705383301,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 0.0009203321159390043
+  },
+  {
+    "answer": "Location: Room Elm 5.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_04_canonical_location",
+    "expected_value": "Room Elm 5",
+    "information": "Fictional Workshop W0001. Location: Room Elm 5. Topic: Astronomy.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_04",
+    "target_field": "location",
+    "predicted_field": null,
+    "predicted_value": null,
+    "answerability_probability": 0.009269848465919495,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Elm 5",
+        "start": 50,
+        "end": 59,
+        "joint_score": 12.626667022705078
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 69,
+        "end": 77,
+        "joint_score": -9.368684768676758
+      }
+    ],
+    "field_scores": {
+      "location": 12.626667022705078,
+      "topic": -9.368684768676758
+    },
+    "correct": false,
+    "gold_field_rank": 1,
+    "gold_field_margin": 21.995351791381836,
+    "false_abstention": true,
+    "unsupported_answer": false,
+    "brier_component": 0.9815462331587421
+  },
+  {
+    "answer": "Location: Room Pine 4.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_03_canonical_location",
+    "expected_value": "Room Pine 4",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Pine 4. Leader: Fbda.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_03",
+    "target_field": "location",
+    "predicted_field": "location",
+    "predicted_value": "Room Pine 4",
+    "answerability_probability": 0.9887797832489014,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine 4",
+        "start": 65,
+        "end": 75,
+        "joint_score": 12.450590133666992
+      },
+      {
+        "field": "Leader",
+        "value": "Fbda",
+        "start": 86,
+        "end": 89,
+        "joint_score": 8.082185745239258
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "joint_score": -8.146749496459961
+      }
+    ],
+    "field_scores": {
+      "location": 12.450590133666992,
+      "leader": 8.082185745239258,
+      "topic": -8.146749496459961
+    },
+    "correct": true,
+    "gold_field_rank": 1,
+    "gold_field_margin": 4.368404388427734,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 0.00012589326394163436
+  },
+  {
+    "answer": "Location: Room Birch 15.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_14_canonical_location",
+    "expected_value": "Room Birch 15",
+    "information": "Fictional Workshop W0001. Leader: Fbot. Location: Room Birch 15. Topic: Gardening.",
+    "question": "Where is Workshop W0001 located?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_14",
+    "target_field": "location",
+    "predicted_field": "location",
+    "predicted_value": "Room Birch 15",
+    "answerability_probability": 0.9925194978713989,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Birch 15",
+        "start": 64,
+        "end": 76,
+        "joint_score": 13.014369010925293
+      },
+      {
+        "field": "Leader",
+        "value": "Fbot",
+        "start": 48,
+        "end": 51,
+        "joint_score": 6.787718296051025
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 86,
+        "end": 94,
+        "joint_score": -9.237277030944824
+      }
+    ],
+    "field_scores": {
+      "location": 13.014369010925293,
+      "leader": 6.787718296051025,
+      "topic": -9.237277030944824
+    },
+    "correct": true,
+    "gold_field_rank": 1,
+    "gold_field_margin": 6.226650714874268,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 5.59579120960052e-05
+  },
+  {
+    "answer": "Leader: Fbda.",
+    "answerability": "answerable",
+    "example_id": "v5g_train_03_canonical_leader",
+    "expected_value": "Fbda",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Pine 4. Leader: Fbda.",
+    "question": "What is the leader of Workshop W0001?",
+    "question_variant": "canonical",
+    "source_id": "v5g_train_03",
+    "target_field": "leader",
+    "predicted_field": "location",
+    "predicted_value": "Room Pine 4",
+    "answerability_probability": 0.9894646406173706,
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine 4",
+        "start": 65,
+        "end": 75,
+        "joint_score": 12.440787315368652
+      },
+      {
+        "field": "Leader",
+        "value": "Fbda",
+        "start": 86,
+        "end": 89,
+        "joint_score": 8.842269897460938
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "joint_score": -8.278556823730469
+      }
+    ],
+    "field_scores": {
+      "location": 12.440787315368652,
+      "leader": 8.842269897460938,
+      "topic": -8.278556823730469
+    },
+    "correct": false,
+    "gold_field_rank": 2,
+    "gold_field_margin": -3.598517417907715,
+    "false_abstention": false,
+    "unsupported_answer": false,
+    "brier_component": 0.00011099379732115722
+  }
+]

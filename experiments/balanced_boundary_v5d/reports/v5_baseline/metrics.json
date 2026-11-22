@@ -1,0 +1,279 @@
+{
+  "experiment": "v5d_balanced_boundaries",
+  "evaluation_partition": "dev_only",
+  "checkpoint": "experiments\\span_extractor_v5\\checkpoints\\evidence_span_v5_3000_steps.pt",
+  "checkpoint_sha256": "d29a7664129364d81cce8fb875db92296338ce1a2d1c77e7098062a9ae8b88a8",
+  "dev_sha256": "5799afad25695b33eadcbbf6e224ec2467ebe6c883157cc6955a96fbdc380ecd",
+  "timestamp_utc": "2026-11-01T14:51:07.697095+00:00",
+  "training_metadata": {
+    "model_variant": "span_v5",
+    "steps": 3000,
+    "seed": 42,
+    "training_file": "data/training/evidence_sensitivity_v3_train.jsonl",
+    "example_count": 168,
+    "prompt_version": "compact_v1",
+    "missing_ratio": 0.33,
+    "scheduled_missing_updates": 990,
+    "loss_every": 120,
+    "initial_loss": 4.524722950444335,
+    "final_loss": 0.7815951390514654,
+    "answerability_threshold": 0.5,
+    "learning_rate": 0.001
+  },
+  "overall": {
+    "exact": 7,
+    "total": 96,
+    "start_head": 19,
+    "end_head": 34
+  },
+  "groups": {
+    "length4_vowel": {
+      "correct": 6,
+      "total": 24,
+      "answerable": 24,
+      "start_head": 6,
+      "end_head": 24,
+      "joint_start": 6,
+      "joint_end": 24,
+      "joint_span": 6,
+      "overlap": 24,
+      "too_long": 0,
+      "too_short": 18,
+      "false_abstain": 0,
+      "false_answer": 0,
+      "sample_errors": [
+        {
+          "id": "v5d_dev_length4_vowel_10_0_q01",
+          "predicted": "Leader: bka.",
+          "expected": "Leader: Dbka.",
+          "span": [
+            70,
+            72
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_vowel_00_0_q01",
+          "predicted": "Leader: baa.",
+          "expected": "Leader: Dbaa.",
+          "span": [
+            71,
+            73
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_vowel_03_0_q01",
+          "predicted": "Leader: bdi.",
+          "expected": "Leader: Dbdi.",
+          "span": [
+            69,
+            71
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_vowel_06_1_q01",
+          "predicted": "Leader: bga.",
+          "expected": "Leader: Dbga.",
+          "span": [
+            71,
+            73
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_vowel_07_1_q01",
+          "predicted": "Leader: bhi.",
+          "expected": "Leader: Dbhi.",
+          "span": [
+            70,
+            72
+          ]
+        }
+      ]
+    },
+    "length4_consonant": {
+      "correct": 0,
+      "total": 24,
+      "answerable": 24,
+      "start_head": 6,
+      "end_head": 0,
+      "joint_start": 6,
+      "joint_end": 0,
+      "joint_span": 0,
+      "overlap": 24,
+      "too_long": 6,
+      "too_short": 12,
+      "false_abstain": 0,
+      "false_answer": 0,
+      "sample_errors": [
+        {
+          "id": "v5d_dev_length4_consonant_11_0_q01",
+          "predicted": "Leader: b.",
+          "expected": "Leader: Dblt.",
+          "span": [
+            71,
+            71
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_consonant_05_0_q01",
+          "predicted": "Leader: Dbft. Loca.",
+          "expected": "Leader: Dbft.",
+          "span": [
+            66,
+            75
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_consonant_03_1_q01",
+          "predicted": "Leader: bdt. Loca.",
+          "expected": "Leader: Dbdt.",
+          "span": [
+            49,
+            57
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_consonant_08_1_q01",
+          "predicted": "Leader: Dbin. Loca.",
+          "expected": "Leader: Dbin.",
+          "span": [
+            66,
+            75
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_consonant_03_0_q01",
+          "predicted": "Leader: b.",
+          "expected": "Leader: Dbdt.",
+          "span": [
+            69,
+            69
+          ]
+        }
+      ]
+    },
+    "length5_vowel": {
+      "correct": 1,
+      "total": 24,
+      "answerable": 24,
+      "start_head": 4,
+      "end_head": 10,
+      "joint_start": 4,
+      "joint_end": 11,
+      "joint_span": 1,
+      "overlap": 24,
+      "too_long": 3,
+      "too_short": 16,
+      "false_abstain": 0,
+      "false_answer": 0,
+      "sample_errors": [
+        {
+          "id": "v5d_dev_length5_vowel_09_1_q01",
+          "predicted": "Leader: bjei.",
+          "expected": "Leader: Dbjei.",
+          "span": [
+            69,
+            72
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_vowel_07_1_q01",
+          "predicted": "Leader: bhei.",
+          "expected": "Leader: Dbhei.",
+          "span": [
+            70,
+            73
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_vowel_11_1_q01",
+          "predicted": "Leader: b.",
+          "expected": "Leader: Dblei.",
+          "span": [
+            71,
+            71
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_vowel_01_1_q01",
+          "predicted": "Leader: b.",
+          "expected": "Leader: Dbbei.",
+          "span": [
+            71,
+            71
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_vowel_08_1_q01",
+          "predicted": "Leader: biea.",
+          "expected": "Leader: Dbiea.",
+          "span": [
+            67,
+            70
+          ]
+        }
+      ]
+    },
+    "length5_consonant": {
+      "correct": 0,
+      "total": 24,
+      "answerable": 24,
+      "start_head": 3,
+      "end_head": 0,
+      "joint_start": 3,
+      "joint_end": 0,
+      "joint_span": 0,
+      "overlap": 24,
+      "too_long": 3,
+      "too_short": 12,
+      "false_abstain": 0,
+      "false_answer": 0,
+      "sample_errors": [
+        {
+          "id": "v5d_dev_length5_consonant_10_1_q01",
+          "predicted": "Leader: b.",
+          "expected": "Leader: Dbken.",
+          "span": [
+            70,
+            70
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_consonant_04_1_q01",
+          "predicted": "Leader: been. Loca.",
+          "expected": "Leader: Dbeen.",
+          "span": [
+            64,
+            73
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_consonant_10_0_q01",
+          "predicted": "Leader: b.",
+          "expected": "Leader: Dbken.",
+          "span": [
+            70,
+            70
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_consonant_05_1_q01",
+          "predicted": "Leader: Dbfet. Loca.",
+          "expected": "Leader: Dbfet.",
+          "span": [
+            66,
+            76
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_consonant_07_0_q01",
+          "predicted": "Leader: b.",
+          "expected": "Leader: Dbhet.",
+          "span": [
+            69,
+            69
+          ]
+        }
+      ]
+    }
+  }
+}

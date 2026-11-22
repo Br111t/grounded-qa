@@ -1,0 +1,114 @@
+{
+  "phase": "dev",
+  "checkpoint_sha256": "5ab7d977dfc064c4901816eccaff4e3a230779db0cdcda7f096bcc374e32d428",
+  "evaluation_code_sha256": "b7a6e9a45da3a539b8efa15cfe2215bb6ee8847cc781ff702bb77f2de3270656",
+  "dataset_sha256": "c194b05270f0ea70a5e6b6fb894b932f7e0e9a15027174364ef14f8b250c6b71",
+  "training_data_sha256": "493d939ab6207799536670e1b90dfa07e67e08265274423fe87d7e96348771b3",
+  "metrics": {
+    "canonical": {
+      "count": 48,
+      "correct": 24,
+      "accuracy": 0.5,
+      "false_abstentions": 12,
+      "unsupported_answers": 0,
+      "brier_score": 0.2455644775462232,
+      "field_confusion": {
+        "leader -> location": 12,
+        "leader -> None": 12,
+        "location -> location": 12,
+        "location -> None": 12
+      }
+    },
+    "paired": {
+      "count": 24,
+      "both_correct": 0,
+      "selection_switches": 0,
+      "correct_switches": 0,
+      "both_fields_present": 12,
+      "correct_switch_rate_on_both_present": 0.0,
+      "question_sensitivity": [
+        {
+          "source_id": "v5g_dev_06",
+          "leader_advantage_leader_question": -7.679638147354126,
+          "location_advantage_location_question": 8.987919807434082,
+          "location_score_delta": -0.15984153747558594
+        },
+        {
+          "source_id": "v5g_dev_18",
+          "leader_advantage_leader_question": -12.49402141571045,
+          "location_advantage_location_question": 14.005925416946411,
+          "location_score_delta": 0.006229400634765625
+        },
+        {
+          "source_id": "v5g_dev_02",
+          "leader_advantage_leader_question": -13.824768304824829,
+          "location_advantage_location_question": 14.547295808792114,
+          "location_score_delta": -0.037255287170410156
+        },
+        {
+          "source_id": "v5g_dev_23",
+          "leader_advantage_leader_question": -13.038454532623291,
+          "location_advantage_location_question": 13.650047779083252,
+          "location_score_delta": -0.013217926025390625
+        },
+        {
+          "source_id": "v5g_dev_10",
+          "leader_advantage_leader_question": -9.36427092552185,
+          "location_advantage_location_question": 10.924531936645508,
+          "location_score_delta": 0.0149993896484375
+        },
+        {
+          "source_id": "v5g_dev_22",
+          "leader_advantage_leader_question": -9.740230560302734,
+          "location_advantage_location_question": 11.325598239898682,
+          "location_score_delta": -0.00478363037109375
+        },
+        {
+          "source_id": "v5g_dev_19",
+          "leader_advantage_leader_question": -13.338293552398682,
+          "location_advantage_location_question": 13.242281675338745,
+          "location_score_delta": -0.15842342376708984
+        },
+        {
+          "source_id": "v5g_dev_15",
+          "leader_advantage_leader_question": -7.159400701522827,
+          "location_advantage_location_question": 8.012699365615845,
+          "location_score_delta": -0.006076335906982422
+        },
+        {
+          "source_id": "v5g_dev_14",
+          "leader_advantage_leader_question": -13.54438591003418,
+          "location_advantage_location_question": 14.310369491577148,
+          "location_score_delta": 0.013505935668945312
+        },
+        {
+          "source_id": "v5g_dev_11",
+          "leader_advantage_leader_question": -13.36403512954712,
+          "location_advantage_location_question": 14.02594256401062,
+          "location_score_delta": 0.03806018829345703
+        },
+        {
+          "source_id": "v5g_dev_03",
+          "leader_advantage_leader_question": -13.595069169998169,
+          "location_advantage_location_question": 14.339713335037231,
+          "location_score_delta": -0.008002281188964844
+        },
+        {
+          "source_id": "v5g_dev_07",
+          "leader_advantage_leader_question": -8.423951864242554,
+          "location_advantage_location_question": 8.380500078201294,
+          "location_score_delta": -0.10790491104125977
+        }
+      ]
+    },
+    "leader_canonical": {
+      "total": 24,
+      "correct": 6
+    },
+    "location_canonical": {
+      "total": 24,
+      "correct": 18
+    }
+  },
+  "evaluation_is_exploratory": true
+}

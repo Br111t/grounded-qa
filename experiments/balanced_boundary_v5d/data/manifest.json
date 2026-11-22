@@ -1,0 +1,8 @@
+{
+  "experiment": "v5d_balanced_boundaries",
+  "seed": 42,
+  "design": "2 lengths x 2 ending classes, 24 rows per cell in each partition",
+  "train_sha256": "da7a0df5bc19e3d4f5ec5a37d8de4f2fd7b24e1a7643a2d1a103031fecef2cf0",
+  "dev_sha256": "5799afad25695b33eadcbbf6e224ec2467ebe6c883157cc6955a96fbdc380ecd",
+  "v5c_reuse": false
+}

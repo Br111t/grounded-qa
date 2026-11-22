@@ -1,0 +1,289 @@
+model,group,example_id,expected,predicted,probability,gold_start,gold_end,raw_start,raw_end,raw_start_delta,raw_end_delta,selected_start,selected_end,selected_start_delta,selected_end_delta,exact,raw_start_correct,raw_end_correct,selected_span_correct,abstained
+v5,length4_vowel,v5d_dev_length4_vowel_04_0_q01,Leader: Dbea.,Leader: Dbea.,0.999772,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5,length4_vowel,v5d_dev_length4_vowel_10_0_q01,Leader: Dbka.,Leader: bka.,0.999764,69,72,70,72,1,0,70,72,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_05_0_q01,Leader: Dbfi.,Leader: Dbfi.,0.999771,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5,length4_vowel,v5d_dev_length4_vowel_00_0_q01,Leader: Dbaa.,Leader: baa.,0.999772,70,73,71,73,1,0,71,73,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_03_0_q01,Leader: Dbdi.,Leader: bdi.,0.999767,68,71,69,71,1,0,69,71,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_08_1_q01,Leader: Dbia.,Leader: Dbia.,0.999772,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5,length4_vowel,v5d_dev_length4_vowel_06_1_q01,Leader: Dbga.,Leader: bga.,0.999768,70,73,71,73,1,0,71,73,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_07_1_q01,Leader: Dbhi.,Leader: bhi.,0.999763,69,72,70,72,1,0,70,72,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_04_1_q01,Leader: Dbea.,Leader: bea.,0.999749,63,66,64,66,1,0,64,66,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_07_0_q01,Leader: Dbhi.,Leader: bhi.,0.999746,68,71,69,71,1,0,69,71,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_11_1_q01,Leader: Dbli.,Leader: bli.,0.99977,70,73,71,73,1,0,71,73,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_00_1_q01,Leader: Dbaa.,Leader: baa.,0.999772,70,73,71,73,1,0,71,73,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_09_0_q01,Leader: Dbji.,Leader: Dbji.,0.999769,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5,length4_vowel,v5d_dev_length4_vowel_03_1_q01,Leader: Dbdi.,Leader: bdi.,0.999765,48,51,49,51,1,0,49,51,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_05_1_q01,Leader: Dbfi.,Leader: Dbfi.,0.999771,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5,length4_vowel,v5d_dev_length4_vowel_11_0_q01,Leader: Dbli.,Leader: bli.,0.99977,70,73,71,73,1,0,71,73,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_10_1_q01,Leader: Dbka.,Leader: bka.,0.999762,69,72,70,72,1,0,70,72,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_01_0_q01,Leader: Dbbi.,Leader: bbi.,0.999762,48,51,49,51,1,0,49,51,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_08_0_q01,Leader: Dbia.,Leader: bia.,0.999762,48,51,49,51,1,0,49,51,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_09_1_q01,Leader: Dbji.,Leader: bji.,0.999762,68,71,69,71,1,0,69,71,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_02_0_q01,Leader: Dbca.,Leader: bca.,0.999749,63,66,64,66,1,0,64,66,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_02_1_q01,Leader: Dbca.,Leader: Dbca.,0.999772,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5,length4_vowel,v5d_dev_length4_vowel_01_1_q01,Leader: Dbbi.,Leader: bbi.,0.999767,70,73,71,73,1,0,71,73,1,0,0,0,1,0,0
+v5,length4_vowel,v5d_dev_length4_vowel_06_0_q01,Leader: Dbga.,Leader: bga.,0.99977,66,69,67,69,1,0,67,69,1,0,0,0,1,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_11_0_q01,Leader: Dblt.,Leader: b.,0.999769,70,73,71,71,1,-2,71,71,1,-2,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_05_0_q01,Leader: Dbft.,Leader: Dbft. Loca.,0.999769,66,69,66,48,0,-21,66,75,0,6,0,1,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_03_1_q01,Leader: Dbdt.,Leader: bdt. Loca.,0.999764,48,51,49,42,1,-9,49,57,1,6,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_08_1_q01,Leader: Dbin.,Leader: Dbin. Loca.,0.999772,66,69,66,75,0,6,66,75,0,6,0,1,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_03_0_q01,Leader: Dbdt.,Leader: b.,0.999765,68,71,69,69,1,-2,69,69,1,-2,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_00_0_q01,Leader: Dban.,Leader: ba.,0.999771,70,73,71,72,1,-1,71,72,1,-1,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_05_1_q01,Leader: Dbft.,Leader: Dbft. Lo.,0.99977,66,69,66,73,0,4,66,73,0,4,0,1,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_06_1_q01,Leader: Dbgn.,Leader: b.,0.999766,70,73,71,71,1,-2,71,71,1,-2,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_07_0_q01,Leader: Dbht.,Leader: b.,0.999745,68,71,69,69,1,-2,69,69,1,-2,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_07_1_q01,Leader: Dbht.,Leader: b.,0.999763,69,72,70,63,1,-9,70,70,1,-2,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_02_0_q01,Leader: Dbcn.,Leader: bcn. Loca.,0.999747,63,66,64,72,1,6,64,72,1,6,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_00_1_q01,Leader: Dban.,Leader: ba.,0.999771,70,73,71,72,1,-1,71,72,1,-1,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_04_0_q01,Leader: Dben.,Leader: Dben. Loca.,0.999772,66,69,66,48,0,-21,66,75,0,6,0,1,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_09_1_q01,Leader: Dbjt.,Leader: b.,0.99976,68,71,69,69,1,-2,69,69,1,-2,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_01_0_q01,Leader: Dbbt.,Leader: bbt. Loca.,0.999761,48,51,49,42,1,-9,49,57,1,6,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_04_1_q01,Leader: Dben.,Leader: ben. Loca.,0.999747,63,66,64,72,1,6,64,72,1,6,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_02_1_q01,Leader: Dbcn.,Leader: Dbcn. Lo.,0.999771,66,69,66,73,0,4,66,73,0,4,0,1,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_10_1_q01,Leader: Dbkn.,Leader: b.,0.999761,69,72,70,63,1,-9,70,70,1,-2,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_10_0_q01,Leader: Dbkn.,Leader: b.,0.999763,69,72,70,63,1,-9,70,70,1,-2,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_11_1_q01,Leader: Dblt.,Leader: b.,0.999769,70,73,71,71,1,-2,71,71,1,-2,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_09_0_q01,Leader: Dbjt.,Leader: Dbjt. Lo.,0.999767,66,69,66,73,0,4,66,73,0,4,0,1,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_06_0_q01,Leader: Dbgn.,Leader: bgn. Loca.,0.999769,66,69,67,48,1,-21,67,75,1,6,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_08_0_q01,Leader: Dbin.,Leader: bin. Loca.,0.999762,48,51,49,42,1,-9,49,57,1,6,0,0,0,0,0
+v5,length4_consonant,v5d_dev_length4_consonant_01_1_q01,Leader: Dbbt.,Leader: b.,0.999766,70,73,71,71,1,-2,71,71,1,-2,0,0,0,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_09_1_q01,Leader: Dbjei.,Leader: bjei.,0.999764,68,72,69,72,1,0,69,72,1,0,0,0,1,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_07_1_q01,Leader: Dbhei.,Leader: bhei.,0.999766,69,73,70,73,1,0,70,73,1,0,0,0,1,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_11_1_q01,Leader: Dblei.,Leader: b.,0.999763,70,74,71,71,1,-3,71,71,1,-3,0,0,0,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_01_1_q01,Leader: Dbbei.,Leader: b.,0.999762,70,74,71,71,1,-3,71,71,1,-3,0,0,0,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_06_0_q01,Leader: Dbgea.,Leader: Dbgea.,0.999762,66,70,66,70,0,0,66,70,0,0,1,1,1,1,0
+v5,length5_vowel,v5d_dev_length5_vowel_08_1_q01,Leader: Dbiea.,Leader: biea.,0.999732,66,70,67,70,1,0,67,70,1,0,0,0,1,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_02_0_q01,Leader: Dbcea.,Leader: bcea. Loca.,0.999747,63,67,64,73,1,6,64,73,1,6,0,0,0,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_10_0_q01,Leader: Dbkea.,Leader: bkea.,0.999767,69,73,70,73,1,0,70,73,1,0,0,0,1,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_02_1_q01,Leader: Dbcea.,Leader: bcea.,0.999732,66,70,67,70,1,0,67,70,1,0,0,0,1,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_03_0_q01,Leader: Dbdei.,Leader: bdei.,0.99976,68,72,69,72,1,0,69,72,1,0,0,0,1,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_03_1_q01,Leader: Dbdei.,Leader: bdei. Loca.,0.999536,48,52,49,42,1,-10,49,58,1,6,0,0,0,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_00_0_q01,Leader: Dbaea.,Leader: ba.,0.999765,70,74,71,72,1,-2,71,72,1,-2,0,0,0,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_04_1_q01,Leader: Dbeea.,Leader: beea. Loca.,0.999747,63,67,64,73,1,6,64,73,1,6,0,0,0,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_05_1_q01,Leader: Dbfei.,Leader: Dbfei. Loca.,0.999771,66,70,66,76,0,6,66,76,0,6,0,1,0,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_11_0_q01,Leader: Dblei.,Leader: b.,0.999764,70,74,71,71,1,-3,71,71,1,-3,0,0,0,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_10_1_q01,Leader: Dbkea.,Leader: bkea.,0.999763,69,73,70,73,1,0,70,73,1,0,0,0,1,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_06_1_q01,Leader: Dbgea.,Leader: b.,0.999762,70,74,71,71,1,-3,71,71,1,-3,0,0,0,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_01_0_q01,Leader: Dbbei.,Leader: bbei. Loca.,0.999401,48,52,49,42,1,-10,49,58,1,6,0,0,0,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_05_0_q01,Leader: Dbfei.,Leader: Dbfei. Loca.,0.999762,66,70,66,48,0,-22,66,76,0,6,0,1,0,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_07_0_q01,Leader: Dbhei.,Leader: bhei.,0.999588,68,72,69,72,1,0,69,72,1,0,0,0,1,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_08_0_q01,Leader: Dbiea.,Leader: biea.,0.999408,48,52,49,42,1,-10,49,52,1,0,0,0,0,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_09_0_q01,Leader: Dbjei.,Leader: Dbjei. Loca.,0.99976,66,70,66,76,0,6,66,76,0,6,0,1,0,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_00_1_q01,Leader: Dbaea.,Leader: ba.,0.999764,70,74,71,72,1,-2,71,72,1,-2,0,0,0,0,0
+v5,length5_vowel,v5d_dev_length5_vowel_04_0_q01,Leader: Dbeea.,Leader: beea.,0.999741,66,70,67,70,1,0,67,70,1,0,0,0,1,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_10_1_q01,Leader: Dbken.,Leader: b.,0.99976,69,73,70,63,1,-10,70,70,1,-3,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_04_1_q01,Leader: Dbeen.,Leader: been. Loca.,0.999746,63,67,64,73,1,6,64,73,1,6,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_10_0_q01,Leader: Dbken.,Leader: b.,0.999765,69,73,70,63,1,-10,70,70,1,-3,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_05_1_q01,Leader: Dbfet.,Leader: Dbfet. Loca.,0.99977,66,70,66,76,0,6,66,76,0,6,0,1,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_07_0_q01,Leader: Dbhet.,Leader: b.,0.999583,68,72,69,69,1,-3,69,69,1,-3,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_06_0_q01,Leader: Dbgen.,Leader: bgen. Loca.,0.999762,66,70,67,48,1,-22,67,76,1,6,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_06_1_q01,Leader: Dbgen.,Leader: b.,0.999762,70,74,71,71,1,-3,71,71,1,-3,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_03_0_q01,Leader: Dbdet.,Leader: b.,0.999759,68,72,69,69,1,-3,69,69,1,-3,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_03_1_q01,Leader: Dbdet.,Leader: bdet. Loca.,0.999544,48,52,49,42,1,-10,49,58,1,6,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_08_0_q01,Leader: Dbien.,Leader: bien. Loca.,0.999409,48,52,49,42,1,-10,49,58,1,6,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_08_1_q01,Leader: Dbien.,Leader: bien. Loca.,0.999731,66,70,67,76,1,6,67,76,1,6,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_05_0_q01,Leader: Dbfet.,Leader: Dbfet. Loca.,0.999761,66,70,66,48,0,-22,66,76,0,6,0,1,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_01_0_q01,Leader: Dbbet.,Leader: bbet. Loca.,0.99942,48,52,49,42,1,-10,49,58,1,6,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_09_0_q01,Leader: Dbjet.,Leader: Dbjet. Loca.,0.99976,66,70,66,76,0,6,66,76,0,6,0,1,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_00_0_q01,Leader: Dbaen.,Leader: ba.,0.999765,70,74,71,72,1,-2,71,72,1,-2,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_09_1_q01,Leader: Dbjet.,Leader: b.,0.999763,68,72,69,69,1,-3,69,69,1,-3,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_11_0_q01,Leader: Dblet.,Leader: b.,0.999763,70,74,71,71,1,-3,71,71,1,-3,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_11_1_q01,Leader: Dblet.,Leader: b.,0.999763,70,74,71,71,1,-3,71,71,1,-3,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_04_0_q01,Leader: Dbeen.,Leader: been. Loca.,0.99974,66,70,67,48,1,-22,67,76,1,6,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_00_1_q01,Leader: Dbaen.,Leader: ba.,0.999765,70,74,71,72,1,-2,71,72,1,-2,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_02_1_q01,Leader: Dbcen.,Leader: bcen. Loca.,0.99973,66,70,67,76,1,6,67,76,1,6,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_07_1_q01,Leader: Dbhet.,Leader: bh.,0.999765,69,73,70,63,1,-10,70,71,1,-2,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_02_0_q01,Leader: Dbcen.,Leader: bcen. Loca.,0.999746,63,67,64,73,1,6,64,73,1,6,0,0,0,0,0
+v5,length5_consonant,v5d_dev_length5_consonant_01_1_q01,Leader: Dbbet.,Leader: b.,0.999762,70,74,71,71,1,-3,71,71,1,-3,0,0,0,0,0
+v5b,length4_vowel,v5d_dev_length4_vowel_04_0_q01,Leader: Dbea.,Leader: Dbea.,0.999202,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_10_0_q01,Leader: Dbka.,Leader: bka.,0.991787,69,72,70,72,1,0,70,72,1,0,0,0,1,0,0
+v5b,length4_vowel,v5d_dev_length4_vowel_05_0_q01,Leader: Dbfi.,Leader: Dbfi.,0.998565,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_00_0_q01,Leader: Dbaa.,Leader: Dbaa.,0.999137,70,73,70,73,0,0,70,73,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_03_0_q01,Leader: Dbdi.,Leader: Dbdi.,0.997948,68,71,68,71,0,0,68,71,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_08_1_q01,Leader: Dbia.,Leader: Dbia.,0.998976,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_06_1_q01,Leader: Dbga.,Leader: Dbga.,0.998843,70,73,70,73,0,0,70,73,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_07_1_q01,Leader: Dbhi.,Leader: bhi.,0.987825,69,72,70,72,1,0,70,72,1,0,0,0,1,0,0
+v5b,length4_vowel,v5d_dev_length4_vowel_04_1_q01,Leader: Dbea.,Leader: Dbea.,0.998939,63,66,63,66,0,0,63,66,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_07_0_q01,Leader: Dbhi.,Leader: Dbhi.,0.990143,68,71,68,71,0,0,68,71,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_11_1_q01,Leader: Dbli.,Leader: Dbli.,0.998717,70,73,70,73,0,0,70,73,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_00_1_q01,Leader: Dbaa.,Leader: Dbaa.,0.998419,70,73,70,73,0,0,70,73,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_09_0_q01,Leader: Dbji.,Leader: Dbji.,0.998136,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_03_1_q01,Leader: Dbdi.,Leader: Dbdi.,0.991566,48,51,48,51,0,0,48,51,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_05_1_q01,Leader: Dbfi.,Leader: Dbfi.,0.998782,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_11_0_q01,Leader: Dbli.,Leader: Dbli.,0.996898,70,73,70,73,0,0,70,73,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_10_1_q01,Leader: Dbka.,Leader: bka.,0.99798,69,72,70,72,1,0,70,72,1,0,0,0,1,0,0
+v5b,length4_vowel,v5d_dev_length4_vowel_01_0_q01,Leader: Dbbi.,Leader: Dbbi.,0.985065,48,51,48,51,0,0,48,51,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_08_0_q01,Leader: Dbia.,Leader: Dbia.,0.980028,48,51,48,51,0,0,48,51,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_09_1_q01,Leader: Dbji.,Leader: Dbji.,0.996711,68,71,68,71,0,0,68,71,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_02_0_q01,Leader: Dbca.,Leader: Dbca.,0.998937,63,66,63,66,0,0,63,66,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_02_1_q01,Leader: Dbca.,Leader: Dbca.,0.998974,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_01_1_q01,Leader: Dbbi.,Leader: Dbbi.,0.995729,70,73,70,73,0,0,70,73,0,0,1,1,1,1,0
+v5b,length4_vowel,v5d_dev_length4_vowel_06_0_q01,Leader: Dbga.,Leader: Dbga.,0.998804,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5b,length4_consonant,v5d_dev_length4_consonant_11_0_q01,Leader: Dblt.,Leader: Db.,0.996842,70,73,70,71,0,-2,70,71,0,-2,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_05_0_q01,Leader: Dbft.,Leader: Dbft. Loca.,0.998549,66,69,66,75,0,6,66,75,0,6,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_03_1_q01,Leader: Dbdt.,Leader: Db.,0.991543,48,51,48,49,0,-2,48,49,0,-2,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_08_1_q01,Leader: Dbin.,Leader: Dbi.,0.998784,66,69,66,68,0,-1,66,68,0,-1,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_03_0_q01,Leader: Dbdt.,Leader: Db.,0.997906,68,71,68,69,0,-2,68,69,0,-2,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_00_0_q01,Leader: Dban.,Leader: Dba.,0.999069,70,73,70,72,0,-1,70,72,0,-1,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_05_1_q01,Leader: Dbft.,Leader: Dbft. Loca.,0.998771,66,69,66,75,0,6,66,75,0,6,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_06_1_q01,Leader: Dbgn.,Leader: Db.,0.998571,70,73,70,71,0,-2,70,71,0,-2,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_07_0_q01,Leader: Dbht.,Leader: Db.,0.989914,68,71,68,69,0,-2,68,69,0,-2,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_07_1_q01,Leader: Dbht.,Leader: b.,0.9878,69,72,70,63,1,-9,70,70,1,-2,0,0,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_02_0_q01,Leader: Dbcn.,Leader: Dbcn. Loca.,0.998745,63,66,63,72,0,6,63,72,0,6,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_00_1_q01,Leader: Dban.,Leader: Dba.,0.998118,70,73,70,72,0,-1,70,72,0,-1,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_04_0_q01,Leader: Dben.,Leader: Dben. Loca.,0.999129,66,69,66,75,0,6,66,75,0,6,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_09_1_q01,Leader: Dbjt.,Leader: Db.,0.996603,68,71,68,69,0,-2,68,69,0,-2,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_01_0_q01,Leader: Dbbt.,Leader: Db.,0.985071,48,51,48,49,0,-2,48,49,0,-2,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_04_1_q01,Leader: Dben.,Leader: Dben. Loca.,0.998747,63,66,63,72,0,6,63,72,0,6,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_02_1_q01,Leader: Dbcn.,Leader: Dbcn. Loca.,0.998777,66,69,66,75,0,6,66,75,0,6,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_10_1_q01,Leader: Dbkn.,Leader: b.,0.997574,69,72,70,63,1,-9,70,70,1,-2,0,0,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_10_0_q01,Leader: Dbkn.,Leader: b.,0.987644,69,72,70,63,1,-9,70,70,1,-2,0,0,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_11_1_q01,Leader: Dblt.,Leader: Db.,0.998709,70,73,70,71,0,-2,70,71,0,-2,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_09_0_q01,Leader: Dbjt.,Leader: Dbjt. Loca.,0.998097,66,69,66,75,0,6,66,75,0,6,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_06_0_q01,Leader: Dbgn.,Leader: Dbgn. Loca.,0.99856,66,69,66,75,0,6,66,75,0,6,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_08_0_q01,Leader: Dbin.,Leader: Db.,0.962131,48,51,48,49,0,-2,48,49,0,-2,0,1,0,0,0
+v5b,length4_consonant,v5d_dev_length4_consonant_01_1_q01,Leader: Dbbt.,Leader: Db.,0.99564,70,73,70,71,0,-2,70,71,0,-2,0,1,0,0,0
+v5b,length5_vowel,v5d_dev_length5_vowel_09_1_q01,Leader: Dbjei.,Leader: Dbjei.,0.995878,68,72,68,72,0,0,68,72,0,0,1,1,1,1,0
+v5b,length5_vowel,v5d_dev_length5_vowel_07_1_q01,Leader: Dbhei.,Leader: bhei.,0.996288,69,73,70,73,1,0,70,73,1,0,0,0,1,0,0
+v5b,length5_vowel,v5d_dev_length5_vowel_11_1_q01,Leader: Dblei.,Leader: Db.,0.997616,70,74,70,71,0,-3,70,71,0,-3,0,1,0,0,0
+v5b,length5_vowel,v5d_dev_length5_vowel_01_1_q01,Leader: Dbbei.,Leader: Db.,0.990148,70,74,70,71,0,-3,70,71,0,-3,0,1,0,0,0
+v5b,length5_vowel,v5d_dev_length5_vowel_06_0_q01,Leader: Dbgea.,Leader: Dbgea.,0.999192,66,70,66,70,0,0,66,70,0,0,1,1,1,1,0
+v5b,length5_vowel,v5d_dev_length5_vowel_08_1_q01,Leader: Dbiea.,Leader: Dbiea.,0.998929,66,70,66,70,0,0,66,70,0,0,1,1,1,1,0
+v5b,length5_vowel,v5d_dev_length5_vowel_02_0_q01,Leader: Dbcea.,Leader: Dbcea. Loca.,0.998291,63,67,63,73,0,6,63,73,0,6,0,1,0,0,0
+v5b,length5_vowel,v5d_dev_length5_vowel_10_0_q01,Leader: Dbkea.,Leader: bkea.,0.997334,69,73,70,73,1,0,70,73,1,0,0,0,1,0,0
+v5b,length5_vowel,v5d_dev_length5_vowel_02_1_q01,Leader: Dbcea.,Leader: Dbcea.,0.998926,66,70,66,70,0,0,66,70,0,0,1,1,1,1,0
+v5b,length5_vowel,v5d_dev_length5_vowel_03_0_q01,Leader: Dbdei.,Leader: Dbdei.,0.998795,68,72,68,72,0,0,68,72,0,0,1,1,1,1,0
+v5b,length5_vowel,v5d_dev_length5_vowel_03_1_q01,Leader: Dbdei.,Leader: Db.,0.988293,48,52,48,49,0,-3,48,49,0,-3,0,1,0,0,0
+v5b,length5_vowel,v5d_dev_length5_vowel_00_0_q01,Leader: Dbaea.,Leader: Dba.,0.998785,70,74,70,72,0,-2,70,72,0,-2,0,1,0,0,0
+v5b,length5_vowel,v5d_dev_length5_vowel_04_1_q01,Leader: Dbeea.,Leader: Dbeea. Loca.,0.998295,63,67,63,73,0,6,63,73,0,6,0,1,0,0,0
+v5b,length5_vowel,v5d_dev_length5_vowel_05_1_q01,Leader: Dbfei.,Leader: Dbfei.,0.998851,66,70,66,70,0,0,66,70,0,0,1,1,1,1,0
+v5b,length5_vowel,v5d_dev_length5_vowel_11_0_q01,Leader: Dblei.,Leader: Db.,0.96121,70,74,70,71,0,-3,70,71,0,-3,0,1,0,0,0
+v5b,length5_vowel,v5d_dev_length5_vowel_10_1_q01,Leader: Dbkea.,Leader: bkea.,0.996534,69,73,70,73,1,0,70,73,1,0,0,0,1,0,0
+v5b,length5_vowel,v5d_dev_length5_vowel_06_1_q01,Leader: Dbgea.,Leader: Db.,0.997194,70,74,70,71,0,-3,70,71,0,-3,0,1,0,0,0
+v5b,length5_vowel,v5d_dev_length5_vowel_01_0_q01,Leader: Dbbei.,Leader: Db.,0.974139,48,52,48,49,0,-3,48,49,0,-3,0,1,0,0,0
+v5b,length5_vowel,v5d_dev_length5_vowel_05_0_q01,Leader: Dbfei.,Leader: Dbfei.,0.999097,66,70,66,70,0,0,66,70,0,0,1,1,1,1,0
+v5b,length5_vowel,v5d_dev_length5_vowel_07_0_q01,Leader: Dbhei.,Leader: Dbhei.,0.5393,68,72,68,72,0,0,68,72,0,0,1,1,1,1,0
+v5b,length5_vowel,v5d_dev_length5_vowel_08_0_q01,Leader: Dbiea.,Leader: Dbiea.,0.97682,48,52,48,52,0,0,48,52,0,0,1,1,1,1,0
+v5b,length5_vowel,v5d_dev_length5_vowel_09_0_q01,Leader: Dbjei.,Leader: Dbjei.,0.998948,66,70,66,70,0,0,66,70,0,0,1,1,1,1,0
+v5b,length5_vowel,v5d_dev_length5_vowel_00_1_q01,Leader: Dbaea.,Leader: Dba.,0.987537,70,74,70,72,0,-2,70,72,0,-2,0,1,0,0,0
+v5b,length5_vowel,v5d_dev_length5_vowel_04_0_q01,Leader: Dbeea.,Leader: Dbeea.,0.999192,66,70,66,70,0,0,66,70,0,0,1,1,1,1,0
+v5b,length5_consonant,v5d_dev_length5_consonant_10_1_q01,Leader: Dbken.,Leader: b.,0.994924,69,73,70,63,1,-10,70,70,1,-3,0,0,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_04_1_q01,Leader: Dbeen.,Leader: Dbeen. Loca.,0.998202,63,67,63,73,0,6,63,73,0,6,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_10_0_q01,Leader: Dbken.,Leader: b.,0.996231,69,73,70,63,1,-10,70,70,1,-3,0,0,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_05_1_q01,Leader: Dbfet.,Leader: Db.,0.998849,66,70,66,67,0,-3,66,67,0,-3,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_07_0_q01,Leader: Dbhet.,Leader: Db.,0.547295,68,72,68,69,0,-3,68,69,0,-3,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_06_0_q01,Leader: Dbgen.,Leader: Db.,0.9991,66,70,66,48,0,-22,66,67,0,-3,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_06_1_q01,Leader: Dbgen.,Leader: Db.,0.99703,70,74,70,71,0,-3,70,71,0,-3,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_03_0_q01,Leader: Dbdet.,Leader: Db.,0.998791,68,72,68,69,0,-3,68,69,0,-3,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_03_1_q01,Leader: Dbdet.,Leader: Db.,0.988357,48,52,48,49,0,-3,48,49,0,-3,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_08_0_q01,Leader: Dbien.,Leader: Db.,0.974191,48,52,48,49,0,-3,48,49,0,-3,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_08_1_q01,Leader: Dbien.,Leader: Dbi.,0.99867,66,70,66,68,0,-2,66,68,0,-2,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_05_0_q01,Leader: Dbfet.,Leader: Db.,0.999097,66,70,66,48,0,-22,66,67,0,-3,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_01_0_q01,Leader: Dbbet.,Leader: Db.,0.974506,48,52,48,49,0,-3,48,49,0,-3,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_09_0_q01,Leader: Dbjet.,Leader: Db.,0.998947,66,70,66,67,0,-3,66,67,0,-3,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_00_0_q01,Leader: Dbaen.,Leader: Dba.,0.99877,70,74,70,72,0,-2,70,72,0,-2,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_09_1_q01,Leader: Dbjet.,Leader: Db.,0.995826,68,72,68,69,0,-3,68,69,0,-3,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_11_0_q01,Leader: Dblet.,Leader: Db.,0.962195,70,74,70,71,0,-3,70,71,0,-3,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_11_1_q01,Leader: Dblet.,Leader: Db.,0.99763,70,74,70,71,0,-3,70,71,0,-3,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_04_0_q01,Leader: Dbeen.,Leader: Db.,0.999097,66,70,66,48,0,-22,66,67,0,-3,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_00_1_q01,Leader: Dbaen.,Leader: Dba.,0.986897,70,74,70,72,0,-2,70,72,0,-2,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_02_1_q01,Leader: Dbcen.,Leader: Db.,0.998662,66,70,66,67,0,-3,66,67,0,-3,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_07_1_q01,Leader: Dbhet.,Leader: b.,0.996272,69,73,70,63,1,-10,70,70,1,-3,0,0,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_02_0_q01,Leader: Dbcen.,Leader: Dbcen. Loca.,0.998198,63,67,63,73,0,6,63,73,0,6,0,1,0,0,0
+v5b,length5_consonant,v5d_dev_length5_consonant_01_1_q01,Leader: Dbbet.,Leader: Db.,0.990259,70,74,70,71,0,-3,70,71,0,-3,0,1,0,0,0
+v5d,length4_vowel,v5d_dev_length4_vowel_04_0_q01,Leader: Dbea.,Leader: Dbea. Lo.,0.999761,66,69,66,73,0,4,66,73,0,4,0,1,0,0,0
+v5d,length4_vowel,v5d_dev_length4_vowel_10_0_q01,Leader: Dbka.,Leader: Pine. Leader: D.,0.999486,69,72,75,51,6,-21,55,69,-14,-3,0,0,0,0,0
+v5d,length4_vowel,v5d_dev_length4_vowel_05_0_q01,Leader: Dbfi.,Leader: Dbfi.,0.999743,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5d,length4_vowel,v5d_dev_length4_vowel_00_0_q01,Leader: Dbaa.,Leader: Dbaa.,0.999768,70,73,70,73,0,0,70,73,0,0,1,1,1,1,0
+v5d,length4_vowel,v5d_dev_length4_vowel_03_0_q01,Leader: Dbdi.,Leader: di.,0.999722,68,71,74,71,6,0,70,71,2,0,0,0,1,0,0
+v5d,length4_vowel,v5d_dev_length4_vowel_08_1_q01,Leader: Dbia.,Leader: Dbia. Lo.,0.999718,66,69,66,73,0,4,66,73,0,4,0,1,0,0,0
+v5d,length4_vowel,v5d_dev_length4_vowel_06_1_q01,Leader: Dbga.,Leader: Dbga.,0.999576,70,73,70,73,0,0,70,73,0,0,1,1,1,1,0
+v5d,length4_vowel,v5d_dev_length4_vowel_07_1_q01,Leader: Dbhi.,Leader: Pine. Leader: D.,0.999416,69,72,75,72,6,0,55,69,-14,-3,0,0,1,0,0
+v5d,length4_vowel,v5d_dev_length4_vowel_04_1_q01,Leader: Dbea.,Leader: Pytho.,0.999524,63,66,47,66,-16,0,47,51,-16,-15,0,0,1,0,0
+v5d,length4_vowel,v5d_dev_length4_vowel_07_0_q01,Leader: Dbhi.,Leader: der: Dbhi.,0.999703,68,71,63,71,-5,0,63,71,-5,0,0,0,1,0,0
+v5d,length4_vowel,v5d_dev_length4_vowel_11_1_q01,Leader: Dbli.,Leader: Dbli.,0.999734,70,73,70,73,0,0,70,73,0,0,1,1,1,1,0
+v5d,length4_vowel,v5d_dev_length4_vowel_00_1_q01,Leader: Dbaa.,Leader: Dbaa.,0.999766,70,73,70,73,0,0,70,73,0,0,1,1,1,1,0
+v5d,length4_vowel,v5d_dev_length4_vowel_09_0_q01,Leader: Dbji.,Leader: Dbji.,0.999609,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5d,length4_vowel,v5d_dev_length4_vowel_03_1_q01,Leader: Dbdi.,Leader: Roo.,0.99972,48,51,64,66,16,15,64,66,16,15,0,0,0,0,0
+v5d,length4_vowel,v5d_dev_length4_vowel_05_1_q01,Leader: Dbfi.,Leader: Dbfi.,0.9995,66,69,66,69,0,0,66,69,0,0,1,1,1,1,0
+v5d,length4_vowel,v5d_dev_length4_vowel_11_0_q01,Leader: Dbli.,Leader: Dbli.,0.999738,70,73,70,73,0,0,70,73,0,0,1,1,1,1,0
+v5d,length4_vowel,v5d_dev_length4_vowel_10_1_q01,Leader: Dbka.,Leader: Pine. Leader: D.,0.999411,69,72,75,72,6,0,55,69,-14,-3,0,0,1,0,0
+v5d,length4_vowel,v5d_dev_length4_vowel_01_0_q01,Leader: Dbbi.,Leader: Roo.,0.9997,48,51,64,66,16,15,64,66,16,15,0,0,0,0,0
+v5d,length4_vowel,v5d_dev_length4_vowel_08_0_q01,Leader: Dbia.,Leader: Roo.,0.999717,48,51,64,66,16,15,64,66,16,15,0,0,0,0,0
+v5d,length4_vowel,v5d_dev_length4_vowel_09_1_q01,Leader: Dbji.,Leader: der: Dbji.,0.999689,68,71,74,71,6,0,63,71,-5,0,0,0,1,0,0
+v5d,length4_vowel,v5d_dev_length4_vowel_02_0_q01,Leader: Dbca.,Leader: Pytho.,0.999427,63,66,47,66,-16,0,47,51,-16,-15,0,0,1,0,0
+v5d,length4_vowel,v5d_dev_length4_vowel_02_1_q01,Leader: Dbca.,Leader: Dbca. Lo.,0.999716,66,69,66,73,0,4,66,73,0,4,0,1,0,0,0
+v5d,length4_vowel,v5d_dev_length4_vowel_01_1_q01,Leader: Dbbi.,Leader: Dbbi.,0.999538,70,73,83,73,13,0,70,73,0,0,1,0,1,1,0
+v5d,length4_vowel,v5d_dev_length4_vowel_06_0_q01,Leader: Dbga.,Leader: Dbga. Lo.,0.999752,66,69,66,73,0,4,66,73,0,4,0,1,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_11_0_q01,Leader: Dblt.,Leader: Dblt.,0.999735,70,73,70,51,0,-22,70,73,0,0,1,1,0,1,0
+v5d,length4_consonant,v5d_dev_length4_consonant_05_0_q01,Leader: Dbft.,Leader: Dbft. Lo.,0.999742,66,69,66,73,0,4,66,73,0,4,0,1,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_03_1_q01,Leader: Dbdt.,Leader: Roo.,0.999718,48,51,64,66,16,15,64,66,16,15,0,0,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_08_1_q01,Leader: Dbin.,Leader: Dbin. Lo.,0.999703,66,69,66,73,0,4,66,73,0,4,0,1,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_03_0_q01,Leader: Dbdt.,Leader: dt.,0.999721,68,71,74,51,6,-20,70,71,2,0,0,0,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_00_0_q01,Leader: Dban.,Leader: Dba.,0.999757,70,73,70,51,0,-22,70,72,0,-1,0,1,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_05_1_q01,Leader: Dbft.,Leader: Dbft. Lo.,0.999491,66,69,66,73,0,4,66,73,0,4,0,1,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_06_1_q01,Leader: Dbgn.,Leader: Dbgn.,0.99951,70,73,70,51,0,-22,70,73,0,0,1,1,0,1,0
+v5d,length4_consonant,v5d_dev_length4_consonant_07_0_q01,Leader: Dbht.,Leader: Ro.,0.999701,68,71,63,51,-5,-20,50,51,-18,-20,0,0,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_07_1_q01,Leader: Dbht.,Leader: Pine. Leader: D.,0.999395,69,72,75,51,6,-21,55,69,-14,-3,0,0,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_02_0_q01,Leader: Dbcn.,Leader: Pytho.,0.999168,63,66,47,70,-16,4,47,51,-16,-15,0,0,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_00_1_q01,Leader: Dban.,Leader: Dba.,0.999754,70,73,70,51,0,-22,70,72,0,-1,0,1,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_04_0_q01,Leader: Dben.,Leader: Dben. Lo.,0.999753,66,69,66,73,0,4,66,73,0,4,0,1,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_09_1_q01,Leader: Dbjt.,Leader: Topic: Ast.,0.999687,68,71,74,51,6,-20,74,83,6,12,0,0,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_01_0_q01,Leader: Dbbt.,Leader: Roo.,0.999697,48,51,64,66,16,15,64,66,16,15,0,0,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_04_1_q01,Leader: Dben.,Leader: Pytho.,0.999359,63,66,47,70,-16,4,47,51,-16,-15,0,0,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_02_1_q01,Leader: Dbcn.,Leader: Dbcn. Lo.,0.999701,66,69,66,73,0,4,66,73,0,4,0,1,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_10_1_q01,Leader: Dbkn.,Leader: Pine. Leader: D.,0.999316,69,72,82,51,13,-21,55,69,-14,-3,0,0,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_10_0_q01,Leader: Dbkn.,Leader: Pine. Leader: D.,0.999416,69,72,75,51,6,-21,55,69,-14,-3,0,0,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_11_1_q01,Leader: Dblt.,Leader: Dblt.,0.99973,70,73,70,51,0,-22,70,73,0,0,1,1,0,1,0
+v5d,length4_consonant,v5d_dev_length4_consonant_09_0_q01,Leader: Dbjt.,Leader: Dbjt. Lo.,0.999606,66,69,66,73,0,4,66,73,0,4,0,1,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_06_0_q01,Leader: Dbgn.,Leader: Dbgn. Lo.,0.999743,66,69,66,73,0,4,66,73,0,4,0,1,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_08_0_q01,Leader: Dbin.,Leader: Roo.,0.999702,48,51,64,66,16,15,64,66,16,15,0,0,0,0,0
+v5d,length4_consonant,v5d_dev_length4_consonant_01_1_q01,Leader: Dbbt.,Leader: Dbbt.,0.999521,70,73,70,51,0,-22,70,73,0,0,1,1,0,1,0
+v5d,length5_vowel,v5d_dev_length5_vowel_09_1_q01,Leader: Dbjei.,Leader: Topic: Ast.,0.999705,68,72,75,72,7,0,75,84,7,12,0,0,1,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_07_1_q01,Leader: Dbhei.,Leader: Dbhei.,0.999515,69,73,55,73,-14,0,69,73,0,0,1,0,1,1,0
+v5d,length5_vowel,v5d_dev_length5_vowel_11_1_q01,Leader: Dblei.,Leader: Dblei.,0.999724,70,74,70,51,0,-23,70,74,0,0,1,1,0,1,0
+v5d,length5_vowel,v5d_dev_length5_vowel_01_1_q01,Leader: Dbbei.,Leader: Dbbei.,0.999543,70,74,70,51,0,-23,70,74,0,0,1,1,0,1,0
+v5d,length5_vowel,v5d_dev_length5_vowel_06_0_q01,Leader: Dbgea.,Leader: D.,0.999765,66,70,66,66,0,-4,66,66,0,-4,0,1,0,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_08_1_q01,Leader: Dbiea.,Leader: D.,0.999715,66,70,66,66,0,-4,66,66,0,-4,0,1,0,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_02_0_q01,Leader: Dbcea.,Leader: Lo.,0.999491,63,67,85,71,22,4,70,71,7,4,0,0,0,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_10_0_q01,Leader: Dbkea.,Leader: Pine. Leader: D.,0.999579,69,73,55,73,-14,0,55,69,-14,-4,0,0,1,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_02_1_q01,Leader: Dbcea.,Leader: D.,0.999715,66,70,66,66,0,-4,66,66,0,-4,0,1,0,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_03_0_q01,Leader: Dbdei.,Leader: dei.,0.99975,68,72,70,72,2,0,70,72,2,0,0,0,1,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_03_1_q01,Leader: Dbdei.,Leader: Location: Ro.,0.723606,48,52,55,66,7,14,55,66,7,14,0,0,0,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_00_0_q01,Leader: Dbaea.,Leader: Dba.,0.999752,70,74,70,51,0,-23,70,72,0,-2,0,1,0,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_04_1_q01,Leader: Dbeea.,Leader: Lo.,0.999552,63,67,85,71,22,4,70,71,7,4,0,0,0,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_05_1_q01,Leader: Dbfei.,Leader: D.,0.999362,66,70,66,66,0,-4,66,66,0,-4,0,1,0,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_11_0_q01,Leader: Dblei.,Leader: Dblei.,0.999729,70,74,70,51,0,-23,70,74,0,0,1,1,0,1,0
+v5d,length5_vowel,v5d_dev_length5_vowel_10_1_q01,Leader: Dbkea.,Leader: Pine. Leader: D.,0.999524,69,73,55,73,-14,0,55,69,-14,-4,0,0,1,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_06_1_q01,Leader: Dbgea.,Leader: Dbgea.,0.999532,70,74,70,51,0,-23,70,74,0,0,1,1,0,1,0
+v5d,length5_vowel,v5d_dev_length5_vowel_01_0_q01,Leader: Dbbei.,Insufficient information.,0.157131,48,52,55,66,7,14,,,,,0,0,0,0,1
+v5d,length5_vowel,v5d_dev_length5_vowel_05_0_q01,Leader: Dbfei.,Leader: D.,0.999756,66,70,66,66,0,-4,66,66,0,-4,0,1,0,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_07_0_q01,Leader: Dbhei.,Leader: der: Dbhei.,0.999629,68,72,63,72,-5,0,63,72,-5,0,0,0,1,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_08_0_q01,Leader: Dbiea.,Insufficient information.,0.256218,48,52,55,66,7,14,,,,,0,0,0,0,1
+v5d,length5_vowel,v5d_dev_length5_vowel_09_0_q01,Leader: Dbjei.,Leader: D.,0.999729,66,70,66,66,0,-4,66,66,0,-4,0,1,0,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_00_1_q01,Leader: Dbaea.,Leader: Dba.,0.999749,70,74,70,51,0,-23,70,72,0,-2,0,1,0,0,0
+v5d,length5_vowel,v5d_dev_length5_vowel_04_0_q01,Leader: Dbeea.,Leader: D.,0.999763,66,70,66,66,0,-4,66,66,0,-4,0,1,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_10_1_q01,Leader: Dbken.,Leader: Pine. Leader: D.,0.999458,69,73,55,51,-14,-22,55,69,-14,-4,0,0,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_04_1_q01,Leader: Dbeen.,Leader: Lo.,0.999513,63,67,85,71,22,4,70,71,7,4,0,0,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_10_0_q01,Leader: Dbken.,Leader: Pine. Leader: D.,0.999514,69,73,55,51,-14,-22,55,69,-14,-4,0,0,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_05_1_q01,Leader: Dbfet.,Leader: D.,0.99935,66,70,66,66,0,-4,66,66,0,-4,0,1,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_07_0_q01,Leader: Dbhet.,Leader: Ro.,0.999621,68,72,63,51,-5,-21,50,51,-18,-21,0,0,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_06_0_q01,Leader: Dbgen.,Leader: D.,0.999756,66,70,66,66,0,-4,66,66,0,-4,0,1,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_06_1_q01,Leader: Dbgen.,Leader: Dbgen. To.,0.999492,70,74,70,51,0,-23,70,78,0,4,0,1,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_03_0_q01,Leader: Dbdet.,Leader: det.,0.999749,68,72,70,51,2,-21,70,72,2,0,0,0,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_03_1_q01,Leader: Dbdet.,Leader: Location: Ro.,0.715414,48,52,55,66,7,14,55,66,7,14,0,0,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_08_0_q01,Leader: Dbien.,Insufficient information.,0.176612,48,52,55,66,7,14,,,,,0,0,0,0,1
+v5d,length5_consonant,v5d_dev_length5_consonant_08_1_q01,Leader: Dbien.,Leader: D.,0.999696,66,70,66,66,0,-4,66,66,0,-4,0,1,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_05_0_q01,Leader: Dbfet.,Leader: D.,0.999755,66,70,66,66,0,-4,66,66,0,-4,0,1,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_01_0_q01,Leader: Dbbet.,Insufficient information.,0.15173,48,52,55,66,7,14,,,,,0,0,0,0,1
+v5d,length5_consonant,v5d_dev_length5_consonant_09_0_q01,Leader: Dbjet.,Leader: D.,0.999727,66,70,66,66,0,-4,66,66,0,-4,0,1,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_00_0_q01,Leader: Dbaen.,Leader: Dba.,0.999746,70,74,70,51,0,-23,70,72,0,-2,0,1,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_09_1_q01,Leader: Dbjet.,Leader: Topic: Ast.,0.999702,68,72,75,51,7,-21,75,84,7,12,0,0,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_11_0_q01,Leader: Dblet.,Leader: Dblet.,0.999729,70,74,70,51,0,-23,70,74,0,0,1,1,0,1,0
+v5d,length5_consonant,v5d_dev_length5_consonant_11_1_q01,Leader: Dblet.,Leader: Dblet.,0.999723,70,74,70,51,0,-23,70,74,0,0,1,1,0,1,0
+v5d,length5_consonant,v5d_dev_length5_consonant_04_0_q01,Leader: Dbeen.,Leader: D.,0.999753,66,70,66,66,0,-4,66,66,0,-4,0,1,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_00_1_q01,Leader: Dbaen.,Leader: Dba.,0.999743,70,74,70,51,0,-23,70,72,0,-2,0,1,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_02_1_q01,Leader: Dbcen.,Leader: D.,0.999695,66,70,66,66,0,-4,66,66,0,-4,0,1,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_07_1_q01,Leader: Dbhet.,Leader: Pine. Leader: D.,0.999501,69,73,55,51,-14,-22,55,69,-14,-4,0,0,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_02_0_q01,Leader: Dbcen.,Leader: Lo.,0.999439,63,67,85,71,22,4,70,71,7,4,0,0,0,0,0
+v5d,length5_consonant,v5d_dev_length5_consonant_01_1_q01,Leader: Dbbet.,Leader: Dbbet.,0.999539,70,74,70,51,0,-23,70,74,0,0,1,1,0,1,0

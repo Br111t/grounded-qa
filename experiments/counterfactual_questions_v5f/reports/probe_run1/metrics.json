@@ -1,0 +1,251 @@
+{
+  "experiment": "v5f_question_counterfactual_v1",
+  "checkpoint_sha256": {
+    "v5": "d29a7664129364d81cce8fb875db92296338ce1a2d1c77e7098062a9ae8b88a8",
+    "v5b": "616e4e5e3324655a8a93a3bf4f73c1825e32ebed8b88f18bbbe393d4d828f2c1",
+    "v5d": "2a256d2e29a9d71c72d5ffd0cdc6180089edb96fb2606fd2efcdca6287c7e165"
+  },
+  "source_code_sha256": "e267a3a6e66ef9a37dd2cfb61928d5fabe6c06d54561fbaa1a387a28e6812c84",
+  "evidence_count": 4,
+  "questions_per_evidence": 6,
+  "prediction_count": 72,
+  "pair_count": 60,
+  "selected_field_counts": [
+    {
+      "model": "v5",
+      "question_id": "leader_original",
+      "target": "leader",
+      "selected": {
+        "leader": 3,
+        "location": 0,
+        "topic": 1
+      },
+      "abstained": 0,
+      "correct": 3,
+      "total": 4
+    },
+    {
+      "model": "v5",
+      "question_id": "leader_paraphrase",
+      "target": "leader",
+      "selected": {
+        "leader": 3,
+        "location": 0,
+        "topic": 1
+      },
+      "abstained": 0,
+      "correct": 3,
+      "total": 4
+    },
+    {
+      "model": "v5",
+      "question_id": "leader_reworded",
+      "target": "leader",
+      "selected": {
+        "leader": 3,
+        "location": 0,
+        "topic": 0
+      },
+      "abstained": 1,
+      "correct": 3,
+      "total": 4
+    },
+    {
+      "model": "v5",
+      "question_id": "location",
+      "target": "location",
+      "selected": {
+        "leader": 3,
+        "location": 0,
+        "topic": 1
+      },
+      "abstained": 0,
+      "correct": 0,
+      "total": 4
+    },
+    {
+      "model": "v5",
+      "question_id": "topic",
+      "target": "topic",
+      "selected": {
+        "leader": 3,
+        "location": 0,
+        "topic": 0
+      },
+      "abstained": 1,
+      "correct": 0,
+      "total": 4
+    },
+    {
+      "model": "v5",
+      "question_id": "unrelated",
+      "target": "unrelated",
+      "selected": {
+        "leader": 3,
+        "location": 0,
+        "topic": 1
+      },
+      "abstained": 0,
+      "correct": 0,
+      "total": 4
+    },
+    {
+      "model": "v5b",
+      "question_id": "leader_original",
+      "target": "leader",
+      "selected": {
+        "leader": 2,
+        "location": 1,
+        "topic": 0
+      },
+      "abstained": 1,
+      "correct": 2,
+      "total": 4
+    },
+    {
+      "model": "v5b",
+      "question_id": "leader_paraphrase",
+      "target": "leader",
+      "selected": {
+        "leader": 2,
+        "location": 1,
+        "topic": 0
+      },
+      "abstained": 1,
+      "correct": 2,
+      "total": 4
+    },
+    {
+      "model": "v5b",
+      "question_id": "leader_reworded",
+      "target": "leader",
+      "selected": {
+        "leader": 2,
+        "location": 1,
+        "topic": 0
+      },
+      "abstained": 1,
+      "correct": 2,
+      "total": 4
+    },
+    {
+      "model": "v5b",
+      "question_id": "location",
+      "target": "location",
+      "selected": {
+        "leader": 2,
+        "location": 2,
+        "topic": 0
+      },
+      "abstained": 0,
+      "correct": 2,
+      "total": 4
+    },
+    {
+      "model": "v5b",
+      "question_id": "topic",
+      "target": "topic",
+      "selected": {
+        "leader": 2,
+        "location": 1,
+        "topic": 0
+      },
+      "abstained": 1,
+      "correct": 0,
+      "total": 4
+    },
+    {
+      "model": "v5b",
+      "question_id": "unrelated",
+      "target": "unrelated",
+      "selected": {
+        "leader": 2,
+        "location": 1,
+        "topic": 0
+      },
+      "abstained": 1,
+      "correct": 1,
+      "total": 4
+    },
+    {
+      "model": "v5d",
+      "question_id": "leader_original",
+      "target": "leader",
+      "selected": {
+        "leader": 2,
+        "location": 1,
+        "topic": 1
+      },
+      "abstained": 0,
+      "correct": 2,
+      "total": 4
+    },
+    {
+      "model": "v5d",
+      "question_id": "leader_paraphrase",
+      "target": "leader",
+      "selected": {
+        "leader": 2,
+        "location": 1,
+        "topic": 0
+      },
+      "abstained": 1,
+      "correct": 2,
+      "total": 4
+    },
+    {
+      "model": "v5d",
+      "question_id": "leader_reworded",
+      "target": "leader",
+      "selected": {
+        "leader": 2,
+        "location": 0,
+        "topic": 0
+      },
+      "abstained": 2,
+      "correct": 2,
+      "total": 4
+    },
+    {
+      "model": "v5d",
+      "question_id": "location",
+      "target": "location",
+      "selected": {
+        "leader": 2,
+        "location": 1,
+        "topic": 0
+      },
+      "abstained": 1,
+      "correct": 1,
+      "total": 4
+    },
+    {
+      "model": "v5d",
+      "question_id": "topic",
+      "target": "topic",
+      "selected": {
+        "leader": 2,
+        "location": 1,
+        "topic": 0
+      },
+      "abstained": 1,
+      "correct": 0,
+      "total": 4
+    },
+    {
+      "model": "v5d",
+      "question_id": "unrelated",
+      "target": "unrelated",
+      "selected": {
+        "leader": 2,
+        "location": 1,
+        "topic": 0
+      },
+      "abstained": 1,
+      "correct": 1,
+      "total": 4
+    }
+  ],
+  "prior_v5e_holdout_reused": false,
+  "training_performed": false
+}

@@ -1,0 +1,1675 @@
+{
+  "diagnostic": "v5i_question_vector_intervention",
+  "model_checkpoint_sha256": "c9f25deaf3a9abc3453776d9d856d20894a61727614e145fcfe658960be05ff4",
+  "no_training": true,
+  "reserved_eval_accessed": false,
+  "note": "Fixed-encoder question-vector swap isolates the DIRECT fusion path. Actual observed differences also include encoder changes when question tokens change. These comparisons are diagnostic, not causal proof of learned abstraction or generalization.",
+  "results": {
+    "train": {
+      "dataset_sha256": "493d939ab6207799536670e1b90dfa07e67e08265274423fe87d7e96348771b3",
+      "summary": {
+        "source_pairs": 24,
+        "both_fields_present": 12,
+        "correct_switches_among_both_present": 11,
+        "mean_question_vector_l2": 0.48715903237462044,
+        "mean_question_vector_cosine": 0.998200404147307,
+        "mean_actual_max_field_score_delta": 18.60000483194987,
+        "mean_fixed_encoder_leader_question_delta": 0.05897359053293864,
+        "mean_fixed_encoder_location_question_delta": 0.06767491499582927,
+        "mean_leader_question_margin": 6.827019353707631,
+        "mean_location_question_margin": 12.247592707475027
+      },
+      "pairs": [
+        {
+          "source_id": "v5g_train_00",
+          "both_fields_present": false,
+          "question_vector_l2": 0.4556591510772705,
+          "question_vector_cosine": 0.9983639717102051,
+          "leader_question": {
+            "observed_scores": {
+              "location": 6.234285354614258
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 6.165810585021973
+            },
+            "fixed_encoder_max_score_delta": 0.06847476959228516,
+            "answer_probability": 0.8182761669158936
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 7.054265975952148
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 7.136260986328125
+            },
+            "fixed_encoder_max_score_delta": 0.08199501037597656,
+            "answer_probability": 0.8221405148506165
+          },
+          "actual_max_score_delta": 0.8199806213378906,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_train_01",
+          "both_fields_present": false,
+          "question_vector_l2": 0.4164409041404724,
+          "question_vector_cosine": 0.9984619617462158,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 10.55560302734375
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": 10.436605453491211
+            },
+            "fixed_encoder_max_score_delta": 0.11899757385253906,
+            "answer_probability": 0.816319465637207
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -0.4055299758911133
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -0.36183691024780273
+            },
+            "fixed_encoder_max_score_delta": 0.04369306564331055,
+            "answer_probability": 0.8053356409072876
+          },
+          "actual_max_score_delta": 10.961133003234863,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_train_02",
+          "both_fields_present": true,
+          "question_vector_l2": 0.711133599281311,
+          "question_vector_cosine": 0.9973310828208923,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 20.54339599609375,
+              "location": 11.549713134765625
+            },
+            "observed_margin": 8.993682861328125,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": 20.511737823486328,
+              "location": 11.504179000854492
+            },
+            "fixed_encoder_max_score_delta": 0.04553413391113281,
+            "answer_probability": 0.8737950325012207
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": 1.5989336967468262,
+              "location": 12.320863723754883
+            },
+            "observed_margin": 10.721930027008057,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": 1.5863871574401855,
+              "location": 12.384870529174805
+            },
+            "fixed_encoder_max_score_delta": 0.06400680541992188,
+            "answer_probability": 0.875248372554779
+          },
+          "actual_max_score_delta": 18.944462299346924,
+          "actual_correct_switch": true
+        },
+        {
+          "source_id": "v5g_train_03",
+          "both_fields_present": true,
+          "question_vector_l2": 0.4290948212146759,
+          "question_vector_cosine": 0.9983874559402466,
+          "leader_question": {
+            "observed_scores": {
+              "location": 12.146333694458008,
+              "leader": 8.863115310668945
+            },
+            "observed_margin": -3.2832183837890625,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.083866119384766,
+              "leader": 8.784382820129395
+            },
+            "fixed_encoder_max_score_delta": 0.07873249053955078,
+            "answer_probability": 0.8739914298057556
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 12.132238388061523,
+              "leader": -4.2900238037109375
+            },
+            "observed_margin": 16.42226219177246,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.195301055908203,
+              "leader": -4.280027389526367
+            },
+            "fixed_encoder_max_score_delta": 0.06306266784667969,
+            "answer_probability": 0.883884072303772
+          },
+          "actual_max_score_delta": 13.153139114379883,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_train_04",
+          "both_fields_present": false,
+          "question_vector_l2": 0.4562232196331024,
+          "question_vector_cosine": 0.9980413913726807,
+          "leader_question": {
+            "observed_scores": {
+              "location": 12.61417007446289
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.522712707519531
+            },
+            "fixed_encoder_max_score_delta": 0.09145736694335938,
+            "answer_probability": 0.7746992111206055
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 12.783204078674316
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.872235298156738
+            },
+            "fixed_encoder_max_score_delta": 0.08903121948242188,
+            "answer_probability": 0.8291678428649902
+          },
+          "actual_max_score_delta": 0.16903400421142578,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_train_05",
+          "both_fields_present": false,
+          "question_vector_l2": 0.41942155361175537,
+          "question_vector_cosine": 0.9984717965126038,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 10.928632736206055
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": 10.806690216064453
+            },
+            "fixed_encoder_max_score_delta": 0.12194252014160156,
+            "answer_probability": 0.7900485992431641
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": 9.323347091674805
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": 9.444022178649902
+            },
+            "fixed_encoder_max_score_delta": 0.12067508697509766,
+            "answer_probability": 0.7817745208740234
+          },
+          "actual_max_score_delta": 1.60528564453125,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_train_06",
+          "both_fields_present": true,
+          "question_vector_l2": 0.46696385741233826,
+          "question_vector_cosine": 0.9985573291778564,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 20.758380889892578,
+              "location": 12.65017318725586
+            },
+            "observed_margin": 8.108207702636719,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": 20.739944458007812,
+              "location": 12.603330612182617
+            },
+            "fixed_encoder_max_score_delta": 0.04684257507324219,
+            "answer_probability": 0.8416649103164673
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": 1.01393461227417,
+              "location": 12.782323837280273
+            },
+            "observed_margin": 11.768389225006104,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": 1.0116734504699707,
+              "location": 12.829842567443848
+            },
+            "fixed_encoder_max_score_delta": 0.04751873016357422,
+            "answer_probability": 0.8815312385559082
+          },
+          "actual_max_score_delta": 19.744446277618408,
+          "actual_correct_switch": true
+        },
+        {
+          "source_id": "v5g_train_07",
+          "both_fields_present": true,
+          "question_vector_l2": 0.5725728273391724,
+          "question_vector_cosine": 0.9980083703994751,
+          "leader_question": {
+            "observed_scores": {
+              "location": 9.826191902160645,
+              "leader": 12.494815826416016
+            },
+            "observed_margin": 2.668623924255371,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "location": 9.730875015258789,
+              "leader": 12.471824645996094
+            },
+            "fixed_encoder_max_score_delta": 0.09531688690185547,
+            "answer_probability": 0.8745886087417603
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 9.947994232177734,
+              "leader": -4.435561180114746
+            },
+            "observed_margin": 14.38355541229248,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 10.043514251708984,
+              "leader": -4.470705509185791
+            },
+            "fixed_encoder_max_score_delta": 0.09552001953125,
+            "answer_probability": 0.8749135136604309
+          },
+          "actual_max_score_delta": 16.93037700653076,
+          "actual_correct_switch": true
+        },
+        {
+          "source_id": "v5g_train_08",
+          "both_fields_present": false,
+          "question_vector_l2": 0.35227707028388977,
+          "question_vector_cosine": 0.9990608096122742,
+          "leader_question": {
+            "observed_scores": {
+              "location": 12.496722221374512
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.44003677368164
+            },
+            "fixed_encoder_max_score_delta": 0.056685447692871094,
+            "answer_probability": 0.7865184545516968
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 12.122812271118164
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.181133270263672
+            },
+            "fixed_encoder_max_score_delta": 0.05832099914550781,
+            "answer_probability": 0.8261963725090027
+          },
+          "actual_max_score_delta": 0.37390995025634766,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_train_09",
+          "both_fields_present": false,
+          "question_vector_l2": 0.3596545159816742,
+          "question_vector_cosine": 0.9989804029464722,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 10.581987380981445
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": 10.516889572143555
+            },
+            "fixed_encoder_max_score_delta": 0.06509780883789062,
+            "answer_probability": 0.7835096120834351
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -2.268181324005127
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -2.2535948753356934
+            },
+            "fixed_encoder_max_score_delta": 0.014586448669433594,
+            "answer_probability": 0.8143076300621033
+          },
+          "actual_max_score_delta": 12.850168704986572,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_train_10",
+          "both_fields_present": true,
+          "question_vector_l2": 0.6660549640655518,
+          "question_vector_cosine": 0.9970647096633911,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 20.575119018554688,
+              "location": 6.28890323638916
+            },
+            "observed_margin": 14.286215782165527,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": 20.538511276245117,
+              "location": 6.229617118835449
+            },
+            "fixed_encoder_max_score_delta": 0.05928611755371094,
+            "answer_probability": 0.8716626763343811
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -0.6007699966430664,
+              "location": 6.918018341064453
+            },
+            "observed_margin": 7.5187883377075195,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": -0.5832128524780273,
+              "location": 6.983541488647461
+            },
+            "fixed_encoder_max_score_delta": 0.06552314758300781,
+            "answer_probability": 0.876406192779541
+          },
+          "actual_max_score_delta": 21.175889015197754,
+          "actual_correct_switch": true
+        },
+        {
+          "source_id": "v5g_train_11",
+          "both_fields_present": true,
+          "question_vector_l2": 0.666527509689331,
+          "question_vector_cosine": 0.9975090622901917,
+          "leader_question": {
+            "observed_scores": {
+              "location": 4.123613357543945,
+              "leader": 13.702555656433105
+            },
+            "observed_margin": 9.57894229888916,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "location": 4.127045631408691,
+              "leader": 13.693177223205566
+            },
+            "fixed_encoder_max_score_delta": 0.009378433227539062,
+            "answer_probability": 0.8777905702590942
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 5.682226657867432,
+              "leader": -5.150814056396484
+            },
+            "observed_margin": 10.833040714263916,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 5.716593265533447,
+              "leader": -5.217385292053223
+            },
+            "fixed_encoder_max_score_delta": 0.06657123565673828,
+            "answer_probability": 0.8829699158668518
+          },
+          "actual_max_score_delta": 18.85336971282959,
+          "actual_correct_switch": true
+        },
+        {
+          "source_id": "v5g_train_12",
+          "both_fields_present": false,
+          "question_vector_l2": 0.42639318108558655,
+          "question_vector_cosine": 0.9982357621192932,
+          "leader_question": {
+            "observed_scores": {
+              "location": 11.9666748046875
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 11.91138744354248
+            },
+            "fixed_encoder_max_score_delta": 0.05528736114501953,
+            "answer_probability": 0.7797709107398987
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 12.670282363891602
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.738716125488281
+            },
+            "fixed_encoder_max_score_delta": 0.06843376159667969,
+            "answer_probability": 0.8316591382026672
+          },
+          "actual_max_score_delta": 0.7036075592041016,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_train_13",
+          "both_fields_present": false,
+          "question_vector_l2": 0.4147673547267914,
+          "question_vector_cosine": 0.9984735250473022,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 10.535005569458008
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": 10.416142463684082
+            },
+            "fixed_encoder_max_score_delta": 0.11886310577392578,
+            "answer_probability": 0.8181934952735901
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -0.3718552589416504
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -0.32837486267089844
+            },
+            "fixed_encoder_max_score_delta": 0.04348039627075195,
+            "answer_probability": 0.807340145111084
+          },
+          "actual_max_score_delta": 10.906860828399658,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_train_14",
+          "both_fields_present": true,
+          "question_vector_l2": 0.6359829902648926,
+          "question_vector_cosine": 0.9975603818893433,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 21.11367416381836,
+              "location": 11.984984397888184
+            },
+            "observed_margin": 9.128689765930176,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": 21.09362030029297,
+              "location": 11.906787872314453
+            },
+            "fixed_encoder_max_score_delta": 0.07819652557373047,
+            "answer_probability": 0.8670815229415894
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": 1.7059659957885742,
+              "location": 12.444938659667969
+            },
+            "observed_margin": 10.738972663879395,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": 1.7173614501953125,
+              "location": 12.521984100341797
+            },
+            "fixed_encoder_max_score_delta": 0.07704544067382812,
+            "answer_probability": 0.8761551976203918
+          },
+          "actual_max_score_delta": 19.407708168029785,
+          "actual_correct_switch": true
+        },
+        {
+          "source_id": "v5g_train_15",
+          "both_fields_present": true,
+          "question_vector_l2": 0.4297887980937958,
+          "question_vector_cosine": 0.9987167716026306,
+          "leader_question": {
+            "observed_scores": {
+              "location": 9.801950454711914,
+              "leader": 13.047995567321777
+            },
+            "observed_margin": 3.2460451126098633,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "location": 9.744768142700195,
+              "leader": 13.030097007751465
+            },
+            "fixed_encoder_max_score_delta": 0.05718231201171875,
+            "answer_probability": 0.8439977169036865
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 10.017667770385742,
+              "leader": -5.062620639801025
+            },
+            "observed_margin": 15.080288410186768,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 10.076370239257812,
+              "leader": -5.092043876647949
+            },
+            "fixed_encoder_max_score_delta": 0.05870246887207031,
+            "answer_probability": 0.8834200501441956
+          },
+          "actual_max_score_delta": 18.110616207122803,
+          "actual_correct_switch": true
+        },
+        {
+          "source_id": "v5g_train_16",
+          "both_fields_present": false,
+          "question_vector_l2": 0.38335004448890686,
+          "question_vector_cosine": 0.9986850023269653,
+          "leader_question": {
+            "observed_scores": {
+              "location": 12.114501953125
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.047323226928711
+            },
+            "fixed_encoder_max_score_delta": 0.06717872619628906,
+            "answer_probability": 0.7843650579452515
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 12.439395904541016
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.506339073181152
+            },
+            "fixed_encoder_max_score_delta": 0.06694316864013672,
+            "answer_probability": 0.8312123417854309
+          },
+          "actual_max_score_delta": 0.3248939514160156,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_train_17",
+          "both_fields_present": false,
+          "question_vector_l2": 0.4036523103713989,
+          "question_vector_cosine": 0.9985883831977844,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 10.733776092529297
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": 10.619197845458984
+            },
+            "fixed_encoder_max_score_delta": 0.1145782470703125,
+            "answer_probability": 0.8206668496131897
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -0.15656709671020508
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -0.11618614196777344
+            },
+            "fixed_encoder_max_score_delta": 0.04038095474243164,
+            "answer_probability": 0.8102837204933167
+          },
+          "actual_max_score_delta": 10.890343189239502,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_train_18",
+          "both_fields_present": true,
+          "question_vector_l2": 0.5796258449554443,
+          "question_vector_cosine": 0.9976403117179871,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 18.43563461303711,
+              "location": 12.535283088684082
+            },
+            "observed_margin": 5.900351524353027,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": 18.35921859741211,
+              "location": 12.448522567749023
+            },
+            "fixed_encoder_max_score_delta": 0.0867605209350586,
+            "answer_probability": 0.8698388934135437
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -0.39044713973999023,
+              "location": 12.489948272705078
+            },
+            "observed_margin": 12.880395412445068,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": -0.36948442459106445,
+              "location": 12.577828407287598
+            },
+            "fixed_encoder_max_score_delta": 0.08788013458251953,
+            "answer_probability": 0.877994954586029
+          },
+          "actual_max_score_delta": 18.8260817527771,
+          "actual_correct_switch": true
+        },
+        {
+          "source_id": "v5g_train_19",
+          "both_fields_present": true,
+          "question_vector_l2": 0.5643103122711182,
+          "question_vector_cosine": 0.9977961778640747,
+          "leader_question": {
+            "observed_scores": {
+              "location": 0.8676807880401611,
+              "leader": 13.148416519165039
+            },
+            "observed_margin": 12.280735731124878,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "location": 0.8817517757415771,
+              "leader": 13.140954971313477
+            },
+            "fixed_encoder_max_score_delta": 0.014070987701416016,
+            "answer_probability": 0.8740101456642151
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 1.3522651195526123,
+              "leader": -4.8849005699157715
+            },
+            "observed_margin": 6.237165689468384,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 1.3389899730682373,
+              "leader": -4.914542198181152
+            },
+            "fixed_encoder_max_score_delta": 0.02964162826538086,
+            "answer_probability": 0.8819661736488342
+          },
+          "actual_max_score_delta": 18.03331708908081,
+          "actual_correct_switch": true
+        },
+        {
+          "source_id": "v5g_train_20",
+          "both_fields_present": false,
+          "question_vector_l2": 0.32664063572883606,
+          "question_vector_cosine": 0.9990416765213013,
+          "leader_question": {
+            "observed_scores": {
+              "location": 6.743584632873535
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 6.691349029541016
+            },
+            "fixed_encoder_max_score_delta": 0.05223560333251953,
+            "answer_probability": 0.7815729379653931
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 7.200037479400635
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 7.252182960510254
+            },
+            "fixed_encoder_max_score_delta": 0.05214548110961914,
+            "answer_probability": 0.8211535215377808
+          },
+          "actual_max_score_delta": 0.4564528465270996,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_train_21",
+          "both_fields_present": false,
+          "question_vector_l2": 0.3771134912967682,
+          "question_vector_cosine": 0.9988703727722168,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 10.786707878112793
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": 10.722065925598145
+            },
+            "fixed_encoder_max_score_delta": 0.06464195251464844,
+            "answer_probability": 0.7823476195335388
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -2.2358598709106445
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -2.221881866455078
+            },
+            "fixed_encoder_max_score_delta": 0.013978004455566406,
+            "answer_probability": 0.8134886622428894
+          },
+          "actual_max_score_delta": 13.022567749023438,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_train_22",
+          "both_fields_present": true,
+          "question_vector_l2": 0.6595794558525085,
+          "question_vector_cosine": 0.997128427028656,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 20.60101318359375,
+              "location": 11.418054580688477
+            },
+            "observed_margin": 9.182958602905273,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": 20.564611434936523,
+              "location": 11.361385345458984
+            },
+            "fixed_encoder_max_score_delta": 0.05666923522949219,
+            "answer_probability": 0.8715932369232178
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -0.615546703338623,
+              "location": 12.44814682006836
+            },
+            "observed_margin": 13.063693523406982,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": -0.5965433120727539,
+              "location": 12.5247163772583
+            },
+            "fixed_encoder_max_score_delta": 0.0765695571899414,
+            "answer_probability": 0.8763099908828735
+          },
+          "actual_max_score_delta": 21.216559886932373,
+          "actual_correct_switch": true
+        },
+        {
+          "source_id": "v5g_train_23",
+          "both_fields_present": true,
+          "question_vector_l2": 0.5185883641242981,
+          "question_vector_cosine": 0.9978345632553101,
+          "leader_question": {
+            "observed_scores": {
+              "location": 11.817505836486816,
+              "leader": 13.650503158569336
+            },
+            "observed_margin": 1.8329973220825195,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "location": 11.73779296875,
+              "leader": 13.613134384155273
+            },
+            "fixed_encoder_max_score_delta": 0.0797128677368164,
+            "answer_probability": 0.8794211149215698
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 12.169042587280273,
+              "leader": -5.15358829498291
+            },
+            "observed_margin": 17.322630882263184,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.249099731445312,
+              "leader": -5.161842346191406
+            },
+            "fixed_encoder_max_score_delta": 0.08005714416503906,
+            "answer_probability": 0.8831747174263
+          },
+          "actual_max_score_delta": 18.804091453552246,
+          "actual_correct_switch": true
+        }
+      ]
+    },
+    "dev": {
+      "dataset_sha256": "c194b05270f0ea70a5e6b6fb894b932f7e0e9a15027174364ef14f8b250c6b71",
+      "summary": {
+        "source_pairs": 24,
+        "both_fields_present": 12,
+        "correct_switches_among_both_present": 0,
+        "mean_question_vector_l2": 0.45396407321095467,
+        "mean_question_vector_cosine": 0.9983216474453608,
+        "mean_actual_max_field_score_delta": 1.6740221579869587,
+        "mean_fixed_encoder_leader_question_delta": 0.06709130605061848,
+        "mean_fixed_encoder_location_question_delta": 0.07044907410939534,
+        "mean_leader_question_margin": -11.578827102979025,
+        "mean_location_question_margin": 13.424294968446096
+      },
+      "pairs": [
+        {
+          "source_id": "v5g_dev_00",
+          "both_fields_present": false,
+          "question_vector_l2": 0.42464765906333923,
+          "question_vector_cosine": 0.998254656791687,
+          "leader_question": {
+            "observed_scores": {
+              "location": 12.735077857971191
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.657200813293457
+            },
+            "fixed_encoder_max_score_delta": 0.07787704467773438,
+            "answer_probability": 0.7797960638999939
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 12.890474319458008
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.967559814453125
+            },
+            "fixed_encoder_max_score_delta": 0.07708549499511719,
+            "answer_probability": 0.8321610689163208
+          },
+          "actual_max_score_delta": 0.1553964614868164,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_01",
+          "both_fields_present": false,
+          "question_vector_l2": 0.414671391248703,
+          "question_vector_cosine": 0.9984716176986694,
+          "leader_question": {
+            "observed_scores": {
+              "leader": -2.1051292419433594
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -2.132554054260254
+            },
+            "fixed_encoder_max_score_delta": 0.02742481231689453,
+            "answer_probability": 0.8163451552391052
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -2.8889307975769043
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -2.864522933959961
+            },
+            "fixed_encoder_max_score_delta": 0.02440786361694336,
+            "answer_probability": 0.8053457736968994
+          },
+          "actual_max_score_delta": 0.7838015556335449,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_02",
+          "both_fields_present": true,
+          "question_vector_l2": 0.617175281047821,
+          "question_vector_cosine": 0.997584879398346,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 1.4823040962219238,
+              "location": 12.251385688781738
+            },
+            "observed_margin": -10.769081592559814,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": 1.506751537322998,
+              "location": 12.182282447814941
+            },
+            "fixed_encoder_max_score_delta": 0.06910324096679688,
+            "answer_probability": 0.8670240640640259
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": 0.05124092102050781,
+              "location": 12.435882568359375
+            },
+            "observed_margin": 12.384641647338867,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": 0.04761219024658203,
+              "location": 12.505101203918457
+            },
+            "fixed_encoder_max_score_delta": 0.06921863555908203,
+            "answer_probability": 0.8759469985961914
+          },
+          "actual_max_score_delta": 1.431063175201416,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_03",
+          "both_fields_present": true,
+          "question_vector_l2": 0.42331263422966003,
+          "question_vector_cosine": 0.9987169504165649,
+          "leader_question": {
+            "observed_scores": {
+              "location": 7.7000732421875,
+              "leader": -5.81997013092041
+            },
+            "observed_margin": -13.52004337310791,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 7.645721435546875,
+              "leader": -5.785724639892578
+            },
+            "fixed_encoder_max_score_delta": 0.054351806640625,
+            "answer_probability": 0.8441580533981323
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 8.951213836669922,
+              "leader": -6.181807518005371
+            },
+            "observed_margin": 15.133021354675293,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 9.011280059814453,
+              "leader": -6.219477653503418
+            },
+            "fixed_encoder_max_score_delta": 0.06006622314453125,
+            "answer_probability": 0.8833526372909546
+          },
+          "actual_max_score_delta": 1.2511405944824219,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_04",
+          "both_fields_present": false,
+          "question_vector_l2": 0.3436238169670105,
+          "question_vector_cosine": 0.9988720417022705,
+          "leader_question": {
+            "observed_scores": {
+              "location": 11.821621894836426
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 11.763547897338867
+            },
+            "fixed_encoder_max_score_delta": 0.058073997497558594,
+            "answer_probability": 0.784912645816803
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 12.191798210144043
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.249385833740234
+            },
+            "fixed_encoder_max_score_delta": 0.057587623596191406,
+            "answer_probability": 0.8319851160049438
+          },
+          "actual_max_score_delta": 0.3701763153076172,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_05",
+          "both_fields_present": false,
+          "question_vector_l2": 0.4179101586341858,
+          "question_vector_cosine": 0.9984761476516724,
+          "leader_question": {
+            "observed_scores": {
+              "leader": -1.5803894996643066
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -1.6084299087524414
+            },
+            "fixed_encoder_max_score_delta": 0.028040409088134766,
+            "answer_probability": 0.7901124358177185
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -2.0188241004943848
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -1.9915399551391602
+            },
+            "fixed_encoder_max_score_delta": 0.02728414535522461,
+            "answer_probability": 0.7817904353141785
+          },
+          "actual_max_score_delta": 0.4384346008300781,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_06",
+          "both_fields_present": true,
+          "question_vector_l2": 0.5401858687400818,
+          "question_vector_cosine": 0.9979327917098999,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 1.5632147789001465,
+              "location": 6.278355598449707
+            },
+            "observed_margin": -4.7151408195495605,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": 1.568100929260254,
+              "location": 6.226251602172852
+            },
+            "fixed_encoder_max_score_delta": 0.05210399627685547,
+            "answer_probability": 0.8702693581581116
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -1.5787897109985352,
+              "location": 6.18712043762207
+            },
+            "observed_margin": 7.7659101486206055,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": -1.5660395622253418,
+              "location": 6.240039825439453
+            },
+            "fixed_encoder_max_score_delta": 0.05291938781738281,
+            "answer_probability": 0.8781329989433289
+          },
+          "actual_max_score_delta": 3.1420044898986816,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_07",
+          "both_fields_present": true,
+          "question_vector_l2": 0.5561026334762573,
+          "question_vector_cosine": 0.9977814555168152,
+          "leader_question": {
+            "observed_scores": {
+              "location": 3.5057997703552246,
+              "leader": -5.779979705810547
+            },
+            "observed_margin": -9.285779476165771,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 3.4789984226226807,
+              "leader": -5.749905586242676
+            },
+            "fixed_encoder_max_score_delta": 0.030074119567871094,
+            "answer_probability": 0.8744398355484009
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 4.598173141479492,
+              "leader": -5.900521278381348
+            },
+            "observed_margin": 10.49869441986084,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 4.646458625793457,
+              "leader": -5.9325971603393555
+            },
+            "fixed_encoder_max_score_delta": 0.048285484313964844,
+            "answer_probability": 0.8820551037788391
+          },
+          "actual_max_score_delta": 1.0923733711242676,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_08",
+          "both_fields_present": false,
+          "question_vector_l2": 0.3235732614994049,
+          "question_vector_cosine": 0.9990544319152832,
+          "leader_question": {
+            "observed_scores": {
+              "location": 11.714164733886719
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 11.675762176513672
+            },
+            "fixed_encoder_max_score_delta": 0.038402557373046875,
+            "answer_probability": 0.7815963625907898
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 12.557845115661621
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.60267162322998
+            },
+            "fixed_encoder_max_score_delta": 0.044826507568359375,
+            "answer_probability": 0.8213585615158081
+          },
+          "actual_max_score_delta": 0.8436803817749023,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_09",
+          "both_fields_present": false,
+          "question_vector_l2": 0.3568686842918396,
+          "question_vector_cosine": 0.9989825487136841,
+          "leader_question": {
+            "observed_scores": {
+              "leader": -4.450046539306641
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -4.449825286865234
+            },
+            "fixed_encoder_max_score_delta": 0.00022125244140625,
+            "answer_probability": 0.7835655212402344
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -4.737826347351074
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -4.739908218383789
+            },
+            "fixed_encoder_max_score_delta": 0.0020818710327148438,
+            "answer_probability": 0.8143212199211121
+          },
+          "actual_max_score_delta": 0.2877798080444336,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_10",
+          "both_fields_present": true,
+          "question_vector_l2": 0.6222357749938965,
+          "question_vector_cosine": 0.9972757697105408,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 1.8127946853637695,
+              "location": 12.32008171081543
+            },
+            "observed_margin": -10.50728702545166,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": 1.8391132354736328,
+              "location": 12.230277061462402
+            },
+            "fixed_encoder_max_score_delta": 0.08980464935302734,
+            "answer_probability": 0.8720690011978149
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -1.7444276809692383,
+              "location": 12.604795455932617
+            },
+            "observed_margin": 14.349223136901855,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": -1.7460947036743164,
+              "location": 12.693918228149414
+            },
+            "fixed_encoder_max_score_delta": 0.08912277221679688,
+            "answer_probability": 0.8763895630836487
+          },
+          "actual_max_score_delta": 3.557222366333008,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_11",
+          "both_fields_present": true,
+          "question_vector_l2": 0.6435182094573975,
+          "question_vector_cosine": 0.9976361989974976,
+          "leader_question": {
+            "observed_scores": {
+              "location": 9.744229316711426,
+              "leader": -5.639515399932861
+            },
+            "observed_margin": -15.383744716644287,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 9.652344703674316,
+              "leader": -5.582630157470703
+            },
+            "fixed_encoder_max_score_delta": 0.09188461303710938,
+            "answer_probability": 0.8780291676521301
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 10.43547248840332,
+              "leader": -5.7872233390808105
+            },
+            "observed_margin": 16.22269582748413,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 10.530031204223633,
+              "leader": -5.847062110900879
+            },
+            "fixed_encoder_max_score_delta": 0.0945587158203125,
+            "answer_probability": 0.8827463388442993
+          },
+          "actual_max_score_delta": 0.6912431716918945,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_12",
+          "both_fields_present": false,
+          "question_vector_l2": 0.42145398259162903,
+          "question_vector_cosine": 0.9982779026031494,
+          "leader_question": {
+            "observed_scores": {
+              "location": 12.735697746276855
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.66438102722168
+            },
+            "fixed_encoder_max_score_delta": 0.07131671905517578,
+            "answer_probability": 0.7797570824623108
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 12.845224380493164
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.916372299194336
+            },
+            "fixed_encoder_max_score_delta": 0.07114791870117188,
+            "answer_probability": 0.8319982290267944
+          },
+          "actual_max_score_delta": 0.1095266342163086,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_13",
+          "both_fields_present": false,
+          "question_vector_l2": 0.4130019247531891,
+          "question_vector_cosine": 0.9984828233718872,
+          "leader_question": {
+            "observed_scores": {
+              "leader": -2.065506935119629
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -2.092752456665039
+            },
+            "fixed_encoder_max_score_delta": 0.027245521545410156,
+            "answer_probability": 0.8182271718978882
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -2.8476691246032715
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -2.823394775390625
+            },
+            "fixed_encoder_max_score_delta": 0.024274349212646484,
+            "answer_probability": 0.8073562383651733
+          },
+          "actual_max_score_delta": 0.7821621894836426,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_14",
+          "both_fields_present": true,
+          "question_vector_l2": 0.610884964466095,
+          "question_vector_cosine": 0.9976483583450317,
+          "leader_question": {
+            "observed_scores": {
+              "leader": 1.5065808296203613,
+              "location": 11.950961112976074
+            },
+            "observed_margin": -10.444380283355713,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": 1.529952049255371,
+              "location": 11.867256164550781
+            },
+            "fixed_encoder_max_score_delta": 0.08370494842529297,
+            "answer_probability": 0.8674289584159851
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": 0.12154340744018555,
+              "location": 12.155839920043945
+            },
+            "observed_margin": 12.03429651260376,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": 0.11882305145263672,
+              "location": 12.239519119262695
+            },
+            "fixed_encoder_max_score_delta": 0.08367919921875,
+            "answer_probability": 0.8762127757072449
+          },
+          "actual_max_score_delta": 1.3850374221801758,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_15",
+          "both_fields_present": true,
+          "question_vector_l2": 0.3626907169818878,
+          "question_vector_cosine": 0.9989701509475708,
+          "leader_question": {
+            "observed_scores": {
+              "location": 1.0854573249816895,
+              "leader": -5.71218204498291
+            },
+            "observed_margin": -6.7976393699646,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 1.0915863513946533,
+              "leader": -5.690340042114258
+            },
+            "fixed_encoder_max_score_delta": 0.021842002868652344,
+            "answer_probability": 0.8453142046928406
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 1.100257158279419,
+              "leader": -6.120131492614746
+            },
+            "observed_margin": 7.220388650894165,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 1.0946731567382812,
+              "leader": -6.14501953125
+            },
+            "fixed_encoder_max_score_delta": 0.024888038635253906,
+            "answer_probability": 0.8834074139595032
+          },
+          "actual_max_score_delta": 0.40794944763183594,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_16",
+          "both_fields_present": false,
+          "question_vector_l2": 0.3285056948661804,
+          "question_vector_cosine": 0.9989919066429138,
+          "leader_question": {
+            "observed_scores": {
+              "location": 4.179130554199219
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 4.13588285446167
+            },
+            "fixed_encoder_max_score_delta": 0.04324769973754883,
+            "answer_probability": 0.7847533822059631
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 4.6805572509765625
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 4.724593162536621
+            },
+            "fixed_encoder_max_score_delta": 0.044035911560058594,
+            "answer_probability": 0.8290501236915588
+          },
+          "actual_max_score_delta": 0.5014266967773438,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_17",
+          "both_fields_present": false,
+          "question_vector_l2": 0.4003755450248718,
+          "question_vector_cosine": 0.9986034631729126,
+          "leader_question": {
+            "observed_scores": {
+              "leader": -1.6945810317993164
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -1.720322608947754
+            },
+            "fixed_encoder_max_score_delta": 0.0257415771484375,
+            "answer_probability": 0.8207675814628601
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -2.501349925994873
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -2.476949691772461
+            },
+            "fixed_encoder_max_score_delta": 0.02440023422241211,
+            "answer_probability": 0.8103331327438354
+          },
+          "actual_max_score_delta": 0.8067688941955566,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_18",
+          "both_fields_present": true,
+          "question_vector_l2": 0.4750184416770935,
+          "question_vector_cosine": 0.9980067014694214,
+          "leader_question": {
+            "observed_scores": {
+              "leader": -1.7052035331726074,
+              "location": 11.690645217895508
+            },
+            "observed_margin": -13.395848751068115,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": -1.735158920288086,
+              "location": 11.628959655761719
+            },
+            "fixed_encoder_max_score_delta": 0.06168556213378906,
+            "answer_probability": 0.871587336063385
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -4.997509479522705,
+              "location": 12.27978801727295
+            },
+            "observed_margin": 17.277297496795654,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": -4.994232177734375,
+              "location": 12.355698585510254
+            },
+            "fixed_encoder_max_score_delta": 0.07591056823730469,
+            "answer_probability": 0.8785483241081238
+          },
+          "actual_max_score_delta": 3.2923059463500977,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_19",
+          "both_fields_present": true,
+          "question_vector_l2": 0.48713892698287964,
+          "question_vector_cosine": 0.9981054067611694,
+          "leader_question": {
+            "observed_scores": {
+              "location": 11.66806697845459,
+              "leader": -5.7459845542907715
+            },
+            "observed_margin": -17.41405153274536,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 11.592903137207031,
+              "leader": -5.7344465255737305
+            },
+            "fixed_encoder_max_score_delta": 0.0751638412475586,
+            "answer_probability": 0.8754055500030518
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 11.864883422851562,
+              "leader": -5.885927677154541
+            },
+            "observed_margin": 17.750811100006104,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 11.939696311950684,
+              "leader": -5.899055480957031
+            },
+            "fixed_encoder_max_score_delta": 0.0748128890991211,
+            "answer_probability": 0.8824946880340576
+          },
+          "actual_max_score_delta": 0.19681644439697266,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_20",
+          "both_fields_present": false,
+          "question_vector_l2": 0.29610833525657654,
+          "question_vector_cosine": 0.9992032051086426,
+          "leader_question": {
+            "observed_scores": {
+              "location": 12.413439750671387
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.367047309875488
+            },
+            "fixed_encoder_max_score_delta": 0.04639244079589844,
+            "answer_probability": 0.7827771902084351
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 12.707010269165039
+            },
+            "observed_margin": null,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 12.753128051757812
+            },
+            "fixed_encoder_max_score_delta": 0.04611778259277344,
+            "answer_probability": 0.8221602439880371
+          },
+          "actual_max_score_delta": 0.29357051849365234,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_21",
+          "both_fields_present": false,
+          "question_vector_l2": 0.37316063046455383,
+          "question_vector_cosine": 0.9988790154457092,
+          "leader_question": {
+            "observed_scores": {
+              "leader": -4.442431449890137
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -4.441234588623047
+            },
+            "fixed_encoder_max_score_delta": 0.0011968612670898438,
+            "answer_probability": 0.78242427110672
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -4.7313232421875
+            },
+            "observed_margin": null,
+            "observed_winner": "leader",
+            "swapped_question_scores": {
+              "leader": -4.73455810546875
+            },
+            "fixed_encoder_max_score_delta": 0.00323486328125,
+            "answer_probability": 0.8135082721710205
+          },
+          "actual_max_score_delta": 0.2888917922973633,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_22",
+          "both_fields_present": true,
+          "question_vector_l2": 0.522828996181488,
+          "question_vector_cosine": 0.997681736946106,
+          "leader_question": {
+            "observed_scores": {
+              "leader": -1.7335176467895508,
+              "location": 12.305031776428223
+            },
+            "observed_margin": -14.038549423217773,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": -1.7477531433105469,
+              "location": 12.220768928527832
+            },
+            "fixed_encoder_max_score_delta": 0.08426284790039062,
+            "answer_probability": 0.873275101184845
+          },
+          "location_question": {
+            "observed_scores": {
+              "leader": -5.183974266052246,
+              "location": 12.537088394165039
+            },
+            "observed_margin": 17.721062660217285,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "leader": -5.204272747039795,
+              "location": 12.621142387390137
+            },
+            "fixed_encoder_max_score_delta": 0.08405399322509766,
+            "answer_probability": 0.8766108155250549
+          },
+          "actual_max_score_delta": 3.4504566192626953,
+          "actual_correct_switch": false
+        },
+        {
+          "source_id": "v5g_dev_23",
+          "both_fields_present": true,
+          "question_vector_l2": 0.5201442241668701,
+          "question_vector_cosine": 0.9978293776512146,
+          "leader_question": {
+            "observed_scores": {
+              "location": 6.979698181152344,
+              "leader": -5.694680690765381
+            },
+            "observed_margin": -12.674378871917725,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 6.888584136962891,
+              "leader": -5.689205169677734
+            },
+            "fixed_encoder_max_score_delta": 0.09111404418945312,
+            "answer_probability": 0.8795732259750366
+          },
+          "location_question": {
+            "observed_scores": {
+              "location": 6.84816312789917,
+              "leader": -5.88533353805542
+            },
+            "observed_margin": 12.73349666595459,
+            "observed_winner": "location",
+            "swapped_question_scores": {
+              "location": 6.936036109924316,
+              "leader": -5.8933024406433105
+            },
+            "fixed_encoder_max_score_delta": 0.08787298202514648,
+            "answer_probability": 0.8831722736358643
+          },
+          "actual_max_score_delta": 0.19065284729003906,
+          "actual_correct_switch": false
+        }
+      ]
+    }
+  }
+}

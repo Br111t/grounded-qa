@@ -1,0 +1,3818 @@
+[
+  {
+    "model": "v5",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "leader_original",
+    "target_field": "leader",
+    "question": "What is the leader of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dbfi",
+    "expect_abstain": false,
+    "answerability_probability": 0.9997666478157043,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": -0.30253466963768005,
+        "end_logit": 9.781229019165039,
+        "joint_score": 9.478693962097168
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": 7.54025411605835,
+        "end_logit": -8.658578872680664,
+        "joint_score": -1.1183247566223145
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -7.052104473114014,
+        "end_logit": -9.03406810760498,
+        "joint_score": -16.086172103881836
+      }
+    ],
+    "scores_by_field": {
+      "leader": 9.478693962097168,
+      "topic": -1.1183247566223145,
+      "location": -16.086172103881836
+    },
+    "selection_margin": 10.597018718719482,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "leader_paraphrase",
+    "target_field": "leader",
+    "question": "Who leads Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dbfi",
+    "expect_abstain": false,
+    "answerability_probability": 0.999729573726654,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": 2.204357385635376,
+        "end_logit": 9.709396362304688,
+        "joint_score": 11.913753509521484
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": 7.852706432342529,
+        "end_logit": -8.743685722351074,
+        "joint_score": -0.8909792900085449
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -7.094385623931885,
+        "end_logit": -9.06582260131836,
+        "joint_score": -16.160207748413086
+      }
+    ],
+    "scores_by_field": {
+      "leader": 11.913753509521484,
+      "topic": -0.8909792900085449,
+      "location": -16.160207748413086
+    },
+    "selection_margin": 12.80473279953003,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "leader_reworded",
+    "target_field": "leader",
+    "question": "Which person is in charge of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dbfi",
+    "expect_abstain": false,
+    "answerability_probability": 0.9997197985649109,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": 0.15999183058738708,
+        "end_logit": 9.423051834106445,
+        "joint_score": 9.583044052124023
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": 8.055938720703125,
+        "end_logit": -8.699087142944336,
+        "joint_score": -0.6431484222412109
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -7.111270427703857,
+        "end_logit": -8.909402847290039,
+        "joint_score": -16.020673751831055
+      }
+    ],
+    "scores_by_field": {
+      "leader": 9.583044052124023,
+      "topic": -0.6431484222412109,
+      "location": -16.020673751831055
+    },
+    "selection_margin": 10.226192474365234,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "location",
+    "target_field": "location",
+    "question": "Where is Workshop W0001 located?",
+    "expected_field": "location",
+    "expected_value": "Room Elm",
+    "expect_abstain": false,
+    "answerability_probability": 0.999765932559967,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": -0.4564433991909027,
+        "end_logit": 9.730630874633789,
+        "joint_score": 9.274187088012695
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": 7.774726867675781,
+        "end_logit": -8.763071060180664,
+        "joint_score": -0.9883441925048828
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -7.120935440063477,
+        "end_logit": -8.99041748046875,
+        "joint_score": -16.111352920532227
+      }
+    ],
+    "scores_by_field": {
+      "leader": 9.274187088012695,
+      "topic": -0.9883441925048828,
+      "location": -16.111352920532227
+    },
+    "selection_margin": 10.262531280517578,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "topic",
+    "target_field": "topic",
+    "question": "What is the topic of Workshop W0001?",
+    "expected_field": "topic",
+    "expected_value": "Python",
+    "expect_abstain": false,
+    "answerability_probability": 0.9996845722198486,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": -0.5769540071487427,
+        "end_logit": 9.310532569885254,
+        "joint_score": 8.7335786819458
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": 7.733356475830078,
+        "end_logit": -8.66565990447998,
+        "joint_score": -0.9323034286499023
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -7.044015407562256,
+        "end_logit": -8.896130561828613,
+        "joint_score": -15.940145492553711
+      }
+    ],
+    "scores_by_field": {
+      "leader": 8.7335786819458,
+      "topic": -0.9323034286499023,
+      "location": -15.940145492553711
+    },
+    "selection_margin": 9.665882110595703,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "unrelated",
+    "target_field": "unrelated",
+    "question": "What will the weather be tomorrow?",
+    "expected_field": null,
+    "expected_value": null,
+    "expect_abstain": true,
+    "answerability_probability": 0.9997541308403015,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": -0.7042549848556519,
+        "end_logit": 9.40434455871582,
+        "joint_score": 8.700089454650879
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": 7.455355644226074,
+        "end_logit": -8.687318801879883,
+        "joint_score": -1.2319631576538086
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -7.136075973510742,
+        "end_logit": -8.909603118896484,
+        "joint_score": -16.045679092407227
+      }
+    ],
+    "scores_by_field": {
+      "leader": 8.700089454650879,
+      "topic": -1.2319631576538086,
+      "location": -16.045679092407227
+    },
+    "selection_margin": 9.932052612304688,
+    "question_field_correct": null,
+    "unrelated_abstained": false
+  },
+  {
+    "model": "v5",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "leader_original",
+    "target_field": "leader",
+    "question": "What is the leader of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dblt",
+    "expect_abstain": false,
+    "answerability_probability": 0.9997710585594177,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 9.843685150146484,
+        "end_logit": -7.711984634399414,
+        "joint_score": 2.1317005157470703
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -9.646980285644531,
+        "end_logit": -8.465360641479492,
+        "joint_score": -18.112340927124023
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -8.135605812072754,
+        "end_logit": -10.080991744995117,
+        "joint_score": -18.216598510742188
+      }
+    ],
+    "scores_by_field": {
+      "leader": 2.1317005157470703,
+      "topic": -18.112340927124023,
+      "location": -18.216598510742188
+    },
+    "selection_margin": 20.244041442871094,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "leader_paraphrase",
+    "target_field": "leader",
+    "question": "Who leads Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dblt",
+    "expect_abstain": false,
+    "answerability_probability": 0.9997658133506775,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 9.515288352966309,
+        "end_logit": -7.834901332855225,
+        "joint_score": 1.680387020111084
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -7.993815898895264,
+        "end_logit": -10.060941696166992,
+        "joint_score": -18.054758071899414
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -9.663289070129395,
+        "end_logit": -8.515920639038086,
+        "joint_score": -18.179210662841797
+      }
+    ],
+    "scores_by_field": {
+      "leader": 1.680387020111084,
+      "location": -18.054758071899414,
+      "topic": -18.179210662841797
+    },
+    "selection_margin": 19.735145092010498,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "leader_reworded",
+    "target_field": "leader",
+    "question": "Which person is in charge of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dblt",
+    "expect_abstain": false,
+    "answerability_probability": 0.9997676014900208,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 9.105581283569336,
+        "end_logit": -7.863863945007324,
+        "joint_score": 1.2417173385620117
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -9.628292083740234,
+        "end_logit": -8.549449920654297,
+        "joint_score": -18.17774200439453
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -8.126166343688965,
+        "end_logit": -10.082544326782227,
+        "joint_score": -18.208709716796875
+      }
+    ],
+    "scores_by_field": {
+      "leader": 1.2417173385620117,
+      "topic": -18.17774200439453,
+      "location": -18.208709716796875
+    },
+    "selection_margin": 19.419459342956543,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "location",
+    "target_field": "location",
+    "question": "Where is Workshop W0001 located?",
+    "expected_field": "location",
+    "expected_value": "Room Cedar",
+    "expect_abstain": false,
+    "answerability_probability": 0.9997593760490417,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 9.86990737915039,
+        "end_logit": -7.813380241394043,
+        "joint_score": 2.0565271377563477
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -7.899196147918701,
+        "end_logit": -10.061939239501953,
+        "joint_score": -17.961135864257812
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -9.62215805053711,
+        "end_logit": -8.531893730163574,
+        "joint_score": -18.154052734375
+      }
+    ],
+    "scores_by_field": {
+      "leader": 2.0565271377563477,
+      "location": -17.961135864257812,
+      "topic": -18.154052734375
+    },
+    "selection_margin": 20.01766300201416,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "topic",
+    "target_field": "topic",
+    "question": "What is the topic of Workshop W0001?",
+    "expected_field": "topic",
+    "expected_value": "Astronomy",
+    "expect_abstain": false,
+    "answerability_probability": 0.9997649788856506,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 9.684467315673828,
+        "end_logit": -7.8584136962890625,
+        "joint_score": 1.8260536193847656
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -8.054433822631836,
+        "end_logit": -10.059383392333984,
+        "joint_score": -18.11381721496582
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -9.757436752319336,
+        "end_logit": -8.46469497680664,
+        "joint_score": -18.222131729125977
+      }
+    ],
+    "scores_by_field": {
+      "leader": 1.8260536193847656,
+      "location": -18.11381721496582,
+      "topic": -18.222131729125977
+    },
+    "selection_margin": 19.939870834350586,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "unrelated",
+    "target_field": "unrelated",
+    "question": "What will the weather be tomorrow?",
+    "expected_field": null,
+    "expected_value": null,
+    "expect_abstain": true,
+    "answerability_probability": 0.9997586607933044,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 9.61331558227539,
+        "end_logit": -7.972904205322266,
+        "joint_score": 1.640411376953125
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -7.9786295890808105,
+        "end_logit": -10.102548599243164,
+        "joint_score": -18.081178665161133
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -9.569600105285645,
+        "end_logit": -8.513879776000977,
+        "joint_score": -18.083480834960938
+      }
+    ],
+    "scores_by_field": {
+      "leader": 1.640411376953125,
+      "location": -18.081178665161133,
+      "topic": -18.083480834960938
+    },
+    "selection_margin": 19.721590042114258,
+    "question_field_correct": null,
+    "unrelated_abstained": false
+  },
+  {
+    "model": "v5",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "leader_original",
+    "target_field": "leader",
+    "question": "What is the leader of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebfet",
+    "expect_abstain": false,
+    "answerability_probability": 0.9997664093971252,
+    "predicted_field": "leader",
+    "predicted_value": "Ebfet",
+    "predicted_text": "Leader: Ebfet.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -3.6530351638793945,
+        "end_logit": -8.343668937683105,
+        "joint_score": -11.9967041015625
+      },
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": -5.265419960021973,
+        "end_logit": -8.555452346801758,
+        "joint_score": -13.82087230682373
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -9.753939628601074,
+        "end_logit": -9.837784767150879,
+        "joint_score": -19.591724395751953
+      }
+    ],
+    "scores_by_field": {
+      "leader": -11.9967041015625,
+      "location": -13.82087230682373,
+      "topic": -19.591724395751953
+    },
+    "selection_margin": 1.8241682052612305,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "leader_paraphrase",
+    "target_field": "leader",
+    "question": "Who leads Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebfet",
+    "expect_abstain": false,
+    "answerability_probability": 0.9997524619102478,
+    "predicted_field": "leader",
+    "predicted_value": "Ebfet",
+    "predicted_text": "Leader: Ebfet.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -3.389892339706421,
+        "end_logit": -8.362388610839844,
+        "joint_score": -11.752281188964844
+      },
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": -4.976945400238037,
+        "end_logit": -8.485983848571777,
+        "joint_score": -13.462928771972656
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -9.908683776855469,
+        "end_logit": -9.783758163452148,
+        "joint_score": -19.692441940307617
+      }
+    ],
+    "scores_by_field": {
+      "leader": -11.752281188964844,
+      "location": -13.462928771972656,
+      "topic": -19.692441940307617
+    },
+    "selection_margin": 1.7106475830078125,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "leader_reworded",
+    "target_field": "leader",
+    "question": "Which person is in charge of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebfet",
+    "expect_abstain": false,
+    "answerability_probability": 0.9997486472129822,
+    "predicted_field": "leader",
+    "predicted_value": "Ebfet",
+    "predicted_text": "Leader: Ebfet.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -3.61503267288208,
+        "end_logit": -8.453285217285156,
+        "joint_score": -12.068317413330078
+      },
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": -5.335827350616455,
+        "end_logit": -8.529900550842285,
+        "joint_score": -13.865728378295898
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -9.935680389404297,
+        "end_logit": -9.804983139038086,
+        "joint_score": -19.740663528442383
+      }
+    ],
+    "scores_by_field": {
+      "leader": -12.068317413330078,
+      "location": -13.865728378295898,
+      "topic": -19.740663528442383
+    },
+    "selection_margin": 1.7974109649658203,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "location",
+    "target_field": "location",
+    "question": "Where is Workshop W0001 located?",
+    "expected_field": "location",
+    "expected_value": "Room Pine",
+    "expect_abstain": false,
+    "answerability_probability": 0.9997404217720032,
+    "predicted_field": "leader",
+    "predicted_value": "Ebfet",
+    "predicted_text": "Leader: Ebfet.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -3.5901145935058594,
+        "end_logit": -8.404146194458008,
+        "joint_score": -11.994260787963867
+      },
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": -4.802093982696533,
+        "end_logit": -8.558835983276367,
+        "joint_score": -13.360929489135742
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -9.862131118774414,
+        "end_logit": -9.866283416748047,
+        "joint_score": -19.72841453552246
+      }
+    ],
+    "scores_by_field": {
+      "leader": -11.994260787963867,
+      "location": -13.360929489135742,
+      "topic": -19.72841453552246
+    },
+    "selection_margin": 1.366668701171875,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "topic",
+    "target_field": "topic",
+    "question": "What is the topic of Workshop W0001?",
+    "expected_field": "topic",
+    "expected_value": "Gardening",
+    "expect_abstain": false,
+    "answerability_probability": 0.9997220635414124,
+    "predicted_field": "leader",
+    "predicted_value": "Ebfet",
+    "predicted_text": "Leader: Ebfet.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -3.4301443099975586,
+        "end_logit": -8.415811538696289,
+        "joint_score": -11.845955848693848
+      },
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": -5.106486797332764,
+        "end_logit": -8.487032890319824,
+        "joint_score": -13.59351921081543
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -10.047138214111328,
+        "end_logit": -9.856595039367676,
+        "joint_score": -19.903732299804688
+      }
+    ],
+    "scores_by_field": {
+      "leader": -11.845955848693848,
+      "location": -13.59351921081543,
+      "topic": -19.903732299804688
+    },
+    "selection_margin": 1.747563362121582,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "unrelated",
+    "target_field": "unrelated",
+    "question": "What will the weather be tomorrow?",
+    "expected_field": null,
+    "expected_value": null,
+    "expect_abstain": true,
+    "answerability_probability": 0.9997161030769348,
+    "predicted_field": "leader",
+    "predicted_value": "Ebfet",
+    "predicted_text": "Leader: Ebfet.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -3.51601505279541,
+        "end_logit": -8.462922096252441,
+        "joint_score": -11.978937149047852
+      },
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": -5.0617756843566895,
+        "end_logit": -8.536706924438477,
+        "joint_score": -13.598482131958008
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -9.931751251220703,
+        "end_logit": -9.846306800842285,
+        "joint_score": -19.778057098388672
+      }
+    ],
+    "scores_by_field": {
+      "leader": -11.978937149047852,
+      "location": -13.598482131958008,
+      "topic": -19.778057098388672
+    },
+    "selection_margin": 1.6195449829101562,
+    "question_field_correct": null,
+    "unrelated_abstained": false
+  },
+  {
+    "model": "v5",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "leader_original",
+    "target_field": "leader",
+    "question": "What is the leader of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebaa",
+    "expect_abstain": false,
+    "answerability_probability": 0.9997615218162537,
+    "predicted_field": "topic",
+    "predicted_value": "Python",
+    "predicted_text": "Topic: Python.",
+    "candidate_fields": [
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": 5.574120998382568,
+        "end_logit": -8.271821975708008,
+        "joint_score": -2.6977009773254395
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -6.036782264709473,
+        "end_logit": -1.3378264904022217,
+        "joint_score": -7.374608993530273
+      },
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": -4.780793190002441,
+        "end_logit": -7.571917533874512,
+        "joint_score": -12.352710723876953
+      }
+    ],
+    "scores_by_field": {
+      "topic": -2.6977009773254395,
+      "leader": -7.374608993530273,
+      "location": -12.352710723876953
+    },
+    "selection_margin": 4.676908016204834,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "leader_paraphrase",
+    "target_field": "leader",
+    "question": "Who leads Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebaa",
+    "expect_abstain": false,
+    "answerability_probability": 0.9969889521598816,
+    "predicted_field": "topic",
+    "predicted_value": "Python",
+    "predicted_text": "Topic: Python.",
+    "candidate_fields": [
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": 5.860606670379639,
+        "end_logit": -8.35335922241211,
+        "joint_score": -2.4927525520324707
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -5.917825698852539,
+        "end_logit": -1.8390530347824097,
+        "joint_score": -7.756878852844238
+      },
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": -4.86840295791626,
+        "end_logit": -7.518355369567871,
+        "joint_score": -12.386758804321289
+      }
+    ],
+    "scores_by_field": {
+      "topic": -2.4927525520324707,
+      "leader": -7.756878852844238,
+      "location": -12.386758804321289
+    },
+    "selection_margin": 5.264126300811768,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "leader_reworded",
+    "target_field": "leader",
+    "question": "Which person is in charge of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebaa",
+    "expect_abstain": false,
+    "answerability_probability": 0.03976258262991905,
+    "predicted_field": null,
+    "predicted_value": null,
+    "predicted_text": "Insufficient information.",
+    "candidate_fields": [
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": 6.067336559295654,
+        "end_logit": -8.314533233642578,
+        "joint_score": -2.247196674346924
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -6.151263236999512,
+        "end_logit": -1.488456130027771,
+        "joint_score": -7.639719486236572
+      },
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": -4.822819709777832,
+        "end_logit": -7.308446407318115,
+        "joint_score": -12.131265640258789
+      }
+    ],
+    "scores_by_field": {
+      "topic": -2.247196674346924,
+      "leader": -7.639719486236572,
+      "location": -12.131265640258789
+    },
+    "selection_margin": 5.392522811889648,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "location",
+    "target_field": "location",
+    "question": "Where is Workshop W0001 located?",
+    "expected_field": "location",
+    "expected_value": "Room Ash",
+    "expect_abstain": false,
+    "answerability_probability": 0.9997395873069763,
+    "predicted_field": "topic",
+    "predicted_value": "Python",
+    "predicted_text": "Topic: Python.",
+    "candidate_fields": [
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": 5.863541126251221,
+        "end_logit": -8.371804237365723,
+        "joint_score": -2.508263111114502
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -6.105522155761719,
+        "end_logit": -2.287325859069824,
+        "joint_score": -8.392848014831543
+      },
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": -4.9736528396606445,
+        "end_logit": -7.686314105987549,
+        "joint_score": -12.659967422485352
+      }
+    ],
+    "scores_by_field": {
+      "topic": -2.508263111114502,
+      "leader": -8.392848014831543,
+      "location": -12.659967422485352
+    },
+    "selection_margin": 5.884584903717041,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "topic",
+    "target_field": "topic",
+    "question": "What is the topic of Workshop W0001?",
+    "expected_field": "topic",
+    "expected_value": "Python",
+    "expect_abstain": false,
+    "answerability_probability": 0.004931745119392872,
+    "predicted_field": null,
+    "predicted_value": null,
+    "predicted_text": "Insufficient information.",
+    "candidate_fields": [
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": 5.855196475982666,
+        "end_logit": -8.325742721557617,
+        "joint_score": -2.470546245574951
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -6.078207492828369,
+        "end_logit": -1.2063661813735962,
+        "joint_score": -7.284573554992676
+      },
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": -4.745572090148926,
+        "end_logit": -7.322573661804199,
+        "joint_score": -12.068145751953125
+      }
+    ],
+    "scores_by_field": {
+      "topic": -2.470546245574951,
+      "leader": -7.284573554992676,
+      "location": -12.068145751953125
+    },
+    "selection_margin": 4.814027309417725,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "unrelated",
+    "target_field": "unrelated",
+    "question": "What will the weather be tomorrow?",
+    "expected_field": null,
+    "expected_value": null,
+    "expect_abstain": true,
+    "answerability_probability": 0.9975680708885193,
+    "predicted_field": "topic",
+    "predicted_value": "Python",
+    "predicted_text": "Topic: Python.",
+    "candidate_fields": [
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": 5.521440505981445,
+        "end_logit": -8.317553520202637,
+        "joint_score": -2.7961130142211914
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -6.178063869476318,
+        "end_logit": -1.4105812311172485,
+        "joint_score": -7.588644981384277
+      },
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": -4.8547773361206055,
+        "end_logit": -7.611044883728027,
+        "joint_score": -12.465822219848633
+      }
+    ],
+    "scores_by_field": {
+      "topic": -2.7961130142211914,
+      "leader": -7.588644981384277,
+      "location": -12.465822219848633
+    },
+    "selection_margin": 4.792531967163086,
+    "question_field_correct": null,
+    "unrelated_abstained": false
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "leader_original",
+    "target_field": "leader",
+    "question": "What is the leader of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dbfi",
+    "expect_abstain": false,
+    "answerability_probability": 0.9961755275726318,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": 6.5644402503967285,
+        "end_logit": 7.6608805656433105,
+        "joint_score": 14.225320816040039
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": -3.148301601409912,
+        "end_logit": -6.004992485046387,
+        "joint_score": -9.15329360961914
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -2.347105026245117,
+        "end_logit": -7.158935070037842,
+        "joint_score": -9.506040573120117
+      }
+    ],
+    "scores_by_field": {
+      "leader": 14.225320816040039,
+      "topic": -9.15329360961914,
+      "location": -9.506040573120117
+    },
+    "selection_margin": 23.37861442565918,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "leader_paraphrase",
+    "target_field": "leader",
+    "question": "Who leads Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dbfi",
+    "expect_abstain": false,
+    "answerability_probability": 0.9932998418807983,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": 6.7042236328125,
+        "end_logit": 7.667215824127197,
+        "joint_score": 14.371438980102539
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": -3.0963079929351807,
+        "end_logit": -6.0105814933776855,
+        "joint_score": -9.106889724731445
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -2.5426881313323975,
+        "end_logit": -7.172132968902588,
+        "joint_score": -9.714820861816406
+      }
+    ],
+    "scores_by_field": {
+      "leader": 14.371438980102539,
+      "topic": -9.106889724731445,
+      "location": -9.714820861816406
+    },
+    "selection_margin": 23.478328704833984,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "leader_reworded",
+    "target_field": "leader",
+    "question": "Which person is in charge of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dbfi",
+    "expect_abstain": false,
+    "answerability_probability": 0.9403623938560486,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": 6.537844657897949,
+        "end_logit": 7.499212741851807,
+        "joint_score": 14.037057876586914
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": -3.1525254249572754,
+        "end_logit": -6.038776397705078,
+        "joint_score": -9.191301345825195
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -2.577244997024536,
+        "end_logit": -7.16541051864624,
+        "joint_score": -9.742655754089355
+      }
+    ],
+    "scores_by_field": {
+      "leader": 14.037057876586914,
+      "topic": -9.191301345825195,
+      "location": -9.742655754089355
+    },
+    "selection_margin": 23.22835922241211,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "location",
+    "target_field": "location",
+    "question": "Where is Workshop W0001 located?",
+    "expected_field": "location",
+    "expected_value": "Room Elm",
+    "expect_abstain": false,
+    "answerability_probability": 0.9755421876907349,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": 6.665468215942383,
+        "end_logit": 7.523069858551025,
+        "joint_score": 14.18853759765625
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": -3.1140589714050293,
+        "end_logit": -6.009286403656006,
+        "joint_score": -9.123345375061035
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -2.5954456329345703,
+        "end_logit": -7.16264009475708,
+        "joint_score": -9.758085250854492
+      }
+    ],
+    "scores_by_field": {
+      "leader": 14.18853759765625,
+      "topic": -9.123345375061035,
+      "location": -9.758085250854492
+    },
+    "selection_margin": 23.311882972717285,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "topic",
+    "target_field": "topic",
+    "question": "What is the topic of Workshop W0001?",
+    "expected_field": "topic",
+    "expected_value": "Python",
+    "expect_abstain": false,
+    "answerability_probability": 0.5494798421859741,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": 6.514464855194092,
+        "end_logit": 7.569443225860596,
+        "joint_score": 14.083908081054688
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": -3.2800614833831787,
+        "end_logit": -5.968745708465576,
+        "joint_score": -9.248806953430176
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -2.4747772216796875,
+        "end_logit": -7.13917875289917,
+        "joint_score": -9.613956451416016
+      }
+    ],
+    "scores_by_field": {
+      "leader": 14.083908081054688,
+      "topic": -9.248806953430176,
+      "location": -9.613956451416016
+    },
+    "selection_margin": 23.332715034484863,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "unrelated",
+    "target_field": "unrelated",
+    "question": "What will the weather be tomorrow?",
+    "expected_field": null,
+    "expected_value": null,
+    "expect_abstain": true,
+    "answerability_probability": 0.6510069966316223,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": 6.583205699920654,
+        "end_logit": 7.603054523468018,
+        "joint_score": 14.186260223388672
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": -3.1890511512756348,
+        "end_logit": -5.995208263397217,
+        "joint_score": -9.184259414672852
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -2.5349419116973877,
+        "end_logit": -7.1613945960998535,
+        "joint_score": -9.69633674621582
+      }
+    ],
+    "scores_by_field": {
+      "leader": 14.186260223388672,
+      "topic": -9.184259414672852,
+      "location": -9.69633674621582
+    },
+    "selection_margin": 23.370519638061523,
+    "question_field_correct": null,
+    "unrelated_abstained": false
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "leader_original",
+    "target_field": "leader",
+    "question": "What is the leader of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dblt",
+    "expect_abstain": false,
+    "answerability_probability": 0.9989452958106995,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 7.637947082519531,
+        "end_logit": -7.1904683113098145,
+        "joint_score": 0.4474787712097168
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -3.7398200035095215,
+        "end_logit": -7.360772609710693,
+        "joint_score": -11.100592613220215
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -7.004567623138428,
+        "end_logit": -6.939533233642578,
+        "joint_score": -13.944101333618164
+      }
+    ],
+    "scores_by_field": {
+      "leader": 0.4474787712097168,
+      "location": -11.100592613220215,
+      "topic": -13.944101333618164
+    },
+    "selection_margin": 11.548071384429932,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "leader_paraphrase",
+    "target_field": "leader",
+    "question": "Who leads Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dblt",
+    "expect_abstain": false,
+    "answerability_probability": 0.9981822967529297,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 8.02341365814209,
+        "end_logit": -7.198352813720703,
+        "joint_score": 0.8250608444213867
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -3.7280590534210205,
+        "end_logit": -7.383881092071533,
+        "joint_score": -11.111940383911133
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -6.972752094268799,
+        "end_logit": -6.956411838531494,
+        "joint_score": -13.929163932800293
+      }
+    ],
+    "scores_by_field": {
+      "leader": 0.8250608444213867,
+      "location": -11.111940383911133,
+      "topic": -13.929163932800293
+    },
+    "selection_margin": 11.93700122833252,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "leader_reworded",
+    "target_field": "leader",
+    "question": "Which person is in charge of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dblt",
+    "expect_abstain": false,
+    "answerability_probability": 0.998530387878418,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 7.93211030960083,
+        "end_logit": -7.1654462814331055,
+        "joint_score": 0.7666640281677246
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -3.684532642364502,
+        "end_logit": -7.346508979797363,
+        "joint_score": -11.031042098999023
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -6.997146129608154,
+        "end_logit": -6.930091381072998,
+        "joint_score": -13.927237510681152
+      }
+    ],
+    "scores_by_field": {
+      "leader": 0.7666640281677246,
+      "location": -11.031042098999023,
+      "topic": -13.927237510681152
+    },
+    "selection_margin": 11.797706127166748,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "location",
+    "target_field": "location",
+    "question": "Where is Workshop W0001 located?",
+    "expected_field": "location",
+    "expected_value": "Room Cedar",
+    "expect_abstain": false,
+    "answerability_probability": 0.9985859394073486,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 7.946540355682373,
+        "end_logit": -7.199461460113525,
+        "joint_score": 0.7470788955688477
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -3.5009288787841797,
+        "end_logit": -7.3734588623046875,
+        "joint_score": -10.874387741088867
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -6.9917120933532715,
+        "end_logit": -6.946268081665039,
+        "joint_score": -13.937980651855469
+      }
+    ],
+    "scores_by_field": {
+      "leader": 0.7470788955688477,
+      "location": -10.874387741088867,
+      "topic": -13.937980651855469
+    },
+    "selection_margin": 11.621466636657715,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "topic",
+    "target_field": "topic",
+    "question": "What is the topic of Workshop W0001?",
+    "expected_field": "topic",
+    "expected_value": "Astronomy",
+    "expect_abstain": false,
+    "answerability_probability": 0.9984468817710876,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 7.787161827087402,
+        "end_logit": -7.160221576690674,
+        "joint_score": 0.6269402503967285
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -3.861605167388916,
+        "end_logit": -7.317999362945557,
+        "joint_score": -11.179604530334473
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -7.02020788192749,
+        "end_logit": -6.906130790710449,
+        "joint_score": -13.926338195800781
+      }
+    ],
+    "scores_by_field": {
+      "leader": 0.6269402503967285,
+      "location": -11.179604530334473,
+      "topic": -13.926338195800781
+    },
+    "selection_margin": 11.806544780731201,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "unrelated",
+    "target_field": "unrelated",
+    "question": "What will the weather be tomorrow?",
+    "expected_field": null,
+    "expected_value": null,
+    "expect_abstain": true,
+    "answerability_probability": 0.9990516304969788,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 7.845836162567139,
+        "end_logit": -7.174943447113037,
+        "joint_score": 0.6708927154541016
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -3.6419897079467773,
+        "end_logit": -7.356193542480469,
+        "joint_score": -10.998183250427246
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -6.998025417327881,
+        "end_logit": -6.969073295593262,
+        "joint_score": -13.967098236083984
+      }
+    ],
+    "scores_by_field": {
+      "leader": 0.6708927154541016,
+      "location": -10.998183250427246,
+      "topic": -13.967098236083984
+    },
+    "selection_margin": 11.669075965881348,
+    "question_field_correct": null,
+    "unrelated_abstained": false
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "leader_original",
+    "target_field": "leader",
+    "question": "What is the leader of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebfet",
+    "expect_abstain": false,
+    "answerability_probability": 0.9982591271400452,
+    "predicted_field": "location",
+    "predicted_value": "Room Pine",
+    "predicted_text": "Location: Room Pine.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": 0.4729544222354889,
+        "end_logit": -7.391127109527588,
+        "joint_score": -6.918172836303711
+      },
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -6.365753650665283,
+        "end_logit": -6.979381084442139,
+        "joint_score": -13.345134735107422
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -7.250281810760498,
+        "end_logit": -7.5974955558776855,
+        "joint_score": -14.847777366638184
+      }
+    ],
+    "scores_by_field": {
+      "location": -6.918172836303711,
+      "leader": -13.345134735107422,
+      "topic": -14.847777366638184
+    },
+    "selection_margin": 6.426961898803711,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "leader_paraphrase",
+    "target_field": "leader",
+    "question": "Who leads Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebfet",
+    "expect_abstain": false,
+    "answerability_probability": 0.9801512956619263,
+    "predicted_field": "location",
+    "predicted_value": "Room Pine",
+    "predicted_text": "Location: Room Pine.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": 0.3354346454143524,
+        "end_logit": -7.401394367218018,
+        "joint_score": -7.065959930419922
+      },
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -6.422451972961426,
+        "end_logit": -6.9732985496521,
+        "joint_score": -13.395750045776367
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -7.269217014312744,
+        "end_logit": -7.620082855224609,
+        "joint_score": -14.889299392700195
+      }
+    ],
+    "scores_by_field": {
+      "location": -7.065959930419922,
+      "leader": -13.395750045776367,
+      "topic": -14.889299392700195
+    },
+    "selection_margin": 6.329790115356445,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "leader_reworded",
+    "target_field": "leader",
+    "question": "Which person is in charge of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebfet",
+    "expect_abstain": false,
+    "answerability_probability": 0.9916589856147766,
+    "predicted_field": "location",
+    "predicted_value": "Room Pine",
+    "predicted_text": "Location: Room Pine.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": 0.4973087012767792,
+        "end_logit": -7.368574619293213,
+        "joint_score": -6.871265888214111
+      },
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -6.5019025802612305,
+        "end_logit": -6.967452526092529,
+        "joint_score": -13.469354629516602
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -7.244624614715576,
+        "end_logit": -7.594292163848877,
+        "joint_score": -14.838916778564453
+      }
+    ],
+    "scores_by_field": {
+      "location": -6.871265888214111,
+      "leader": -13.469354629516602,
+      "topic": -14.838916778564453
+    },
+    "selection_margin": 6.59808874130249,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "location",
+    "target_field": "location",
+    "question": "Where is Workshop W0001 located?",
+    "expected_field": "location",
+    "expected_value": "Room Pine",
+    "expect_abstain": false,
+    "answerability_probability": 0.9923632144927979,
+    "predicted_field": "location",
+    "predicted_value": "Room Pine",
+    "predicted_text": "Location: Room Pine.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": 0.5518342852592468,
+        "end_logit": -7.387056350708008,
+        "joint_score": -6.835222244262695
+      },
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -6.432321548461914,
+        "end_logit": -6.976766109466553,
+        "joint_score": -13.409088134765625
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -7.274315357208252,
+        "end_logit": -7.576747417449951,
+        "joint_score": -14.851062774658203
+      }
+    ],
+    "scores_by_field": {
+      "location": -6.835222244262695,
+      "leader": -13.409088134765625,
+      "topic": -14.851062774658203
+    },
+    "selection_margin": 6.57386589050293,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "topic",
+    "target_field": "topic",
+    "question": "What is the topic of Workshop W0001?",
+    "expected_field": "topic",
+    "expected_value": "Gardening",
+    "expect_abstain": false,
+    "answerability_probability": 0.9943388104438782,
+    "predicted_field": "location",
+    "predicted_value": "Room Pine",
+    "predicted_text": "Location: Room Pine.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": 0.09845555573701859,
+        "end_logit": -7.360087871551514,
+        "joint_score": -7.261632442474365
+      },
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -6.533440113067627,
+        "end_logit": -6.9644975662231445,
+        "joint_score": -13.49793815612793
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -7.2725911140441895,
+        "end_logit": -7.533848762512207,
+        "joint_score": -14.806440353393555
+      }
+    ],
+    "scores_by_field": {
+      "location": -7.261632442474365,
+      "leader": -13.49793815612793,
+      "topic": -14.806440353393555
+    },
+    "selection_margin": 6.2363057136535645,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "unrelated",
+    "target_field": "unrelated",
+    "question": "What will the weather be tomorrow?",
+    "expected_field": null,
+    "expected_value": null,
+    "expect_abstain": true,
+    "answerability_probability": 0.9968885779380798,
+    "predicted_field": "location",
+    "predicted_value": "Room Pine",
+    "predicted_text": "Location: Room Pine.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": 0.5542550086975098,
+        "end_logit": -7.420399188995361,
+        "joint_score": -6.866144180297852
+      },
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -6.460506916046143,
+        "end_logit": -6.96566915512085,
+        "joint_score": -13.426176071166992
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -7.278459072113037,
+        "end_logit": -7.6075568199157715,
+        "joint_score": -14.886015892028809
+      }
+    ],
+    "scores_by_field": {
+      "location": -6.866144180297852,
+      "leader": -13.426176071166992,
+      "topic": -14.886015892028809
+    },
+    "selection_margin": 6.560031890869141,
+    "question_field_correct": null,
+    "unrelated_abstained": false
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "leader_original",
+    "target_field": "leader",
+    "question": "What is the leader of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebaa",
+    "expect_abstain": false,
+    "answerability_probability": 0.03391335532069206,
+    "predicted_field": null,
+    "predicted_value": null,
+    "predicted_text": "Insufficient information.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": 0.33729568123817444,
+        "end_logit": -7.34417724609375,
+        "joint_score": -7.0068817138671875
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -7.199823379516602,
+        "end_logit": -1.9246312379837036,
+        "joint_score": -9.124454498291016
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": -4.811936855316162,
+        "end_logit": -5.653503894805908,
+        "joint_score": -10.46544075012207
+      }
+    ],
+    "scores_by_field": {
+      "location": -7.0068817138671875,
+      "leader": -9.124454498291016,
+      "topic": -10.46544075012207
+    },
+    "selection_margin": 2.117572784423828,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "leader_paraphrase",
+    "target_field": "leader",
+    "question": "Who leads Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebaa",
+    "expect_abstain": false,
+    "answerability_probability": 0.015900801867246628,
+    "predicted_field": null,
+    "predicted_value": null,
+    "predicted_text": "Insufficient information.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": 0.028459463268518448,
+        "end_logit": -7.388901233673096,
+        "joint_score": -7.3604416847229
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -7.189489364624023,
+        "end_logit": -2.120702028274536,
+        "joint_score": -9.31019115447998
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": -4.788689136505127,
+        "end_logit": -5.683826446533203,
+        "joint_score": -10.472515106201172
+      }
+    ],
+    "scores_by_field": {
+      "location": -7.3604416847229,
+      "leader": -9.31019115447998,
+      "topic": -10.472515106201172
+    },
+    "selection_margin": 1.94974946975708,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "leader_reworded",
+    "target_field": "leader",
+    "question": "Which person is in charge of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebaa",
+    "expect_abstain": false,
+    "answerability_probability": 0.0010395626304671168,
+    "predicted_field": null,
+    "predicted_value": null,
+    "predicted_text": "Insufficient information.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": -0.047608014196157455,
+        "end_logit": -7.123332500457764,
+        "joint_score": -7.170940399169922
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -7.221534252166748,
+        "end_logit": -2.060255765914917,
+        "joint_score": -9.281789779663086
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": -4.748290538787842,
+        "end_logit": -5.697687149047852,
+        "joint_score": -10.445978164672852
+      }
+    ],
+    "scores_by_field": {
+      "location": -7.170940399169922,
+      "leader": -9.281789779663086,
+      "topic": -10.445978164672852
+    },
+    "selection_margin": 2.110849380493164,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "location",
+    "target_field": "location",
+    "question": "Where is Workshop W0001 located?",
+    "expected_field": "location",
+    "expected_value": "Room Ash",
+    "expect_abstain": false,
+    "answerability_probability": 0.5564879179000854,
+    "predicted_field": "location",
+    "predicted_value": "Room Ash",
+    "predicted_text": "Location: Room Ash.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": 0.09287086874246597,
+        "end_logit": -7.4375786781311035,
+        "joint_score": -7.34470796585083
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -7.185680389404297,
+        "end_logit": -2.0774245262145996,
+        "joint_score": -9.263105392456055
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": -4.7677812576293945,
+        "end_logit": -5.67077112197876,
+        "joint_score": -10.438552856445312
+      }
+    ],
+    "scores_by_field": {
+      "location": -7.34470796585083,
+      "leader": -9.263105392456055,
+      "topic": -10.438552856445312
+    },
+    "selection_margin": 1.9183974266052246,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "topic",
+    "target_field": "topic",
+    "question": "What is the topic of Workshop W0001?",
+    "expected_field": "topic",
+    "expected_value": "Python",
+    "expect_abstain": false,
+    "answerability_probability": 0.0011360066710039973,
+    "predicted_field": null,
+    "predicted_value": null,
+    "predicted_text": "Insufficient information.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": 0.3232325315475464,
+        "end_logit": -7.10687255859375,
+        "joint_score": -6.783639907836914
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -7.241231441497803,
+        "end_logit": -2.0172762870788574,
+        "joint_score": -9.25850772857666
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": -4.804953098297119,
+        "end_logit": -5.659094333648682,
+        "joint_score": -10.4640474319458
+      }
+    ],
+    "scores_by_field": {
+      "location": -6.783639907836914,
+      "leader": -9.25850772857666,
+      "topic": -10.4640474319458
+    },
+    "selection_margin": 2.474867820739746,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5b",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "unrelated",
+    "target_field": "unrelated",
+    "question": "What will the weather be tomorrow?",
+    "expected_field": null,
+    "expected_value": null,
+    "expect_abstain": true,
+    "answerability_probability": 0.0011506183072924614,
+    "predicted_field": null,
+    "predicted_value": null,
+    "predicted_text": "Insufficient information.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": 0.20903587341308594,
+        "end_logit": -7.191647052764893,
+        "joint_score": -6.982611179351807
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -7.237045764923096,
+        "end_logit": -2.116910457611084,
+        "joint_score": -9.35395622253418
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": -4.666411399841309,
+        "end_logit": -5.67788553237915,
+        "joint_score": -10.344297409057617
+      }
+    ],
+    "scores_by_field": {
+      "location": -6.982611179351807,
+      "leader": -9.35395622253418,
+      "topic": -10.344297409057617
+    },
+    "selection_margin": 2.371345043182373,
+    "question_field_correct": null,
+    "unrelated_abstained": true
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "leader_original",
+    "target_field": "leader",
+    "question": "What is the leader of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dbfi",
+    "expect_abstain": false,
+    "answerability_probability": 0.9994499087333679,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": -4.502099514007568,
+        "end_logit": -0.8184177279472351,
+        "joint_score": -5.320517063140869
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": 1.1766835451126099,
+        "end_logit": -8.088411331176758,
+        "joint_score": -6.9117279052734375
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -3.8352267742156982,
+        "end_logit": -8.581666946411133,
+        "joint_score": -12.41689395904541
+      }
+    ],
+    "scores_by_field": {
+      "leader": -5.320517063140869,
+      "topic": -6.9117279052734375,
+      "location": -12.41689395904541
+    },
+    "selection_margin": 1.5912108421325684,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "leader_paraphrase",
+    "target_field": "leader",
+    "question": "Who leads Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dbfi",
+    "expect_abstain": false,
+    "answerability_probability": 0.9923720359802246,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": -4.440464973449707,
+        "end_logit": -1.0204427242279053,
+        "joint_score": -5.460907936096191
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": 1.1134324073791504,
+        "end_logit": -7.969907283782959,
+        "joint_score": -6.856474876403809
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -3.8906304836273193,
+        "end_logit": -8.518282890319824,
+        "joint_score": -12.408913612365723
+      }
+    ],
+    "scores_by_field": {
+      "leader": -5.460907936096191,
+      "topic": -6.856474876403809,
+      "location": -12.408913612365723
+    },
+    "selection_margin": 1.3955669403076172,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "leader_reworded",
+    "target_field": "leader",
+    "question": "Which person is in charge of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dbfi",
+    "expect_abstain": false,
+    "answerability_probability": 0.9918528199195862,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": -4.395376682281494,
+        "end_logit": -0.821433961391449,
+        "joint_score": -5.216810703277588
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": 1.0676263570785522,
+        "end_logit": -7.8958516120910645,
+        "joint_score": -6.828225135803223
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -3.8933346271514893,
+        "end_logit": -8.511489868164062,
+        "joint_score": -12.404824256896973
+      }
+    ],
+    "scores_by_field": {
+      "leader": -5.216810703277588,
+      "topic": -6.828225135803223,
+      "location": -12.404824256896973
+    },
+    "selection_margin": 1.6114144325256348,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "location",
+    "target_field": "location",
+    "question": "Where is Workshop W0001 located?",
+    "expected_field": "location",
+    "expected_value": "Room Elm",
+    "expect_abstain": false,
+    "answerability_probability": 0.9977855682373047,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": -4.7587361335754395,
+        "end_logit": -0.05792773514986038,
+        "joint_score": -4.81666374206543
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": 1.124672532081604,
+        "end_logit": -7.986853122711182,
+        "joint_score": -6.862180709838867
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -3.9903485774993896,
+        "end_logit": -8.566347122192383,
+        "joint_score": -12.556695938110352
+      }
+    ],
+    "scores_by_field": {
+      "leader": -4.81666374206543,
+      "topic": -6.862180709838867,
+      "location": -12.556695938110352
+    },
+    "selection_margin": 2.0455169677734375,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "topic",
+    "target_field": "topic",
+    "question": "What is the topic of Workshop W0001?",
+    "expected_field": "topic",
+    "expected_value": "Python",
+    "expect_abstain": false,
+    "answerability_probability": 0.9968414306640625,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": -4.303167343139648,
+        "end_logit": -0.3007602095603943,
+        "joint_score": -4.6039276123046875
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": 1.3744360208511353,
+        "end_logit": -7.919015407562256,
+        "joint_score": -6.54457950592041
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -3.6878609657287598,
+        "end_logit": -8.509700775146484,
+        "joint_score": -12.197561264038086
+      }
+    ],
+    "scores_by_field": {
+      "leader": -4.6039276123046875,
+      "topic": -6.54457950592041,
+      "location": -12.197561264038086
+    },
+    "selection_margin": 1.9406518936157227,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "a",
+    "information": "Fictional Workshop W0001. Location: Room Elm. Leader: Dbfi. Topic: Python.",
+    "information_sha256": "d224019af455633b82bf29b33cf60ec6f238174bd4bf76a6b9ba99419fea758c",
+    "question_id": "unrelated",
+    "target_field": "unrelated",
+    "question": "What will the weather be tomorrow?",
+    "expected_field": null,
+    "expected_value": null,
+    "expect_abstain": true,
+    "answerability_probability": 0.9980370402336121,
+    "predicted_field": "leader",
+    "predicted_value": "Dbfi",
+    "predicted_text": "Leader: Dbfi.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dbfi",
+        "start": 68,
+        "end": 71,
+        "start_logit": -4.472153663635254,
+        "end_logit": -0.2654387056827545,
+        "joint_score": -4.7375922203063965
+      },
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 81,
+        "end": 86,
+        "start_logit": 1.074576735496521,
+        "end_logit": -7.980283260345459,
+        "joint_score": -6.905706405639648
+      },
+      {
+        "field": "Location",
+        "value": "Room Elm",
+        "start": 50,
+        "end": 57,
+        "start_logit": -3.7911887168884277,
+        "end_logit": -8.582858085632324,
+        "joint_score": -12.374046325683594
+      }
+    ],
+    "scores_by_field": {
+      "leader": -4.7375922203063965,
+      "topic": -6.905706405639648,
+      "location": -12.374046325683594
+    },
+    "selection_margin": 2.168114185333252,
+    "question_field_correct": null,
+    "unrelated_abstained": false
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "leader_original",
+    "target_field": "leader",
+    "question": "What is the leader of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dblt",
+    "expect_abstain": false,
+    "answerability_probability": 0.9997326731681824,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 5.9024152755737305,
+        "end_logit": -5.70221471786499,
+        "joint_score": 0.20020055770874023
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -3.2591423988342285,
+        "end_logit": -9.278800010681152,
+        "joint_score": -12.537942886352539
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -6.04622220993042,
+        "end_logit": -8.245841026306152,
+        "joint_score": -14.292062759399414
+      }
+    ],
+    "scores_by_field": {
+      "leader": 0.20020055770874023,
+      "location": -12.537942886352539,
+      "topic": -14.292062759399414
+    },
+    "selection_margin": 12.73814344406128,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "leader_paraphrase",
+    "target_field": "leader",
+    "question": "Who leads Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dblt",
+    "expect_abstain": false,
+    "answerability_probability": 0.9996192455291748,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 5.360621929168701,
+        "end_logit": -5.766387462615967,
+        "joint_score": -0.4057655334472656
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -2.8498237133026123,
+        "end_logit": -9.271072387695312,
+        "joint_score": -12.120896339416504
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -6.037368297576904,
+        "end_logit": -8.219182968139648,
+        "joint_score": -14.256551742553711
+      }
+    ],
+    "scores_by_field": {
+      "leader": -0.4057655334472656,
+      "location": -12.120896339416504,
+      "topic": -14.256551742553711
+    },
+    "selection_margin": 11.715130805969238,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "leader_reworded",
+    "target_field": "leader",
+    "question": "Which person is in charge of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Dblt",
+    "expect_abstain": false,
+    "answerability_probability": 0.9984269142150879,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 5.621499061584473,
+        "end_logit": -5.589613437652588,
+        "joint_score": 0.031885623931884766
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -3.1023991107940674,
+        "end_logit": -9.267815589904785,
+        "joint_score": -12.370214462280273
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -6.090526103973389,
+        "end_logit": -8.220157623291016,
+        "joint_score": -14.310684204101562
+      }
+    ],
+    "scores_by_field": {
+      "leader": 0.031885623931884766,
+      "location": -12.370214462280273,
+      "topic": -14.310684204101562
+    },
+    "selection_margin": 12.402100086212158,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "location",
+    "target_field": "location",
+    "question": "Where is Workshop W0001 located?",
+    "expected_field": "location",
+    "expected_value": "Room Cedar",
+    "expect_abstain": false,
+    "answerability_probability": 0.999710738658905,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 5.6086907386779785,
+        "end_logit": -5.636270046234131,
+        "joint_score": -0.027579307556152344
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -2.6286489963531494,
+        "end_logit": -9.303647994995117,
+        "joint_score": -11.932296752929688
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -6.073426246643066,
+        "end_logit": -8.218545913696289,
+        "joint_score": -14.291972160339355
+      }
+    ],
+    "scores_by_field": {
+      "leader": -0.027579307556152344,
+      "location": -11.932296752929688,
+      "topic": -14.291972160339355
+    },
+    "selection_margin": 11.904717445373535,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "topic",
+    "target_field": "topic",
+    "question": "What is the topic of Workshop W0001?",
+    "expected_field": "topic",
+    "expected_value": "Astronomy",
+    "expect_abstain": false,
+    "answerability_probability": 0.9992706179618835,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 5.687243461608887,
+        "end_logit": -5.624448299407959,
+        "joint_score": 0.06279516220092773
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -3.2252817153930664,
+        "end_logit": -9.248373985290527,
+        "joint_score": -12.473655700683594
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -6.061427116394043,
+        "end_logit": -8.181924819946289,
+        "joint_score": -14.243351936340332
+      }
+    ],
+    "scores_by_field": {
+      "leader": 0.06279516220092773,
+      "location": -12.473655700683594,
+      "topic": -14.243351936340332
+    },
+    "selection_margin": 12.536450862884521,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "b",
+    "information": "Fictional Workshop W0001. Topic: Astronomy. Leader: Dblt. Location: Room Cedar.",
+    "information_sha256": "b03401b4ac553c89ab105a1e77e2ee8d437a424ebb68f26d6f0956f622cead91",
+    "question_id": "unrelated",
+    "target_field": "unrelated",
+    "question": "What will the weather be tomorrow?",
+    "expected_field": null,
+    "expected_value": null,
+    "expect_abstain": true,
+    "answerability_probability": 0.9996771812438965,
+    "predicted_field": "leader",
+    "predicted_value": "Dblt",
+    "predicted_text": "Leader: Dblt.",
+    "candidate_fields": [
+      {
+        "field": "Leader",
+        "value": "Dblt",
+        "start": 66,
+        "end": 69,
+        "start_logit": 5.502973556518555,
+        "end_logit": -5.689939498901367,
+        "joint_score": -0.1869659423828125
+      },
+      {
+        "field": "Location",
+        "value": "Room Cedar",
+        "start": 82,
+        "end": 91,
+        "start_logit": -2.825143337249756,
+        "end_logit": -9.382841110229492,
+        "joint_score": -12.207984924316406
+      },
+      {
+        "field": "Topic",
+        "value": "Astronomy",
+        "start": 47,
+        "end": 55,
+        "start_logit": -6.380697250366211,
+        "end_logit": -8.316919326782227,
+        "joint_score": -14.697616577148438
+      }
+    ],
+    "scores_by_field": {
+      "leader": -0.1869659423828125,
+      "location": -12.207984924316406,
+      "topic": -14.697616577148438
+    },
+    "selection_margin": 12.021018981933594,
+    "question_field_correct": null,
+    "unrelated_abstained": false
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "leader_original",
+    "target_field": "leader",
+    "question": "What is the leader of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebfet",
+    "expect_abstain": false,
+    "answerability_probability": 0.9991700649261475,
+    "predicted_field": "location",
+    "predicted_value": "Room Pine",
+    "predicted_text": "Location: Room Pine.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": -1.931605339050293,
+        "end_logit": -8.889547348022461,
+        "joint_score": -10.821152687072754
+      },
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -5.237443447113037,
+        "end_logit": -7.226654529571533,
+        "joint_score": -12.46409797668457
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -6.237099647521973,
+        "end_logit": -9.223400115966797,
+        "joint_score": -15.46049976348877
+      }
+    ],
+    "scores_by_field": {
+      "location": -10.821152687072754,
+      "leader": -12.46409797668457,
+      "topic": -15.46049976348877
+    },
+    "selection_margin": 1.6429452896118164,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "leader_paraphrase",
+    "target_field": "leader",
+    "question": "Who leads Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebfet",
+    "expect_abstain": false,
+    "answerability_probability": 0.991424024105072,
+    "predicted_field": "location",
+    "predicted_value": "Room Pine",
+    "predicted_text": "Location: Room Pine.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": -1.5852774381637573,
+        "end_logit": -8.86380386352539,
+        "joint_score": -10.449081420898438
+      },
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -5.030659198760986,
+        "end_logit": -7.226714611053467,
+        "joint_score": -12.257373809814453
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -6.210113048553467,
+        "end_logit": -9.218362808227539,
+        "joint_score": -15.428476333618164
+      }
+    ],
+    "scores_by_field": {
+      "location": -10.449081420898438,
+      "leader": -12.257373809814453,
+      "topic": -15.428476333618164
+    },
+    "selection_margin": 1.8082923889160156,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "leader_reworded",
+    "target_field": "leader",
+    "question": "Which person is in charge of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebfet",
+    "expect_abstain": false,
+    "answerability_probability": 0.35291990637779236,
+    "predicted_field": null,
+    "predicted_value": null,
+    "predicted_text": "Insufficient information.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": -1.7275155782699585,
+        "end_logit": -8.780865669250488,
+        "joint_score": -10.508380889892578
+      },
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -5.041241645812988,
+        "end_logit": -7.088417053222656,
+        "joint_score": -12.129658699035645
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -6.318817615509033,
+        "end_logit": -9.099258422851562,
+        "joint_score": -15.418075561523438
+      }
+    ],
+    "scores_by_field": {
+      "location": -10.508380889892578,
+      "leader": -12.129658699035645,
+      "topic": -15.418075561523438
+    },
+    "selection_margin": 1.6212778091430664,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "location",
+    "target_field": "location",
+    "question": "Where is Workshop W0001 located?",
+    "expected_field": "location",
+    "expected_value": "Room Pine",
+    "expect_abstain": false,
+    "answerability_probability": 0.9949421286582947,
+    "predicted_field": "location",
+    "predicted_value": "Room Pine",
+    "predicted_text": "Location: Room Pine.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": -1.5438164472579956,
+        "end_logit": -8.826547622680664,
+        "joint_score": -10.37036418914795
+      },
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -5.061528205871582,
+        "end_logit": -7.1144280433654785,
+        "joint_score": -12.175956726074219
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -6.158085823059082,
+        "end_logit": -9.244858741760254,
+        "joint_score": -15.402944564819336
+      }
+    ],
+    "scores_by_field": {
+      "location": -10.37036418914795,
+      "leader": -12.175956726074219,
+      "topic": -15.402944564819336
+    },
+    "selection_margin": 1.8055925369262695,
+    "question_field_correct": true,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "topic",
+    "target_field": "topic",
+    "question": "What is the topic of Workshop W0001?",
+    "expected_field": "topic",
+    "expected_value": "Gardening",
+    "expect_abstain": false,
+    "answerability_probability": 0.9375119209289551,
+    "predicted_field": "location",
+    "predicted_value": "Room Pine",
+    "predicted_text": "Location: Room Pine.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": -1.9131451845169067,
+        "end_logit": -8.83602237701416,
+        "joint_score": -10.749167442321777
+      },
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -5.092938423156738,
+        "end_logit": -7.111344814300537,
+        "joint_score": -12.204282760620117
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -6.26928186416626,
+        "end_logit": -9.151912689208984,
+        "joint_score": -15.421194076538086
+      }
+    ],
+    "scores_by_field": {
+      "location": -10.749167442321777,
+      "leader": -12.204282760620117,
+      "topic": -15.421194076538086
+    },
+    "selection_margin": 1.4551153182983398,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "c",
+    "information": "Fictional Workshop W0001. Leader: Ebfet. Location: Room Pine. Topic: Gardening.",
+    "information_sha256": "6afe2ebfdf6be9c5f311ae52a205f399be4a301fdf20ca9bcee340b9ded72d25",
+    "question_id": "unrelated",
+    "target_field": "unrelated",
+    "question": "What will the weather be tomorrow?",
+    "expected_field": null,
+    "expected_value": null,
+    "expect_abstain": true,
+    "answerability_probability": 0.9982325434684753,
+    "predicted_field": "location",
+    "predicted_value": "Room Pine",
+    "predicted_text": "Location: Room Pine.",
+    "candidate_fields": [
+      {
+        "field": "Location",
+        "value": "Room Pine",
+        "start": 65,
+        "end": 73,
+        "start_logit": -1.6167160272598267,
+        "end_logit": -8.968767166137695,
+        "joint_score": -10.58548355102539
+      },
+      {
+        "field": "Leader",
+        "value": "Ebfet",
+        "start": 48,
+        "end": 52,
+        "start_logit": -5.092987060546875,
+        "end_logit": -7.177877902984619,
+        "joint_score": -12.270864486694336
+      },
+      {
+        "field": "Topic",
+        "value": "Gardening",
+        "start": 83,
+        "end": 91,
+        "start_logit": -6.270885944366455,
+        "end_logit": -9.277252197265625,
+        "joint_score": -15.548137664794922
+      }
+    ],
+    "scores_by_field": {
+      "location": -10.58548355102539,
+      "leader": -12.270864486694336,
+      "topic": -15.548137664794922
+    },
+    "selection_margin": 1.6853809356689453,
+    "question_field_correct": null,
+    "unrelated_abstained": false
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "leader_original",
+    "target_field": "leader",
+    "question": "What is the leader of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebaa",
+    "expect_abstain": false,
+    "answerability_probability": 0.9985264539718628,
+    "predicted_field": "topic",
+    "predicted_value": "Python",
+    "predicted_text": "Topic: Python.",
+    "candidate_fields": [
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": 0.04796113818883896,
+        "end_logit": -8.179664611816406,
+        "joint_score": -8.13170337677002
+      },
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": -1.4137928485870361,
+        "end_logit": -7.533142566680908,
+        "joint_score": -8.946935653686523
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -5.6608991622924805,
+        "end_logit": -7.308618545532227,
+        "joint_score": -12.969517707824707
+      }
+    ],
+    "scores_by_field": {
+      "topic": -8.13170337677002,
+      "location": -8.946935653686523,
+      "leader": -12.969517707824707
+    },
+    "selection_margin": 0.8152322769165039,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "leader_paraphrase",
+    "target_field": "leader",
+    "question": "Who leads Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebaa",
+    "expect_abstain": false,
+    "answerability_probability": 0.0003583866055123508,
+    "predicted_field": null,
+    "predicted_value": null,
+    "predicted_text": "Insufficient information.",
+    "candidate_fields": [
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": 0.21676358580589294,
+        "end_logit": -8.085724830627441,
+        "joint_score": -7.868961334228516
+      },
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": -1.5268634557724,
+        "end_logit": -7.377050876617432,
+        "joint_score": -8.903914451599121
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -5.646842002868652,
+        "end_logit": -7.22691011428833,
+        "joint_score": -12.87375259399414
+      }
+    ],
+    "scores_by_field": {
+      "topic": -7.868961334228516,
+      "location": -8.903914451599121,
+      "leader": -12.87375259399414
+    },
+    "selection_margin": 1.0349531173706055,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "leader_reworded",
+    "target_field": "leader",
+    "question": "Which person is in charge of Workshop W0001?",
+    "expected_field": "leader",
+    "expected_value": "Ebaa",
+    "expect_abstain": false,
+    "answerability_probability": 0.00037389915087260306,
+    "predicted_field": null,
+    "predicted_value": null,
+    "predicted_text": "Insufficient information.",
+    "candidate_fields": [
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": -0.0037084147334098816,
+        "end_logit": -8.027164459228516,
+        "joint_score": -8.03087329864502
+      },
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": -1.539182186126709,
+        "end_logit": -7.141495704650879,
+        "joint_score": -8.68067741394043
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -5.750400543212891,
+        "end_logit": -7.037060737609863,
+        "joint_score": -12.787461280822754
+      }
+    ],
+    "scores_by_field": {
+      "topic": -8.03087329864502,
+      "location": -8.68067741394043,
+      "leader": -12.787461280822754
+    },
+    "selection_margin": 0.6498041152954102,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "location",
+    "target_field": "location",
+    "question": "Where is Workshop W0001 located?",
+    "expected_field": "location",
+    "expected_value": "Room Ash",
+    "expect_abstain": false,
+    "answerability_probability": 0.0006115326541475952,
+    "predicted_field": null,
+    "predicted_value": null,
+    "predicted_text": "Insufficient information.",
+    "candidate_fields": [
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": 0.15721312165260315,
+        "end_logit": -8.113570213317871,
+        "joint_score": -7.956357002258301
+      },
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": -1.539758324623108,
+        "end_logit": -7.282999515533447,
+        "joint_score": -8.822757720947266
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -5.763214588165283,
+        "end_logit": -7.214302062988281,
+        "joint_score": -12.977516174316406
+      }
+    ],
+    "scores_by_field": {
+      "topic": -7.956357002258301,
+      "location": -8.822757720947266,
+      "leader": -12.977516174316406
+    },
+    "selection_margin": 0.8664007186889648,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "topic",
+    "target_field": "topic",
+    "question": "What is the topic of Workshop W0001?",
+    "expected_field": "topic",
+    "expected_value": "Python",
+    "expect_abstain": false,
+    "answerability_probability": 0.0004622366395778954,
+    "predicted_field": null,
+    "predicted_value": null,
+    "predicted_text": "Insufficient information.",
+    "candidate_fields": [
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": 0.2954308092594147,
+        "end_logit": -8.055822372436523,
+        "joint_score": -7.760391712188721
+      },
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": -1.3347455263137817,
+        "end_logit": -7.183785915374756,
+        "joint_score": -8.518531799316406
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -5.638973712921143,
+        "end_logit": -7.14547061920166,
+        "joint_score": -12.784444808959961
+      }
+    ],
+    "scores_by_field": {
+      "topic": -7.760391712188721,
+      "location": -8.518531799316406,
+      "leader": -12.784444808959961
+    },
+    "selection_margin": 0.7581400871276855,
+    "question_field_correct": false,
+    "unrelated_abstained": null
+  },
+  {
+    "model": "v5d",
+    "evidence_id": "d",
+    "information": "Fictional Workshop W0001. Topic: Python. Location: Room Ash. Leader: Ebaa.",
+    "information_sha256": "064c3f84b3dfa4b7dbc81b87cdde1d3e1c3e20b6f646cbeed7216b2cc3e8fd15",
+    "question_id": "unrelated",
+    "target_field": "unrelated",
+    "question": "What will the weather be tomorrow?",
+    "expected_field": null,
+    "expected_value": null,
+    "expect_abstain": true,
+    "answerability_probability": 0.0006242492236196995,
+    "predicted_field": null,
+    "predicted_value": null,
+    "predicted_text": "Insufficient information.",
+    "candidate_fields": [
+      {
+        "field": "Topic",
+        "value": "Python",
+        "start": 47,
+        "end": 52,
+        "start_logit": 0.1776353120803833,
+        "end_logit": -8.071666717529297,
+        "joint_score": -7.894031524658203
+      },
+      {
+        "field": "Location",
+        "value": "Room Ash",
+        "start": 65,
+        "end": 72,
+        "start_logit": -1.4018105268478394,
+        "end_logit": -7.220733642578125,
+        "joint_score": -8.622544288635254
+      },
+      {
+        "field": "Leader",
+        "value": "Ebaa",
+        "start": 83,
+        "end": 86,
+        "start_logit": -5.679078102111816,
+        "end_logit": -7.188830852508545,
+        "joint_score": -12.867908477783203
+      }
+    ],
+    "scores_by_field": {
+      "topic": -7.894031524658203,
+      "location": -8.622544288635254,
+      "leader": -12.867908477783203
+    },
+    "selection_margin": 0.7285127639770508,
+    "question_field_correct": null,
+    "unrelated_abstained": true
+  }
+]

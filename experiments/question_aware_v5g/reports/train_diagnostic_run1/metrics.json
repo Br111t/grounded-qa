@@ -1,0 +1,131 @@
+{
+  "phase": "train_diagnostic",
+  "checkpoint_sha256": "5ab7d977dfc064c4901816eccaff4e3a230779db0cdcda7f096bcc374e32d428",
+  "training_data_sha256": "493d939ab6207799536670e1b90dfa07e67e08265274423fe87d7e96348771b3",
+  "metrics": {
+    "canonical": {
+      "count": 48,
+      "correct": 26,
+      "accuracy": 0.5416666666666666,
+      "false_abstentions": 12,
+      "unsupported_answers": 0,
+      "brier_score": 0.24504284746701313,
+      "field_confusion": {
+        "leader -> None": 12,
+        "location -> None": 12,
+        "location -> leader": 1,
+        "leader -> location": 9,
+        "location -> location": 11,
+        "leader -> leader": 3
+      }
+    },
+    "paired": {
+      "count": 24,
+      "both_correct": 2,
+      "selection_switches": 2,
+      "correct_switches": 2,
+      "both_fields_present": 12,
+      "correct_switch_rate_on_both_present": 0.16666666666666666,
+      "question_sensitivity": [
+        {
+          "source_id": "v5g_train_19",
+          "leader_advantage_leader_question": 2.7145586013793945,
+          "location_advantage_location_question": -1.1629104614257812,
+          "location_score_delta": -0.02158975601196289
+        },
+        {
+          "source_id": "v5g_train_23",
+          "leader_advantage_leader_question": -3.0481033325195312,
+          "location_advantage_location_question": 4.829257965087891,
+          "location_score_delta": 0.037558555603027344
+        },
+        {
+          "source_id": "v5g_train_15",
+          "leader_advantage_leader_question": -4.860562324523926,
+          "location_advantage_location_question": 5.973588943481445,
+          "location_score_delta": 0.044829368591308594
+        },
+        {
+          "source_id": "v5g_train_07",
+          "leader_advantage_leader_question": -3.546818733215332,
+          "location_advantage_location_question": 4.223202705383301,
+          "location_score_delta": 0.053427696228027344
+        },
+        {
+          "source_id": "v5g_train_22",
+          "leader_advantage_leader_question": -3.1756601333618164,
+          "location_advantage_location_question": 5.522874355316162,
+          "location_score_delta": 0.019304275512695312
+        },
+        {
+          "source_id": "v5g_train_11",
+          "leader_advantage_leader_question": 1.0730962753295898,
+          "location_advantage_location_question": 0.8190736770629883,
+          "location_score_delta": 0.15092086791992188
+        },
+        {
+          "source_id": "v5g_train_14",
+          "leader_advantage_leader_question": -3.8498897552490234,
+          "location_advantage_location_question": 6.226650714874268,
+          "location_score_delta": 0.04234027862548828
+        },
+        {
+          "source_id": "v5g_train_06",
+          "leader_advantage_leader_question": -4.149779319763184,
+          "location_advantage_location_question": 5.458656311035156,
+          "location_score_delta": 0.0017518997192382812
+        },
+        {
+          "source_id": "v5g_train_02",
+          "leader_advantage_leader_question": -3.450800895690918,
+          "location_advantage_location_question": 5.611858367919922,
+          "location_score_delta": 0.1881427764892578
+        },
+        {
+          "source_id": "v5g_train_18",
+          "leader_advantage_leader_question": -3.6232690811157227,
+          "location_advantage_location_question": 6.072786331176758,
+          "location_score_delta": -0.04951286315917969
+        },
+        {
+          "source_id": "v5g_train_10",
+          "leader_advantage_leader_question": 0.9041337966918945,
+          "location_advantage_location_question": 1.4463529586791992,
+          "location_score_delta": 0.02839946746826172
+        },
+        {
+          "source_id": "v5g_train_03",
+          "leader_advantage_leader_question": -3.598517417907715,
+          "location_advantage_location_question": 4.368404388427734,
+          "location_score_delta": 0.009802818298339844
+        }
+      ]
+    },
+    "leader_canonical": {
+      "total": 24,
+      "correct": 9
+    },
+    "location_canonical": {
+      "total": 24,
+      "correct": 17
+    }
+  },
+  "by_evidence_structure": {
+    "Leader+Location+Topic": {
+      "count": 24,
+      "correct": 14,
+      "false_abstentions": 0
+    },
+    "Leader+Topic": {
+      "count": 12,
+      "correct": 6,
+      "false_abstentions": 6
+    },
+    "Location+Topic": {
+      "count": 12,
+      "correct": 6,
+      "false_abstentions": 6
+    }
+  },
+  "in_sample": true
+}

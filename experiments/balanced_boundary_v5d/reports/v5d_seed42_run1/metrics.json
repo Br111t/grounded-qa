@@ -1,0 +1,281 @@
+{
+  "experiment": "v5d_balanced_boundaries",
+  "evaluation_partition": "dev_only",
+  "checkpoint": "experiments\\balanced_boundary_v5d\\checkpoints\\v5d_balanced_seed42_3000.pt",
+  "checkpoint_sha256": "2a256d2e29a9d71c72d5ffd0cdc6180089edb96fb2606fd2efcdca6287c7e165",
+  "dev_sha256": "5799afad25695b33eadcbbf6e224ec2467ebe6c883157cc6955a96fbdc380ecd",
+  "timestamp_utc": "2026-11-01T14:46:33.623320+00:00",
+  "training_metadata": {
+    "experiment": "v5d_balanced_boundaries",
+    "model_variant": "span_v5",
+    "steps": 3000,
+    "seed": 42,
+    "training_file": "experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl",
+    "extra_training_file": "experiments/balanced_boundary_v5d/data/v5d_balanced_train.jsonl",
+    "extra_training_sha256": "da7a0df5bc19e3d4f5ec5a37d8de4f2fd7b24e1a7643a2d1a103031fecef2cf0",
+    "example_count": 264,
+    "prompt_version": "compact_v1",
+    "missing_ratio": 0.33,
+    "loss_every": 120,
+    "initial_loss": 4.828392418722312,
+    "final_loss": 0.9713295235657521,
+    "answerability_threshold": 0.5,
+    "learning_rate": 0.001
+  },
+  "overall": {
+    "exact": 21,
+    "total": 96,
+    "start_head": 51,
+    "end_head": 22
+  },
+  "groups": {
+    "length4_vowel": {
+      "correct": 9,
+      "total": 24,
+      "answerable": 24,
+      "start_head": 12,
+      "end_head": 16,
+      "joint_start": 13,
+      "joint_end": 12,
+      "joint_span": 9,
+      "overlap": 19,
+      "too_long": 6,
+      "too_short": 1,
+      "false_abstain": 0,
+      "false_answer": 0,
+      "sample_errors": [
+        {
+          "id": "v5d_dev_length4_vowel_04_0_q01",
+          "predicted": "Leader: Dbea. Lo.",
+          "expected": "Leader: Dbea.",
+          "span": [
+            66,
+            73
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_vowel_10_0_q01",
+          "predicted": "Leader: Pine. Leader: D.",
+          "expected": "Leader: Dbka.",
+          "span": [
+            55,
+            69
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_vowel_03_0_q01",
+          "predicted": "Leader: di.",
+          "expected": "Leader: Dbdi.",
+          "span": [
+            70,
+            71
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_vowel_08_1_q01",
+          "predicted": "Leader: Dbia. Lo.",
+          "expected": "Leader: Dbia.",
+          "span": [
+            66,
+            73
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_vowel_07_1_q01",
+          "predicted": "Leader: Pine. Leader: D.",
+          "expected": "Leader: Dbhi.",
+          "span": [
+            55,
+            69
+          ]
+        }
+      ]
+    },
+    "length4_consonant": {
+      "correct": 4,
+      "total": 24,
+      "answerable": 24,
+      "start_head": 13,
+      "end_head": 0,
+      "joint_start": 13,
+      "joint_end": 5,
+      "joint_span": 4,
+      "overlap": 17,
+      "too_long": 7,
+      "too_short": 3,
+      "false_abstain": 0,
+      "false_answer": 0,
+      "sample_errors": [
+        {
+          "id": "v5d_dev_length4_consonant_05_0_q01",
+          "predicted": "Leader: Dbft. Lo.",
+          "expected": "Leader: Dbft.",
+          "span": [
+            66,
+            73
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_consonant_03_1_q01",
+          "predicted": "Leader: Roo.",
+          "expected": "Leader: Dbdt.",
+          "span": [
+            64,
+            66
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_consonant_08_1_q01",
+          "predicted": "Leader: Dbin. Lo.",
+          "expected": "Leader: Dbin.",
+          "span": [
+            66,
+            73
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_consonant_03_0_q01",
+          "predicted": "Leader: dt.",
+          "expected": "Leader: Dbdt.",
+          "span": [
+            70,
+            71
+          ]
+        },
+        {
+          "id": "v5d_dev_length4_consonant_00_0_q01",
+          "predicted": "Leader: Dba.",
+          "expected": "Leader: Dban.",
+          "span": [
+            70,
+            72
+          ]
+        }
+      ]
+    },
+    "length5_vowel": {
+      "correct": 5,
+      "total": 24,
+      "answerable": 24,
+      "start_head": 13,
+      "end_head": 6,
+      "joint_start": 14,
+      "joint_end": 7,
+      "joint_span": 5,
+      "overlap": 18,
+      "too_long": 1,
+      "too_short": 10,
+      "false_abstain": 2,
+      "false_answer": 0,
+      "sample_errors": [
+        {
+          "id": "v5d_dev_length5_vowel_09_1_q01",
+          "predicted": "Leader: Topic: Ast.",
+          "expected": "Leader: Dbjei.",
+          "span": [
+            75,
+            84
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_vowel_06_0_q01",
+          "predicted": "Leader: D.",
+          "expected": "Leader: Dbgea.",
+          "span": [
+            66,
+            66
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_vowel_08_1_q01",
+          "predicted": "Leader: D.",
+          "expected": "Leader: Dbiea.",
+          "span": [
+            66,
+            66
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_vowel_02_0_q01",
+          "predicted": "Leader: Lo.",
+          "expected": "Leader: Dbcea.",
+          "span": [
+            70,
+            71
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_vowel_10_0_q01",
+          "predicted": "Leader: Pine. Leader: D.",
+          "expected": "Leader: Dbkea.",
+          "span": [
+            55,
+            69
+          ]
+        }
+      ]
+    },
+    "length5_consonant": {
+      "correct": 3,
+      "total": 24,
+      "answerable": 24,
+      "start_head": 13,
+      "end_head": 0,
+      "joint_start": 13,
+      "joint_end": 4,
+      "joint_span": 3,
+      "overlap": 17,
+      "too_long": 1,
+      "too_short": 10,
+      "false_abstain": 2,
+      "false_answer": 0,
+      "sample_errors": [
+        {
+          "id": "v5d_dev_length5_consonant_10_1_q01",
+          "predicted": "Leader: Pine. Leader: D.",
+          "expected": "Leader: Dbken.",
+          "span": [
+            55,
+            69
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_consonant_04_1_q01",
+          "predicted": "Leader: Lo.",
+          "expected": "Leader: Dbeen.",
+          "span": [
+            70,
+            71
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_consonant_10_0_q01",
+          "predicted": "Leader: Pine. Leader: D.",
+          "expected": "Leader: Dbken.",
+          "span": [
+            55,
+            69
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_consonant_05_1_q01",
+          "predicted": "Leader: D.",
+          "expected": "Leader: Dbfet.",
+          "span": [
+            66,
+            66
+          ]
+        },
+        {
+          "id": "v5d_dev_length5_consonant_07_0_q01",
+          "predicted": "Leader: Ro.",
+          "expected": "Leader: Dbhet.",
+          "span": [
+            50,
+            51
+          ]
+        }
+      ]
+    }
+  }
+}

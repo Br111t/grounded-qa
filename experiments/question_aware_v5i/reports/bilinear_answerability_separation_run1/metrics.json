@@ -1,0 +1,3295 @@
+{
+  "analysis": "v5j_bilinear_answerability_score_separation",
+  "checkpoint_sha256": "f1fc2b7864551f10c379ac8a187a1f5fd5e9b1e371c6ec21d1424f5e593a1347",
+  "metadata": {
+    "experiment_variant": "v5j_interaction_comparison",
+    "interaction": "bilinear",
+    "seed": 42,
+    "steps": 1200,
+    "measure_every": 120,
+    "training_sha256": "493d939ab6207799536670e1b90dfa07e67e08265274423fe87d7e96348771b3",
+    "dev_sha256": "c194b05270f0ea70a5e6b6fb894b932f7e0e9a15027174364ef14f8b250c6b71",
+    "parameter_count": 132867,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "rank_margin": 1.0,
+    "rank_weight": 0.5,
+    "dropout": 0.1,
+    "gradient_clip_norm": 1.0,
+    "uniform_schedule": true
+  },
+  "features": [
+    "answerability_logit",
+    "answer_probability",
+    "max_end",
+    "end_gap_top2",
+    "max_joint",
+    "joint_gap_top2",
+    "max_end_minus_mean",
+    "max_joint_minus_mean"
+  ],
+  "results": {
+    "train": {
+      "records": [
+        {
+          "example_id": "v5g_train_13_canonical_leader",
+          "source_id": "v5g_train_13",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9127988815307617,
+          "answer_probability": 0.9484755396842957,
+          "max_end": 31.375329971313477,
+          "end_gap_top2": 31.793450474739075,
+          "max_joint": 55.43809509277344,
+          "joint_gap_top2": 58.07863140106201,
+          "max_end_minus_mean": 15.896725237369537,
+          "max_joint_minus_mean": 29.039315700531006,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 24.062767028808594,
+              "end_score": 31.375329971313477,
+              "joint_score": 55.43809509277344
+            },
+            {
+              "field": "topic",
+              "start_score": -2.2224156856536865,
+              "end_score": -0.41812050342559814,
+              "joint_score": -2.640536308288574
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_00_canonical_leader",
+          "source_id": "v5g_train_00",
+          "question_field": "leader",
+          "answerable": false,
+          "answerability_logit": 2.934169054031372,
+          "answer_probability": 0.9495099186897278,
+          "max_end": -6.00245475769043,
+          "end_gap_top2": 9.480849266052246,
+          "max_joint": -6.070380210876465,
+          "joint_gap_top2": 23.25511646270752,
+          "max_end_minus_mean": 4.740424633026123,
+          "max_joint_minus_mean": 11.62755823135376,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": -0.06792546808719635,
+              "end_score": -6.00245475769043,
+              "joint_score": -6.070380210876465
+            },
+            {
+              "field": "topic",
+              "start_score": -13.842192649841309,
+              "end_score": -15.483304023742676,
+              "joint_score": -29.325496673583984
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_21_canonical_location",
+          "source_id": "v5g_train_21",
+          "question_field": "location",
+          "answerable": false,
+          "answerability_logit": 2.9164254665374756,
+          "answer_probability": 0.948652446269989,
+          "max_end": 8.21157455444336,
+          "end_gap_top2": 23.89735698699951,
+          "max_joint": 17.449440002441406,
+          "joint_gap_top2": 44.44940185546875,
+          "max_end_minus_mean": 11.948678493499756,
+          "max_joint_minus_mean": 22.224700927734375,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 9.237866401672363,
+              "end_score": 8.21157455444336,
+              "joint_score": 17.449440002441406
+            },
+            {
+              "field": "topic",
+              "start_score": -11.314180374145508,
+              "end_score": -15.685782432556152,
+              "joint_score": -26.999961853027344
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_19_canonical_location",
+          "source_id": "v5g_train_19",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9314258098602295,
+          "answer_probability": 0.9493781924247742,
+          "max_end": 8.405961990356445,
+          "end_gap_top2": 6.443338632583618,
+          "max_joint": 18.622480392456055,
+          "joint_gap_top2": 3.7482357025146484,
+          "max_end_minus_mean": 8.333933273951212,
+          "max_joint_minus_mean": 11.979537328084309,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 16.65985679626465,
+              "end_score": 1.9626233577728271,
+              "joint_score": 18.622480392456055
+            },
+            {
+              "field": "leader",
+              "start_score": 6.468282222747803,
+              "end_score": 8.405961990356445,
+              "joint_score": 14.874244689941406
+            },
+            {
+              "field": "topic",
+              "start_score": -3.4153966903686523,
+              "end_score": -10.152499198913574,
+              "joint_score": -13.567895889282227
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_20_canonical_leader",
+          "source_id": "v5g_train_20",
+          "question_field": "leader",
+          "answerable": false,
+          "answerability_logit": 2.9115474224090576,
+          "answer_probability": 0.9484143257141113,
+          "max_end": -10.972039222717285,
+          "end_gap_top2": 0.5318841934204102,
+          "max_joint": -12.38794231414795,
+          "joint_gap_top2": 2.6240015029907227,
+          "max_end_minus_mean": 0.2659420967102051,
+          "max_joint_minus_mean": 1.3120007514953613,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": -1.4159029722213745,
+              "end_score": -10.972039222717285,
+              "joint_score": -12.38794231414795
+            },
+            {
+              "field": "topic",
+              "start_score": -3.5080208778381348,
+              "end_score": -11.503923416137695,
+              "joint_score": -15.011943817138672
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_23_canonical_leader",
+          "source_id": "v5g_train_23",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9212937355041504,
+          "answer_probability": 0.9488890171051025,
+          "max_end": 29.906814575195312,
+          "end_gap_top2": 34.06672811508179,
+          "max_joint": 53.22402572631836,
+          "joint_gap_top2": 59.246811389923096,
+          "max_end_minus_mean": 25.09245030085246,
+          "max_joint_minus_mean": 42.371466477712,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 23.317211151123047,
+              "end_score": 29.906814575195312,
+              "joint_score": 53.22402572631836
+            },
+            {
+              "field": "location",
+              "start_score": -1.8628720045089722,
+              "end_score": -4.159913539886475,
+              "joint_score": -6.022785663604736
+            },
+            {
+              "field": "topic",
+              "start_score": -3.339754104614258,
+              "end_score": -11.303808212280273,
+              "joint_score": -14.643562316894531
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_15_canonical_location",
+          "source_id": "v5g_train_15",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.922034978866577,
+          "answer_probability": 0.9489250183105469,
+          "max_end": 16.98499870300293,
+          "end_gap_top2": 8.691349983215332,
+          "max_joint": 33.077117919921875,
+          "joint_gap_top2": 20.283687591552734,
+          "max_end_minus_mean": 14.405489921569824,
+          "max_joint_minus_mean": 27.27639643351237,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 16.092117309570312,
+              "end_score": 16.98499870300293,
+              "joint_score": 33.077117919921875
+            },
+            {
+              "field": "leader",
+              "start_score": 4.499781131744385,
+              "end_score": 8.293648719787598,
+              "joint_score": 12.79343032836914
+            },
+            {
+              "field": "topic",
+              "start_score": -10.928263664245605,
+              "end_score": -17.54012107849121,
+              "joint_score": -28.4683837890625
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_07_canonical_leader",
+          "source_id": "v5g_train_07",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9276397228240967,
+          "answer_probability": 0.9491959810256958,
+          "max_end": 28.365379333496094,
+          "end_gap_top2": 28.665918678045273,
+          "max_joint": 52.68922424316406,
+          "joint_gap_top2": 55.33954834938049,
+          "max_end_minus_mean": 19.418069948752724,
+          "max_joint_minus_mean": 37.069939931233726,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 24.32384490966797,
+              "end_score": 28.365379333496094,
+              "joint_score": 52.68922424316406
+            },
+            {
+              "field": "topic",
+              "start_score": -2.3497848510742188,
+              "end_score": -0.3005393445491791,
+              "joint_score": -2.6503241062164307
+            },
+            {
+              "field": "location",
+              "start_score": -1.9581353664398193,
+              "end_score": -1.2229118347167969,
+              "joint_score": -3.181047201156616
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_05_canonical_leader",
+          "source_id": "v5g_train_05",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.911249876022339,
+          "answer_probability": 0.9483997225761414,
+          "max_end": 31.423500061035156,
+          "end_gap_top2": 42.73496437072754,
+          "max_joint": 55.92325210571289,
+          "joint_gap_top2": 70.49473094940186,
+          "max_end_minus_mean": 21.36748218536377,
+          "max_joint_minus_mean": 35.24736547470093,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 24.499752044677734,
+              "end_score": 31.423500061035156,
+              "joint_score": 55.92325210571289
+            },
+            {
+              "field": "topic",
+              "start_score": -3.260014533996582,
+              "end_score": -11.311464309692383,
+              "joint_score": -14.571478843688965
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_13_canonical_location",
+          "source_id": "v5g_train_13",
+          "question_field": "location",
+          "answerable": false,
+          "answerability_logit": 2.9072749614715576,
+          "answer_probability": 0.9482048153877258,
+          "max_end": 13.26054573059082,
+          "end_gap_top2": 23.148903846740723,
+          "max_joint": 22.205821990966797,
+          "joint_gap_top2": 35.38645553588867,
+          "max_end_minus_mean": 11.574451923370361,
+          "max_joint_minus_mean": 17.693227767944336,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 8.94527530670166,
+              "end_score": 13.26054573059082,
+              "joint_score": 22.205821990966797
+            },
+            {
+              "field": "topic",
+              "start_score": -3.292275905609131,
+              "end_score": -9.888358116149902,
+              "joint_score": -13.180633544921875
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_12_canonical_leader",
+          "source_id": "v5g_train_12",
+          "question_field": "leader",
+          "answerable": false,
+          "answerability_logit": 2.9281928539276123,
+          "answer_probability": 0.9492226243019104,
+          "max_end": 2.6902377605438232,
+          "end_gap_top2": 17.73770022392273,
+          "max_joint": 2.8670132160186768,
+          "joint_gap_top2": 31.26334309577942,
+          "max_end_minus_mean": 8.868850111961365,
+          "max_joint_minus_mean": 15.63167154788971,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 0.17677539587020874,
+              "end_score": 2.6902377605438232,
+              "joint_score": 2.8670132160186768
+            },
+            {
+              "field": "topic",
+              "start_score": -13.348867416381836,
+              "end_score": -15.047462463378906,
+              "joint_score": -28.396329879760742
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_09_canonical_leader",
+          "source_id": "v5g_train_09",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.914280414581299,
+          "answer_probability": 0.9485478401184082,
+          "max_end": 25.394550323486328,
+          "end_gap_top2": 39.684062004089355,
+          "max_joint": 48.67613220214844,
+          "joint_gap_top2": 77.11336326599121,
+          "max_end_minus_mean": 19.842031002044678,
+          "max_joint_minus_mean": 38.556681632995605,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 23.281583786010742,
+              "end_score": 25.394550323486328,
+              "joint_score": 48.67613220214844
+            },
+            {
+              "field": "topic",
+              "start_score": -14.147719383239746,
+              "end_score": -14.289511680603027,
+              "joint_score": -28.437231063842773
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_22_canonical_leader",
+          "source_id": "v5g_train_22",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.933469295501709,
+          "answer_probability": 0.9494763016700745,
+          "max_end": 21.88058090209961,
+          "end_gap_top2": 19.621952772140503,
+          "max_joint": 47.5367431640625,
+          "joint_gap_top2": 46.930742025375366,
+          "max_end_minus_mean": 13.789477705955505,
+          "max_joint_minus_mean": 32.06341151396433,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 25.65616226196289,
+              "end_score": 21.88058090209961,
+              "joint_score": 47.5367431640625
+            },
+            {
+              "field": "topic",
+              "start_score": -1.6526269912719727,
+              "end_score": 2.2586281299591064,
+              "joint_score": 0.6060011386871338
+            },
+            {
+              "field": "location",
+              "start_score": -1.8568499088287354,
+              "end_score": 0.1341005563735962,
+              "joint_score": -1.7227493524551392
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_11_canonical_leader",
+          "source_id": "v5g_train_11",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9246926307678223,
+          "answer_probability": 0.9490537047386169,
+          "max_end": 29.798622131347656,
+          "end_gap_top2": 41.06016540527344,
+          "max_joint": 52.998497009277344,
+          "joint_gap_top2": 67.65786647796631,
+          "max_end_minus_mean": 27.898703893025715,
+          "max_joint_minus_mean": 45.10592746734619,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 23.19987678527832,
+              "end_score": 29.798622131347656,
+              "joint_score": 52.998497009277344
+            },
+            {
+              "field": "location",
+              "start_score": -1.8220455646514893,
+              "end_score": -12.837324142456055,
+              "joint_score": -14.659369468688965
+            },
+            {
+              "field": "topic",
+              "start_score": -3.3998754024505615,
+              "end_score": -11.261543273925781,
+              "joint_score": -14.661418914794922
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_11_canonical_location",
+          "source_id": "v5g_train_11",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.928807497024536,
+          "answer_probability": 0.9492523074150085,
+          "max_end": 10.806633949279785,
+          "end_gap_top2": 9.720486879348755,
+          "max_joint": 18.191368103027344,
+          "joint_gap_top2": 1.0700244903564453,
+          "max_end_minus_mean": 7.579575935999552,
+          "max_joint_minus_mean": 7.904563903808594,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.105220794677734,
+              "end_score": 1.0861470699310303,
+              "joint_score": 18.191368103027344
+            },
+            {
+              "field": "leader",
+              "start_score": 6.314709663391113,
+              "end_score": 10.806633949279785,
+              "joint_score": 17.1213436126709
+            },
+            {
+              "field": "topic",
+              "start_score": -2.240692138671875,
+              "end_score": -2.211606979370117,
+              "joint_score": -4.452299118041992
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_14_canonical_leader",
+          "source_id": "v5g_train_14",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9249355792999268,
+          "answer_probability": 0.9490654468536377,
+          "max_end": 23.06082534790039,
+          "end_gap_top2": 23.847075700759888,
+          "max_joint": 47.02909851074219,
+          "joint_gap_top2": 49.15753698348999,
+          "max_end_minus_mean": 19.085850795110066,
+          "max_joint_minus_mean": 36.44340944290161,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 23.96827507019043,
+              "end_score": 23.06082534790039,
+              "joint_score": 47.02909851074219
+            },
+            {
+              "field": "location",
+              "start_score": -1.3421881198883057,
+              "end_score": -0.7862503528594971,
+              "joint_score": -2.1284384727478027
+            },
+            {
+              "field": "topic",
+              "start_score": -2.7939414978027344,
+              "end_score": -10.349651336669922,
+              "joint_score": -13.143592834472656
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_21_canonical_leader",
+          "source_id": "v5g_train_21",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.917020082473755,
+          "answer_probability": 0.9486814141273499,
+          "max_end": 25.4372501373291,
+          "end_gap_top2": 39.71412754058838,
+          "max_joint": 48.653533935546875,
+          "joint_gap_top2": 77.10165786743164,
+          "max_end_minus_mean": 19.85706377029419,
+          "max_joint_minus_mean": 38.55082893371582,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 23.21628189086914,
+              "end_score": 25.4372501373291,
+              "joint_score": 48.653533935546875
+            },
+            {
+              "field": "topic",
+              "start_score": -14.171247482299805,
+              "end_score": -14.276877403259277,
+              "joint_score": -28.448123931884766
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_06_canonical_leader",
+          "source_id": "v5g_train_06",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9618895053863525,
+          "answer_probability": 0.9508224129676819,
+          "max_end": 30.61463165283203,
+          "end_gap_top2": 28.470468759536743,
+          "max_joint": 49.584381103515625,
+          "joint_gap_top2": 48.02154493331909,
+          "max_end_minus_mean": 24.050919612248737,
+          "max_joint_minus_mean": 41.214099089304604,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 18.969751358032227,
+              "end_score": 30.61463165283203,
+              "joint_score": 49.584381103515625
+            },
+            {
+              "field": "location",
+              "start_score": -0.5813267827033997,
+              "end_score": 2.144162893295288,
+              "joint_score": 1.5628361701965332
+            },
+            {
+              "field": "topic",
+              "start_score": -12.96871280670166,
+              "end_score": -13.067658424377441,
+              "joint_score": -26.0363712310791
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_02_canonical_leader",
+          "source_id": "v5g_train_02",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.935067892074585,
+          "answer_probability": 0.9495529532432556,
+          "max_end": 22.460163116455078,
+          "end_gap_top2": 23.048247694969177,
+          "max_joint": 47.53378677368164,
+          "joint_gap_top2": 49.73222732543945,
+          "max_end_minus_mean": 18.527452905972797,
+          "max_joint_minus_mean": 36.747940381368004,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 25.073623657226562,
+              "end_score": 22.460163116455078,
+              "joint_score": 47.53378677368164
+            },
+            {
+              "field": "location",
+              "start_score": -1.6103559732437134,
+              "end_score": -0.5880845785140991,
+              "joint_score": -2.1984405517578125
+            },
+            {
+              "field": "topic",
+              "start_score": -2.9038589000701904,
+              "end_score": -10.07394790649414,
+              "joint_score": -12.97780704498291
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_16_canonical_location",
+          "source_id": "v5g_train_16",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9206418991088867,
+          "answer_probability": 0.9488574862480164,
+          "max_end": 19.360572814941406,
+          "end_gap_top2": 29.692153930664062,
+          "max_joint": 35.13279724121094,
+          "joint_gap_top2": 49.64180564880371,
+          "max_end_minus_mean": 14.846076965332031,
+          "max_joint_minus_mean": 24.820902824401855,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 15.772224426269531,
+              "end_score": 19.360572814941406,
+              "joint_score": 35.13279724121094
+            },
+            {
+              "field": "topic",
+              "start_score": -4.177427768707275,
+              "end_score": -10.331581115722656,
+              "joint_score": -14.509008407592773
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_23_canonical_location",
+          "source_id": "v5g_train_23",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9251489639282227,
+          "answer_probability": 0.9490757584571838,
+          "max_end": 18.28764533996582,
+          "end_gap_top2": 7.388592720031738,
+          "max_joint": 35.350868225097656,
+          "joint_gap_top2": 18.002132415771484,
+          "max_end_minus_mean": 9.32813835144043,
+          "max_joint_minus_mean": 19.278533776601154,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.06322479248047,
+              "end_score": 18.28764533996582,
+              "joint_score": 35.350868225097656
+            },
+            {
+              "field": "leader",
+              "start_score": 6.449684143066406,
+              "end_score": 10.899052619934082,
+              "joint_score": 17.348735809326172
+            },
+            {
+              "field": "topic",
+              "start_score": -2.1744236946105957,
+              "end_score": -2.3081769943237305,
+              "joint_score": -4.482600688934326
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_18_canonical_leader",
+          "source_id": "v5g_train_18",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.946367025375366,
+          "answer_probability": 0.950091540813446,
+          "max_end": 28.834823608398438,
+          "end_gap_top2": 24.144503593444824,
+          "max_joint": 48.382450103759766,
+          "joint_gap_top2": 44.25031518936157,
+          "max_end_minus_mean": 22.747729301452637,
+          "max_joint_minus_mean": 40.27606534957886,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 19.547626495361328,
+              "end_score": 28.834823608398438,
+              "joint_score": 48.382450103759766
+            },
+            {
+              "field": "location",
+              "start_score": -0.5581852793693542,
+              "end_score": 4.690320014953613,
+              "joint_score": 4.132134914398193
+            },
+            {
+              "field": "topic",
+              "start_score": -12.931570053100586,
+              "end_score": -15.263860702514648,
+              "joint_score": -28.195430755615234
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_17_canonical_leader",
+          "source_id": "v5g_train_17",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9128787517547607,
+          "answer_probability": 0.948479413986206,
+          "max_end": 31.36745834350586,
+          "end_gap_top2": 42.68834686279297,
+          "max_joint": 55.719444274902344,
+          "joint_gap_top2": 70.35064888000488,
+          "max_end_minus_mean": 21.344173431396484,
+          "max_joint_minus_mean": 35.17532444000244,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 24.351985931396484,
+              "end_score": 31.36745834350586,
+              "joint_score": 55.719444274902344
+            },
+            {
+              "field": "topic",
+              "start_score": -3.310316562652588,
+              "end_score": -11.32088851928711,
+              "joint_score": -14.631204605102539
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_05_canonical_location",
+          "source_id": "v5g_train_05",
+          "question_field": "location",
+          "answerable": false,
+          "answerability_logit": 2.9052679538726807,
+          "answer_probability": 0.9481062293052673,
+          "max_end": 13.52682113647461,
+          "end_gap_top2": 16.22641944885254,
+          "max_joint": 22.739524841308594,
+          "joint_gap_top2": 27.818245887756348,
+          "max_end_minus_mean": 8.11320972442627,
+          "max_joint_minus_mean": 13.909122943878174,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 9.212703704833984,
+              "end_score": 13.52682113647461,
+              "joint_score": 22.739524841308594
+            },
+            {
+              "field": "topic",
+              "start_score": -2.379122734069824,
+              "end_score": -2.6995983123779297,
+              "joint_score": -5.078721046447754
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_01_canonical_location",
+          "source_id": "v5g_train_01",
+          "question_field": "location",
+          "answerable": false,
+          "answerability_logit": 2.9085605144500732,
+          "answer_probability": 0.9482679963111877,
+          "max_end": 13.343372344970703,
+          "end_gap_top2": 23.22432518005371,
+          "max_joint": 22.415863037109375,
+          "joint_gap_top2": 35.5869026184082,
+          "max_end_minus_mean": 11.612162590026855,
+          "max_joint_minus_mean": 17.7934513092041,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 9.072490692138672,
+              "end_score": 13.343372344970703,
+              "joint_score": 22.415863037109375
+            },
+            {
+              "field": "topic",
+              "start_score": -3.2900872230529785,
+              "end_score": -9.880952835083008,
+              "joint_score": -13.171039581298828
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_08_canonical_leader",
+          "source_id": "v5g_train_08",
+          "question_field": "leader",
+          "answerable": false,
+          "answerability_logit": 2.9167020320892334,
+          "answer_probability": 0.9486659169197083,
+          "max_end": 4.914820194244385,
+          "end_gap_top2": 16.932855129241943,
+          "max_joint": 3.652833938598633,
+          "joint_gap_top2": 18.884164810180664,
+          "max_end_minus_mean": 8.466427564620972,
+          "max_joint_minus_mean": 9.442082405090332,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": -1.261986255645752,
+              "end_score": 4.914820194244385,
+              "joint_score": 3.652833938598633
+            },
+            {
+              "field": "topic",
+              "start_score": -3.213296413421631,
+              "end_score": -12.018034934997559,
+              "joint_score": -15.231330871582031
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_20_canonical_location",
+          "source_id": "v5g_train_20",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9107701778411865,
+          "answer_probability": 0.9483762383460999,
+          "max_end": 0.2265251874923706,
+          "end_gap_top2": 3.713673233985901,
+          "max_joint": 15.808710098266602,
+          "joint_gap_top2": 22.319933891296387,
+          "max_end_minus_mean": 1.8568366169929504,
+          "max_joint_minus_mean": 11.159966945648193,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 15.582184791564941,
+              "end_score": 0.2265251874923706,
+              "joint_score": 15.808710098266602
+            },
+            {
+              "field": "topic",
+              "start_score": -3.024075984954834,
+              "end_score": -3.4871480464935303,
+              "joint_score": -6.511223793029785
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_10_canonical_leader",
+          "source_id": "v5g_train_10",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.933570623397827,
+          "answer_probability": 0.9494812488555908,
+          "max_end": 21.735687255859375,
+          "end_gap_top2": 19.64088225364685,
+          "max_joint": 47.29996871948242,
+          "joint_gap_top2": 47.66476392745972,
+          "max_end_minus_mean": 17.401665290196735,
+          "max_joint_minus_mean": 35.82350460688273,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 25.564281463623047,
+              "end_score": 21.735687255859375,
+              "joint_score": 47.29996871948242
+            },
+            {
+              "field": "topic",
+              "start_score": -2.4596002101898193,
+              "end_score": 2.0948050022125244,
+              "joint_score": -0.3647952079772949
+            },
+            {
+              "field": "location",
+              "start_score": -1.677354335784912,
+              "end_score": -10.828426361083984,
+              "joint_score": -12.505781173706055
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_12_canonical_location",
+          "source_id": "v5g_train_12",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.928277015686035,
+          "answer_probability": 0.9492267370223999,
+          "max_end": 20.013574600219727,
+          "end_gap_top2": 37.7711238861084,
+          "max_joint": 37.15800476074219,
+          "joint_gap_top2": 65.56452369689941,
+          "max_end_minus_mean": 18.8855619430542,
+          "max_joint_minus_mean": 32.78226184844971,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.144428253173828,
+              "end_score": 20.013574600219727,
+              "joint_score": 37.15800476074219
+            },
+            {
+              "field": "topic",
+              "start_score": -10.648969650268555,
+              "end_score": -17.757549285888672,
+              "joint_score": -28.406518936157227
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_10_canonical_location",
+          "source_id": "v5g_train_10",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9380486011505127,
+          "answer_probability": 0.9496955871582031,
+          "max_end": 2.067418336868286,
+          "end_gap_top2": 1.2956515550613403,
+          "max_joint": 18.627544403076172,
+          "joint_gap_top2": 8.15644359588623,
+          "max_end_minus_mean": 3.6975728273391724,
+          "max_joint_minus_mean": 12.559467633565266,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.855777740478516,
+              "end_score": 0.7717667818069458,
+              "joint_score": 18.627544403076172
+            },
+            {
+              "field": "leader",
+              "start_score": 8.403682708740234,
+              "end_score": 2.067418336868286,
+              "joint_score": 10.471100807189941
+            },
+            {
+              "field": "topic",
+              "start_score": -3.164766550064087,
+              "end_score": -7.729648590087891,
+              "joint_score": -10.894414901733398
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_01_canonical_leader",
+          "source_id": "v5g_train_01",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9143407344818115,
+          "answer_probability": 0.948550820350647,
+          "max_end": 31.447328567504883,
+          "end_gap_top2": 31.86392706632614,
+          "max_joint": 55.614906311035156,
+          "joint_gap_top2": 58.2642617225647,
+          "max_end_minus_mean": 15.93196353316307,
+          "max_joint_minus_mean": 29.13213086128235,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 24.167579650878906,
+              "end_score": 31.447328567504883,
+              "joint_score": 55.614906311035156
+            },
+            {
+              "field": "topic",
+              "start_score": -2.2327568531036377,
+              "end_score": -0.41659849882125854,
+              "joint_score": -2.649355411529541
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_22_canonical_location",
+          "source_id": "v5g_train_22",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.938331127166748,
+          "answer_probability": 0.9497090578079224,
+          "max_end": 19.197311401367188,
+          "end_gap_top2": 17.079750776290894,
+          "max_joint": 36.93719482421875,
+          "joint_gap_top2": 26.356889724731445,
+          "max_end_minus_mean": 14.63459865252177,
+          "max_joint_minus_mean": 24.61232693990072,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.739883422851562,
+              "end_score": 19.197311401367188,
+              "joint_score": 36.93719482421875
+            },
+            {
+              "field": "leader",
+              "start_score": 8.46274471282959,
+              "end_score": 2.117560625076294,
+              "joint_score": 10.580305099487305
+            },
+            {
+              "field": "topic",
+              "start_score": -2.9161627292633057,
+              "end_score": -7.626733779907227,
+              "joint_score": -10.542896270751953
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_02_canonical_location",
+          "source_id": "v5g_train_02",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9392621517181396,
+          "answer_probability": 0.9497535228729248,
+          "max_end": 17.328733444213867,
+          "end_gap_top2": 13.340146541595459,
+          "max_joint": 34.34649658203125,
+          "joint_gap_top2": 21.046180725097656,
+          "max_end_minus_mean": 10.94071404139201,
+          "max_joint_minus_mean": 19.716017484664917,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.01776123046875,
+              "end_score": 17.328733444213867,
+              "joint_score": 34.34649658203125
+            },
+            {
+              "field": "leader",
+              "start_score": 9.311729431152344,
+              "end_score": 3.988586902618408,
+              "joint_score": 13.300315856933594
+            },
+            {
+              "field": "topic",
+              "start_score": -1.6021130084991455,
+              "end_score": -2.153262138366699,
+              "joint_score": -3.7553751468658447
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_09_canonical_location",
+          "source_id": "v5g_train_09",
+          "question_field": "location",
+          "answerable": false,
+          "answerability_logit": 2.9139955043792725,
+          "answer_probability": 0.9485340118408203,
+          "max_end": 8.153932571411133,
+          "end_gap_top2": 23.881577491760254,
+          "max_joint": 17.471893310546875,
+          "joint_gap_top2": 44.48005676269531,
+          "max_end_minus_mean": 11.940788745880127,
+          "max_joint_minus_mean": 22.240028381347656,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 9.317961692810059,
+              "end_score": 8.153932571411133,
+              "joint_score": 17.471893310546875
+            },
+            {
+              "field": "topic",
+              "start_score": -11.280519485473633,
+              "end_score": -15.727644920349121,
+              "joint_score": -27.008163452148438
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_00_canonical_location",
+          "source_id": "v5g_train_00",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9292171001434326,
+          "answer_probability": 0.9492719769477844,
+          "max_end": 5.055461883544922,
+          "end_gap_top2": 23.320741653442383,
+          "max_joint": 22.064655303955078,
+          "joint_gap_top2": 49.98086929321289,
+          "max_end_minus_mean": 11.660370826721191,
+          "max_joint_minus_mean": 24.990434646606445,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.009193420410156,
+              "end_score": 5.055461883544922,
+              "joint_score": 22.064655303955078
+            },
+            {
+              "field": "topic",
+              "start_score": -9.650933265686035,
+              "end_score": -18.26527976989746,
+              "joint_score": -27.916213989257812
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_17_canonical_location",
+          "source_id": "v5g_train_17",
+          "question_field": "location",
+          "answerable": false,
+          "answerability_logit": 2.9071102142333984,
+          "answer_probability": 0.9481968283653259,
+          "max_end": 13.447407722473145,
+          "end_gap_top2": 16.10099744796753,
+          "max_joint": 22.461069107055664,
+          "joint_gap_top2": 27.61948585510254,
+          "max_end_minus_mean": 8.050498723983765,
+          "max_joint_minus_mean": 13.80974292755127,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 9.01366138458252,
+              "end_score": 13.447407722473145,
+              "joint_score": 22.461069107055664
+            },
+            {
+              "field": "topic",
+              "start_score": -2.504826784133911,
+              "end_score": -2.6535897254943848,
+              "joint_score": -5.158416748046875
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_16_canonical_leader",
+          "source_id": "v5g_train_16",
+          "question_field": "leader",
+          "answerable": false,
+          "answerability_logit": 2.919867753982544,
+          "answer_probability": 0.9488199353218079,
+          "max_end": 2.6092493534088135,
+          "end_gap_top2": 4.601584792137146,
+          "max_joint": 2.3706319332122803,
+          "joint_gap_top2": 7.570578336715698,
+          "max_end_minus_mean": 2.300792396068573,
+          "max_joint_minus_mean": 3.785289168357849,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": -0.23861739039421082,
+              "end_score": 2.6092493534088135,
+              "joint_score": 2.3706319332122803
+            },
+            {
+              "field": "topic",
+              "start_score": -3.207611083984375,
+              "end_score": -1.9923354387283325,
+              "joint_score": -5.199946403503418
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_19_canonical_leader",
+          "source_id": "v5g_train_19",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.927290201187134,
+          "answer_probability": 0.9491791725158691,
+          "max_end": 27.74613380432129,
+          "end_gap_top2": 28.425609707832336,
+          "max_joint": 49.35209655761719,
+          "joint_gap_top2": 52.61611890792847,
+          "max_end_minus_mean": 21.554028868675232,
+          "max_joint_minus_mean": 37.2463583946228,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 21.6059627532959,
+              "end_score": 27.74613380432129,
+              "joint_score": 49.35209655761719
+            },
+            {
+              "field": "topic",
+              "start_score": -2.5845465660095215,
+              "end_score": -0.6794759035110474,
+              "joint_score": -3.2640223503112793
+            },
+            {
+              "field": "location",
+              "start_score": -1.2805166244506836,
+              "end_score": -8.49034309387207,
+              "joint_score": -9.770859718322754
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_04_canonical_leader",
+          "source_id": "v5g_train_04",
+          "question_field": "leader",
+          "answerable": false,
+          "answerability_logit": 2.913806200027466,
+          "answer_probability": 0.9485246539115906,
+          "max_end": 1.646165132522583,
+          "end_gap_top2": 5.7702343463897705,
+          "max_joint": 1.375087022781372,
+          "joint_gap_top2": 8.559465169906616,
+          "max_end_minus_mean": 2.8851171731948853,
+          "max_joint_minus_mean": 4.279732584953308,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": -0.2710781693458557,
+              "end_score": 1.646165132522583,
+              "joint_score": 1.375087022781372
+            },
+            {
+              "field": "topic",
+              "start_score": -3.0603089332580566,
+              "end_score": -4.1240692138671875,
+              "joint_score": -7.184378147125244
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_18_canonical_location",
+          "source_id": "v5g_train_18",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9497365951538086,
+          "answer_probability": 0.950251042842865,
+          "max_end": 23.251909255981445,
+          "end_gap_top2": 11.248832702636719,
+          "max_joint": 41.117774963378906,
+          "joint_gap_top2": 23.74789047241211,
+          "max_end_minus_mean": 17.243794759114582,
+          "max_joint_minus_mean": 30.612014134724937,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.865867614746094,
+              "end_score": 23.251909255981445,
+              "joint_score": 41.117774963378906
+            },
+            {
+              "field": "leader",
+              "start_score": 5.3668084144592285,
+              "end_score": 12.003076553344727,
+              "joint_score": 17.369884490966797
+            },
+            {
+              "field": "topic",
+              "start_score": -9.739734649658203,
+              "end_score": -17.230642318725586,
+              "joint_score": -26.97037696838379
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_08_canonical_location",
+          "source_id": "v5g_train_08",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9203755855560303,
+          "answer_probability": 0.9488444924354553,
+          "max_end": 22.708528518676758,
+          "end_gap_top2": 26.425874710083008,
+          "max_joint": 38.185516357421875,
+          "joint_gap_top2": 43.840312004089355,
+          "max_end_minus_mean": 13.212937355041504,
+          "max_joint_minus_mean": 21.920156002044678,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 15.476985931396484,
+              "end_score": 22.708528518676758,
+              "joint_score": 38.185516357421875
+            },
+            {
+              "field": "topic",
+              "start_score": -1.9374494552612305,
+              "end_score": -3.71734619140625,
+              "joint_score": -5.6547956466674805
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_06_canonical_location",
+          "source_id": "v5g_train_06",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.95922589302063,
+          "answer_probability": 0.9506977200508118,
+          "max_end": 20.595829010009766,
+          "end_gap_top2": 7.354652404785156,
+          "max_joint": 38.983863830566406,
+          "joint_gap_top2": 21.06081199645996,
+          "max_end_minus_mean": 14.511809984842937,
+          "max_joint_minus_mean": 28.184483210245766,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 18.38803482055664,
+              "end_score": 20.595829010009766,
+              "joint_score": 38.983863830566406
+            },
+            {
+              "field": "leader",
+              "start_score": 4.681875705718994,
+              "end_score": 13.24117660522461,
+              "joint_score": 17.923051834106445
+            },
+            {
+              "field": "topic",
+              "start_score": -8.923826217651367,
+              "end_score": -15.584948539733887,
+              "joint_score": -24.508773803710938
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_15_canonical_leader",
+          "source_id": "v5g_train_15",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9244210720062256,
+          "answer_probability": 0.9490405321121216,
+          "max_end": 27.734718322753906,
+          "end_gap_top2": 28.717468678951263,
+          "max_joint": 48.82569122314453,
+          "joint_gap_top2": 52.04192328453064,
+          "max_end_minus_mean": 23.669167657693226,
+          "max_joint_minus_mean": 43.160357077916466,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 21.090974807739258,
+              "end_score": 27.734718322753906,
+              "joint_score": 48.82569122314453
+            },
+            {
+              "field": "location",
+              "start_score": -2.2334816455841064,
+              "end_score": -0.9827503561973572,
+              "joint_score": -3.2162320613861084
+            },
+            {
+              "field": "topic",
+              "start_score": -14.058140754699707,
+              "end_score": -14.555315971374512,
+              "joint_score": -28.61345672607422
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_07_canonical_location",
+          "source_id": "v5g_train_07",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.932154893875122,
+          "answer_probability": 0.9494132399559021,
+          "max_end": 14.968737602233887,
+          "end_gap_top2": 5.386087417602539,
+          "max_joint": 30.699954986572266,
+          "joint_gap_top2": 11.86435317993164,
+          "max_end_minus_mean": 10.077149391174316,
+          "max_joint_minus_mean": 18.605119705200195,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 15.731216430664062,
+              "end_score": 14.968737602233887,
+              "joint_score": 30.699954986572266
+            },
+            {
+              "field": "leader",
+              "start_score": 9.252952575683594,
+              "end_score": 9.582650184631348,
+              "joint_score": 18.835601806640625
+            },
+            {
+              "field": "topic",
+              "start_score": -3.3744277954101562,
+              "end_score": -9.876623153686523,
+              "joint_score": -13.25105094909668
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_04_canonical_location",
+          "source_id": "v5g_train_04",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9140725135803223,
+          "answer_probability": 0.9485377669334412,
+          "max_end": 19.95473289489746,
+          "end_gap_top2": 32.392001152038574,
+          "max_joint": 36.06683349609375,
+          "joint_gap_top2": 52.07181358337402,
+          "max_end_minus_mean": 16.196000576019287,
+          "max_joint_minus_mean": 26.03590679168701,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 16.11210060119629,
+              "end_score": 19.95473289489746,
+              "joint_score": 36.06683349609375
+            },
+            {
+              "field": "topic",
+              "start_score": -3.5677123069763184,
+              "end_score": -12.437268257141113,
+              "joint_score": -16.004980087280273
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_03_canonical_location",
+          "source_id": "v5g_train_03",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9239461421966553,
+          "answer_probability": 0.9490175247192383,
+          "max_end": 17.267711639404297,
+          "end_gap_top2": 10.413238048553467,
+          "max_joint": 33.416748046875,
+          "joint_gap_top2": 19.204307556152344,
+          "max_end_minus_mean": 14.731642246246338,
+          "max_joint_minus_mean": 26.787137349446613,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 16.149038314819336,
+              "end_score": 17.267711639404297,
+              "joint_score": 33.416748046875
+            },
+            {
+              "field": "leader",
+              "start_score": 7.357967376708984,
+              "end_score": 6.85447359085083,
+              "joint_score": 14.212440490722656
+            },
+            {
+              "field": "topic",
+              "start_score": -11.22637939453125,
+              "end_score": -16.51397705078125,
+              "joint_score": -27.7403564453125
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_14_canonical_location",
+          "source_id": "v5g_train_14",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.93040132522583,
+          "answer_probability": 0.9493290185928345,
+          "max_end": 19.08850860595703,
+          "end_gap_top2": 15.305507898330688,
+          "max_joint": 36.435699462890625,
+          "joint_gap_top2": 24.14353656768799,
+          "max_end_minus_mean": 11.990334908167522,
+          "max_joint_minus_mean": 21.44466551144918,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.347192764282227,
+              "end_score": 19.08850860595703,
+              "joint_score": 36.435699462890625
+            },
+            {
+              "field": "leader",
+              "start_score": 8.509161949157715,
+              "end_score": 3.7830007076263428,
+              "joint_score": 12.292162895202637
+            },
+            {
+              "field": "topic",
+              "start_score": -2.177772283554077,
+              "end_score": -1.5769882202148438,
+              "joint_score": -3.754760503768921
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_train_03_canonical_leader",
+          "source_id": "v5g_train_03",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.926034450531006,
+          "answer_probability": 0.9491184949874878,
+          "max_end": 25.442798614501953,
+          "end_gap_top2": 29.254976749420166,
+          "max_joint": 47.78562927246094,
+          "joint_gap_top2": 53.597829818725586,
+          "max_end_minus_mean": 22.958660284678142,
+          "max_joint_minus_mean": 43.376132329305015,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": 22.342830657958984,
+              "end_score": 25.442798614501953,
+              "joint_score": 47.78562927246094
+            },
+            {
+              "field": "location",
+              "start_score": -2.0000224113464355,
+              "end_score": -3.812178134918213,
+              "joint_score": -5.812200546264648
+            },
+            {
+              "field": "topic",
+              "start_score": -14.566731452941895,
+              "end_score": -14.178205490112305,
+              "joint_score": -28.744937896728516
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "answerability_logit": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 2.928086631827884,
+          "missing_mean": 2.9152433276176453,
+          "answerable_min": 2.9107701778411865,
+          "answerable_max": 2.9618895053863525,
+          "missing_min": 2.9052679538726807,
+          "missing_max": 2.934169054031372,
+          "auc_high_implies_answerable": 0.8148148148148148
+        },
+        "answer_probability": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 0.9492142846186956,
+          "missing_mean": 0.9485933085282644,
+          "answerable_min": 0.9483762383460999,
+          "answerable_max": 0.9508224129676819,
+          "missing_min": 0.9481062293052673,
+          "missing_max": 0.9495099186897278,
+          "auc_high_implies_answerable": 0.8148148148148148
+        },
+        "max_end": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 21.37770531243748,
+          "missing_mean": 5.402469376722972,
+          "answerable_min": 0.2265251874923706,
+          "answerable_max": 31.447328567504883,
+          "missing_min": -10.972039222717285,
+          "missing_max": 13.52682113647461,
+          "auc_high_implies_answerable": 0.9236111111111112
+        },
+        "end_gap_top2": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 22.900724459853436,
+          "missing_mean": 15.12789069612821,
+          "answerable_min": 1.2956515550613403,
+          "answerable_max": 42.73496437072754,
+          "missing_min": 0.5318841934204102,
+          "missing_max": 23.89735698699951,
+          "auc_high_implies_answerable": 0.7013888888888888
+        },
+        "max_joint": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 40.902516259087456,
+          "missing_mean": 9.712571322917938,
+          "answerable_min": 15.808710098266602,
+          "answerable_max": 55.92325210571289,
+          "missing_min": -12.38794231414795,
+          "missing_max": 22.739524841308594,
+          "auc_high_implies_answerable": 0.9490740740740741
+        },
+        "joint_gap_top2": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 42.21567430098852,
+          "missing_mean": 25.624768157800037,
+          "answerable_min": 1.0700244903564453,
+          "answerable_max": 77.11336326599121,
+          "missing_min": 2.6240015029907227,
+          "missing_max": 44.48005676269531,
+          "auc_high_implies_answerable": 0.7314814814814815
+        },
+        "max_end_minus_mean": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 16.23794873058796,
+          "missing_mean": 7.563945348064105,
+          "answerable_min": 1.8568366169929504,
+          "answerable_max": 27.898703893025715,
+          "missing_min": 0.2659420967102051,
+          "missing_max": 11.948678493499756,
+          "auc_high_implies_answerable": 0.8888888888888888
+        },
+        "max_joint_minus_mean": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 29.646393099316843,
+          "missing_mean": 12.812384078900019,
+          "answerable_min": 7.904563903808594,
+          "answerable_max": 45.10592746734619,
+          "missing_min": 1.3120007514953613,
+          "missing_max": 22.240028381347656,
+          "auc_high_implies_answerable": 0.9050925925925926
+        }
+      }
+    },
+    "dev": {
+      "records": [
+        {
+          "example_id": "v5g_dev_06_canonical_leader",
+          "source_id": "v5g_dev_06",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.94482421875,
+          "answer_probability": 0.9500182271003723,
+          "max_end": 30.032756805419922,
+          "end_gap_top2": 36.55923795700073,
+          "max_joint": 27.174625396728516,
+          "joint_gap_top2": 33.72888231277466,
+          "max_end_minus_mean": 27.27556848526001,
+          "max_joint_minus_mean": 29.596190929412842,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -2.85813045501709,
+              "end_score": 30.032756805419922,
+              "joint_score": 27.174625396728516
+            },
+            {
+              "field": "location",
+              "start_score": -0.027775555849075317,
+              "end_score": -6.5264811515808105,
+              "joint_score": -6.554256916046143
+            },
+            {
+              "field": "topic",
+              "start_score": -12.650354385375977,
+              "end_score": -15.234710693359375,
+              "joint_score": -27.88506507873535
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_18_canonical_leader",
+          "source_id": "v5g_dev_18",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9403445720672607,
+          "answer_probability": 0.9498051404953003,
+          "max_end": 28.822120666503906,
+          "end_gap_top2": 28.205052852630615,
+          "max_joint": 25.95524787902832,
+          "joint_gap_top2": 25.988204777240753,
+          "max_end_minus_mean": 24.087175846099854,
+          "max_joint_minus_mean": 26.687593400478363,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -2.8668723106384277,
+              "end_score": 28.822120666503906,
+              "joint_score": 25.95524787902832
+            },
+            {
+              "field": "location",
+              "start_score": -0.6500247120857239,
+              "end_score": 0.617067813873291,
+              "joint_score": -0.03295689821243286
+            },
+            {
+              "field": "topic",
+              "start_score": -12.88497257232666,
+              "end_score": -15.234354019165039,
+              "joint_score": -28.119327545166016
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_02_canonical_leader",
+          "source_id": "v5g_dev_02",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.919576406478882,
+          "answer_probability": 0.9488057494163513,
+          "max_end": 22.878623962402344,
+          "end_gap_top2": 22.024085998535156,
+          "max_joint": 20.57619857788086,
+          "joint_gap_top2": 20.99744164943695,
+          "max_end_minus_mean": 18.410569826761883,
+          "max_joint_minus_mean": 18.211211959520977,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -2.302424430847168,
+              "end_score": 22.878623962402344,
+              "joint_score": 20.57619857788086
+            },
+            {
+              "field": "location",
+              "start_score": -1.2757810354232788,
+              "end_score": 0.8545379638671875,
+              "joint_score": -0.4212430715560913
+            },
+            {
+              "field": "topic",
+              "start_score": -2.730996608734131,
+              "end_score": -10.328999519348145,
+              "joint_score": -13.059995651245117
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_20_canonical_leader",
+          "source_id": "v5g_dev_20",
+          "question_field": "leader",
+          "answerable": false,
+          "answerability_logit": 2.9116175174713135,
+          "answer_probability": 0.9484177231788635,
+          "max_end": -0.5512381792068481,
+          "end_gap_top2": 10.944750666618347,
+          "max_joint": -1.9248857498168945,
+          "joint_gap_top2": 13.060345649719238,
+          "max_end_minus_mean": 5.472375333309174,
+          "max_joint_minus_mean": 6.530172824859619,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": -1.3736475706100464,
+              "end_score": -0.5512381792068481,
+              "joint_score": -1.9248857498168945
+            },
+            {
+              "field": "topic",
+              "start_score": -3.4892430305480957,
+              "end_score": -11.495988845825195,
+              "joint_score": -14.985231399536133
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_23_canonical_location",
+          "source_id": "v5g_dev_23",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.92330002784729,
+          "answer_probability": 0.948986291885376,
+          "max_end": 16.428068161010742,
+          "end_gap_top2": 4.9484052658081055,
+          "max_joint": 33.04853057861328,
+          "joint_gap_top2": 24.109012603759766,
+          "max_end_minus_mean": 7.977739493052164,
+          "max_joint_minus_mean": 20.646926244099937,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 16.62046241760254,
+              "end_score": 16.428068161010742,
+              "joint_score": 33.04853057861328
+            },
+            {
+              "field": "leader",
+              "start_score": -2.540144920349121,
+              "end_score": 11.479662895202637,
+              "joint_score": 8.939517974853516
+            },
+            {
+              "field": "topic",
+              "start_score": -2.2264904975891113,
+              "end_score": -2.5567450523376465,
+              "joint_score": -4.783235549926758
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_20_canonical_location",
+          "source_id": "v5g_dev_20",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9102253913879395,
+          "answer_probability": 0.9483495354652405,
+          "max_end": 18.581567764282227,
+          "end_gap_top2": 22.098597764968872,
+          "max_joint": 34.20850372314453,
+          "joint_gap_top2": 40.68849277496338,
+          "max_end_minus_mean": 11.049298882484436,
+          "max_joint_minus_mean": 20.34424638748169,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 15.626935005187988,
+              "end_score": 18.581567764282227,
+              "joint_score": 34.20850372314453
+            },
+            {
+              "field": "topic",
+              "start_score": -2.9629592895507812,
+              "end_score": -3.5170300006866455,
+              "joint_score": -6.479989051818848
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_08_canonical_location",
+          "source_id": "v5g_dev_08",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.912252187728882,
+          "answer_probability": 0.9484487175941467,
+          "max_end": 17.958738327026367,
+          "end_gap_top2": 21.510666370391846,
+          "max_joint": 33.44886016845703,
+          "joint_gap_top2": 39.935564041137695,
+          "max_end_minus_mean": 10.755333185195923,
+          "max_joint_minus_mean": 19.967782020568848,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 15.490120887756348,
+              "end_score": 17.958738327026367,
+              "joint_score": 33.44886016845703
+            },
+            {
+              "field": "topic",
+              "start_score": -2.9347758293151855,
+              "end_score": -3.5519280433654785,
+              "joint_score": -6.486703872680664
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_09_canonical_leader",
+          "source_id": "v5g_dev_09",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9083707332611084,
+          "answer_probability": 0.948258638381958,
+          "max_end": 25.448118209838867,
+          "end_gap_top2": 39.735158920288086,
+          "max_joint": 23.303630828857422,
+          "joint_gap_top2": 51.67830276489258,
+          "max_end_minus_mean": 19.867579460144043,
+          "max_joint_minus_mean": 25.83915138244629,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -2.144486427307129,
+              "end_score": 25.448118209838867,
+              "joint_score": 23.303630828857422
+            },
+            {
+              "field": "topic",
+              "start_score": -14.087631225585938,
+              "end_score": -14.287040710449219,
+              "joint_score": -28.374671936035156
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_10_canonical_leader",
+          "source_id": "v5g_dev_10",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.927027463912964,
+          "answer_probability": 0.949166476726532,
+          "max_end": 21.855932235717773,
+          "end_gap_top2": 19.606213092803955,
+          "max_joint": 21.392677307128906,
+          "joint_gap_top2": 20.715095043182373,
+          "max_end_minus_mean": 13.875648349523544,
+          "max_joint_minus_mean": 14.66495394706726,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -0.4632549285888672,
+              "end_score": 21.855932235717773,
+              "joint_score": 21.392677307128906
+            },
+            {
+              "field": "topic",
+              "start_score": -1.5721368789672852,
+              "end_score": 2.2497191429138184,
+              "joint_score": 0.6775822639465332
+            },
+            {
+              "field": "location",
+              "start_score": -1.722289800643921,
+              "end_score": -0.16479972004890442,
+              "joint_score": -1.887089490890503
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_23_canonical_leader",
+          "source_id": "v5g_dev_23",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.919417142868042,
+          "answer_probability": 0.9487980008125305,
+          "max_end": 30.202728271484375,
+          "end_gap_top2": 31.52374827861786,
+          "max_joint": 26.698659896850586,
+          "joint_gap_top2": 30.231385707855225,
+          "max_end_minus_mean": 24.350883444150288,
+          "max_joint_minus_mean": 23.84907102584839,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -3.5040688514709473,
+              "end_score": 30.202728271484375,
+              "joint_score": 26.698659896850586
+            },
+            {
+              "field": "location",
+              "start_score": -2.2117056846618652,
+              "end_score": -1.3210200071334839,
+              "joint_score": -3.5327258110046387
+            },
+            {
+              "field": "topic",
+              "start_score": -3.2909934520721436,
+              "end_score": -11.326173782348633,
+              "joint_score": -14.617167472839355
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_22_canonical_location",
+          "source_id": "v5g_dev_22",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9310643672943115,
+          "answer_probability": 0.9493609070777893,
+          "max_end": 21.19928741455078,
+          "end_gap_top2": 19.100682497024536,
+          "max_joint": 38.9552001953125,
+          "joint_gap_top2": 38.62010419368744,
+          "max_end_minus_mean": 15.065075000127155,
+          "max_joint_minus_mean": 28.473604321479797,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.75591468811035,
+              "end_score": 21.19928741455078,
+              "joint_score": 38.9552001953125
+            },
+            {
+              "field": "leader",
+              "start_score": -1.763508915901184,
+              "end_score": 2.098604917526245,
+              "joint_score": 0.33509600162506104
+            },
+            {
+              "field": "topic",
+              "start_score": -2.950253486633301,
+              "end_score": -4.895255088806152,
+              "joint_score": -7.845508575439453
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_06_canonical_location",
+          "source_id": "v5g_dev_06",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.947395086288452,
+          "answer_probability": 0.9501402974128723,
+          "max_end": 13.57165813446045,
+          "end_gap_top2": 9.101513385772705,
+          "max_joint": 22.745378494262695,
+          "joint_gap_top2": 10.653060913085938,
+          "max_end_minus_mean": 13.299755573272705,
+          "max_joint_minus_mean": 20.045765558878582,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 18.27523422241211,
+              "end_score": 4.470144748687744,
+              "joint_score": 22.745378494262695
+            },
+            {
+              "field": "leader",
+              "start_score": -1.47934091091156,
+              "end_score": 13.57165813446045,
+              "joint_score": 12.092317581176758
+            },
+            {
+              "field": "topic",
+              "start_score": -9.512763023376465,
+              "end_score": -17.22609519958496,
+              "joint_score": -26.73885726928711
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_19_canonical_leader",
+          "source_id": "v5g_dev_19",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.915837526321411,
+          "answer_probability": 0.948623776435852,
+          "max_end": 27.698904037475586,
+          "end_gap_top2": 27.657292068004608,
+          "max_joint": 23.868309020996094,
+          "joint_gap_top2": 26.194408416748047,
+          "max_end_minus_mean": 19.777871986230213,
+          "max_joint_minus_mean": 18.430654048919678,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -3.8305959701538086,
+              "end_score": 27.698904037475586,
+              "joint_score": 23.868309020996094
+            },
+            {
+              "field": "topic",
+              "start_score": -2.367711305618286,
+              "end_score": 0.04161196947097778,
+              "joint_score": -2.326099395751953
+            },
+            {
+              "field": "location",
+              "start_score": -1.251824975013733,
+              "end_score": -3.977419853210449,
+              "joint_score": -5.229244709014893
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_15_canonical_leader",
+          "source_id": "v5g_dev_15",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.917340040206909,
+          "answer_probability": 0.9486969709396362,
+          "max_end": 28.0595760345459,
+          "end_gap_top2": 36.81416034698486,
+          "max_joint": 24.222585678100586,
+          "joint_gap_top2": 34.818148612976074,
+          "max_end_minus_mean": 26.51851463317871,
+          "max_joint_minus_mean": 29.343473116556805,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -3.8369903564453125,
+              "end_score": 28.0595760345459,
+              "joint_score": 24.222585678100586
+            },
+            {
+              "field": "location",
+              "start_score": -1.8409785032272339,
+              "end_score": -8.754584312438965,
+              "joint_score": -10.595562934875488
+            },
+            {
+              "field": "topic",
+              "start_score": -14.307877540588379,
+              "end_score": -14.681807518005371,
+              "joint_score": -28.98968505859375
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_21_canonical_leader",
+          "source_id": "v5g_dev_21",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9109225273132324,
+          "answer_probability": 0.9483837485313416,
+          "max_end": 25.490867614746094,
+          "end_gap_top2": 39.765501976013184,
+          "max_joint": 23.340360641479492,
+          "joint_gap_top2": 51.72610282897949,
+          "max_end_minus_mean": 19.882750988006592,
+          "max_joint_minus_mean": 25.863051414489746,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -2.1505072116851807,
+              "end_score": 25.490867614746094,
+              "joint_score": 23.340360641479492
+            },
+            {
+              "field": "topic",
+              "start_score": -14.11110782623291,
+              "end_score": -14.27463436126709,
+              "joint_score": -28.3857421875
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_02_canonical_location",
+          "source_id": "v5g_dev_02",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.924917459487915,
+          "answer_probability": 0.9490645527839661,
+          "max_end": 19.35124969482422,
+          "end_gap_top2": 15.646121740341187,
+          "max_joint": 36.69322967529297,
+          "joint_gap_top2": 34.55592060089111,
+          "max_end_minus_mean": 12.208752115567524,
+          "max_joint_minus_mean": 25.01242160797119,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.341978073120117,
+              "end_score": 19.35124969482422,
+              "joint_score": 36.69322967529297
+            },
+            {
+              "field": "leader",
+              "start_score": -1.5678189992904663,
+              "end_score": 3.7051279544830322,
+              "joint_score": 2.1373090744018555
+            },
+            {
+              "field": "topic",
+              "start_score": -2.1592297554016113,
+              "end_score": -1.6288849115371704,
+              "joint_score": -3.788114547729492
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_14_canonical_location",
+          "source_id": "v5g_dev_14",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.926208019256592,
+          "answer_probability": 0.9491268396377563,
+          "max_end": 22.970836639404297,
+          "end_gap_top2": 19.196051836013794,
+          "max_joint": 40.25904083251953,
+          "joint_gap_top2": 38.023799896240234,
+          "max_end_minus_mean": 14.608259121576944,
+          "max_joint_minus_mean": 27.356386979420982,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.288206100463867,
+              "end_score": 22.970836639404297,
+              "joint_score": 40.25904083251953
+            },
+            {
+              "field": "leader",
+              "start_score": -1.5395437479019165,
+              "end_score": 3.774784803390503,
+              "joint_score": 2.235240936279297
+            },
+            {
+              "field": "topic",
+              "start_score": -2.1284313201904297,
+              "end_score": -1.6578888893127441,
+              "joint_score": -3.786320209503174
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_17_canonical_leader",
+          "source_id": "v5g_dev_17",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9059603214263916,
+          "answer_probability": 0.9481403231620789,
+          "max_end": 31.49846839904785,
+          "end_gap_top2": 42.89526557922363,
+          "max_joint": 28.006317138671875,
+          "joint_gap_top2": 42.711862564086914,
+          "max_end_minus_mean": 21.447632789611816,
+          "max_joint_minus_mean": 21.355931282043457,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -3.4921514987945557,
+              "end_score": 31.49846839904785,
+              "joint_score": 28.006317138671875
+            },
+            {
+              "field": "topic",
+              "start_score": -3.3087477684020996,
+              "end_score": -11.396797180175781,
+              "joint_score": -14.705545425415039
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_01_canonical_leader",
+          "source_id": "v5g_dev_01",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9074599742889404,
+          "answer_probability": 0.9482139348983765,
+          "max_end": 31.574861526489258,
+          "end_gap_top2": 31.874981969594955,
+          "max_joint": 28.111631393432617,
+          "joint_gap_top2": 30.663418769836426,
+          "max_end_minus_mean": 15.937490984797478,
+          "max_joint_minus_mean": 15.331709384918213,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -3.4632296562194824,
+              "end_score": 31.574861526489258,
+              "joint_score": 28.111631393432617
+            },
+            {
+              "field": "topic",
+              "start_score": -2.251667022705078,
+              "end_score": -0.30012044310569763,
+              "joint_score": -2.5517873764038086
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_16_canonical_location",
+          "source_id": "v5g_dev_16",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9200446605682373,
+          "answer_probability": 0.9488285183906555,
+          "max_end": -2.6255123615264893,
+          "end_gap_top2": 7.693950414657593,
+          "max_joint": 13.121048927307129,
+          "joint_gap_top2": 27.630181312561035,
+          "max_end_minus_mean": 3.8469752073287964,
+          "max_joint_minus_mean": 13.815090656280518,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 15.746561050415039,
+              "end_score": -2.6255123615264893,
+              "joint_score": 13.121048927307129
+            },
+            {
+              "field": "topic",
+              "start_score": -4.189669132232666,
+              "end_score": -10.319462776184082,
+              "joint_score": -14.509132385253906
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_13_canonical_location",
+          "source_id": "v5g_dev_13",
+          "question_field": "location",
+          "answerable": false,
+          "answerability_logit": 2.900212049484253,
+          "answer_probability": 0.9478569626808167,
+          "max_end": 13.402409553527832,
+          "end_gap_top2": 23.19882297515869,
+          "max_joint": 10.774734497070312,
+          "joint_gap_top2": 23.872371673583984,
+          "max_end_minus_mean": 11.599411487579346,
+          "max_joint_minus_mean": 11.936185836791992,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -2.6276745796203613,
+              "end_score": 13.402409553527832,
+              "joint_score": 10.774734497070312
+            },
+            {
+              "field": "topic",
+              "start_score": -3.3012232780456543,
+              "end_score": -9.79641342163086,
+              "joint_score": -13.097637176513672
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_16_canonical_leader",
+          "source_id": "v5g_dev_16",
+          "question_field": "leader",
+          "answerable": false,
+          "answerability_logit": 2.9192068576812744,
+          "answer_probability": 0.9487877488136292,
+          "max_end": -2.0021066665649414,
+          "end_gap_top2": 10.163969993591309,
+          "max_joint": -5.272974014282227,
+          "joint_gap_top2": 7.126845359802246,
+          "max_end_minus_mean": 5.081984996795654,
+          "max_joint_minus_mean": 3.563422679901123,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "topic",
+              "start_score": -3.270867109298706,
+              "end_score": -2.0021066665649414,
+              "joint_score": -5.272974014282227
+            },
+            {
+              "field": "location",
+              "start_score": -0.2337431013584137,
+              "end_score": -12.16607666015625,
+              "joint_score": -12.399819374084473
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_22_canonical_leader",
+          "source_id": "v5g_dev_22",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.926624298095703,
+          "answer_probability": 0.9491470456123352,
+          "max_end": 21.740631103515625,
+          "end_gap_top2": 17.95112657546997,
+          "max_joint": 21.30828285217285,
+          "joint_gap_top2": 19.948597192764282,
+          "max_end_minus_mean": 12.459431807200113,
+          "max_joint_minus_mean": 13.55292272567749,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -0.43234825134277344,
+              "end_score": 21.740631103515625,
+              "joint_score": 21.30828285217285
+            },
+            {
+              "field": "topic",
+              "start_score": -2.429818868637085,
+              "end_score": 3.7895045280456543,
+              "joint_score": 1.3596856594085693
+            },
+            {
+              "field": "location",
+              "start_score": -1.7153503894805908,
+              "end_score": 2.313462257385254,
+              "joint_score": 0.5981118679046631
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_12_canonical_leader",
+          "source_id": "v5g_dev_12",
+          "question_field": "leader",
+          "answerable": false,
+          "answerability_logit": 2.926128625869751,
+          "answer_probability": 0.9491230845451355,
+          "max_end": 3.805217981338501,
+          "end_gap_top2": 18.864748239517212,
+          "max_joint": 3.978343963623047,
+          "joint_gap_top2": 32.334285736083984,
+          "max_end_minus_mean": 9.432374119758606,
+          "max_joint_minus_mean": 16.167142868041992,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 0.1731259673833847,
+              "end_score": 3.805217981338501,
+              "joint_score": 3.978343963623047
+            },
+            {
+              "field": "topic",
+              "start_score": -13.296412467956543,
+              "end_score": -15.059530258178711,
+              "joint_score": -28.355941772460938
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_09_canonical_location",
+          "source_id": "v5g_dev_09",
+          "question_field": "location",
+          "answerable": false,
+          "answerability_logit": 2.908153772354126,
+          "answer_probability": 0.948248028755188,
+          "max_end": 8.19710922241211,
+          "end_gap_top2": 23.93215560913086,
+          "max_joint": 6.395613670349121,
+          "joint_gap_top2": 33.34366512298584,
+          "max_end_minus_mean": 11.96607780456543,
+          "max_joint_minus_mean": 16.67183256149292,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -1.8014957904815674,
+              "end_score": 8.19710922241211,
+              "joint_score": 6.395613670349121
+            },
+            {
+              "field": "topic",
+              "start_score": -11.213005065917969,
+              "end_score": -15.73504638671875,
+              "joint_score": -26.94805145263672
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_01_canonical_location",
+          "source_id": "v5g_dev_01",
+          "question_field": "location",
+          "answerable": false,
+          "answerability_logit": 2.9015328884124756,
+          "answer_probability": 0.9479221701622009,
+          "max_end": 13.48420524597168,
+          "end_gap_top2": 23.27309799194336,
+          "max_joint": 10.842185974121094,
+          "joint_gap_top2": 23.929631233215332,
+          "max_end_minus_mean": 11.63654899597168,
+          "max_joint_minus_mean": 11.964815616607666,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -2.642019748687744,
+              "end_score": 13.48420524597168,
+              "joint_score": 10.842185974121094
+            },
+            {
+              "field": "topic",
+              "start_score": -3.2985525131225586,
+              "end_score": -9.78889274597168,
+              "joint_score": -13.087445259094238
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_04_canonical_leader",
+          "source_id": "v5g_dev_04",
+          "question_field": "leader",
+          "answerable": false,
+          "answerability_logit": 2.9211723804473877,
+          "answer_probability": 0.9488832354545593,
+          "max_end": 4.442933559417725,
+          "end_gap_top2": 6.538370132446289,
+          "max_joint": 4.3530659675598145,
+          "joint_gap_top2": 9.968030452728271,
+          "max_end_minus_mean": 3.2691850662231445,
+          "max_joint_minus_mean": 4.984015226364136,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": -0.08986765146255493,
+              "end_score": 4.442933559417725,
+              "joint_score": 4.3530659675598145
+            },
+            {
+              "field": "topic",
+              "start_score": -3.5195279121398926,
+              "end_score": -2.0954365730285645,
+              "joint_score": -5.614964485168457
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_17_canonical_location",
+          "source_id": "v5g_dev_17",
+          "question_field": "location",
+          "answerable": false,
+          "answerability_logit": 2.90021014213562,
+          "answer_probability": 0.9478568434715271,
+          "max_end": 13.592041969299316,
+          "end_gap_top2": 16.341184854507446,
+          "max_joint": 11.138822555541992,
+          "joint_gap_top2": 16.401618003845215,
+          "max_end_minus_mean": 8.170592427253723,
+          "max_joint_minus_mean": 8.200809001922607,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -2.453219413757324,
+              "end_score": 13.592041969299316,
+              "joint_score": 11.138822555541992
+            },
+            {
+              "field": "topic",
+              "start_score": -2.513652801513672,
+              "end_score": -2.74914288520813,
+              "joint_score": -5.262795448303223
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_11_canonical_leader",
+          "source_id": "v5g_dev_11",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9172141551971436,
+          "answer_probability": 0.9486908316612244,
+          "max_end": 29.362815856933594,
+          "end_gap_top2": 30.343153595924377,
+          "max_joint": 25.917041778564453,
+          "joint_gap_top2": 29.031465530395508,
+          "max_end_minus_mean": 23.703571836153667,
+          "max_joint_minus_mean": 23.19911543528239,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -3.445773124694824,
+              "end_score": 29.362815856933594,
+              "joint_score": 25.917041778564453
+            },
+            {
+              "field": "location",
+              "start_score": -2.1340861320495605,
+              "end_score": -0.9803377389907837,
+              "joint_score": -3.1144237518310547
+            },
+            {
+              "field": "topic",
+              "start_score": -3.2440929412841797,
+              "end_score": -11.404746055603027,
+              "joint_score": -14.648838996887207
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_05_canonical_location",
+          "source_id": "v5g_dev_05",
+          "question_field": "location",
+          "answerable": false,
+          "answerability_logit": 2.898362159729004,
+          "answer_probability": 0.9477654099464417,
+          "max_end": 13.667556762695312,
+          "end_gap_top2": 16.464052200317383,
+          "max_joint": 11.362269401550293,
+          "joint_gap_top2": 16.545448780059814,
+          "max_end_minus_mean": 8.232026100158691,
+          "max_joint_minus_mean": 8.272724390029907,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -2.3052873611450195,
+              "end_score": 13.667556762695312,
+              "joint_score": 11.362269401550293
+            },
+            {
+              "field": "topic",
+              "start_score": -2.386683940887451,
+              "end_score": -2.7964954376220703,
+              "joint_score": -5.1831793785095215
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_08_canonical_leader",
+          "source_id": "v5g_dev_08",
+          "question_field": "leader",
+          "answerable": false,
+          "answerability_logit": 2.9127895832061768,
+          "answer_probability": 0.9484750032424927,
+          "max_end": 0.409734845161438,
+          "end_gap_top2": 11.93940269947052,
+          "max_joint": -1.172868013381958,
+          "joint_gap_top2": 13.850218534469604,
+          "max_end_minus_mean": 5.96970134973526,
+          "max_joint_minus_mean": 6.925109267234802,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": -1.582602858543396,
+              "end_score": 0.409734845161438,
+              "joint_score": -1.172868013381958
+            },
+            {
+              "field": "topic",
+              "start_score": -3.4934191703796387,
+              "end_score": -11.529667854309082,
+              "joint_score": -15.023086547851562
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_03_canonical_location",
+          "source_id": "v5g_dev_03",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.922844648361206,
+          "answer_probability": 0.9489642977714539,
+          "max_end": 15.2586030960083,
+          "end_gap_top2": 6.073354721069336,
+          "max_joint": 31.098407745361328,
+          "joint_gap_top2": 25.258604526519775,
+          "max_end_minus_mean": 12.217534383138021,
+          "max_joint_minus_mean": 27.62256447474162,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 15.839803695678711,
+              "end_score": 15.2586030960083,
+              "joint_score": 31.098407745361328
+            },
+            {
+              "field": "leader",
+              "start_score": -3.345445156097412,
+              "end_score": 9.185248374938965,
+              "joint_score": 5.839803218841553
+            },
+            {
+              "field": "topic",
+              "start_score": -11.190034866333008,
+              "end_score": -15.320645332336426,
+              "joint_score": -26.51068115234375
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_21_canonical_location",
+          "source_id": "v5g_dev_21",
+          "question_field": "location",
+          "answerable": false,
+          "answerability_logit": 2.9103891849517822,
+          "answer_probability": 0.9483575820922852,
+          "max_end": 8.25487995147705,
+          "end_gap_top2": 23.948376655578613,
+          "max_joint": 6.419194221496582,
+          "joint_gap_top2": 33.35897350311279,
+          "max_end_minus_mean": 11.974188327789307,
+          "max_joint_minus_mean": 16.679486751556396,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -1.8356857299804688,
+              "end_score": 8.25487995147705,
+              "joint_score": 6.419194221496582
+            },
+            {
+              "field": "topic",
+              "start_score": -11.246282577514648,
+              "end_score": -15.693496704101562,
+              "joint_score": -26.93977928161621
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_15_canonical_location",
+          "source_id": "v5g_dev_15",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9153478145599365,
+          "answer_probability": 0.9485999941825867,
+          "max_end": 8.626704216003418,
+          "end_gap_top2": 7.969504415988922,
+          "max_joint": 16.951915740966797,
+          "joint_gap_top2": 11.671087265014648,
+          "max_end_minus_mean": 11.39830336968104,
+          "max_joint_minus_mean": 19.09971872965495,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 16.294715881347656,
+              "end_score": 0.6571998000144958,
+              "joint_score": 16.951915740966797
+            },
+            {
+              "field": "leader",
+              "start_score": -3.3458759784698486,
+              "end_score": 8.626704216003418,
+              "joint_score": 5.280828475952148
+            },
+            {
+              "field": "topic",
+              "start_score": -11.077451705932617,
+              "end_score": -17.59870147705078,
+              "joint_score": -28.6761531829834
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_03_canonical_leader",
+          "source_id": "v5g_dev_03",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.926288366317749,
+          "answer_probability": 0.9491308331489563,
+          "max_end": 28.463077545166016,
+          "end_gap_top2": 30.009271144866943,
+          "max_joint": 24.599878311157227,
+          "joint_gap_top2": 28.527148008346558,
+          "max_end_minus_mean": 22.647745609283447,
+          "max_joint_minus_mean": 25.670617659886677,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -3.8631999492645264,
+              "end_score": 28.463077545166016,
+              "joint_score": 24.599878311157227
+            },
+            {
+              "field": "location",
+              "start_score": -2.3810760974884033,
+              "end_score": -1.5461935997009277,
+              "joint_score": -3.927269697189331
+            },
+            {
+              "field": "topic",
+              "start_score": -14.413938522338867,
+              "end_score": -9.470888137817383,
+              "joint_score": -23.88482666015625
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_00_canonical_leader",
+          "source_id": "v5g_dev_00",
+          "question_field": "leader",
+          "answerable": false,
+          "answerability_logit": 2.9251835346221924,
+          "answer_probability": 0.9490774273872375,
+          "max_end": 1.7636539936065674,
+          "end_gap_top2": 16.82225728034973,
+          "max_joint": 2.0096888542175293,
+          "joint_gap_top2": 30.470195293426514,
+          "max_end_minus_mean": 8.411128640174866,
+          "max_joint_minus_mean": 15.235097646713257,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 0.24603486061096191,
+              "end_score": 1.7636539936065674,
+              "joint_score": 2.0096888542175293
+            },
+            {
+              "field": "topic",
+              "start_score": -13.40190315246582,
+              "end_score": -15.058603286743164,
+              "joint_score": -28.460506439208984
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_18_canonical_location",
+          "source_id": "v5g_dev_18",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.942878007888794,
+          "answer_probability": 0.9499258399009705,
+          "max_end": 19.14251708984375,
+          "end_gap_top2": 7.179701805114746,
+          "max_joint": 36.976318359375,
+          "joint_gap_top2": 26.549196243286133,
+          "max_end_minus_mean": 14.522592862447102,
+          "max_joint_minus_mean": 30.154452641805012,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.833803176879883,
+              "end_score": 19.14251708984375,
+              "joint_score": 36.976318359375
+            },
+            {
+              "field": "leader",
+              "start_score": -1.535692811012268,
+              "end_score": 11.962815284729004,
+              "joint_score": 10.427122116088867
+            },
+            {
+              "field": "topic",
+              "start_score": -9.69228458404541,
+              "end_score": -17.245559692382812,
+              "joint_score": -26.937843322753906
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_07_canonical_location",
+          "source_id": "v5g_dev_07",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9253451824188232,
+          "answer_probability": 0.9490851759910583,
+          "max_end": 7.953730583190918,
+          "end_gap_top2": 9.591734528541565,
+          "max_joint": 14.841659545898438,
+          "joint_gap_top2": 9.279690265655518,
+          "max_end_minus_mean": 9.195296486218771,
+          "max_joint_minus_mean": 12.152720928192139,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 16.479663848876953,
+              "end_score": -1.638003945350647,
+              "joint_score": 14.841659545898438
+            },
+            {
+              "field": "leader",
+              "start_score": -2.391761302947998,
+              "end_score": 7.953730583190918,
+              "joint_score": 5.56196928024292
+            },
+            {
+              "field": "topic",
+              "start_score": -2.296389102935791,
+              "end_score": -10.040424346923828,
+              "joint_score": -12.336812973022461
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_07_canonical_leader",
+          "source_id": "v5g_dev_07",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.919495105743408,
+          "answer_probability": 0.9488017559051514,
+          "max_end": 27.428573608398438,
+          "end_gap_top2": 27.96181011199951,
+          "max_joint": 23.591344833374023,
+          "joint_gap_top2": 25.078193187713623,
+          "max_end_minus_mean": 22.96936543782552,
+          "max_joint_minus_mean": 21.241677125295002,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -3.837228298187256,
+              "end_score": 27.428573608398438,
+              "joint_score": 23.591344833374023
+            },
+            {
+              "field": "topic",
+              "start_score": -0.9536119103431702,
+              "end_score": -0.5332365036010742,
+              "joint_score": -1.4868483543395996
+            },
+            {
+              "field": "location",
+              "start_score": -1.5377808809280396,
+              "end_score": -13.517712593078613,
+              "joint_score": -15.055493354797363
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_05_canonical_leader",
+          "source_id": "v5g_dev_05",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9043872356414795,
+          "answer_probability": 0.9480628371238708,
+          "max_end": 31.54993438720703,
+          "end_gap_top2": 42.93827247619629,
+          "max_joint": 28.14435386657715,
+          "joint_gap_top2": 42.79006385803223,
+          "max_end_minus_mean": 21.469136238098145,
+          "max_joint_minus_mean": 21.395031929016113,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -3.405580520629883,
+              "end_score": 31.54993438720703,
+              "joint_score": 28.14435386657715
+            },
+            {
+              "field": "topic",
+              "start_score": -3.2573719024658203,
+              "end_score": -11.388338088989258,
+              "joint_score": -14.645709991455078
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_12_canonical_location",
+          "source_id": "v5g_dev_12",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9278905391693115,
+          "answer_probability": 0.9492080211639404,
+          "max_end": 21.14266014099121,
+          "end_gap_top2": 38.90106391906738,
+          "max_joint": 38.270572662353516,
+          "joint_gap_top2": 66.63093185424805,
+          "max_end_minus_mean": 19.45053195953369,
+          "max_joint_minus_mean": 33.31546592712402,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.127912521362305,
+              "end_score": 21.14266014099121,
+              "joint_score": 38.270572662353516
+            },
+            {
+              "field": "topic",
+              "start_score": -10.601954460144043,
+              "end_score": -17.758403778076172,
+              "joint_score": -28.36035919189453
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_19_canonical_location",
+          "source_id": "v5g_dev_19",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9197027683258057,
+          "answer_probability": 0.9488118886947632,
+          "max_end": 17.057331085205078,
+          "end_gap_top2": 8.713786125183105,
+          "max_joint": 33.7441291809082,
+          "joint_gap_top2": 27.7407283782959,
+          "max_end_minus_mean": 11.579667727152508,
+          "max_joint_minus_mean": 24.57748317718506,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 16.686798095703125,
+              "end_score": 17.057331085205078,
+              "joint_score": 33.7441291809082
+            },
+            {
+              "field": "leader",
+              "start_score": -2.340144157409668,
+              "end_score": 8.343544960021973,
+              "joint_score": 6.003400802612305
+            },
+            {
+              "field": "topic",
+              "start_score": -3.2797060012817383,
+              "end_score": -8.967885971069336,
+              "joint_score": -12.247591972351074
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_11_canonical_location",
+          "source_id": "v5g_dev_11",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9206154346466064,
+          "answer_probability": 0.9488561749458313,
+          "max_end": 17.809877395629883,
+          "end_gap_top2": 7.536802291870117,
+          "max_joint": 34.781532287597656,
+          "joint_gap_top2": 27.022632122039795,
+          "max_end_minus_mean": 9.24211057027181,
+          "max_joint_minus_mean": 22.12688239415487,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 16.971654891967773,
+              "end_score": 17.809877395629883,
+              "joint_score": 34.781532287597656
+            },
+            {
+              "field": "leader",
+              "start_score": -2.5141749382019043,
+              "end_score": 10.273075103759766,
+              "joint_score": 7.758900165557861
+            },
+            {
+              "field": "topic",
+              "start_score": -2.196830987930298,
+              "end_score": -2.3796520233154297,
+              "joint_score": -4.576482772827148
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_13_canonical_leader",
+          "source_id": "v5g_dev_13",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9058778285980225,
+          "answer_probability": 0.9481362700462341,
+          "max_end": 31.50166130065918,
+          "end_gap_top2": 31.80357527732849,
+          "max_joint": 28.04081916809082,
+          "joint_gap_top2": 30.58414912223816,
+          "max_end_minus_mean": 15.901787638664246,
+          "max_joint_minus_mean": 15.29207456111908,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -3.4608426094055176,
+              "end_score": 31.50166130065918,
+              "joint_score": 28.04081916809082
+            },
+            {
+              "field": "topic",
+              "start_score": -2.2414159774780273,
+              "end_score": -0.3019139766693115,
+              "joint_score": -2.543329954147339
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_10_canonical_location",
+          "source_id": "v5g_dev_10",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.931340456008911,
+          "answer_probability": 0.9493741393089294,
+          "max_end": 19.932334899902344,
+          "end_gap_top2": 17.76229763031006,
+          "max_joint": 37.71415710449219,
+          "joint_gap_top2": 37.343886971473694,
+          "max_end_minus_mean": 15.093828837076824,
+          "max_joint_minus_mean": 28.550644437472023,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.78182029724121,
+              "end_score": 19.932334899902344,
+              "joint_score": 37.71415710449219
+            },
+            {
+              "field": "leader",
+              "start_score": -1.7997671365737915,
+              "end_score": 2.170037269592285,
+              "joint_score": 0.37027013301849365
+            },
+            {
+              "field": "topic",
+              "start_score": -3.0070347785949707,
+              "end_score": -7.586853981018066,
+              "joint_score": -10.593889236450195
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_04_canonical_location",
+          "source_id": "v5g_dev_04",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.921405553817749,
+          "answer_probability": 0.9488945007324219,
+          "max_end": 22.011159896850586,
+          "end_gap_top2": 32.37829875946045,
+          "max_joint": 37.840782165527344,
+          "joint_gap_top2": 52.45790386199951,
+          "max_end_minus_mean": 16.189149379730225,
+          "max_joint_minus_mean": 26.228951930999756,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 15.82962417602539,
+              "end_score": 22.011159896850586,
+              "joint_score": 37.840782165527344
+            },
+            {
+              "field": "topic",
+              "start_score": -4.249982833862305,
+              "end_score": -10.367138862609863,
+              "joint_score": -14.617121696472168
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_14_canonical_leader",
+          "source_id": "v5g_dev_14",
+          "question_field": "leader",
+          "answerable": true,
+          "answerability_logit": 2.9204227924346924,
+          "answer_probability": 0.9488468766212463,
+          "max_end": 23.079805374145508,
+          "end_gap_top2": 19.31644058227539,
+          "max_joint": 20.762563705444336,
+          "joint_gap_top2": 18.421545028686523,
+          "max_end_minus_mean": 17.591780026753742,
+          "max_joint_minus_mean": 17.437201499938965,
+          "candidate_count": 3,
+          "candidates": [
+            {
+              "field": "leader",
+              "start_score": -2.3172414302825928,
+              "end_score": 23.079805374145508,
+              "joint_score": 20.762563705444336
+            },
+            {
+              "field": "location",
+              "start_score": -1.4223459959030151,
+              "end_score": 3.763364791870117,
+              "joint_score": 2.3410186767578125
+            },
+            {
+              "field": "topic",
+              "start_score": -2.748401641845703,
+              "end_score": -10.379094123840332,
+              "joint_score": -13.127495765686035
+            }
+          ]
+        },
+        {
+          "example_id": "v5g_dev_00_canonical_location",
+          "source_id": "v5g_dev_00",
+          "question_field": "location",
+          "answerable": true,
+          "answerability_logit": 2.9269068241119385,
+          "answer_probability": 0.9491606950759888,
+          "max_end": 20.31066131591797,
+          "end_gap_top2": 38.028564453125,
+          "max_joint": 37.48299789428711,
+          "joint_gap_top2": 65.88719940185547,
+          "max_end_minus_mean": 19.0142822265625,
+          "max_joint_minus_mean": 32.943599700927734,
+          "candidate_count": 2,
+          "candidates": [
+            {
+              "field": "location",
+              "start_score": 17.17233657836914,
+              "end_score": 20.31066131591797,
+              "joint_score": 37.48299789428711
+            },
+            {
+              "field": "topic",
+              "start_score": -10.686298370361328,
+              "end_score": -17.71790313720703,
+              "joint_score": -28.40420150756836
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "answerability_logit": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 2.9218631982803345,
+          "missing_mean": 2.9112465580304465,
+          "answerable_min": 2.9043872356414795,
+          "answerable_max": 2.947395086288452,
+          "missing_min": 2.898362159729004,
+          "missing_max": 2.926128625869751,
+          "auc_high_implies_answerable": 0.7615740740740741
+        },
+        "answer_probability": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 0.9489142729176415,
+          "missing_mean": 0.9483976016441981,
+          "answerable_min": 0.9480628371238708,
+          "answerable_max": 0.9501402974128723,
+          "missing_min": 0.9477654099464417,
+          "missing_max": 0.9491230845451355,
+          "auc_high_implies_answerable": 0.7615740740740741
+        },
+        "max_end": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 22.03808140092426,
+          "missing_mean": 6.5388665199279785,
+          "answerable_min": -2.6255123615264893,
+          "answerable_max": 31.574861526489258,
+          "missing_min": -2.0021066665649414,
+          "missing_max": 13.667556762695312,
+          "auc_high_implies_answerable": 0.9444444444444444
+        },
+        "end_gap_top2": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 23.622651298012997,
+          "missing_mean": 16.869265774885815,
+          "answerable_min": 4.9484052658081055,
+          "answerable_max": 42.93827247619629,
+          "missing_min": 6.538370132446289,
+          "missing_max": 23.948376655578613,
+          "auc_high_implies_answerable": 0.6597222222222222
+        },
+        "max_joint": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 28.255466487672592,
+          "missing_mean": 4.908599277337392,
+          "answerable_min": 13.121048927307129,
+          "answerable_max": 40.25904083251953,
+          "missing_min": -5.272974014282227,
+          "missing_max": 11.362269401550293,
+          "auc_high_implies_answerable": 1.0
+        },
+        "joint_gap_top2": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 32.441455905636154,
+          "missing_mean": 21.188469111919403,
+          "answerable_min": 9.279690265655518,
+          "answerable_max": 66.63093185424805,
+          "missing_min": 7.126845359802246,
+          "missing_max": 33.35897350311279,
+          "auc_high_implies_answerable": 0.7476851851851852
+        },
+        "max_end_minus_mean": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 16.52469421578226,
+          "missing_mean": 8.434632887442907,
+          "answerable_min": 3.8469752073287964,
+          "answerable_max": 27.27556848526001,
+          "missing_min": 3.2691850662231445,
+          "missing_max": 11.974188327789307,
+          "auc_high_implies_answerable": 0.8958333333333334
+        },
+        "max_joint_minus_mean": {
+          "answerable_count": 36,
+          "missing_count": 12,
+          "answerable_mean": 22.761009470732123,
+          "missing_mean": 10.594234555959702,
+          "answerable_min": 12.152720928192139,
+          "answerable_max": 33.31546592712402,
+          "missing_min": 3.563422679901123,
+          "missing_max": 16.679486751556396,
+          "auc_high_implies_answerable": 0.9490740740740741
+        }
+      }
+    }
+  },
+  "no_training": true,
+  "reserved_eval_accessed": false
+}

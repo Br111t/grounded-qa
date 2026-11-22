@@ -1,0 +1,439 @@
+{
+  "experiment": "v5d_boundary_error_diagnostic",
+  "timestamp_utc": "2026-11-01T15:15:14.870940+00:00",
+  "partition": "v5d_dev_only",
+  "dev_sha256": "5799afad25695b33eadcbbf6e224ec2467ebe6c883157cc6955a96fbdc380ecd",
+  "models": {
+    "v5": {
+      "checkpoint": "experiments\\span_extractor_v5\\checkpoints\\evidence_span_v5_3000_steps.pt",
+      "checkpoint_sha256": "d29a7664129364d81cce8fb875db92296338ce1a2d1c77e7098062a9ae8b88a8",
+      "training_metadata": {
+        "model_variant": "span_v5",
+        "steps": 3000,
+        "seed": 42,
+        "training_file": "data/training/evidence_sensitivity_v3_train.jsonl",
+        "example_count": 168,
+        "prompt_version": "compact_v1",
+        "missing_ratio": 0.33,
+        "scheduled_missing_updates": 990,
+        "loss_every": 120,
+        "initial_loss": 4.524722950444335,
+        "final_loss": 0.7815951390514654,
+        "answerability_threshold": 0.5,
+        "learning_rate": 0.001
+      },
+      "dev_sha256": "5799afad25695b33eadcbbf6e224ec2467ebe6c883157cc6955a96fbdc380ecd",
+      "overall": {
+        "total": 96,
+        "exact": 7,
+        "raw_start_correct": 19,
+        "raw_end_correct": 34,
+        "selected_span_correct": 7,
+        "abstentions": 0,
+        "raw_end_deltas": {
+          "-22": 4,
+          "-21": 3,
+          "-10": 9,
+          "-9": 6,
+          "-3": 11,
+          "-2": 11,
+          "-1": 2,
+          "0": 34,
+          "4": 3,
+          "6": 13
+        },
+        "selected_end_deltas": {
+          "-3": 13,
+          "-2": 15,
+          "-1": 2,
+          "0": 35,
+          "4": 3,
+          "6": 28
+        },
+        "raw_end_correct_but_selected_wrong": 27,
+        "raw_end_wrong_but_selected_correct": 0
+      },
+      "groups": {
+        "length4_vowel": {
+          "total": 24,
+          "exact": 6,
+          "raw_start_correct": 6,
+          "raw_end_correct": 24,
+          "selected_span_correct": 6,
+          "abstentions": 0,
+          "raw_end_deltas": {
+            "0": 24
+          },
+          "selected_end_deltas": {
+            "0": 24
+          },
+          "raw_end_correct_but_selected_wrong": 18,
+          "raw_end_wrong_but_selected_correct": 0
+        },
+        "length4_consonant": {
+          "total": 24,
+          "exact": 0,
+          "raw_start_correct": 6,
+          "raw_end_correct": 0,
+          "selected_span_correct": 0,
+          "abstentions": 0,
+          "raw_end_deltas": {
+            "-21": 3,
+            "-9": 6,
+            "-2": 7,
+            "-1": 2,
+            "4": 3,
+            "6": 3
+          },
+          "selected_end_deltas": {
+            "-2": 10,
+            "-1": 2,
+            "4": 3,
+            "6": 9
+          },
+          "raw_end_correct_but_selected_wrong": 0,
+          "raw_end_wrong_but_selected_correct": 0
+        },
+        "length5_vowel": {
+          "total": 24,
+          "exact": 1,
+          "raw_start_correct": 4,
+          "raw_end_correct": 10,
+          "selected_span_correct": 1,
+          "abstentions": 0,
+          "raw_end_deltas": {
+            "-22": 1,
+            "-10": 3,
+            "-3": 4,
+            "-2": 2,
+            "0": 10,
+            "6": 4
+          },
+          "selected_end_deltas": {
+            "-3": 4,
+            "-2": 2,
+            "0": 11,
+            "6": 7
+          },
+          "raw_end_correct_but_selected_wrong": 9,
+          "raw_end_wrong_but_selected_correct": 0
+        },
+        "length5_consonant": {
+          "total": 24,
+          "exact": 0,
+          "raw_start_correct": 3,
+          "raw_end_correct": 0,
+          "selected_span_correct": 0,
+          "abstentions": 0,
+          "raw_end_deltas": {
+            "-22": 3,
+            "-10": 6,
+            "-3": 7,
+            "-2": 2,
+            "6": 6
+          },
+          "selected_end_deltas": {
+            "-3": 9,
+            "-2": 3,
+            "6": 12
+          },
+          "raw_end_correct_but_selected_wrong": 0,
+          "raw_end_wrong_but_selected_correct": 0
+        }
+      }
+    },
+    "v5b": {
+      "checkpoint": "experiments\\variable_span_v5b\\checkpoints\\evidence_span_v5b_3000_steps.pt",
+      "checkpoint_sha256": "616e4e5e3324655a8a93a3bf4f73c1825e32ebed8b88f18bbbe393d4d828f2c1",
+      "training_metadata": {
+        "model_variant": "span_v5",
+        "experiment": "v5b_variable_length",
+        "steps": 3000,
+        "seed": 42,
+        "training_file": "data/training/evidence_sensitivity_v3_train.jsonl",
+        "extra_training_file": "data/training/evidence_span_v5b_extra_train.jsonl",
+        "example_count": 240,
+        "prompt_version": "compact_v1",
+        "missing_ratio": 0.33,
+        "scheduled_missing_updates": 990,
+        "loss_every": 120,
+        "initial_loss": 4.760252127796411,
+        "final_loss": 1.6739724365407407,
+        "answerability_threshold": 0.5,
+        "learning_rate": 0.001
+      },
+      "dev_sha256": "5799afad25695b33eadcbbf6e224ec2467ebe6c883157cc6955a96fbdc380ecd",
+      "overall": {
+        "total": 96,
+        "exact": 32,
+        "raw_start_correct": 84,
+        "raw_end_correct": 38,
+        "selected_span_correct": 32,
+        "abstentions": 0,
+        "raw_end_deltas": {
+          "-22": 3,
+          "-10": 3,
+          "-9": 3,
+          "-3": 19,
+          "-2": 15,
+          "-1": 3,
+          "0": 38,
+          "6": 12
+        },
+        "selected_end_deltas": {
+          "-3": 25,
+          "-2": 18,
+          "-1": 3,
+          "0": 38,
+          "6": 12
+        },
+        "raw_end_correct_but_selected_wrong": 6,
+        "raw_end_wrong_but_selected_correct": 0
+      },
+      "groups": {
+        "length4_vowel": {
+          "total": 24,
+          "exact": 21,
+          "raw_start_correct": 21,
+          "raw_end_correct": 24,
+          "selected_span_correct": 21,
+          "abstentions": 0,
+          "raw_end_deltas": {
+            "0": 24
+          },
+          "selected_end_deltas": {
+            "0": 24
+          },
+          "raw_end_correct_but_selected_wrong": 3,
+          "raw_end_wrong_but_selected_correct": 0
+        },
+        "length4_consonant": {
+          "total": 24,
+          "exact": 0,
+          "raw_start_correct": 21,
+          "raw_end_correct": 0,
+          "selected_span_correct": 0,
+          "abstentions": 0,
+          "raw_end_deltas": {
+            "-9": 3,
+            "-2": 10,
+            "-1": 3,
+            "6": 8
+          },
+          "selected_end_deltas": {
+            "-2": 13,
+            "-1": 3,
+            "6": 8
+          },
+          "raw_end_correct_but_selected_wrong": 0,
+          "raw_end_wrong_but_selected_correct": 0
+        },
+        "length5_vowel": {
+          "total": 24,
+          "exact": 11,
+          "raw_start_correct": 21,
+          "raw_end_correct": 14,
+          "selected_span_correct": 11,
+          "abstentions": 0,
+          "raw_end_deltas": {
+            "-3": 6,
+            "-2": 2,
+            "0": 14,
+            "6": 2
+          },
+          "selected_end_deltas": {
+            "-3": 6,
+            "-2": 2,
+            "0": 14,
+            "6": 2
+          },
+          "raw_end_correct_but_selected_wrong": 3,
+          "raw_end_wrong_but_selected_correct": 0
+        },
+        "length5_consonant": {
+          "total": 24,
+          "exact": 0,
+          "raw_start_correct": 21,
+          "raw_end_correct": 0,
+          "selected_span_correct": 0,
+          "abstentions": 0,
+          "raw_end_deltas": {
+            "-22": 3,
+            "-10": 3,
+            "-3": 13,
+            "-2": 3,
+            "6": 2
+          },
+          "selected_end_deltas": {
+            "-3": 19,
+            "-2": 3,
+            "6": 2
+          },
+          "raw_end_correct_but_selected_wrong": 0,
+          "raw_end_wrong_but_selected_correct": 0
+        }
+      }
+    },
+    "v5d": {
+      "checkpoint": "experiments\\balanced_boundary_v5d\\checkpoints\\v5d_balanced_seed42_3000.pt",
+      "checkpoint_sha256": "2a256d2e29a9d71c72d5ffd0cdc6180089edb96fb2606fd2efcdca6287c7e165",
+      "training_metadata": {
+        "experiment": "v5d_balanced_boundaries",
+        "model_variant": "span_v5",
+        "steps": 3000,
+        "seed": 42,
+        "training_file": "experiments/evidence_sensitivity_v3/data/evidence_sensitivity_v3_train.jsonl",
+        "extra_training_file": "experiments/balanced_boundary_v5d/data/v5d_balanced_train.jsonl",
+        "extra_training_sha256": "da7a0df5bc19e3d4f5ec5a37d8de4f2fd7b24e1a7643a2d1a103031fecef2cf0",
+        "example_count": 264,
+        "prompt_version": "compact_v1",
+        "missing_ratio": 0.33,
+        "loss_every": 120,
+        "initial_loss": 4.828392418722312,
+        "final_loss": 0.9713295235657521,
+        "answerability_threshold": 0.5,
+        "learning_rate": 0.001
+      },
+      "dev_sha256": "5799afad25695b33eadcbbf6e224ec2467ebe6c883157cc6955a96fbdc380ecd",
+      "overall": {
+        "total": 96,
+        "exact": 21,
+        "raw_start_correct": 51,
+        "raw_end_correct": 22,
+        "selected_span_correct": 21,
+        "abstentions": 4,
+        "raw_end_deltas": {
+          "-23": 12,
+          "-22": 9,
+          "-21": 7,
+          "-20": 3,
+          "-4": 14,
+          "0": 22,
+          "4": 17,
+          "14": 6,
+          "15": 6
+        },
+        "selected_end_deltas": {
+          "-21": 1,
+          "-20": 1,
+          "-15": 4,
+          "-4": 19,
+          "-3": 6,
+          "-2": 4,
+          "-1": 2,
+          "0": 28,
+          "4": 16,
+          "12": 3,
+          "14": 2,
+          "15": 6
+        },
+        "raw_end_correct_but_selected_wrong": 12,
+        "raw_end_wrong_but_selected_correct": 11
+      },
+      "groups": {
+        "length4_vowel": {
+          "total": 24,
+          "exact": 9,
+          "raw_start_correct": 12,
+          "raw_end_correct": 16,
+          "selected_span_correct": 9,
+          "abstentions": 0,
+          "raw_end_deltas": {
+            "-21": 1,
+            "0": 16,
+            "4": 4,
+            "15": 3
+          },
+          "selected_end_deltas": {
+            "-15": 2,
+            "-3": 3,
+            "0": 12,
+            "4": 4,
+            "15": 3
+          },
+          "raw_end_correct_but_selected_wrong": 7,
+          "raw_end_wrong_but_selected_correct": 0
+        },
+        "length4_consonant": {
+          "total": 24,
+          "exact": 4,
+          "raw_start_correct": 13,
+          "raw_end_correct": 0,
+          "selected_span_correct": 4,
+          "abstentions": 0,
+          "raw_end_deltas": {
+            "-22": 6,
+            "-21": 3,
+            "-20": 3,
+            "4": 9,
+            "15": 3
+          },
+          "selected_end_deltas": {
+            "-20": 1,
+            "-15": 2,
+            "-3": 3,
+            "-1": 2,
+            "0": 5,
+            "4": 7,
+            "12": 1,
+            "15": 3
+          },
+          "raw_end_correct_but_selected_wrong": 0,
+          "raw_end_wrong_but_selected_correct": 4
+        },
+        "length5_vowel": {
+          "total": 24,
+          "exact": 5,
+          "raw_start_correct": 13,
+          "raw_end_correct": 6,
+          "selected_span_correct": 5,
+          "abstentions": 2,
+          "raw_end_deltas": {
+            "-23": 6,
+            "-4": 7,
+            "0": 6,
+            "4": 2,
+            "14": 3
+          },
+          "selected_end_deltas": {
+            "-4": 9,
+            "-2": 2,
+            "0": 7,
+            "4": 2,
+            "12": 1,
+            "14": 1
+          },
+          "raw_end_correct_but_selected_wrong": 5,
+          "raw_end_wrong_but_selected_correct": 4
+        },
+        "length5_consonant": {
+          "total": 24,
+          "exact": 3,
+          "raw_start_correct": 13,
+          "raw_end_correct": 0,
+          "selected_span_correct": 3,
+          "abstentions": 2,
+          "raw_end_deltas": {
+            "-23": 6,
+            "-22": 3,
+            "-21": 3,
+            "-4": 7,
+            "4": 2,
+            "14": 3
+          },
+          "selected_end_deltas": {
+            "-21": 1,
+            "-4": 10,
+            "-2": 2,
+            "0": 4,
+            "4": 3,
+            "12": 1,
+            "14": 1
+          },
+          "raw_end_correct_but_selected_wrong": 0,
+          "raw_end_wrong_but_selected_correct": 3
+        }
+      }
+    }
+  }
+}

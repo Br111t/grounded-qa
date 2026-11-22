@@ -1,0 +1,10 @@
+{
+  "experiment": "v5d_logit_diagnostic",
+  "dataset_sha256": "5799afad25695b33eadcbbf6e224ec2467ebe6c883157cc6955a96fbdc380ecd",
+  "checkpoint_sha256": {
+    "v5": "d29a7664129364d81cce8fb875db92296338ce1a2d1c77e7098062a9ae8b88a8",
+    "v5b": "616e4e5e3324655a8a93a3bf4f73c1825e32ebed8b88f18bbbe393d4d828f2c1",
+    "v5d": "2a256d2e29a9d71c72d5ffd0cdc6180089edb96fb2606fd2efcdca6287c7e165"
+  },
+  "example_count": 288
+}
